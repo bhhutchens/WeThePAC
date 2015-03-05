@@ -31,7 +31,7 @@ user history
 * link to a politician's website
 * The user, once their twitter account is linked, can tweet w/ a message that they $liked a @representative
 
-4. 
+#### 4.
 * A user can fulfill their promises
 * The app tweets that the user fulfilled their promises
 
