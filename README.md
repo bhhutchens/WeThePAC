@@ -38,9 +38,17 @@ user history
 
 
 
-#### responsibilities
-## decoupled
+# responsibilities
+### decoupled
 * slice by front end, back end
 
-## coupled
+### coupled
 * slice by feature, each person implements a user story
+
+## working agreement
+check-in at 9am, 2pm, 6pm
+trello board
+gchat
+core hours + optional hours after 6
+
+weekend: meet at 10am-6pm
