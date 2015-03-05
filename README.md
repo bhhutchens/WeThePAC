@@ -14,18 +14,18 @@ user history
 
 ## MVP
 
-1.
+#### 1.
 * A user can search for a representative
 - OR - 
 * A user can enter a zip to find pertinent representatives
 - OR - 
 * A user who is already logged in or registered can see a list of their federal representatives.
 
-2.
+#### 2.
 * A user can go to a representative's profile page on WeThePac
 * each politician has a total from the cloud of pledge tags
 
-3. 
+#### 3.
 * A user can register/login
 * A logged in user can add or subtract promised pledges of $1 each from a representative w/ a message
 * link to a politician's website
