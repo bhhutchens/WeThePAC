@@ -6,6 +6,8 @@ Rails.application.routes.draw do
 
   match "/auth/twitter/callback" => "sessions#create", via: [:get, :post]
 
+  get 'welcome/search' => "welcome#zip_rep_search"
+
   resources :users do
     resources :pledges
   end
