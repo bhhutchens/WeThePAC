@@ -9,7 +9,8 @@ class ApiController < ApplicationController
   end
 
   def create_tweet
-    current_user.tweet(api_params[:tweet])
+    current_user.tweet(api_params['message'])
+    render json: {tweet: 'sent'}
   end
 
   def api_params
