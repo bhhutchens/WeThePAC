@@ -25,14 +25,14 @@ gets rid of any B.S. innate margins, paddings, etc etc. This probably won't caus
 }
 
 html {
-  /* possibly add a background image */
   background: url(http://wallpoper.com/images/00/38/64/29/flags-american_00386429.jpg) no-repeat center center fixed;
+  font-family: 'Slabo 27px', serif;
 }
 
 body {
   width: 70%;
   height: 100%;
-  min-width: 700px;
+  min-width: 400px;
   margin: auto;
   background-color: rgba(255, 255, 255, 0.95);
   padding-bottom: 100px;
