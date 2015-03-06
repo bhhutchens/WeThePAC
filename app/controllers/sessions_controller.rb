@@ -19,8 +19,16 @@ class SessionsController < ActionController::Base
         )
     end
     session[:user_id] = user.id
+    user.oauth_token = auth_object.credentials.token
+    user.oauth_secret = auth_object.credentials.secret
+    user.save!
 
     redirect_to root_url, :notice => "Signed in!"
+  end
+
+  def destroy
+    session[:user_id] = nil
+    redirect_to root_url
   end
 
 end
