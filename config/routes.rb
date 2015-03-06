@@ -12,6 +12,8 @@ Rails.application.routes.draw do
   # api calls to get rep and user jsons
   get 'api/reps/:id' => 'api#show_rep'
   get 'api/users/:id' => 'api#show_user'
+  get 'api/users/:user_id/pledges' => 'api#user_pledges'
+  get 'api/reps/:rep_id/pledges' => 'api#rep_pledges'
 
   match "/auth/twitter/callback" => "sessions#create", via: [:get, :post]
 

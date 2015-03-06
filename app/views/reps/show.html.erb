@@ -7,6 +7,13 @@
   fec_id: {{rep.fec_id}}
   <br>
   bio: {{rep.bio}}
-  <br>
-  json: {{rep.json}}
 </script>
+
+<script type="text/x-handlebars-template" id="rep_pledge_feed">
+<br>{{pledge.user_id}}
+<br>{{pledge.tweet_id}}
+<br>{{pledge.tweet_message}}
+<br>{{pledge.positive}}
+</script>
+
+<%= javascript_include_tag 'reps', 'data-turbolinks-track' => true %>

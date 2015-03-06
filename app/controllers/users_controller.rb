@@ -17,6 +17,6 @@ class UsersController < ApplicationController
       #@pledges = @user.pledges
     end
     #return @user.to_json
-    render json: @user
+    # render json: @user
   end
 end
