@@ -9,3 +9,4 @@
 Rep.create(twitter_handle:"@honda", name: "honda")
 User.create(twitter_handle:"@moon", name:"Jamal")
 Pledge.create(user_id:1, rep_id: 1)
+Rep.create(twitter_handle:"@Pelosi", name:"Nancy Pelosi")
