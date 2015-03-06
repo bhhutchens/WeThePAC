@@ -1,0 +1,2 @@
+class RepsController < ApplicationController
+end
