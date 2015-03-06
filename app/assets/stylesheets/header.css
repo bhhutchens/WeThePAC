@@ -1,6 +1,18 @@
 .header {
   background-color: gray;
-  height: 30px;
+  height: 50px;
   width: 100%;
   margin-bottom: 10px;
+}
+
+.header_right_box {
+  float:right;
+  display: table;
+}
+
+.header_right_button {
+  height: 45px;
+  margin-top: 2.5px;
+  width: 45px;
+  margin-right: 8px;
 }
