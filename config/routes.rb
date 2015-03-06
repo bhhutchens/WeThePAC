@@ -12,6 +12,7 @@ Rails.application.routes.draw do
   # api calls to get rep and user jsons
   get 'api/reps/:id' => 'api#show_rep'
   get 'api/users/:id' => 'api#show_user'
+  post 'api/tweet/' => 'api#create_tweet'
 
   match "/auth/twitter/callback" => "sessions#create", via: [:get, :post]
 
