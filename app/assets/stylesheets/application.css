@@ -13,3 +13,27 @@
  *= require_tree .
  *= require_self
  */
+
+/* CSS RESET
+gets rid of any B.S. innate margins, paddings, etc etc. This probably won't cause any performance issues
+[touching this might screw up everything so ask Jamal for more info] */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  /* possibly add a background image */
+  background: url(http://wallpoper.com/images/00/38/64/29/flags-american_00386429.jpg) no-repeat center center fixed;
+}
+
+body {
+  width: 70%;
+  height: 100%;
+  min-width: 700px;
+  margin: auto;
+  background-color: rgba(255, 255, 255, 0.95);
+  padding-bottom: 100px;
+}

@@ -1,0 +1,60 @@
+/* this css file contains styling + elements  that are universal to both the rep and user profile page. Anything specific to the rep and user profile page will be added to other files. */
+
+
+
+
+
+.profile_page {
+  /*width: 80%;*/
+  width: 600px;
+  margin: auto;
+}
+
+.profile_upper {
+  margin: auto;
+  display: table;
+}
+
+.profile_image_box {
+  margin: auto;
+  display: table;
+}
+
+.profile_image {
+  display: table;
+  min-width: 100px;
+  min-height: 100px;
+}
+
+.profile_name {
+  font-size: 3.5em;
+  text-align: center;
+  margin-top: 0.5em;
+  margin-bottom: 1em;
+}
+
+.profile_handle {
+  font-size: -2.5em;
+  color: gray;
+}
+
+.profile_pledged {
+  font-size: 2em;
+  text-align:center;
+
+  border: 1px solid black;
+  margin: auto;
+  padding: 0.5em;
+  display: table;
+}
+
+.profile_tweet_list {
+  width: 100%;
+  margin-top: 5em;
+  list-style-type: none;
+}
+
+.profile_tweet_list_item {
+  border-bottom: 1px solid black;
+  padding: 10px;
+}
