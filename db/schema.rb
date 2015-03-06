@@ -30,8 +30,9 @@ ActiveRecord::Schema.define(version: 20150305235208) do
   create_table "reps", force: :cascade do |t|
     t.string   "twitter_handle"
     t.string   "name"
-    t.integer  "fec_id"
+    t.string   "fec_id"
     t.text     "bio"
+    t.text     "json"
     t.datetime "created_at",     null: false
     t.datetime "updated_at",     null: false
   end
