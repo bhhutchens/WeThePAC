@@ -1,11 +1,16 @@
 Rails.application.routes.draw do
 
+  get 'twitter/login' => 'twitters#login'
+
+  match "/auth/twitter/callback" => "sessions#create", via: [:get, :post]
+
   resources :users do
     resources :pledges
   end
   resources :reps do
     resources :pledges
   end
+  root 'twitters#login'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

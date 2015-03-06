@@ -18,10 +18,10 @@ ActiveRecord::Schema.define(version: 20150305235208) do
     t.integer  "rep_id"
     t.integer  "tweet_id"
     t.text     "tweet_message"
-    t.boolean  "fulfilled"
+    t.boolean  "fulfilled",     default: false
     t.boolean  "positive"
-    t.datetime "created_at",    null: false
-    t.datetime "updated_at",    null: false
+    t.datetime "created_at",                    null: false
+    t.datetime "updated_at",                    null: false
   end
 
   create_table "reps", force: :cascade do |t|
@@ -38,8 +38,12 @@ ActiveRecord::Schema.define(version: 20150305235208) do
     t.string   "name"
     t.string   "password"
     t.string   "zipcode"
-    t.datetime "created_at",     null: false
-    t.datetime "updated_at",     null: false
+    t.string   "provider"
+    t.string   "uid"
+    t.string   "profile_pic_thumb_url"
+    t.string   "profile_pic_big_url"
+    t.datetime "created_at",            null: false
+    t.datetime "updated_at",            null: false
   end
 
 end

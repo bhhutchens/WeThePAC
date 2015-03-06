@@ -5,7 +5,7 @@ class CreatePledges < ActiveRecord::Migration
       t.integer :rep_id
       t.integer :tweet_id
       t.text :tweet_message
-      t.boolean :fulfilled
+      t.boolean :fulfilled, default: :false
       t.boolean :positive
 
       t.timestamps null: false

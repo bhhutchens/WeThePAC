@@ -11,14 +11,16 @@ aggregate news articles and be able to like differenc articles
 AGGREGATE D3JS DATA mapping pledges over time w/ events
 user page
 user history
+when a user pledges, they also automatically follow that representative
+a user has_many representatives
 
 ## MVP
 
 #### 1.
 * A user can search for a representative
-- OR - 
+- OR -
 * A user can enter a zip to find pertinent representatives
-- OR - 
+- OR -
 * A user who is already logged in or registered can see a list of their federal representatives.
 
 #### 2.
