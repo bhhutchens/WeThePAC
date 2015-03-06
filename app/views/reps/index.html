@@ -1,0 +1,28 @@
+<script type="text/x-handlebars-template" id="rep_name">
+  {{rep.name}}
+</script>
+
+<div id="rep_test_name"></div>
+<script>
+  function populateRep() {
+
+    var url = "http://localhost:3000/reps/1";
+    $.ajax({
+      url: url,
+      type: "get",
+      data: "json"
+    }).
+    success(function(rep) {
+      console.log("data for first rep successful: " + rep);
+
+      console.log("returned data...");
+      // now render it from handlebars
+      var repNameTemplate = $("#rep_name").html();
+      var handlebars = Handlebars.compile(repNameTemplate);
+      $("#rep_test_name").append(handlebars);
+
+    }).fail(function(data) {
+      console.log("could not get data for the first rep :(");
+    })
+  }
+</script>

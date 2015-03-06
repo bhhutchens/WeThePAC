@@ -7142,3 +7142,2603 @@ Started GET "/assets/reps-fcec5b5a277ac7c20cc9f45a209a3bcd.js?body=1" for ::1 at
 
 
 Started GET "/assets/application-17e4801155788a176bbbc02f37563650.js?body=1" for ::1 at 2015-03-05 23:39:10 -0800
+
+
+Started GET "/" for ::1 at 2015-03-06 10:10:29 -0800
+
+ActiveRecord::NoDatabaseError (FATAL:  database "db/development" does not exist
+):
+  activerecord (4.2.0) lib/active_record/connection_adapters/postgresql_adapter.rb:661:in `rescue in connect'
+  activerecord (4.2.0) lib/active_record/connection_adapters/postgresql_adapter.rb:651:in `connect'
+  activerecord (4.2.0) lib/active_record/connection_adapters/postgresql_adapter.rb:242:in `initialize'
+  activerecord (4.2.0) lib/active_record/connection_adapters/postgresql_adapter.rb:44:in `new'
+  activerecord (4.2.0) lib/active_record/connection_adapters/postgresql_adapter.rb:44:in `postgresql_connection'
+  activerecord (4.2.0) lib/active_record/connection_adapters/abstract/connection_pool.rb:436:in `new_connection'
+  activerecord (4.2.0) lib/active_record/connection_adapters/abstract/connection_pool.rb:446:in `checkout_new_connection'
+  activerecord (4.2.0) lib/active_record/connection_adapters/abstract/connection_pool.rb:422:in `acquire_connection'
+  activerecord (4.2.0) lib/active_record/connection_adapters/abstract/connection_pool.rb:349:in `block in checkout'
+  /Users/apprentice/.rbenv/versions/2.0.0-p353/lib/ruby/2.0.0/monitor.rb:211:in `mon_synchronize'
+  activerecord (4.2.0) lib/active_record/connection_adapters/abstract/connection_pool.rb:348:in `checkout'
+  activerecord (4.2.0) lib/active_record/connection_adapters/abstract/connection_pool.rb:263:in `block in connection'
+  /Users/apprentice/.rbenv/versions/2.0.0-p353/lib/ruby/2.0.0/monitor.rb:211:in `mon_synchronize'
+  activerecord (4.2.0) lib/active_record/connection_adapters/abstract/connection_pool.rb:262:in `connection'
+  activerecord (4.2.0) lib/active_record/connection_adapters/abstract/connection_pool.rb:565:in `retrieve_connection'
+  activerecord (4.2.0) lib/active_record/connection_handling.rb:113:in `retrieve_connection'
+  activerecord (4.2.0) lib/active_record/connection_handling.rb:87:in `connection'
+  activerecord (4.2.0) lib/active_record/migration.rb:384:in `connection'
+  activerecord (4.2.0) lib/active_record/migration.rb:371:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/callbacks.rb:29:in `block in call'
+  activesupport (4.2.0) lib/active_support/callbacks.rb:88:in `call'
+  activesupport (4.2.0) lib/active_support/callbacks.rb:88:in `_run_callbacks'
+  activesupport (4.2.0) lib/active_support/callbacks.rb:734:in `_run_call_callbacks'
+  activesupport (4.2.0) lib/active_support/callbacks.rb:81:in `run_callbacks'
+  actionpack (4.2.0) lib/action_dispatch/middleware/callbacks.rb:27:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/reloader.rb:73:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/remote_ip.rb:78:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/debug_exceptions.rb:17:in `call'
+  web-console (2.1.1) lib/web_console/middleware.rb:37:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.2.0) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.2.0) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.2.0) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.2.0) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.2.0) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.2.0) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.6.0) lib/rack/methodoverride.rb:22:in `call'
+  rack (1.6.0) lib/rack/runtime.rb:18:in `call'
+  activesupport (4.2.0) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+  rack (1.6.0) lib/rack/lock.rb:17:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/static.rb:113:in `call'
+  rack (1.6.0) lib/rack/sendfile.rb:113:in `call'
+  railties (4.2.0) lib/rails/engine.rb:518:in `call'
+  railties (4.2.0) lib/rails/application.rb:164:in `call'
+  rack (1.6.0) lib/rack/lock.rb:17:in `call'
+  rack (1.6.0) lib/rack/content_length.rb:15:in `call'
+  rack (1.6.0) lib/rack/handler/webrick.rb:89:in `service'
+  /Users/apprentice/.rbenv/versions/2.0.0-p353/lib/ruby/2.0.0/webrick/httpserver.rb:138:in `service'
+  /Users/apprentice/.rbenv/versions/2.0.0-p353/lib/ruby/2.0.0/webrick/httpserver.rb:94:in `run'
+  /Users/apprentice/.rbenv/versions/2.0.0-p353/lib/ruby/2.0.0/webrick/server.rb:295:in `block in start_thread'
+
+
+  Rendered /Users/apprentice/.rbenv/versions/2.0.0-p353/lib/ruby/gems/2.0.0/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_source.erb (4.8ms)
+  Rendered /Users/apprentice/.rbenv/versions/2.0.0-p353/lib/ruby/gems/2.0.0/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.0ms)
+  Rendered /Users/apprentice/.rbenv/versions/2.0.0-p353/lib/ruby/gems/2.0.0/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.2ms)
+  Rendered /Users/apprentice/.rbenv/versions/2.0.0-p353/lib/ruby/gems/2.0.0/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (31.0ms)
+  Rendered /Users/apprentice/.rbenv/versions/2.0.0-p353/lib/ruby/gems/2.0.0/gems/web-console-2.1.1/lib/web_console/templates/_markup.html (0.5ms)
+  Rendered /Users/apprentice/.rbenv/versions/2.0.0-p353/lib/ruby/gems/2.0.0/gems/web-console-2.1.1/lib/web_console/templates/style.css within layouts/inlined_string (0.4ms)
+  Rendered /Users/apprentice/.rbenv/versions/2.0.0-p353/lib/ruby/gems/2.0.0/gems/web-console-2.1.1/lib/web_console/templates/_inner_console_markup.html within layouts/inlined_string (0.4ms)
+  Rendered /Users/apprentice/.rbenv/versions/2.0.0-p353/lib/ruby/gems/2.0.0/gems/web-console-2.1.1/lib/web_console/templates/_prompt_box_markup.html within layouts/inlined_string (0.4ms)
+  Rendered /Users/apprentice/.rbenv/versions/2.0.0-p353/lib/ruby/gems/2.0.0/gems/web-console-2.1.1/lib/web_console/templates/console.js within layouts/javascript (26.4ms)
+  Rendered /Users/apprentice/.rbenv/versions/2.0.0-p353/lib/ruby/gems/2.0.0/gems/web-console-2.1.1/lib/web_console/templates/main.js within layouts/javascript (0.5ms)
+  Rendered /Users/apprentice/.rbenv/versions/2.0.0-p353/lib/ruby/gems/2.0.0/gems/web-console-2.1.1/lib/web_console/templates/error_page.js within layouts/javascript (0.6ms)
+  Rendered /Users/apprentice/.rbenv/versions/2.0.0-p353/lib/ruby/gems/2.0.0/gems/web-console-2.1.1/lib/web_console/templates/index.html (74.1ms)
+  [1m[36m (21.4ms)[0m  [1mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL) [0m
+  [1m[35m (1.9ms)[0m  CREATE UNIQUE INDEX  "unique_schema_migrations" ON "schema_migrations"  ("version")
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Migrating to CreateUsers (20150305235023)
+  [1m[35m (0.3ms)[0m  BEGIN
+  [1m[36m (5.8ms)[0m  [1mCREATE TABLE "users" ("id" serial primary key, "twitter_handle" character varying, "name" character varying, "zipcode" character varying, "provider" character varying, "uid" character varying, "profile_pic_thumb_url" text, "profile_pic_big_url" text, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL) [0m
+  [1m[35mSQL (0.6ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ($1)  [["version", "20150305235023"]]
+  [1m[36m (16.2ms)[0m  [1mCOMMIT[0m
+Migrating to CreateReps (20150305235101)
+  [1m[35m (15.7ms)[0m  BEGIN
+  [1m[36m (4.8ms)[0m  [1mCREATE TABLE "reps" ("id" serial primary key, "twitter_handle" character varying, "name" character varying, "fec_id" integer, "bio" text, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL) [0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ($1)  [["version", "20150305235101"]]
+  [1m[36m (0.7ms)[0m  [1mCOMMIT[0m
+Migrating to CreatePledges (20150305235208)
+  [1m[35m (15.6ms)[0m  BEGIN
+  [1m[36m (20.5ms)[0m  [1mCREATE TABLE "pledges" ("id" serial primary key, "user_id" integer, "rep_id" integer, "tweet_id" integer, "tweet_message" text, "fulfilled" boolean DEFAULT 'false', "positive" boolean, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL) [0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ($1)  [["version", "20150305235208"]]
+  [1m[36m (0.7ms)[0m  [1mCOMMIT[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.3ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+  [1m[36m (21.8ms)[0m  [1mSELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'pledges'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+[0m
+  [1m[35m (2.5ms)[0m  SELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'reps'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+
+  [1m[36m (2.3ms)[0m  [1mSELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'users'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mSQL (0.6ms)[0m  [1mINSERT INTO "reps" ("twitter_handle", "name", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["twitter_handle", "@honda"], ["name", "honda"], ["created_at", "2015-03-06 18:11:37.825461"], ["updated_at", "2015-03-06 18:11:37.825461"]]
+  [1m[35m (15.9ms)[0m  COMMIT
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO "users" ("twitter_handle", "name", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["twitter_handle", "@moon"], ["name", "Jamal"], ["created_at", "2015-03-06 18:11:37.913594"], ["updated_at", "2015-03-06 18:11:37.913594"]]
+  [1m[36m (0.7ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO "pledges" ("user_id", "rep_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["user_id", 1], ["rep_id", 1], ["created_at", "2015-03-06 18:11:37.933616"], ["updated_at", "2015-03-06 18:11:37.933616"]]
+  [1m[35m (15.8ms)[0m  COMMIT
+
+
+Started GET "/" for ::1 at 2015-03-06 10:11:43 -0800
+  [1m[36mActiveRecord::SchemaMigration Load (0.7ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by WelcomeController#index as HTML
+  Rendered welcome/index.html.erb within layouts/application (1.8ms)
+  Rendered layouts/header.html.erb (0.8ms)
+Completed 200 OK in 524ms (Views: 504.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/header-b458c74bf76a22fd51c7f0b0d693913e.css?body=1" for ::1 at 2015-03-06 10:11:44 -0800
+
+
+Started GET "/assets/profiles-348a2853b8b7a8a08e7b5e171be6a2ec.css?body=1" for ::1 at 2015-03-06 10:11:44 -0800
+
+
+Started GET "/assets/reps-64e62ddc273c2f5847f30d698ca14b67.css?body=1" for ::1 at 2015-03-06 10:11:44 -0800
+
+
+Started GET "/assets/application-cf5612d9dd4451d9b437176a56ebb7fe.css?body=1" for ::1 at 2015-03-06 10:11:44 -0800
+
+
+Started GET "/assets/pledges-64e62ddc273c2f5847f30d698ca14b67.css?body=1" for ::1 at 2015-03-06 10:11:44 -0800
+
+
+Started GET "/assets/responsive.gs.12col-c3fe5b17c87aed0d5b4a9ef145ad0dea.css?body=1" for ::1 at 2015-03-06 10:11:44 -0800
+
+
+Started GET "/assets/jquery-87424c3c19e96d4fb033c10ebe21ec40.js?body=1" for ::1 at 2015-03-06 10:11:44 -0800
+
+
+Started GET "/assets/welcome-64e62ddc273c2f5847f30d698ca14b67.css?body=1" for ::1 at 2015-03-06 10:11:44 -0800
+
+
+Started GET "/assets/users-64e62ddc273c2f5847f30d698ca14b67.css?body=1" for ::1 at 2015-03-06 10:11:44 -0800
+
+
+Started GET "/assets/welcome-fcec5b5a277ac7c20cc9f45a209a3bcd.js?body=1" for ::1 at 2015-03-06 10:11:44 -0800
+
+
+Started GET "/assets/reps-fcec5b5a277ac7c20cc9f45a209a3bcd.js?body=1" for ::1 at 2015-03-06 10:11:44 -0800
+
+
+Started GET "/assets/application-17e4801155788a176bbbc02f37563650.js?body=1" for ::1 at 2015-03-06 10:11:44 -0800
+
+
+Started GET "/assets/users-fcec5b5a277ac7c20cc9f45a209a3bcd.js?body=1" for ::1 at 2015-03-06 10:11:44 -0800
+
+
+Started GET "/assets/pledges-fcec5b5a277ac7c20cc9f45a209a3bcd.js?body=1" for ::1 at 2015-03-06 10:11:44 -0800
+
+
+Started GET "/assets/jquery_ujs-e27bd20a10d28155845a22d71ef94f2f.js?body=1" for ::1 at 2015-03-06 10:11:44 -0800
+
+
+Started GET "/assets/turbolinks-f87b3583ca50adb0488b031297f5580d.js?body=1" for ::1 at 2015-03-06 10:11:44 -0800
+
+
+Started GET "/users/1" for ::1 at 2015-03-06 10:12:25 -0800
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mUser Load (0.5ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36m (0.4ms)[0m  [1mSELECT COUNT(*) FROM "pledges" WHERE "pledges"."user_id" = $1[0m  [["user_id", 1]]
+  [1m[35m (0.2ms)[0m  SELECT COUNT(*) FROM "pledges" WHERE "pledges"."user_id" = $1 AND "pledges"."fulfilled" = 't'  [["user_id", 1]]
+  [1m[36mPledge Load (0.2ms)[0m  [1mSELECT "pledges".* FROM "pledges" WHERE "pledges"."user_id" = $1[0m  [["user_id", 1]]
+  Rendered users/show.erb within layouts/application (31.5ms)
+  Rendered layouts/header.html.erb (0.0ms)
+Completed 200 OK in 345ms (Views: 200.9ms | ActiveRecord: 8.2ms)
+
+
+Started GET "/assets/pledges-64e62ddc273c2f5847f30d698ca14b67.css?body=1" for ::1 at 2015-03-06 10:12:25 -0800
+
+
+Started GET "/assets/reps-64e62ddc273c2f5847f30d698ca14b67.css?body=1" for ::1 at 2015-03-06 10:12:25 -0800
+
+
+Started GET "/assets/responsive.gs.12col-c3fe5b17c87aed0d5b4a9ef145ad0dea.css?body=1" for ::1 at 2015-03-06 10:12:25 -0800
+
+
+Started GET "/assets/users-64e62ddc273c2f5847f30d698ca14b67.css?body=1" for ::1 at 2015-03-06 10:12:25 -0800
+
+
+Started GET "/assets/profiles-348a2853b8b7a8a08e7b5e171be6a2ec.css?body=1" for ::1 at 2015-03-06 10:12:25 -0800
+
+
+Started GET "/assets/header-b458c74bf76a22fd51c7f0b0d693913e.css?body=1" for ::1 at 2015-03-06 10:12:25 -0800
+
+
+Started GET "/assets/application-cf5612d9dd4451d9b437176a56ebb7fe.css?body=1" for ::1 at 2015-03-06 10:12:25 -0800
+
+
+Started GET "/assets/jquery-87424c3c19e96d4fb033c10ebe21ec40.js?body=1" for ::1 at 2015-03-06 10:12:25 -0800
+
+
+Started GET "/assets/welcome-64e62ddc273c2f5847f30d698ca14b67.css?body=1" for ::1 at 2015-03-06 10:12:25 -0800
+
+
+Started GET "/assets/jquery_ujs-e27bd20a10d28155845a22d71ef94f2f.js?body=1" for ::1 at 2015-03-06 10:12:25 -0800
+
+
+Started GET "/assets/turbolinks-f87b3583ca50adb0488b031297f5580d.js?body=1" for ::1 at 2015-03-06 10:12:25 -0800
+
+
+Started GET "/assets/pledges-fcec5b5a277ac7c20cc9f45a209a3bcd.js?body=1" for ::1 at 2015-03-06 10:12:25 -0800
+
+
+Started GET "/assets/reps-fcec5b5a277ac7c20cc9f45a209a3bcd.js?body=1" for ::1 at 2015-03-06 10:12:25 -0800
+
+
+Started GET "/assets/users-fcec5b5a277ac7c20cc9f45a209a3bcd.js?body=1" for ::1 at 2015-03-06 10:12:25 -0800
+
+
+Started GET "/assets/welcome-fcec5b5a277ac7c20cc9f45a209a3bcd.js?body=1" for ::1 at 2015-03-06 10:12:26 -0800
+
+
+Started GET "/assets/application-17e4801155788a176bbbc02f37563650.js?body=1" for ::1 at 2015-03-06 10:12:26 -0800
+
+
+Started GET "/assets/header-b458c74bf76a22fd51c7f0b0d693913e.css?body=1" for ::1 at 2015-03-06 10:15:09 -0800
+
+
+Started GET "/assets/pledges-64e62ddc273c2f5847f30d698ca14b67.css?body=1" for ::1 at 2015-03-06 10:15:09 -0800
+
+
+Started GET "/assets/responsive.gs.12col-c3fe5b17c87aed0d5b4a9ef145ad0dea.css?body=1" for ::1 at 2015-03-06 10:15:09 -0800
+
+
+Started GET "/assets/users-64e62ddc273c2f5847f30d698ca14b67.css?body=1" for ::1 at 2015-03-06 10:15:09 -0800
+
+
+Started GET "/assets/profiles-348a2853b8b7a8a08e7b5e171be6a2ec.css?body=1" for ::1 at 2015-03-06 10:15:09 -0800
+
+
+Started GET "/assets/reps-64e62ddc273c2f5847f30d698ca14b67.css?body=1" for ::1 at 2015-03-06 10:15:09 -0800
+
+
+Started GET "/assets/welcome-64e62ddc273c2f5847f30d698ca14b67.css?body=1" for ::1 at 2015-03-06 10:15:09 -0800
+
+
+Started GET "/assets/application-cf5612d9dd4451d9b437176a56ebb7fe.css?body=1" for ::1 at 2015-03-06 10:15:09 -0800
+
+
+Started GET "/users/1" for ::1 at 2015-03-06 10:43:25 -0800
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mUser Load (0.3ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 1]]
+  Rendered users/show.erb within layouts/application (1.3ms)
+Completed 500 Internal Server Error in 20ms
+
+SyntaxError (/Users/apprentice/Documents/WeThePAC/app/views/users/show.erb:17: syntax error, unexpected '<'
+      </p>
+       ^
+/Users/apprentice/Documents/WeThePAC/app/views/users/show.erb:18: unknown regexp option - l
+/Users/apprentice/Documents/WeThePAC/app/views/users/show.erb:21: unknown regexp options - dv
+/Users/apprentice/Documents/WeThePAC/app/views/users/show.erb:22: unterminated string meets end of file
+/Users/apprentice/Documents/WeThePAC/app/views/users/show.erb:22: syntax error, unexpected end-of-input, expecting ')'):
+  app/views/users/show.erb:17: syntax error, unexpected '<'
+  app/views/users/show.erb:18: unknown regexp option - l
+  app/views/users/show.erb:21: unknown regexp options - dv
+  app/views/users/show.erb:22: unterminated string meets end of file
+  app/views/users/show.erb:22: syntax error, unexpected end-of-input, expecting ')'
+
+
+  Rendered /Users/apprentice/.rbenv/versions/2.0.0-p353/lib/ruby/gems/2.0.0/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_source.erb (9.6ms)
+  Rendered /Users/apprentice/.rbenv/versions/2.0.0-p353/lib/ruby/gems/2.0.0/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (3.7ms)
+  Rendered /Users/apprentice/.rbenv/versions/2.0.0-p353/lib/ruby/gems/2.0.0/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.0ms)
+  Rendered /Users/apprentice/.rbenv/versions/2.0.0-p353/lib/ruby/gems/2.0.0/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (31.4ms)
+  Rendered /Users/apprentice/.rbenv/versions/2.0.0-p353/lib/ruby/gems/2.0.0/gems/web-console-2.1.1/lib/web_console/templates/_markup.html (0.4ms)
+  Rendered /Users/apprentice/.rbenv/versions/2.0.0-p353/lib/ruby/gems/2.0.0/gems/web-console-2.1.1/lib/web_console/templates/style.css within layouts/inlined_string (0.3ms)
+  Rendered /Users/apprentice/.rbenv/versions/2.0.0-p353/lib/ruby/gems/2.0.0/gems/web-console-2.1.1/lib/web_console/templates/_inner_console_markup.html within layouts/inlined_string (0.3ms)
+  Rendered /Users/apprentice/.rbenv/versions/2.0.0-p353/lib/ruby/gems/2.0.0/gems/web-console-2.1.1/lib/web_console/templates/_prompt_box_markup.html within layouts/inlined_string (0.4ms)
+  Rendered /Users/apprentice/.rbenv/versions/2.0.0-p353/lib/ruby/gems/2.0.0/gems/web-console-2.1.1/lib/web_console/templates/console.js within layouts/javascript (20.9ms)
+  Rendered /Users/apprentice/.rbenv/versions/2.0.0-p353/lib/ruby/gems/2.0.0/gems/web-console-2.1.1/lib/web_console/templates/main.js within layouts/javascript (0.3ms)
+  Rendered /Users/apprentice/.rbenv/versions/2.0.0-p353/lib/ruby/gems/2.0.0/gems/web-console-2.1.1/lib/web_console/templates/error_page.js within layouts/javascript (0.4ms)
+  Rendered /Users/apprentice/.rbenv/versions/2.0.0-p353/lib/ruby/gems/2.0.0/gems/web-console-2.1.1/lib/web_console/templates/index.html (46.8ms)
+
+
+Started GET "/users/1" for ::1 at 2015-03-06 10:43:51 -0800
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35m (0.2ms)[0m  SELECT COUNT(*) FROM "pledges" WHERE "pledges"."user_id" = $1  [["user_id", 1]]
+  [1m[36m (0.2ms)[0m  [1mSELECT COUNT(*) FROM "pledges" WHERE "pledges"."user_id" = $1 AND "pledges"."fulfilled" = 't'[0m  [["user_id", 1]]
+  Rendered users/show.erb within layouts/application (7.6ms)
+  Rendered layouts/header.html.erb (0.1ms)
+Completed 200 OK in 352ms (Views: 349.0ms | ActiveRecord: 1.5ms)
+
+
+Started GET "/assets/application-299b0a99b8e39c4dee8d30bd871ead62.js?body=1" for ::1 at 2015-03-06 10:43:51 -0800
+
+
+Started GET "/assets/profiles-348a2853b8b7a8a08e7b5e171be6a2ec.css?body=1" for ::1 at 2015-03-06 10:43:52 -0800
+
+
+Started GET "/assets/reps-64e62ddc273c2f5847f30d698ca14b67.css?body=1" for ::1 at 2015-03-06 10:43:52 -0800
+
+
+Started GET "/assets/responsive.gs.12col-c3fe5b17c87aed0d5b4a9ef145ad0dea.css?body=1" for ::1 at 2015-03-06 10:43:52 -0800
+
+
+Started GET "/assets/pledges-64e62ddc273c2f5847f30d698ca14b67.css?body=1" for ::1 at 2015-03-06 10:43:52 -0800
+
+
+Started GET "/assets/header-b458c74bf76a22fd51c7f0b0d693913e.css?body=1" for ::1 at 2015-03-06 10:43:52 -0800
+
+
+Started GET "/assets/users-64e62ddc273c2f5847f30d698ca14b67.css?body=1" for ::1 at 2015-03-06 10:43:52 -0800
+
+
+Started GET "/assets/welcome-64e62ddc273c2f5847f30d698ca14b67.css?body=1" for ::1 at 2015-03-06 10:43:52 -0800
+
+
+Started GET "/assets/application-cf5612d9dd4451d9b437176a56ebb7fe.css?body=1" for ::1 at 2015-03-06 10:43:52 -0800
+
+
+Started GET "/assets/jquery-87424c3c19e96d4fb033c10ebe21ec40.js?body=1" for ::1 at 2015-03-06 10:43:52 -0800
+
+
+Started GET "/assets/jquery_ujs-e27bd20a10d28155845a22d71ef94f2f.js?body=1" for ::1 at 2015-03-06 10:43:52 -0800
+
+
+Started GET "/assets/turbolinks-f87b3583ca50adb0488b031297f5580d.js?body=1" for ::1 at 2015-03-06 10:43:52 -0800
+
+
+Started GET "/assets/pledges-fcec5b5a277ac7c20cc9f45a209a3bcd.js?body=1" for ::1 at 2015-03-06 10:43:52 -0800
+
+
+Started GET "/assets/reps-fcec5b5a277ac7c20cc9f45a209a3bcd.js?body=1" for ::1 at 2015-03-06 10:43:52 -0800
+
+
+Started GET "/assets/users-fcec5b5a277ac7c20cc9f45a209a3bcd.js?body=1" for ::1 at 2015-03-06 10:43:52 -0800
+
+
+Started GET "/assets/welcome-fcec5b5a277ac7c20cc9f45a209a3bcd.js?body=1" for ::1 at 2015-03-06 10:43:52 -0800
+
+
+Started GET "/users/1" for ::1 at 2015-03-06 10:51:20 -0800
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mUser Load (0.3ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 1]]
+Completed 200 OK in 17ms (Views: 0.8ms | ActiveRecord: 2.2ms)
+
+
+Started GET "/users/1" for ::1 at 2015-03-06 10:54:13 -0800
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35m (0.3ms)[0m  SELECT COUNT(*) FROM "pledges" WHERE "pledges"."user_id" = $1  [["user_id", 1]]
+  [1m[36m (0.3ms)[0m  [1mSELECT COUNT(*) FROM "pledges" WHERE "pledges"."user_id" = $1 AND "pledges"."fulfilled" = 't'[0m  [["user_id", 1]]
+  Rendered users/show.erb within layouts/application (8.7ms)
+  Rendered layouts/header.html.erb (0.1ms)
+Completed 200 OK in 239ms (Views: 163.1ms | ActiveRecord: 3.7ms)
+
+
+Started GET "/assets/header-b458c74bf76a22fd51c7f0b0d693913e.css?body=1" for ::1 at 2015-03-06 10:54:13 -0800
+
+
+Started GET "/assets/users-64e62ddc273c2f5847f30d698ca14b67.css?body=1" for ::1 at 2015-03-06 10:54:13 -0800
+
+
+Started GET "/assets/profiles-348a2853b8b7a8a08e7b5e171be6a2ec.css?body=1" for ::1 at 2015-03-06 10:54:13 -0800
+
+
+Started GET "/assets/responsive.gs.12col-c3fe5b17c87aed0d5b4a9ef145ad0dea.css?body=1" for ::1 at 2015-03-06 10:54:13 -0800
+
+
+Started GET "/assets/reps-64e62ddc273c2f5847f30d698ca14b67.css?body=1" for ::1 at 2015-03-06 10:54:13 -0800
+
+
+Started GET "/assets/pledges-64e62ddc273c2f5847f30d698ca14b67.css?body=1" for ::1 at 2015-03-06 10:54:13 -0800
+
+
+Started GET "/assets/welcome-64e62ddc273c2f5847f30d698ca14b67.css?body=1" for ::1 at 2015-03-06 10:54:13 -0800
+
+
+Started GET "/assets/application-cf5612d9dd4451d9b437176a56ebb7fe.css?body=1" for ::1 at 2015-03-06 10:54:13 -0800
+
+
+Started GET "/assets/jquery-87424c3c19e96d4fb033c10ebe21ec40.js?body=1" for ::1 at 2015-03-06 10:54:13 -0800
+
+
+Started GET "/assets/jquery_ujs-e27bd20a10d28155845a22d71ef94f2f.js?body=1" for ::1 at 2015-03-06 10:54:13 -0800
+
+
+Started GET "/assets/turbolinks-f87b3583ca50adb0488b031297f5580d.js?body=1" for ::1 at 2015-03-06 10:54:13 -0800
+
+
+Started GET "/assets/pledges-fcec5b5a277ac7c20cc9f45a209a3bcd.js?body=1" for ::1 at 2015-03-06 10:54:13 -0800
+
+
+Started GET "/assets/reps-fcec5b5a277ac7c20cc9f45a209a3bcd.js?body=1" for ::1 at 2015-03-06 10:54:13 -0800
+
+
+Started GET "/assets/users-fcec5b5a277ac7c20cc9f45a209a3bcd.js?body=1" for ::1 at 2015-03-06 10:54:13 -0800
+
+
+Started GET "/assets/welcome-fcec5b5a277ac7c20cc9f45a209a3bcd.js?body=1" for ::1 at 2015-03-06 10:54:13 -0800
+
+
+Started GET "/assets/application-299b0a99b8e39c4dee8d30bd871ead62.js?body=1" for ::1 at 2015-03-06 10:54:13 -0800
+
+
+Started GET "/users/1" for ::1 at 2015-03-06 10:54:19 -0800
+Processing by UsersController#show as */*
+  Parameters: {"id"=>"1"}
+  [1m[35mUser Load (0.3ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36m (0.3ms)[0m  [1mSELECT COUNT(*) FROM "pledges" WHERE "pledges"."user_id" = $1[0m  [["user_id", 1]]
+  [1m[35m (0.4ms)[0m  SELECT COUNT(*) FROM "pledges" WHERE "pledges"."user_id" = $1 AND "pledges"."fulfilled" = 't'  [["user_id", 1]]
+  Rendered users/show.erb within layouts/application (4.6ms)
+  Rendered layouts/header.html.erb (0.4ms)
+Completed 200 OK in 174ms (Views: 170.8ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/users/1" for ::1 at 2015-03-06 10:55:33 -0800
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35m (0.3ms)[0m  SELECT COUNT(*) FROM "pledges" WHERE "pledges"."user_id" = $1  [["user_id", 1]]
+  [1m[36m (0.5ms)[0m  [1mSELECT COUNT(*) FROM "pledges" WHERE "pledges"."user_id" = $1 AND "pledges"."fulfilled" = 't'[0m  [["user_id", 1]]
+  Rendered users/show.erb within layouts/application (3.6ms)
+  Rendered layouts/header.html.erb (0.1ms)
+Completed 200 OK in 223ms (Views: 220.1ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/assets/header-b458c74bf76a22fd51c7f0b0d693913e.css?body=1" for ::1 at 2015-03-06 10:55:33 -0800
+
+
+Started GET "/assets/pledges-64e62ddc273c2f5847f30d698ca14b67.css?body=1" for ::1 at 2015-03-06 10:55:33 -0800
+
+
+Started GET "/assets/profiles-348a2853b8b7a8a08e7b5e171be6a2ec.css?body=1" for ::1 at 2015-03-06 10:55:33 -0800
+
+
+Started GET "/assets/responsive.gs.12col-c3fe5b17c87aed0d5b4a9ef145ad0dea.css?body=1" for ::1 at 2015-03-06 10:55:33 -0800
+
+
+Started GET "/assets/welcome-64e62ddc273c2f5847f30d698ca14b67.css?body=1" for ::1 at 2015-03-06 10:55:33 -0800
+
+
+Started GET "/assets/users-64e62ddc273c2f5847f30d698ca14b67.css?body=1" for ::1 at 2015-03-06 10:55:33 -0800
+
+
+Started GET "/assets/reps-64e62ddc273c2f5847f30d698ca14b67.css?body=1" for ::1 at 2015-03-06 10:55:33 -0800
+
+
+Started GET "/assets/application-cf5612d9dd4451d9b437176a56ebb7fe.css?body=1" for ::1 at 2015-03-06 10:55:33 -0800
+
+
+Started GET "/assets/jquery-87424c3c19e96d4fb033c10ebe21ec40.js?body=1" for ::1 at 2015-03-06 10:55:33 -0800
+
+
+Started GET "/assets/jquery_ujs-e27bd20a10d28155845a22d71ef94f2f.js?body=1" for ::1 at 2015-03-06 10:55:33 -0800
+
+
+Started GET "/assets/turbolinks-f87b3583ca50adb0488b031297f5580d.js?body=1" for ::1 at 2015-03-06 10:55:33 -0800
+
+
+Started GET "/assets/reps-fcec5b5a277ac7c20cc9f45a209a3bcd.js?body=1" for ::1 at 2015-03-06 10:55:33 -0800
+
+
+Started GET "/assets/users-fcec5b5a277ac7c20cc9f45a209a3bcd.js?body=1" for ::1 at 2015-03-06 10:55:33 -0800
+
+
+Started GET "/assets/welcome-fcec5b5a277ac7c20cc9f45a209a3bcd.js?body=1" for ::1 at 2015-03-06 10:55:33 -0800
+
+
+Started GET "/assets/pledges-fcec5b5a277ac7c20cc9f45a209a3bcd.js?body=1" for ::1 at 2015-03-06 10:55:33 -0800
+
+
+Started GET "/assets/application-299b0a99b8e39c4dee8d30bd871ead62.js?body=1" for ::1 at 2015-03-06 10:55:33 -0800
+
+
+Started GET "/users/1" for ::1 at 2015-03-06 10:55:43 -0800
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36m (0.3ms)[0m  [1mSELECT COUNT(*) FROM "pledges" WHERE "pledges"."user_id" = $1[0m  [["user_id", 1]]
+  [1m[35m (0.2ms)[0m  SELECT COUNT(*) FROM "pledges" WHERE "pledges"."user_id" = $1 AND "pledges"."fulfilled" = 't'  [["user_id", 1]]
+  Rendered users/show.erb within layouts/application (3.3ms)
+  Rendered layouts/header.html.erb (0.1ms)
+Completed 200 OK in 165ms (Views: 162.8ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/assets/header-b458c74bf76a22fd51c7f0b0d693913e.css?body=1" for ::1 at 2015-03-06 10:55:43 -0800
+
+
+Started GET "/assets/pledges-64e62ddc273c2f5847f30d698ca14b67.css?body=1" for ::1 at 2015-03-06 10:55:43 -0800
+
+
+Started GET "/assets/users-64e62ddc273c2f5847f30d698ca14b67.css?body=1" for ::1 at 2015-03-06 10:55:43 -0800
+
+
+Started GET "/assets/profiles-348a2853b8b7a8a08e7b5e171be6a2ec.css?body=1" for ::1 at 2015-03-06 10:55:43 -0800
+
+
+Started GET "/assets/reps-64e62ddc273c2f5847f30d698ca14b67.css?body=1" for ::1 at 2015-03-06 10:55:43 -0800
+
+
+Started GET "/assets/responsive.gs.12col-c3fe5b17c87aed0d5b4a9ef145ad0dea.css?body=1" for ::1 at 2015-03-06 10:55:43 -0800
+
+
+Started GET "/assets/welcome-64e62ddc273c2f5847f30d698ca14b67.css?body=1" for ::1 at 2015-03-06 10:55:43 -0800
+
+
+Started GET "/assets/application-cf5612d9dd4451d9b437176a56ebb7fe.css?body=1" for ::1 at 2015-03-06 10:55:43 -0800
+
+
+Started GET "/assets/jquery-87424c3c19e96d4fb033c10ebe21ec40.js?body=1" for ::1 at 2015-03-06 10:55:43 -0800
+
+
+Started GET "/assets/jquery_ujs-e27bd20a10d28155845a22d71ef94f2f.js?body=1" for ::1 at 2015-03-06 10:55:43 -0800
+
+
+Started GET "/assets/turbolinks-f87b3583ca50adb0488b031297f5580d.js?body=1" for ::1 at 2015-03-06 10:55:43 -0800
+
+
+Started GET "/assets/pledges-fcec5b5a277ac7c20cc9f45a209a3bcd.js?body=1" for ::1 at 2015-03-06 10:55:43 -0800
+
+
+Started GET "/assets/reps-fcec5b5a277ac7c20cc9f45a209a3bcd.js?body=1" for ::1 at 2015-03-06 10:55:43 -0800
+
+
+Started GET "/assets/users-fcec5b5a277ac7c20cc9f45a209a3bcd.js?body=1" for ::1 at 2015-03-06 10:55:43 -0800
+
+
+Started GET "/assets/welcome-fcec5b5a277ac7c20cc9f45a209a3bcd.js?body=1" for ::1 at 2015-03-06 10:55:43 -0800
+
+
+Started GET "/assets/application-299b0a99b8e39c4dee8d30bd871ead62.js?body=1" for ::1 at 2015-03-06 10:55:43 -0800
+
+
+Started GET "/users/1" for ::1 at 2015-03-06 10:56:02 -0800
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35m (0.3ms)[0m  SELECT COUNT(*) FROM "pledges" WHERE "pledges"."user_id" = $1  [["user_id", 1]]
+  [1m[36m (0.2ms)[0m  [1mSELECT COUNT(*) FROM "pledges" WHERE "pledges"."user_id" = $1 AND "pledges"."fulfilled" = 't'[0m  [["user_id", 1]]
+  Rendered users/show.erb within layouts/application (3.8ms)
+  Rendered layouts/header.html.erb (0.1ms)
+Completed 200 OK in 170ms (Views: 166.5ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/assets/header-b458c74bf76a22fd51c7f0b0d693913e.css?body=1" for ::1 at 2015-03-06 10:56:03 -0800
+
+
+Started GET "/assets/pledges-64e62ddc273c2f5847f30d698ca14b67.css?body=1" for ::1 at 2015-03-06 10:56:03 -0800
+
+
+Started GET "/assets/users-64e62ddc273c2f5847f30d698ca14b67.css?body=1" for ::1 at 2015-03-06 10:56:03 -0800
+
+
+Started GET "/assets/reps-64e62ddc273c2f5847f30d698ca14b67.css?body=1" for ::1 at 2015-03-06 10:56:03 -0800
+
+
+Started GET "/assets/profiles-348a2853b8b7a8a08e7b5e171be6a2ec.css?body=1" for ::1 at 2015-03-06 10:56:03 -0800
+
+
+Started GET "/assets/responsive.gs.12col-c3fe5b17c87aed0d5b4a9ef145ad0dea.css?body=1" for ::1 at 2015-03-06 10:56:03 -0800
+
+
+Started GET "/assets/welcome-64e62ddc273c2f5847f30d698ca14b67.css?body=1" for ::1 at 2015-03-06 10:56:03 -0800
+
+
+Started GET "/assets/application-cf5612d9dd4451d9b437176a56ebb7fe.css?body=1" for ::1 at 2015-03-06 10:56:03 -0800
+
+
+Started GET "/assets/jquery-87424c3c19e96d4fb033c10ebe21ec40.js?body=1" for ::1 at 2015-03-06 10:56:03 -0800
+
+
+Started GET "/assets/jquery_ujs-e27bd20a10d28155845a22d71ef94f2f.js?body=1" for ::1 at 2015-03-06 10:56:03 -0800
+
+
+Started GET "/assets/turbolinks-f87b3583ca50adb0488b031297f5580d.js?body=1" for ::1 at 2015-03-06 10:56:03 -0800
+
+
+Started GET "/assets/pledges-fcec5b5a277ac7c20cc9f45a209a3bcd.js?body=1" for ::1 at 2015-03-06 10:56:03 -0800
+
+
+Started GET "/assets/reps-fcec5b5a277ac7c20cc9f45a209a3bcd.js?body=1" for ::1 at 2015-03-06 10:56:03 -0800
+
+
+Started GET "/assets/users-fcec5b5a277ac7c20cc9f45a209a3bcd.js?body=1" for ::1 at 2015-03-06 10:56:03 -0800
+
+
+Started GET "/assets/welcome-fcec5b5a277ac7c20cc9f45a209a3bcd.js?body=1" for ::1 at 2015-03-06 10:56:03 -0800
+
+
+Started GET "/assets/application-299b0a99b8e39c4dee8d30bd871ead62.js?body=1" for ::1 at 2015-03-06 10:56:03 -0800
+
+
+Started GET "/users/1" for ::1 at 2015-03-06 10:56:42 -0800
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mUser Load (0.3ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36m (1.4ms)[0m  [1mSELECT COUNT(*) FROM "pledges" WHERE "pledges"."user_id" = $1[0m  [["user_id", 1]]
+  [1m[35m (0.4ms)[0m  SELECT COUNT(*) FROM "pledges" WHERE "pledges"."user_id" = $1 AND "pledges"."fulfilled" = 't'  [["user_id", 1]]
+  Rendered users/show.erb within layouts/application (6.6ms)
+  Rendered layouts/header.html.erb (0.1ms)
+Completed 200 OK in 180ms (Views: 174.7ms | ActiveRecord: 2.0ms)
+
+
+Started GET "/assets/header-b458c74bf76a22fd51c7f0b0d693913e.css?body=1" for ::1 at 2015-03-06 10:56:42 -0800
+
+
+Started GET "/assets/pledges-64e62ddc273c2f5847f30d698ca14b67.css?body=1" for ::1 at 2015-03-06 10:56:42 -0800
+
+
+Started GET "/assets/welcome-64e62ddc273c2f5847f30d698ca14b67.css?body=1" for ::1 at 2015-03-06 10:56:42 -0800
+
+
+Started GET "/assets/responsive.gs.12col-c3fe5b17c87aed0d5b4a9ef145ad0dea.css?body=1" for ::1 at 2015-03-06 10:56:42 -0800
+
+
+Started GET "/assets/profiles-348a2853b8b7a8a08e7b5e171be6a2ec.css?body=1" for ::1 at 2015-03-06 10:56:42 -0800
+
+
+Started GET "/assets/reps-64e62ddc273c2f5847f30d698ca14b67.css?body=1" for ::1 at 2015-03-06 10:56:42 -0800
+
+
+Started GET "/assets/users-64e62ddc273c2f5847f30d698ca14b67.css?body=1" for ::1 at 2015-03-06 10:56:42 -0800
+
+
+Started GET "/assets/application-cf5612d9dd4451d9b437176a56ebb7fe.css?body=1" for ::1 at 2015-03-06 10:56:42 -0800
+
+
+Started GET "/assets/jquery-87424c3c19e96d4fb033c10ebe21ec40.js?body=1" for ::1 at 2015-03-06 10:56:42 -0800
+
+
+Started GET "/assets/jquery_ujs-e27bd20a10d28155845a22d71ef94f2f.js?body=1" for ::1 at 2015-03-06 10:56:42 -0800
+
+
+Started GET "/assets/turbolinks-f87b3583ca50adb0488b031297f5580d.js?body=1" for ::1 at 2015-03-06 10:56:42 -0800
+
+
+Started GET "/assets/pledges-fcec5b5a277ac7c20cc9f45a209a3bcd.js?body=1" for ::1 at 2015-03-06 10:56:42 -0800
+
+
+Started GET "/assets/reps-fcec5b5a277ac7c20cc9f45a209a3bcd.js?body=1" for ::1 at 2015-03-06 10:56:42 -0800
+
+
+Started GET "/assets/users-fcec5b5a277ac7c20cc9f45a209a3bcd.js?body=1" for ::1 at 2015-03-06 10:56:42 -0800
+
+
+Started GET "/assets/welcome-fcec5b5a277ac7c20cc9f45a209a3bcd.js?body=1" for ::1 at 2015-03-06 10:56:42 -0800
+
+
+Started GET "/assets/application-299b0a99b8e39c4dee8d30bd871ead62.js?body=1" for ::1 at 2015-03-06 10:56:43 -0800
+
+
+Started GET "/users/1" for ::1 at 2015-03-06 10:58:15 -0800
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 1]]
+Completed 500 Internal Server Error in 79ms
+
+ActionView::MissingTemplate (Missing template users/{"id":1,"twitter_handle":"@moon","name":"Jamal","zipcode":null,"provider":null,"uid":null,"profile_pic_thumb_url":null,"profile_pic_big_url":null,"created_at":"2015-03-06T18:11:37.913Z","updated_at":"2015-03-06T18:11:37.913Z"}, application/{"id":1,"twitter_handle":"@moon","name":"Jamal","zipcode":null,"provider":null,"uid":null,"profile_pic_thumb_url":null,"profile_pic_big_url":null,"created_at":"2015-03-06T18:11:37.913Z","updated_at":"2015-03-06T18:11:37.913Z"} with {:locale=>[:en], :formats=>[:html], :variants=>[], :handlers=>[:erb, :builder, :raw, :ruby, :coffee, :jbuilder]}. Searched in:
+  * "/Users/apprentice/Documents/WeThePAC/app/views"
+):
+  app/controllers/users_controller.rb:19:in `show'
+
+
+  Rendered /Users/apprentice/.rbenv/versions/2.0.0-p353/lib/ruby/gems/2.0.0/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_source.erb (9.0ms)
+  Rendered /Users/apprentice/.rbenv/versions/2.0.0-p353/lib/ruby/gems/2.0.0/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (4.8ms)
+  Rendered /Users/apprentice/.rbenv/versions/2.0.0-p353/lib/ruby/gems/2.0.0/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.1ms)
+  Rendered /Users/apprentice/.rbenv/versions/2.0.0-p353/lib/ruby/gems/2.0.0/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/missing_template.html.erb within rescues/layout (88.2ms)
+  Rendered /Users/apprentice/.rbenv/versions/2.0.0-p353/lib/ruby/gems/2.0.0/gems/web-console-2.1.1/lib/web_console/templates/_markup.html (0.5ms)
+  Rendered /Users/apprentice/.rbenv/versions/2.0.0-p353/lib/ruby/gems/2.0.0/gems/web-console-2.1.1/lib/web_console/templates/style.css within layouts/inlined_string (0.4ms)
+  Rendered /Users/apprentice/.rbenv/versions/2.0.0-p353/lib/ruby/gems/2.0.0/gems/web-console-2.1.1/lib/web_console/templates/_inner_console_markup.html within layouts/inlined_string (0.3ms)
+  Rendered /Users/apprentice/.rbenv/versions/2.0.0-p353/lib/ruby/gems/2.0.0/gems/web-console-2.1.1/lib/web_console/templates/_prompt_box_markup.html within layouts/inlined_string (0.3ms)
+  Rendered /Users/apprentice/.rbenv/versions/2.0.0-p353/lib/ruby/gems/2.0.0/gems/web-console-2.1.1/lib/web_console/templates/console.js within layouts/javascript (19.0ms)
+  Rendered /Users/apprentice/.rbenv/versions/2.0.0-p353/lib/ruby/gems/2.0.0/gems/web-console-2.1.1/lib/web_console/templates/main.js within layouts/javascript (0.4ms)
+  Rendered /Users/apprentice/.rbenv/versions/2.0.0-p353/lib/ruby/gems/2.0.0/gems/web-console-2.1.1/lib/web_console/templates/error_page.js within layouts/javascript (0.4ms)
+  Rendered /Users/apprentice/.rbenv/versions/2.0.0-p353/lib/ruby/gems/2.0.0/gems/web-console-2.1.1/lib/web_console/templates/index.html (44.1ms)
+
+
+Started GET "/users/1" for ::1 at 2015-03-06 10:58:22 -0800
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 1]]
+Completed 500 Internal Server Error in 21ms
+
+ActionView::MissingTemplate (Missing template /{"id":1,"twitter_handle":"@moon","name":"Jamal","zipcode":null,"provider":null,"uid":null,"profile_pic_thumb_url":null,"profile_pic_big_url":null,"created_at":"2015-03-06T18:11:37.913Z","updated_at":"2015-03-06T18:11:37.913Z"} with {:locale=>[:en], :formats=>[:html], :variants=>[], :handlers=>[:erb, :builder, :raw, :ruby, :coffee, :jbuilder]}. Searched in:
+  * "/Users/apprentice/Documents/WeThePAC/app/views"
+  * "/Users/apprentice/Documents/WeThePAC"
+  * "/"
+):
+  app/controllers/users_controller.rb:19:in `show'
+
+
+  Rendered /Users/apprentice/.rbenv/versions/2.0.0-p353/lib/ruby/gems/2.0.0/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_source.erb (8.0ms)
+  Rendered /Users/apprentice/.rbenv/versions/2.0.0-p353/lib/ruby/gems/2.0.0/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (3.0ms)
+  Rendered /Users/apprentice/.rbenv/versions/2.0.0-p353/lib/ruby/gems/2.0.0/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.9ms)
+  Rendered /Users/apprentice/.rbenv/versions/2.0.0-p353/lib/ruby/gems/2.0.0/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/missing_template.html.erb within rescues/layout (26.2ms)
+  Rendered /Users/apprentice/.rbenv/versions/2.0.0-p353/lib/ruby/gems/2.0.0/gems/web-console-2.1.1/lib/web_console/templates/_markup.html (0.4ms)
+  Rendered /Users/apprentice/.rbenv/versions/2.0.0-p353/lib/ruby/gems/2.0.0/gems/web-console-2.1.1/lib/web_console/templates/style.css within layouts/inlined_string (0.3ms)
+  Rendered /Users/apprentice/.rbenv/versions/2.0.0-p353/lib/ruby/gems/2.0.0/gems/web-console-2.1.1/lib/web_console/templates/_inner_console_markup.html within layouts/inlined_string (0.3ms)
+  Rendered /Users/apprentice/.rbenv/versions/2.0.0-p353/lib/ruby/gems/2.0.0/gems/web-console-2.1.1/lib/web_console/templates/_prompt_box_markup.html within layouts/inlined_string (0.3ms)
+  Rendered /Users/apprentice/.rbenv/versions/2.0.0-p353/lib/ruby/gems/2.0.0/gems/web-console-2.1.1/lib/web_console/templates/console.js within layouts/javascript (16.5ms)
+  Rendered /Users/apprentice/.rbenv/versions/2.0.0-p353/lib/ruby/gems/2.0.0/gems/web-console-2.1.1/lib/web_console/templates/main.js within layouts/javascript (0.3ms)
+  Rendered /Users/apprentice/.rbenv/versions/2.0.0-p353/lib/ruby/gems/2.0.0/gems/web-console-2.1.1/lib/web_console/templates/error_page.js within layouts/javascript (0.6ms)
+  Rendered /Users/apprentice/.rbenv/versions/2.0.0-p353/lib/ruby/gems/2.0.0/gems/web-console-2.1.1/lib/web_console/templates/index.html (39.1ms)
+
+
+Started GET "/users/1" for ::1 at 2015-03-06 10:58:36 -0800
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 1]]
+Completed 200 OK in 18ms (Views: 0.2ms | ActiveRecord: 2.0ms)
+
+
+Started GET "/users/1" for ::1 at 2015-03-06 10:59:31 -0800
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36m (0.3ms)[0m  [1mSELECT COUNT(*) FROM "pledges" WHERE "pledges"."user_id" = $1[0m  [["user_id", 1]]
+  [1m[35m (0.2ms)[0m  SELECT COUNT(*) FROM "pledges" WHERE "pledges"."user_id" = $1 AND "pledges"."fulfilled" = 't'  [["user_id", 1]]
+  Rendered users/show.erb within layouts/application (8.2ms)
+  Rendered layouts/header.html.erb (0.1ms)
+Completed 200 OK in 182ms (Views: 166.8ms | ActiveRecord: 3.4ms)
+
+
+Started GET "/assets/header-b458c74bf76a22fd51c7f0b0d693913e.css?body=1" for ::1 at 2015-03-06 10:59:31 -0800
+
+
+Started GET "/assets/profiles-348a2853b8b7a8a08e7b5e171be6a2ec.css?body=1" for ::1 at 2015-03-06 10:59:31 -0800
+
+
+Started GET "/assets/responsive.gs.12col-c3fe5b17c87aed0d5b4a9ef145ad0dea.css?body=1" for ::1 at 2015-03-06 10:59:31 -0800
+
+
+Started GET "/assets/users-64e62ddc273c2f5847f30d698ca14b67.css?body=1" for ::1 at 2015-03-06 10:59:31 -0800
+
+
+Started GET "/assets/reps-64e62ddc273c2f5847f30d698ca14b67.css?body=1" for ::1 at 2015-03-06 10:59:31 -0800
+
+
+Started GET "/assets/pledges-64e62ddc273c2f5847f30d698ca14b67.css?body=1" for ::1 at 2015-03-06 10:59:31 -0800
+
+
+Started GET "/assets/welcome-64e62ddc273c2f5847f30d698ca14b67.css?body=1" for ::1 at 2015-03-06 10:59:31 -0800
+
+
+Started GET "/assets/application-cf5612d9dd4451d9b437176a56ebb7fe.css?body=1" for ::1 at 2015-03-06 10:59:31 -0800
+
+
+Started GET "/assets/jquery-87424c3c19e96d4fb033c10ebe21ec40.js?body=1" for ::1 at 2015-03-06 10:59:31 -0800
+
+
+Started GET "/assets/jquery_ujs-e27bd20a10d28155845a22d71ef94f2f.js?body=1" for ::1 at 2015-03-06 10:59:31 -0800
+
+
+Started GET "/assets/turbolinks-f87b3583ca50adb0488b031297f5580d.js?body=1" for ::1 at 2015-03-06 10:59:31 -0800
+
+
+Started GET "/assets/reps-fcec5b5a277ac7c20cc9f45a209a3bcd.js?body=1" for ::1 at 2015-03-06 10:59:31 -0800
+
+
+Started GET "/assets/pledges-fcec5b5a277ac7c20cc9f45a209a3bcd.js?body=1" for ::1 at 2015-03-06 10:59:31 -0800
+
+
+Started GET "/assets/users-fcec5b5a277ac7c20cc9f45a209a3bcd.js?body=1" for ::1 at 2015-03-06 10:59:31 -0800
+
+
+Started GET "/assets/application-299b0a99b8e39c4dee8d30bd871ead62.js?body=1" for ::1 at 2015-03-06 10:59:31 -0800
+
+
+Started GET "/assets/welcome-fcec5b5a277ac7c20cc9f45a209a3bcd.js?body=1" for ::1 at 2015-03-06 10:59:31 -0800
+
+
+Started GET "/users/1" for ::1 at 2015-03-06 11:03:21 -0800
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35m (0.3ms)[0m  SELECT COUNT(*) FROM "pledges" WHERE "pledges"."user_id" = $1  [["user_id", 1]]
+  [1m[36m (0.3ms)[0m  [1mSELECT COUNT(*) FROM "pledges" WHERE "pledges"."user_id" = $1 AND "pledges"."fulfilled" = 't'[0m  [["user_id", 1]]
+  Rendered users/show.erb within layouts/application (4.2ms)
+  Rendered layouts/header.html.erb (0.1ms)
+Completed 200 OK in 162ms (Views: 159.7ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/assets/header-b458c74bf76a22fd51c7f0b0d693913e.css?body=1" for ::1 at 2015-03-06 11:03:21 -0800
+
+
+Started GET "/assets/users-64e62ddc273c2f5847f30d698ca14b67.css?body=1" for ::1 at 2015-03-06 11:03:21 -0800
+
+
+Started GET "/assets/responsive.gs.12col-c3fe5b17c87aed0d5b4a9ef145ad0dea.css?body=1" for ::1 at 2015-03-06 11:03:21 -0800
+
+
+Started GET "/assets/pledges-64e62ddc273c2f5847f30d698ca14b67.css?body=1" for ::1 at 2015-03-06 11:03:21 -0800
+
+
+Started GET "/assets/reps-64e62ddc273c2f5847f30d698ca14b67.css?body=1" for ::1 at 2015-03-06 11:03:21 -0800
+
+
+Started GET "/assets/profiles-348a2853b8b7a8a08e7b5e171be6a2ec.css?body=1" for ::1 at 2015-03-06 11:03:21 -0800
+
+
+Started GET "/assets/welcome-64e62ddc273c2f5847f30d698ca14b67.css?body=1" for ::1 at 2015-03-06 11:03:21 -0800
+
+
+Started GET "/assets/application-cf5612d9dd4451d9b437176a56ebb7fe.css?body=1" for ::1 at 2015-03-06 11:03:21 -0800
+
+
+Started GET "/assets/jquery-87424c3c19e96d4fb033c10ebe21ec40.js?body=1" for ::1 at 2015-03-06 11:03:21 -0800
+
+
+Started GET "/assets/jquery_ujs-e27bd20a10d28155845a22d71ef94f2f.js?body=1" for ::1 at 2015-03-06 11:03:21 -0800
+
+
+Started GET "/assets/turbolinks-f87b3583ca50adb0488b031297f5580d.js?body=1" for ::1 at 2015-03-06 11:03:21 -0800
+
+
+Started GET "/assets/pledges-fcec5b5a277ac7c20cc9f45a209a3bcd.js?body=1" for ::1 at 2015-03-06 11:03:21 -0800
+
+
+Started GET "/assets/reps-fcec5b5a277ac7c20cc9f45a209a3bcd.js?body=1" for ::1 at 2015-03-06 11:03:21 -0800
+
+
+Started GET "/assets/users-fcec5b5a277ac7c20cc9f45a209a3bcd.js?body=1" for ::1 at 2015-03-06 11:03:21 -0800
+
+
+Started GET "/assets/welcome-fcec5b5a277ac7c20cc9f45a209a3bcd.js?body=1" for ::1 at 2015-03-06 11:03:21 -0800
+
+
+Started GET "/assets/application-299b0a99b8e39c4dee8d30bd871ead62.js?body=1" for ::1 at 2015-03-06 11:03:21 -0800
+
+
+Started GET "/users/1" for ::1 at 2015-03-06 11:03:26 -0800
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mUser Load (0.3ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 1]]
+Completed 200 OK in 18ms (Views: 0.2ms | ActiveRecord: 2.3ms)
+
+
+Started GET "/users/1" for ::1 at 2015-03-06 11:05:14 -0800
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 1]]
+Completed 200 OK in 73ms (Views: 0.7ms | ActiveRecord: 1.8ms)
+
+
+Started GET "/users/1" for ::1 at 2015-03-06 11:12:21 -0800
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mUser Load (0.3ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36m (0.2ms)[0m  [1mSELECT COUNT(*) FROM "pledges" WHERE "pledges"."user_id" = $1[0m  [["user_id", 1]]
+  [1m[35m (0.2ms)[0m  SELECT COUNT(*) FROM "pledges" WHERE "pledges"."user_id" = $1 AND "pledges"."fulfilled" = 't'  [["user_id", 1]]
+  Rendered users/show.erb within layouts/application (8.9ms)
+  Rendered layouts/header.html.erb (0.1ms)
+Completed 200 OK in 199ms (Views: 181.1ms | ActiveRecord: 3.6ms)
+
+
+Started GET "/assets/header-b458c74bf76a22fd51c7f0b0d693913e.css?body=1" for ::1 at 2015-03-06 11:12:21 -0800
+
+
+Started GET "/assets/pledges-64e62ddc273c2f5847f30d698ca14b67.css?body=1" for ::1 at 2015-03-06 11:12:21 -0800
+
+
+Started GET "/assets/reps-64e62ddc273c2f5847f30d698ca14b67.css?body=1" for ::1 at 2015-03-06 11:12:21 -0800
+
+
+Started GET "/assets/profiles-348a2853b8b7a8a08e7b5e171be6a2ec.css?body=1" for ::1 at 2015-03-06 11:12:21 -0800
+
+
+Started GET "/assets/responsive.gs.12col-c3fe5b17c87aed0d5b4a9ef145ad0dea.css?body=1" for ::1 at 2015-03-06 11:12:21 -0800
+
+
+Started GET "/assets/users-64e62ddc273c2f5847f30d698ca14b67.css?body=1" for ::1 at 2015-03-06 11:12:21 -0800
+
+
+Started GET "/assets/welcome-64e62ddc273c2f5847f30d698ca14b67.css?body=1" for ::1 at 2015-03-06 11:12:21 -0800
+
+
+Started GET "/assets/application-cf5612d9dd4451d9b437176a56ebb7fe.css?body=1" for ::1 at 2015-03-06 11:12:21 -0800
+
+
+Started GET "/assets/jquery-87424c3c19e96d4fb033c10ebe21ec40.js?body=1" for ::1 at 2015-03-06 11:12:21 -0800
+
+
+Started GET "/assets/jquery_ujs-e27bd20a10d28155845a22d71ef94f2f.js?body=1" for ::1 at 2015-03-06 11:12:21 -0800
+
+
+Started GET "/assets/turbolinks-f87b3583ca50adb0488b031297f5580d.js?body=1" for ::1 at 2015-03-06 11:12:21 -0800
+
+
+Started GET "/assets/pledges-fcec5b5a277ac7c20cc9f45a209a3bcd.js?body=1" for ::1 at 2015-03-06 11:12:21 -0800
+
+
+Started GET "/assets/reps-fcec5b5a277ac7c20cc9f45a209a3bcd.js?body=1" for ::1 at 2015-03-06 11:12:21 -0800
+
+
+Started GET "/assets/users-fcec5b5a277ac7c20cc9f45a209a3bcd.js?body=1" for ::1 at 2015-03-06 11:12:21 -0800
+
+
+Started GET "/assets/welcome-fcec5b5a277ac7c20cc9f45a209a3bcd.js?body=1" for ::1 at 2015-03-06 11:12:21 -0800
+
+
+Started GET "/assets/application-299b0a99b8e39c4dee8d30bd871ead62.js?body=1" for ::1 at 2015-03-06 11:12:21 -0800
+
+
+Started GET "/users/1" for ::1 at 2015-03-06 11:17:17 -0800
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35m (0.3ms)[0m  SELECT COUNT(*) FROM "pledges" WHERE "pledges"."user_id" = $1  [["user_id", 1]]
+Completed 500 Internal Server Error in 22ms
+
+NoMethodError (undefined method `pledge_count=' for #<User:0x007ffe47d6ccf0>):
+  app/controllers/users_controller.rb:16:in `show'
+
+
+  Rendered /Users/apprentice/.rbenv/versions/2.0.0-p353/lib/ruby/gems/2.0.0/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_source.erb (8.9ms)
+  Rendered /Users/apprentice/.rbenv/versions/2.0.0-p353/lib/ruby/gems/2.0.0/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.7ms)
+  Rendered /Users/apprentice/.rbenv/versions/2.0.0-p353/lib/ruby/gems/2.0.0/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.9ms)
+  Rendered /Users/apprentice/.rbenv/versions/2.0.0-p353/lib/ruby/gems/2.0.0/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (83.9ms)
+  Rendered /Users/apprentice/.rbenv/versions/2.0.0-p353/lib/ruby/gems/2.0.0/gems/web-console-2.1.1/lib/web_console/templates/_markup.html (0.5ms)
+  Rendered /Users/apprentice/.rbenv/versions/2.0.0-p353/lib/ruby/gems/2.0.0/gems/web-console-2.1.1/lib/web_console/templates/style.css within layouts/inlined_string (0.3ms)
+  Rendered /Users/apprentice/.rbenv/versions/2.0.0-p353/lib/ruby/gems/2.0.0/gems/web-console-2.1.1/lib/web_console/templates/_inner_console_markup.html within layouts/inlined_string (0.3ms)
+  Rendered /Users/apprentice/.rbenv/versions/2.0.0-p353/lib/ruby/gems/2.0.0/gems/web-console-2.1.1/lib/web_console/templates/_prompt_box_markup.html within layouts/inlined_string (0.4ms)
+  Rendered /Users/apprentice/.rbenv/versions/2.0.0-p353/lib/ruby/gems/2.0.0/gems/web-console-2.1.1/lib/web_console/templates/console.js within layouts/javascript (20.0ms)
+  Rendered /Users/apprentice/.rbenv/versions/2.0.0-p353/lib/ruby/gems/2.0.0/gems/web-console-2.1.1/lib/web_console/templates/main.js within layouts/javascript (0.3ms)
+  Rendered /Users/apprentice/.rbenv/versions/2.0.0-p353/lib/ruby/gems/2.0.0/gems/web-console-2.1.1/lib/web_console/templates/error_page.js within layouts/javascript (0.4ms)
+  Rendered /Users/apprentice/.rbenv/versions/2.0.0-p353/lib/ruby/gems/2.0.0/gems/web-console-2.1.1/lib/web_console/templates/index.html (44.2ms)
+
+
+Started GET "/users/1" for ::1 at 2015-03-06 11:18:39 -0800
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35m (0.2ms)[0m  SELECT COUNT(*) FROM "pledges" WHERE "pledges"."user_id" = $1  [["user_id", 1]]
+Completed 500 Internal Server Error in 4ms
+
+NoMethodError (undefined method `pledge_count=' for #<User:0x007ffe49389088>):
+  app/controllers/users_controller.rb:16:in `show'
+
+
+  Rendered /Users/apprentice/.rbenv/versions/2.0.0-p353/lib/ruby/gems/2.0.0/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_source.erb (63.6ms)
+  Rendered /Users/apprentice/.rbenv/versions/2.0.0-p353/lib/ruby/gems/2.0.0/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (3.0ms)
+  Rendered /Users/apprentice/.rbenv/versions/2.0.0-p353/lib/ruby/gems/2.0.0/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.9ms)
+  Rendered /Users/apprentice/.rbenv/versions/2.0.0-p353/lib/ruby/gems/2.0.0/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (84.1ms)
+  Rendered /Users/apprentice/.rbenv/versions/2.0.0-p353/lib/ruby/gems/2.0.0/gems/web-console-2.1.1/lib/web_console/templates/_markup.html (0.6ms)
+  Rendered /Users/apprentice/.rbenv/versions/2.0.0-p353/lib/ruby/gems/2.0.0/gems/web-console-2.1.1/lib/web_console/templates/style.css within layouts/inlined_string (0.4ms)
+  Rendered /Users/apprentice/.rbenv/versions/2.0.0-p353/lib/ruby/gems/2.0.0/gems/web-console-2.1.1/lib/web_console/templates/_inner_console_markup.html within layouts/inlined_string (0.4ms)
+  Rendered /Users/apprentice/.rbenv/versions/2.0.0-p353/lib/ruby/gems/2.0.0/gems/web-console-2.1.1/lib/web_console/templates/_prompt_box_markup.html within layouts/inlined_string (0.3ms)
+  Rendered /Users/apprentice/.rbenv/versions/2.0.0-p353/lib/ruby/gems/2.0.0/gems/web-console-2.1.1/lib/web_console/templates/console.js within layouts/javascript (18.7ms)
+  Rendered /Users/apprentice/.rbenv/versions/2.0.0-p353/lib/ruby/gems/2.0.0/gems/web-console-2.1.1/lib/web_console/templates/main.js within layouts/javascript (0.3ms)
+  Rendered /Users/apprentice/.rbenv/versions/2.0.0-p353/lib/ruby/gems/2.0.0/gems/web-console-2.1.1/lib/web_console/templates/error_page.js within layouts/javascript (0.7ms)
+  Rendered /Users/apprentice/.rbenv/versions/2.0.0-p353/lib/ruby/gems/2.0.0/gems/web-console-2.1.1/lib/web_console/templates/index.html (42.9ms)
+
+
+Started GET "/users/1" for ::1 at 2015-03-06 11:18:47 -0800
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35m (0.2ms)[0m  SELECT COUNT(*) FROM "pledges" WHERE "pledges"."user_id" = $1  [["user_id", 1]]
+Completed 500 Internal Server Error in 22ms
+
+NoMethodError (undefined method `pledge_count=' for #<User:0x007ffe45ab4528>):
+  app/controllers/users_controller.rb:16:in `show'
+
+
+  Rendered /Users/apprentice/.rbenv/versions/2.0.0-p353/lib/ruby/gems/2.0.0/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_source.erb (6.2ms)
+  Rendered /Users/apprentice/.rbenv/versions/2.0.0-p353/lib/ruby/gems/2.0.0/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (3.9ms)
+  Rendered /Users/apprentice/.rbenv/versions/2.0.0-p353/lib/ruby/gems/2.0.0/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.1ms)
+  Rendered /Users/apprentice/.rbenv/versions/2.0.0-p353/lib/ruby/gems/2.0.0/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (28.6ms)
+  Rendered /Users/apprentice/.rbenv/versions/2.0.0-p353/lib/ruby/gems/2.0.0/gems/web-console-2.1.1/lib/web_console/templates/_markup.html (0.6ms)
+  Rendered /Users/apprentice/.rbenv/versions/2.0.0-p353/lib/ruby/gems/2.0.0/gems/web-console-2.1.1/lib/web_console/templates/style.css within layouts/inlined_string (0.6ms)
+  Rendered /Users/apprentice/.rbenv/versions/2.0.0-p353/lib/ruby/gems/2.0.0/gems/web-console-2.1.1/lib/web_console/templates/_inner_console_markup.html within layouts/inlined_string (0.3ms)
+  Rendered /Users/apprentice/.rbenv/versions/2.0.0-p353/lib/ruby/gems/2.0.0/gems/web-console-2.1.1/lib/web_console/templates/_prompt_box_markup.html within layouts/inlined_string (0.3ms)
+  Rendered /Users/apprentice/.rbenv/versions/2.0.0-p353/lib/ruby/gems/2.0.0/gems/web-console-2.1.1/lib/web_console/templates/console.js within layouts/javascript (20.0ms)
+  Rendered /Users/apprentice/.rbenv/versions/2.0.0-p353/lib/ruby/gems/2.0.0/gems/web-console-2.1.1/lib/web_console/templates/main.js within layouts/javascript (0.4ms)
+  Rendered /Users/apprentice/.rbenv/versions/2.0.0-p353/lib/ruby/gems/2.0.0/gems/web-console-2.1.1/lib/web_console/templates/error_page.js within layouts/javascript (0.5ms)
+  Rendered /Users/apprentice/.rbenv/versions/2.0.0-p353/lib/ruby/gems/2.0.0/gems/web-console-2.1.1/lib/web_console/templates/index.html (43.8ms)
+
+
+Started GET "/users/1" for ::1 at 2015-03-06 11:19:12 -0800
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 1]]
+Completed 500 Internal Server Error in 15ms
+
+NoMethodError (undefined method `pledges' for #<String:0x007ffe45b6dd98>):
+  app/controllers/users_controller.rb:17:in `show'
+
+
+  Rendered /Users/apprentice/.rbenv/versions/2.0.0-p353/lib/ruby/gems/2.0.0/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_source.erb (6.3ms)
+  Rendered /Users/apprentice/.rbenv/versions/2.0.0-p353/lib/ruby/gems/2.0.0/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.5ms)
+  Rendered /Users/apprentice/.rbenv/versions/2.0.0-p353/lib/ruby/gems/2.0.0/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.9ms)
+  Rendered /Users/apprentice/.rbenv/versions/2.0.0-p353/lib/ruby/gems/2.0.0/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (23.6ms)
+  Rendered /Users/apprentice/.rbenv/versions/2.0.0-p353/lib/ruby/gems/2.0.0/gems/web-console-2.1.1/lib/web_console/templates/_markup.html (0.3ms)
+  Rendered /Users/apprentice/.rbenv/versions/2.0.0-p353/lib/ruby/gems/2.0.0/gems/web-console-2.1.1/lib/web_console/templates/style.css within layouts/inlined_string (0.3ms)
+  Rendered /Users/apprentice/.rbenv/versions/2.0.0-p353/lib/ruby/gems/2.0.0/gems/web-console-2.1.1/lib/web_console/templates/_inner_console_markup.html within layouts/inlined_string (0.3ms)
+  Rendered /Users/apprentice/.rbenv/versions/2.0.0-p353/lib/ruby/gems/2.0.0/gems/web-console-2.1.1/lib/web_console/templates/_prompt_box_markup.html within layouts/inlined_string (0.4ms)
+  Rendered /Users/apprentice/.rbenv/versions/2.0.0-p353/lib/ruby/gems/2.0.0/gems/web-console-2.1.1/lib/web_console/templates/console.js within layouts/javascript (16.8ms)
+  Rendered /Users/apprentice/.rbenv/versions/2.0.0-p353/lib/ruby/gems/2.0.0/gems/web-console-2.1.1/lib/web_console/templates/main.js within layouts/javascript (0.3ms)
+  Rendered /Users/apprentice/.rbenv/versions/2.0.0-p353/lib/ruby/gems/2.0.0/gems/web-console-2.1.1/lib/web_console/templates/error_page.js within layouts/javascript (0.4ms)
+  Rendered /Users/apprentice/.rbenv/versions/2.0.0-p353/lib/ruby/gems/2.0.0/gems/web-console-2.1.1/lib/web_console/templates/index.html (37.0ms)
+
+
+Started GET "/users/1" for ::1 at 2015-03-06 11:19:46 -0800
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36m (0.2ms)[0m  [1mSELECT COUNT(*) FROM "pledges" WHERE "pledges"."user_id" = $1[0m  [["user_id", 1]]
+Completed 500 Internal Server Error in 23ms
+
+IndexError (string not matched):
+  app/controllers/users_controller.rb:18:in `[]='
+  app/controllers/users_controller.rb:18:in `show'
+
+
+  Rendered /Users/apprentice/.rbenv/versions/2.0.0-p353/lib/ruby/gems/2.0.0/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_source.erb (10.2ms)
+  Rendered /Users/apprentice/.rbenv/versions/2.0.0-p353/lib/ruby/gems/2.0.0/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (59.6ms)
+  Rendered /Users/apprentice/.rbenv/versions/2.0.0-p353/lib/ruby/gems/2.0.0/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.2ms)
+  Rendered /Users/apprentice/.rbenv/versions/2.0.0-p353/lib/ruby/gems/2.0.0/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (89.8ms)
+  Rendered /Users/apprentice/.rbenv/versions/2.0.0-p353/lib/ruby/gems/2.0.0/gems/web-console-2.1.1/lib/web_console/templates/_markup.html (0.7ms)
+  Rendered /Users/apprentice/.rbenv/versions/2.0.0-p353/lib/ruby/gems/2.0.0/gems/web-console-2.1.1/lib/web_console/templates/style.css within layouts/inlined_string (0.4ms)
+  Rendered /Users/apprentice/.rbenv/versions/2.0.0-p353/lib/ruby/gems/2.0.0/gems/web-console-2.1.1/lib/web_console/templates/_inner_console_markup.html within layouts/inlined_string (0.4ms)
+  Rendered /Users/apprentice/.rbenv/versions/2.0.0-p353/lib/ruby/gems/2.0.0/gems/web-console-2.1.1/lib/web_console/templates/_prompt_box_markup.html within layouts/inlined_string (0.3ms)
+  Rendered /Users/apprentice/.rbenv/versions/2.0.0-p353/lib/ruby/gems/2.0.0/gems/web-console-2.1.1/lib/web_console/templates/console.js within layouts/javascript (16.7ms)
+  Rendered /Users/apprentice/.rbenv/versions/2.0.0-p353/lib/ruby/gems/2.0.0/gems/web-console-2.1.1/lib/web_console/templates/main.js within layouts/javascript (0.3ms)
+  Rendered /Users/apprentice/.rbenv/versions/2.0.0-p353/lib/ruby/gems/2.0.0/gems/web-console-2.1.1/lib/web_console/templates/error_page.js within layouts/javascript (0.4ms)
+  Rendered /Users/apprentice/.rbenv/versions/2.0.0-p353/lib/ruby/gems/2.0.0/gems/web-console-2.1.1/lib/web_console/templates/index.html (35.9ms)
+
+
+Started GET "/users/1" for ::1 at 2015-03-06 11:22:53 -0800
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36m (0.2ms)[0m  [1mSELECT COUNT(*) FROM "pledges" WHERE "pledges"."user_id" = $1[0m  [["user_id", 1]]
+Completed 500 Internal Server Error in 21ms
+
+NoMethodError (undefined method `pledge_count=' for #<User:0x007ffe494ca258>):
+  app/controllers/users_controller.rb:16:in `show'
+
+
+  Rendered /Users/apprentice/.rbenv/versions/2.0.0-p353/lib/ruby/gems/2.0.0/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_source.erb (6.5ms)
+  Rendered /Users/apprentice/.rbenv/versions/2.0.0-p353/lib/ruby/gems/2.0.0/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (3.1ms)
+  Rendered /Users/apprentice/.rbenv/versions/2.0.0-p353/lib/ruby/gems/2.0.0/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.0ms)
+  Rendered /Users/apprentice/.rbenv/versions/2.0.0-p353/lib/ruby/gems/2.0.0/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (28.4ms)
+  Rendered /Users/apprentice/.rbenv/versions/2.0.0-p353/lib/ruby/gems/2.0.0/gems/web-console-2.1.1/lib/web_console/templates/_markup.html (0.3ms)
+  Rendered /Users/apprentice/.rbenv/versions/2.0.0-p353/lib/ruby/gems/2.0.0/gems/web-console-2.1.1/lib/web_console/templates/style.css within layouts/inlined_string (0.3ms)
+  Rendered /Users/apprentice/.rbenv/versions/2.0.0-p353/lib/ruby/gems/2.0.0/gems/web-console-2.1.1/lib/web_console/templates/_inner_console_markup.html within layouts/inlined_string (0.7ms)
+  Rendered /Users/apprentice/.rbenv/versions/2.0.0-p353/lib/ruby/gems/2.0.0/gems/web-console-2.1.1/lib/web_console/templates/_prompt_box_markup.html within layouts/inlined_string (0.4ms)
+  Rendered /Users/apprentice/.rbenv/versions/2.0.0-p353/lib/ruby/gems/2.0.0/gems/web-console-2.1.1/lib/web_console/templates/console.js within layouts/javascript (18.9ms)
+  Rendered /Users/apprentice/.rbenv/versions/2.0.0-p353/lib/ruby/gems/2.0.0/gems/web-console-2.1.1/lib/web_console/templates/main.js within layouts/javascript (0.4ms)
+  Rendered /Users/apprentice/.rbenv/versions/2.0.0-p353/lib/ruby/gems/2.0.0/gems/web-console-2.1.1/lib/web_console/templates/error_page.js within layouts/javascript (0.5ms)
+  Rendered /Users/apprentice/.rbenv/versions/2.0.0-p353/lib/ruby/gems/2.0.0/gems/web-console-2.1.1/lib/web_console/templates/index.html (40.1ms)
+
+
+Started GET "/users/1" for ::1 at 2015-03-06 11:22:57 -0800
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 1]]
+Completed 200 OK in 15ms (Views: 1.0ms | ActiveRecord: 1.9ms)
+
+
+Started GET "/users/1" for ::1 at 2015-03-06 11:23:31 -0800
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 1]]
+Completed 200 OK in 2ms (Views: 0.5ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/reps/" for ::1 at 2015-03-06 11:25:50 -0800
+
+AbstractController::ActionNotFound (The action 'index' could not be found for RepsController):
+  actionpack (4.2.0) lib/abstract_controller/base.rb:132:in `process'
+  actionview (4.2.0) lib/action_view/rendering.rb:30:in `process'
+  actionpack (4.2.0) lib/action_controller/metal.rb:195:in `dispatch'
+  actionpack (4.2.0) lib/action_controller/metal/rack_delegation.rb:13:in `dispatch'
+  actionpack (4.2.0) lib/action_controller/metal.rb:236:in `block in action'
+  actionpack (4.2.0) lib/action_dispatch/routing/route_set.rb:73:in `call'
+  actionpack (4.2.0) lib/action_dispatch/routing/route_set.rb:73:in `dispatch'
+  actionpack (4.2.0) lib/action_dispatch/routing/route_set.rb:42:in `serve'
+  actionpack (4.2.0) lib/action_dispatch/journey/router.rb:43:in `block in serve'
+  actionpack (4.2.0) lib/action_dispatch/journey/router.rb:30:in `each'
+  actionpack (4.2.0) lib/action_dispatch/journey/router.rb:30:in `serve'
+  actionpack (4.2.0) lib/action_dispatch/routing/route_set.rb:802:in `call'
+  omniauth (1.2.2) lib/omniauth/strategy.rb:186:in `call!'
+  omniauth (1.2.2) lib/omniauth/strategy.rb:164:in `call'
+  omniauth (1.2.2) lib/omniauth/builder.rb:59:in `call'
+  rack (1.6.0) lib/rack/etag.rb:24:in `call'
+  rack (1.6.0) lib/rack/conditionalget.rb:25:in `call'
+  rack (1.6.0) lib/rack/head.rb:13:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/params_parser.rb:27:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/flash.rb:260:in `call'
+  rack (1.6.0) lib/rack/session/abstract/id.rb:225:in `context'
+  rack (1.6.0) lib/rack/session/abstract/id.rb:220:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/cookies.rb:560:in `call'
+  activerecord (4.2.0) lib/active_record/query_cache.rb:36:in `call'
+  activerecord (4.2.0) lib/active_record/connection_adapters/abstract/connection_pool.rb:647:in `call'
+  activerecord (4.2.0) lib/active_record/migration.rb:378:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/callbacks.rb:29:in `block in call'
+  activesupport (4.2.0) lib/active_support/callbacks.rb:88:in `call'
+  activesupport (4.2.0) lib/active_support/callbacks.rb:88:in `_run_callbacks'
+  activesupport (4.2.0) lib/active_support/callbacks.rb:734:in `_run_call_callbacks'
+  activesupport (4.2.0) lib/active_support/callbacks.rb:81:in `run_callbacks'
+  actionpack (4.2.0) lib/action_dispatch/middleware/callbacks.rb:27:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/reloader.rb:73:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/remote_ip.rb:78:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/debug_exceptions.rb:17:in `call'
+  web-console (2.1.1) lib/web_console/middleware.rb:37:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.2.0) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.2.0) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.2.0) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.2.0) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.2.0) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.2.0) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.6.0) lib/rack/methodoverride.rb:22:in `call'
+  rack (1.6.0) lib/rack/runtime.rb:18:in `call'
+  activesupport (4.2.0) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+  rack (1.6.0) lib/rack/lock.rb:17:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/static.rb:113:in `call'
+  rack (1.6.0) lib/rack/sendfile.rb:113:in `call'
+  railties (4.2.0) lib/rails/engine.rb:518:in `call'
+  railties (4.2.0) lib/rails/application.rb:164:in `call'
+  rack (1.6.0) lib/rack/lock.rb:17:in `call'
+  rack (1.6.0) lib/rack/content_length.rb:15:in `call'
+  rack (1.6.0) lib/rack/handler/webrick.rb:89:in `service'
+  /Users/apprentice/.rbenv/versions/2.0.0-p353/lib/ruby/2.0.0/webrick/httpserver.rb:138:in `service'
+  /Users/apprentice/.rbenv/versions/2.0.0-p353/lib/ruby/2.0.0/webrick/httpserver.rb:94:in `run'
+  /Users/apprentice/.rbenv/versions/2.0.0-p353/lib/ruby/2.0.0/webrick/server.rb:295:in `block in start_thread'
+
+
+  Rendered /Users/apprentice/.rbenv/versions/2.0.0-p353/lib/ruby/gems/2.0.0/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/unknown_action.html.erb within rescues/layout (0.5ms)
+  Rendered /Users/apprentice/.rbenv/versions/2.0.0-p353/lib/ruby/gems/2.0.0/gems/web-console-2.1.1/lib/web_console/templates/_markup.html (0.4ms)
+  Rendered /Users/apprentice/.rbenv/versions/2.0.0-p353/lib/ruby/gems/2.0.0/gems/web-console-2.1.1/lib/web_console/templates/style.css within layouts/inlined_string (0.4ms)
+  Rendered /Users/apprentice/.rbenv/versions/2.0.0-p353/lib/ruby/gems/2.0.0/gems/web-console-2.1.1/lib/web_console/templates/_inner_console_markup.html within layouts/inlined_string (0.4ms)
+  Rendered /Users/apprentice/.rbenv/versions/2.0.0-p353/lib/ruby/gems/2.0.0/gems/web-console-2.1.1/lib/web_console/templates/_prompt_box_markup.html within layouts/inlined_string (0.4ms)
+  Rendered /Users/apprentice/.rbenv/versions/2.0.0-p353/lib/ruby/gems/2.0.0/gems/web-console-2.1.1/lib/web_console/templates/console.js within layouts/javascript (19.8ms)
+  Rendered /Users/apprentice/.rbenv/versions/2.0.0-p353/lib/ruby/gems/2.0.0/gems/web-console-2.1.1/lib/web_console/templates/main.js within layouts/javascript (0.3ms)
+  Rendered /Users/apprentice/.rbenv/versions/2.0.0-p353/lib/ruby/gems/2.0.0/gems/web-console-2.1.1/lib/web_console/templates/error_page.js within layouts/javascript (0.4ms)
+  Rendered /Users/apprentice/.rbenv/versions/2.0.0-p353/lib/ruby/gems/2.0.0/gems/web-console-2.1.1/lib/web_console/templates/index.html (44.2ms)
+
+
+Started GET "/reps" for ::1 at 2015-03-06 11:25:55 -0800
+
+AbstractController::ActionNotFound (The action 'index' could not be found for RepsController):
+  actionpack (4.2.0) lib/abstract_controller/base.rb:132:in `process'
+  actionview (4.2.0) lib/action_view/rendering.rb:30:in `process'
+  actionpack (4.2.0) lib/action_controller/metal.rb:195:in `dispatch'
+  actionpack (4.2.0) lib/action_controller/metal/rack_delegation.rb:13:in `dispatch'
+  actionpack (4.2.0) lib/action_controller/metal.rb:236:in `block in action'
+  actionpack (4.2.0) lib/action_dispatch/routing/route_set.rb:73:in `call'
+  actionpack (4.2.0) lib/action_dispatch/routing/route_set.rb:73:in `dispatch'
+  actionpack (4.2.0) lib/action_dispatch/routing/route_set.rb:42:in `serve'
+  actionpack (4.2.0) lib/action_dispatch/journey/router.rb:43:in `block in serve'
+  actionpack (4.2.0) lib/action_dispatch/journey/router.rb:30:in `each'
+  actionpack (4.2.0) lib/action_dispatch/journey/router.rb:30:in `serve'
+  actionpack (4.2.0) lib/action_dispatch/routing/route_set.rb:802:in `call'
+  omniauth (1.2.2) lib/omniauth/strategy.rb:186:in `call!'
+  omniauth (1.2.2) lib/omniauth/strategy.rb:164:in `call'
+  omniauth (1.2.2) lib/omniauth/builder.rb:59:in `call'
+  rack (1.6.0) lib/rack/etag.rb:24:in `call'
+  rack (1.6.0) lib/rack/conditionalget.rb:25:in `call'
+  rack (1.6.0) lib/rack/head.rb:13:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/params_parser.rb:27:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/flash.rb:260:in `call'
+  rack (1.6.0) lib/rack/session/abstract/id.rb:225:in `context'
+  rack (1.6.0) lib/rack/session/abstract/id.rb:220:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/cookies.rb:560:in `call'
+  activerecord (4.2.0) lib/active_record/query_cache.rb:36:in `call'
+  activerecord (4.2.0) lib/active_record/connection_adapters/abstract/connection_pool.rb:647:in `call'
+  activerecord (4.2.0) lib/active_record/migration.rb:378:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/callbacks.rb:29:in `block in call'
+  activesupport (4.2.0) lib/active_support/callbacks.rb:88:in `call'
+  activesupport (4.2.0) lib/active_support/callbacks.rb:88:in `_run_callbacks'
+  activesupport (4.2.0) lib/active_support/callbacks.rb:734:in `_run_call_callbacks'
+  activesupport (4.2.0) lib/active_support/callbacks.rb:81:in `run_callbacks'
+  actionpack (4.2.0) lib/action_dispatch/middleware/callbacks.rb:27:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/reloader.rb:73:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/remote_ip.rb:78:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/debug_exceptions.rb:17:in `call'
+  web-console (2.1.1) lib/web_console/middleware.rb:37:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.2.0) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.2.0) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.2.0) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.2.0) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.2.0) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.2.0) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.6.0) lib/rack/methodoverride.rb:22:in `call'
+  rack (1.6.0) lib/rack/runtime.rb:18:in `call'
+  activesupport (4.2.0) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+  rack (1.6.0) lib/rack/lock.rb:17:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/static.rb:113:in `call'
+  rack (1.6.0) lib/rack/sendfile.rb:113:in `call'
+  railties (4.2.0) lib/rails/engine.rb:518:in `call'
+  railties (4.2.0) lib/rails/application.rb:164:in `call'
+  rack (1.6.0) lib/rack/lock.rb:17:in `call'
+  rack (1.6.0) lib/rack/content_length.rb:15:in `call'
+  rack (1.6.0) lib/rack/handler/webrick.rb:89:in `service'
+  /Users/apprentice/.rbenv/versions/2.0.0-p353/lib/ruby/2.0.0/webrick/httpserver.rb:138:in `service'
+  /Users/apprentice/.rbenv/versions/2.0.0-p353/lib/ruby/2.0.0/webrick/httpserver.rb:94:in `run'
+  /Users/apprentice/.rbenv/versions/2.0.0-p353/lib/ruby/2.0.0/webrick/server.rb:295:in `block in start_thread'
+
+
+  Rendered /Users/apprentice/.rbenv/versions/2.0.0-p353/lib/ruby/gems/2.0.0/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/unknown_action.html.erb within rescues/layout (0.5ms)
+  Rendered /Users/apprentice/.rbenv/versions/2.0.0-p353/lib/ruby/gems/2.0.0/gems/web-console-2.1.1/lib/web_console/templates/_markup.html (0.3ms)
+  Rendered /Users/apprentice/.rbenv/versions/2.0.0-p353/lib/ruby/gems/2.0.0/gems/web-console-2.1.1/lib/web_console/templates/style.css within layouts/inlined_string (0.4ms)
+  Rendered /Users/apprentice/.rbenv/versions/2.0.0-p353/lib/ruby/gems/2.0.0/gems/web-console-2.1.1/lib/web_console/templates/_inner_console_markup.html within layouts/inlined_string (0.3ms)
+  Rendered /Users/apprentice/.rbenv/versions/2.0.0-p353/lib/ruby/gems/2.0.0/gems/web-console-2.1.1/lib/web_console/templates/_prompt_box_markup.html within layouts/inlined_string (0.4ms)
+  Rendered /Users/apprentice/.rbenv/versions/2.0.0-p353/lib/ruby/gems/2.0.0/gems/web-console-2.1.1/lib/web_console/templates/console.js within layouts/javascript (17.5ms)
+  Rendered /Users/apprentice/.rbenv/versions/2.0.0-p353/lib/ruby/gems/2.0.0/gems/web-console-2.1.1/lib/web_console/templates/main.js within layouts/javascript (0.4ms)
+  Rendered /Users/apprentice/.rbenv/versions/2.0.0-p353/lib/ruby/gems/2.0.0/gems/web-console-2.1.1/lib/web_console/templates/error_page.js within layouts/javascript (0.4ms)
+  Rendered /Users/apprentice/.rbenv/versions/2.0.0-p353/lib/ruby/gems/2.0.0/gems/web-console-2.1.1/lib/web_console/templates/index.html (37.3ms)
+
+
+Started GET "/reps/1" for ::1 at 2015-03-06 11:25:58 -0800
+Processing by RepsController#show as HTML
+  Parameters: {"id"=>"1"}
+  Rendered reps/show.html within layouts/application (0.4ms)
+  Rendered layouts/header.html.erb (0.1ms)
+Completed 200 OK in 172ms (Views: 170.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/header-b458c74bf76a22fd51c7f0b0d693913e.css?body=1" for ::1 at 2015-03-06 11:25:59 -0800
+
+
+Started GET "/assets/reps-64e62ddc273c2f5847f30d698ca14b67.css?body=1" for ::1 at 2015-03-06 11:25:59 -0800
+
+
+Started GET "/assets/profiles-348a2853b8b7a8a08e7b5e171be6a2ec.css?body=1" for ::1 at 2015-03-06 11:25:59 -0800
+
+
+Started GET "/assets/pledges-64e62ddc273c2f5847f30d698ca14b67.css?body=1" for ::1 at 2015-03-06 11:25:59 -0800
+
+
+Started GET "/assets/users-64e62ddc273c2f5847f30d698ca14b67.css?body=1" for ::1 at 2015-03-06 11:25:59 -0800
+
+
+Started GET "/assets/responsive.gs.12col-c3fe5b17c87aed0d5b4a9ef145ad0dea.css?body=1" for ::1 at 2015-03-06 11:25:59 -0800
+
+
+Started GET "/assets/welcome-64e62ddc273c2f5847f30d698ca14b67.css?body=1" for ::1 at 2015-03-06 11:25:59 -0800
+
+
+Started GET "/assets/application-cf5612d9dd4451d9b437176a56ebb7fe.css?body=1" for ::1 at 2015-03-06 11:25:59 -0800
+
+
+Started GET "/assets/jquery_ujs-e27bd20a10d28155845a22d71ef94f2f.js?body=1" for ::1 at 2015-03-06 11:25:59 -0800
+
+
+Started GET "/assets/jquery-87424c3c19e96d4fb033c10ebe21ec40.js?body=1" for ::1 at 2015-03-06 11:25:59 -0800
+
+
+Started GET "/assets/turbolinks-f87b3583ca50adb0488b031297f5580d.js?body=1" for ::1 at 2015-03-06 11:25:59 -0800
+
+
+Started GET "/assets/pledges-fcec5b5a277ac7c20cc9f45a209a3bcd.js?body=1" for ::1 at 2015-03-06 11:25:59 -0800
+
+
+Started GET "/assets/reps-fcec5b5a277ac7c20cc9f45a209a3bcd.js?body=1" for ::1 at 2015-03-06 11:25:59 -0800
+
+
+Started GET "/assets/users-fcec5b5a277ac7c20cc9f45a209a3bcd.js?body=1" for ::1 at 2015-03-06 11:25:59 -0800
+
+
+Started GET "/assets/welcome-fcec5b5a277ac7c20cc9f45a209a3bcd.js?body=1" for ::1 at 2015-03-06 11:25:59 -0800
+
+
+Started GET "/assets/application-299b0a99b8e39c4dee8d30bd871ead62.js?body=1" for ::1 at 2015-03-06 11:25:59 -0800
+
+
+Started GET "/reps/1" for ::1 at 2015-03-06 11:26:55 -0800
+Processing by RepsController#show as HTML
+  Parameters: {"id"=>"1"}
+  Rendered reps/show.html within layouts/application (0.4ms)
+  Rendered layouts/header.html.erb (0.1ms)
+Completed 200 OK in 231ms (Views: 230.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/header-b458c74bf76a22fd51c7f0b0d693913e.css?body=1" for ::1 at 2015-03-06 11:26:55 -0800
+
+
+Started GET "/assets/responsive.gs.12col-c3fe5b17c87aed0d5b4a9ef145ad0dea.css?body=1" for ::1 at 2015-03-06 11:26:55 -0800
+
+
+Started GET "/assets/pledges-64e62ddc273c2f5847f30d698ca14b67.css?body=1" for ::1 at 2015-03-06 11:26:55 -0800
+
+
+Started GET "/assets/profiles-348a2853b8b7a8a08e7b5e171be6a2ec.css?body=1" for ::1 at 2015-03-06 11:26:55 -0800
+
+
+Started GET "/assets/users-64e62ddc273c2f5847f30d698ca14b67.css?body=1" for ::1 at 2015-03-06 11:26:55 -0800
+
+
+Started GET "/assets/reps-64e62ddc273c2f5847f30d698ca14b67.css?body=1" for ::1 at 2015-03-06 11:26:55 -0800
+
+
+Started GET "/assets/application-cf5612d9dd4451d9b437176a56ebb7fe.css?body=1" for ::1 at 2015-03-06 11:26:55 -0800
+
+
+Started GET "/assets/welcome-64e62ddc273c2f5847f30d698ca14b67.css?body=1" for ::1 at 2015-03-06 11:26:55 -0800
+
+
+Started GET "/assets/jquery-87424c3c19e96d4fb033c10ebe21ec40.js?body=1" for ::1 at 2015-03-06 11:26:55 -0800
+
+
+Started GET "/assets/jquery_ujs-e27bd20a10d28155845a22d71ef94f2f.js?body=1" for ::1 at 2015-03-06 11:26:55 -0800
+
+
+Started GET "/assets/turbolinks-f87b3583ca50adb0488b031297f5580d.js?body=1" for ::1 at 2015-03-06 11:26:55 -0800
+
+
+Started GET "/assets/pledges-fcec5b5a277ac7c20cc9f45a209a3bcd.js?body=1" for ::1 at 2015-03-06 11:26:55 -0800
+
+
+Started GET "/assets/reps-fcec5b5a277ac7c20cc9f45a209a3bcd.js?body=1" for ::1 at 2015-03-06 11:26:55 -0800
+
+
+Started GET "/assets/users-fcec5b5a277ac7c20cc9f45a209a3bcd.js?body=1" for ::1 at 2015-03-06 11:26:55 -0800
+
+
+Started GET "/assets/welcome-fcec5b5a277ac7c20cc9f45a209a3bcd.js?body=1" for ::1 at 2015-03-06 11:26:55 -0800
+
+
+Started GET "/assets/application-299b0a99b8e39c4dee8d30bd871ead62.js?body=1" for ::1 at 2015-03-06 11:26:55 -0800
+
+
+Started GET "/reps/1" for ::1 at 2015-03-06 11:27:34 -0800
+Processing by RepsController#show as HTML
+  Parameters: {"id"=>"1"}
+  Rendered reps/show.html within layouts/application (0.0ms)
+  Rendered layouts/header.html.erb (0.1ms)
+Completed 200 OK in 170ms (Views: 169.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/header-b458c74bf76a22fd51c7f0b0d693913e.css?body=1" for ::1 at 2015-03-06 11:27:34 -0800
+
+
+Started GET "/assets/pledges-64e62ddc273c2f5847f30d698ca14b67.css?body=1" for ::1 at 2015-03-06 11:27:34 -0800
+
+
+Started GET "/assets/profiles-348a2853b8b7a8a08e7b5e171be6a2ec.css?body=1" for ::1 at 2015-03-06 11:27:34 -0800
+
+
+Started GET "/assets/responsive.gs.12col-c3fe5b17c87aed0d5b4a9ef145ad0dea.css?body=1" for ::1 at 2015-03-06 11:27:34 -0800
+
+
+Started GET "/assets/users-64e62ddc273c2f5847f30d698ca14b67.css?body=1" for ::1 at 2015-03-06 11:27:34 -0800
+
+
+Started GET "/assets/reps-64e62ddc273c2f5847f30d698ca14b67.css?body=1" for ::1 at 2015-03-06 11:27:34 -0800
+
+
+Started GET "/assets/welcome-64e62ddc273c2f5847f30d698ca14b67.css?body=1" for ::1 at 2015-03-06 11:27:34 -0800
+
+
+Started GET "/assets/application-cf5612d9dd4451d9b437176a56ebb7fe.css?body=1" for ::1 at 2015-03-06 11:27:34 -0800
+
+
+Started GET "/assets/jquery-87424c3c19e96d4fb033c10ebe21ec40.js?body=1" for ::1 at 2015-03-06 11:27:34 -0800
+
+
+Started GET "/assets/jquery_ujs-e27bd20a10d28155845a22d71ef94f2f.js?body=1" for ::1 at 2015-03-06 11:27:34 -0800
+
+
+Started GET "/assets/pledges-fcec5b5a277ac7c20cc9f45a209a3bcd.js?body=1" for ::1 at 2015-03-06 11:27:34 -0800
+
+
+Started GET "/assets/turbolinks-f87b3583ca50adb0488b031297f5580d.js?body=1" for ::1 at 2015-03-06 11:27:34 -0800
+
+
+Started GET "/assets/reps-fcec5b5a277ac7c20cc9f45a209a3bcd.js?body=1" for ::1 at 2015-03-06 11:27:34 -0800
+
+
+Started GET "/assets/users-fcec5b5a277ac7c20cc9f45a209a3bcd.js?body=1" for ::1 at 2015-03-06 11:27:34 -0800
+
+
+Started GET "/assets/welcome-fcec5b5a277ac7c20cc9f45a209a3bcd.js?body=1" for ::1 at 2015-03-06 11:27:35 -0800
+
+
+Started GET "/assets/application-299b0a99b8e39c4dee8d30bd871ead62.js?body=1" for ::1 at 2015-03-06 11:27:35 -0800
+
+
+Started GET "/reps/1" for ::1 at 2015-03-06 11:28:05 -0800
+Processing by RepsController#show as HTML
+  Parameters: {"id"=>"1"}
+  Rendered reps/show.html within layouts/application (0.5ms)
+  Rendered layouts/header.html.erb (0.1ms)
+Completed 200 OK in 164ms (Views: 163.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/header-b458c74bf76a22fd51c7f0b0d693913e.css?body=1" for ::1 at 2015-03-06 11:28:06 -0800
+
+
+Started GET "/assets/users-64e62ddc273c2f5847f30d698ca14b67.css?body=1" for ::1 at 2015-03-06 11:28:06 -0800
+
+
+Started GET "/assets/profiles-348a2853b8b7a8a08e7b5e171be6a2ec.css?body=1" for ::1 at 2015-03-06 11:28:06 -0800
+
+
+Started GET "/assets/reps-64e62ddc273c2f5847f30d698ca14b67.css?body=1" for ::1 at 2015-03-06 11:28:06 -0800
+
+
+Started GET "/assets/responsive.gs.12col-c3fe5b17c87aed0d5b4a9ef145ad0dea.css?body=1" for ::1 at 2015-03-06 11:28:06 -0800
+
+
+Started GET "/assets/pledges-64e62ddc273c2f5847f30d698ca14b67.css?body=1" for ::1 at 2015-03-06 11:28:06 -0800
+
+
+Started GET "/assets/welcome-64e62ddc273c2f5847f30d698ca14b67.css?body=1" for ::1 at 2015-03-06 11:28:06 -0800
+
+
+Started GET "/assets/application-cf5612d9dd4451d9b437176a56ebb7fe.css?body=1" for ::1 at 2015-03-06 11:28:06 -0800
+
+
+Started GET "/assets/jquery-87424c3c19e96d4fb033c10ebe21ec40.js?body=1" for ::1 at 2015-03-06 11:28:06 -0800
+
+
+Started GET "/assets/jquery_ujs-e27bd20a10d28155845a22d71ef94f2f.js?body=1" for ::1 at 2015-03-06 11:28:06 -0800
+
+
+Started GET "/assets/turbolinks-f87b3583ca50adb0488b031297f5580d.js?body=1" for ::1 at 2015-03-06 11:28:06 -0800
+
+
+Started GET "/assets/pledges-fcec5b5a277ac7c20cc9f45a209a3bcd.js?body=1" for ::1 at 2015-03-06 11:28:06 -0800
+
+
+Started GET "/assets/reps-fcec5b5a277ac7c20cc9f45a209a3bcd.js?body=1" for ::1 at 2015-03-06 11:28:06 -0800
+
+
+Started GET "/assets/users-fcec5b5a277ac7c20cc9f45a209a3bcd.js?body=1" for ::1 at 2015-03-06 11:28:06 -0800
+
+
+Started GET "/assets/welcome-fcec5b5a277ac7c20cc9f45a209a3bcd.js?body=1" for ::1 at 2015-03-06 11:28:06 -0800
+
+
+Started GET "/assets/application-299b0a99b8e39c4dee8d30bd871ead62.js?body=1" for ::1 at 2015-03-06 11:28:06 -0800
+
+
+Started GET "/rep" for ::1 at 2015-03-06 11:30:31 -0800
+
+ActionController::RoutingError (No route matches [GET] "/rep"):
+  actionpack (4.2.0) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  web-console (2.1.1) lib/web_console/middleware.rb:37:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.2.0) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.2.0) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.2.0) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.2.0) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.2.0) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.2.0) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.6.0) lib/rack/methodoverride.rb:22:in `call'
+  rack (1.6.0) lib/rack/runtime.rb:18:in `call'
+  activesupport (4.2.0) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+  rack (1.6.0) lib/rack/lock.rb:17:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/static.rb:113:in `call'
+  rack (1.6.0) lib/rack/sendfile.rb:113:in `call'
+  railties (4.2.0) lib/rails/engine.rb:518:in `call'
+  railties (4.2.0) lib/rails/application.rb:164:in `call'
+  rack (1.6.0) lib/rack/lock.rb:17:in `call'
+  rack (1.6.0) lib/rack/content_length.rb:15:in `call'
+  rack (1.6.0) lib/rack/handler/webrick.rb:89:in `service'
+  /Users/apprentice/.rbenv/versions/2.0.0-p353/lib/ruby/2.0.0/webrick/httpserver.rb:138:in `service'
+  /Users/apprentice/.rbenv/versions/2.0.0-p353/lib/ruby/2.0.0/webrick/httpserver.rb:94:in `run'
+  /Users/apprentice/.rbenv/versions/2.0.0-p353/lib/ruby/2.0.0/webrick/server.rb:295:in `block in start_thread'
+
+
+  Rendered /Users/apprentice/.rbenv/versions/2.0.0-p353/lib/ruby/gems/2.0.0/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.6ms)
+  Rendered /Users/apprentice/.rbenv/versions/2.0.0-p353/lib/ruby/gems/2.0.0/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/routes/_route.html.erb (2.6ms)
+  Rendered /Users/apprentice/.rbenv/versions/2.0.0-p353/lib/ruby/gems/2.0.0/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/routes/_table.html.erb (36.6ms)
+  Rendered /Users/apprentice/.rbenv/versions/2.0.0-p353/lib/ruby/gems/2.0.0/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.4ms)
+  Rendered /Users/apprentice/.rbenv/versions/2.0.0-p353/lib/ruby/gems/2.0.0/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (81.1ms)
+  Rendered /Users/apprentice/.rbenv/versions/2.0.0-p353/lib/ruby/gems/2.0.0/gems/web-console-2.1.1/lib/web_console/templates/_markup.html (0.3ms)
+  Rendered /Users/apprentice/.rbenv/versions/2.0.0-p353/lib/ruby/gems/2.0.0/gems/web-console-2.1.1/lib/web_console/templates/style.css within layouts/inlined_string (0.4ms)
+  Rendered /Users/apprentice/.rbenv/versions/2.0.0-p353/lib/ruby/gems/2.0.0/gems/web-console-2.1.1/lib/web_console/templates/_inner_console_markup.html within layouts/inlined_string (0.4ms)
+  Rendered /Users/apprentice/.rbenv/versions/2.0.0-p353/lib/ruby/gems/2.0.0/gems/web-console-2.1.1/lib/web_console/templates/_prompt_box_markup.html within layouts/inlined_string (0.3ms)
+  Rendered /Users/apprentice/.rbenv/versions/2.0.0-p353/lib/ruby/gems/2.0.0/gems/web-console-2.1.1/lib/web_console/templates/console.js within layouts/javascript (17.6ms)
+  Rendered /Users/apprentice/.rbenv/versions/2.0.0-p353/lib/ruby/gems/2.0.0/gems/web-console-2.1.1/lib/web_console/templates/main.js within layouts/javascript (0.3ms)
+  Rendered /Users/apprentice/.rbenv/versions/2.0.0-p353/lib/ruby/gems/2.0.0/gems/web-console-2.1.1/lib/web_console/templates/error_page.js within layouts/javascript (0.4ms)
+  Rendered /Users/apprentice/.rbenv/versions/2.0.0-p353/lib/ruby/gems/2.0.0/gems/web-console-2.1.1/lib/web_console/templates/index.html (36.0ms)
+
+
+Started GET "/reps" for ::1 at 2015-03-06 11:30:33 -0800
+Processing by RepsController#index as HTML
+  Rendered reps/index.html within layouts/application (0.4ms)
+  Rendered layouts/header.html.erb (0.1ms)
+Completed 200 OK in 157ms (Views: 156.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/header-b458c74bf76a22fd51c7f0b0d693913e.css?body=1" for ::1 at 2015-03-06 11:30:33 -0800
+
+
+Started GET "/assets/pledges-64e62ddc273c2f5847f30d698ca14b67.css?body=1" for ::1 at 2015-03-06 11:30:33 -0800
+
+
+Started GET "/assets/users-64e62ddc273c2f5847f30d698ca14b67.css?body=1" for ::1 at 2015-03-06 11:30:33 -0800
+
+
+Started GET "/assets/reps-64e62ddc273c2f5847f30d698ca14b67.css?body=1" for ::1 at 2015-03-06 11:30:33 -0800
+
+
+Started GET "/assets/profiles-348a2853b8b7a8a08e7b5e171be6a2ec.css?body=1" for ::1 at 2015-03-06 11:30:33 -0800
+
+
+Started GET "/assets/responsive.gs.12col-c3fe5b17c87aed0d5b4a9ef145ad0dea.css?body=1" for ::1 at 2015-03-06 11:30:33 -0800
+
+
+Started GET "/assets/application-cf5612d9dd4451d9b437176a56ebb7fe.css?body=1" for ::1 at 2015-03-06 11:30:33 -0800
+
+
+Started GET "/assets/welcome-64e62ddc273c2f5847f30d698ca14b67.css?body=1" for ::1 at 2015-03-06 11:30:33 -0800
+
+
+Started GET "/assets/jquery-87424c3c19e96d4fb033c10ebe21ec40.js?body=1" for ::1 at 2015-03-06 11:30:33 -0800
+
+
+Started GET "/assets/jquery_ujs-e27bd20a10d28155845a22d71ef94f2f.js?body=1" for ::1 at 2015-03-06 11:30:33 -0800
+
+
+Started GET "/assets/turbolinks-f87b3583ca50adb0488b031297f5580d.js?body=1" for ::1 at 2015-03-06 11:30:33 -0800
+
+
+Started GET "/assets/pledges-fcec5b5a277ac7c20cc9f45a209a3bcd.js?body=1" for ::1 at 2015-03-06 11:30:33 -0800
+
+
+Started GET "/assets/reps-fcec5b5a277ac7c20cc9f45a209a3bcd.js?body=1" for ::1 at 2015-03-06 11:30:33 -0800
+
+
+Started GET "/assets/users-fcec5b5a277ac7c20cc9f45a209a3bcd.js?body=1" for ::1 at 2015-03-06 11:30:33 -0800
+
+
+Started GET "/assets/welcome-fcec5b5a277ac7c20cc9f45a209a3bcd.js?body=1" for ::1 at 2015-03-06 11:30:33 -0800
+
+
+Started GET "/assets/application-299b0a99b8e39c4dee8d30bd871ead62.js?body=1" for ::1 at 2015-03-06 11:30:33 -0800
+
+
+Started GET "/reps" for ::1 at 2015-03-06 11:31:33 -0800
+Processing by RepsController#index as HTML
+  Rendered reps/index.html within layouts/application (0.4ms)
+  Rendered layouts/header.html.erb (0.1ms)
+Completed 200 OK in 223ms (Views: 222.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/header-b458c74bf76a22fd51c7f0b0d693913e.css?body=1" for ::1 at 2015-03-06 11:31:33 -0800
+
+
+Started GET "/assets/pledges-64e62ddc273c2f5847f30d698ca14b67.css?body=1" for ::1 at 2015-03-06 11:31:33 -0800
+
+
+Started GET "/assets/responsive.gs.12col-c3fe5b17c87aed0d5b4a9ef145ad0dea.css?body=1" for ::1 at 2015-03-06 11:31:33 -0800
+
+
+Started GET "/assets/reps-64e62ddc273c2f5847f30d698ca14b67.css?body=1" for ::1 at 2015-03-06 11:31:33 -0800
+
+
+Started GET "/assets/users-64e62ddc273c2f5847f30d698ca14b67.css?body=1" for ::1 at 2015-03-06 11:31:33 -0800
+
+
+Started GET "/assets/profiles-348a2853b8b7a8a08e7b5e171be6a2ec.css?body=1" for ::1 at 2015-03-06 11:31:33 -0800
+
+
+Started GET "/assets/welcome-64e62ddc273c2f5847f30d698ca14b67.css?body=1" for ::1 at 2015-03-06 11:31:33 -0800
+
+
+Started GET "/assets/application-cf5612d9dd4451d9b437176a56ebb7fe.css?body=1" for ::1 at 2015-03-06 11:31:33 -0800
+
+
+Started GET "/assets/jquery-87424c3c19e96d4fb033c10ebe21ec40.js?body=1" for ::1 at 2015-03-06 11:31:33 -0800
+
+
+Started GET "/assets/jquery_ujs-e27bd20a10d28155845a22d71ef94f2f.js?body=1" for ::1 at 2015-03-06 11:31:33 -0800
+
+
+Started GET "/assets/turbolinks-f87b3583ca50adb0488b031297f5580d.js?body=1" for ::1 at 2015-03-06 11:31:33 -0800
+
+
+Started GET "/assets/pledges-fcec5b5a277ac7c20cc9f45a209a3bcd.js?body=1" for ::1 at 2015-03-06 11:31:33 -0800
+
+
+Started GET "/assets/reps-fcec5b5a277ac7c20cc9f45a209a3bcd.js?body=1" for ::1 at 2015-03-06 11:31:33 -0800
+
+
+Started GET "/assets/users-fcec5b5a277ac7c20cc9f45a209a3bcd.js?body=1" for ::1 at 2015-03-06 11:31:33 -0800
+
+
+Started GET "/assets/welcome-fcec5b5a277ac7c20cc9f45a209a3bcd.js?body=1" for ::1 at 2015-03-06 11:31:33 -0800
+
+
+Started GET "/assets/application-299b0a99b8e39c4dee8d30bd871ead62.js?body=1" for ::1 at 2015-03-06 11:31:33 -0800
+
+
+Started GET "/reps/1" for ::1 at 2015-03-06 11:32:35 -0800
+Processing by RepsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mRep Load (0.5ms)[0m  SELECT  "reps".* FROM "reps" WHERE "reps"."id" = $1 LIMIT 1  [["id", 1]]
+Completed 200 OK in 15ms (Views: 0.6ms | ActiveRecord: 2.7ms)
+
+
+Started GET "/reps" for ::1 at 2015-03-06 11:32:52 -0800
+Processing by RepsController#index as HTML
+  Rendered reps/index.html within layouts/application (0.1ms)
+  Rendered layouts/header.html.erb (0.1ms)
+Completed 200 OK in 164ms (Views: 162.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/header-b458c74bf76a22fd51c7f0b0d693913e.css?body=1" for ::1 at 2015-03-06 11:32:52 -0800
+
+
+Started GET "/assets/pledges-64e62ddc273c2f5847f30d698ca14b67.css?body=1" for ::1 at 2015-03-06 11:32:52 -0800
+
+
+Started GET "/assets/users-64e62ddc273c2f5847f30d698ca14b67.css?body=1" for ::1 at 2015-03-06 11:32:52 -0800
+
+
+Started GET "/assets/responsive.gs.12col-c3fe5b17c87aed0d5b4a9ef145ad0dea.css?body=1" for ::1 at 2015-03-06 11:32:52 -0800
+
+
+Started GET "/assets/profiles-348a2853b8b7a8a08e7b5e171be6a2ec.css?body=1" for ::1 at 2015-03-06 11:32:52 -0800
+
+
+Started GET "/assets/reps-64e62ddc273c2f5847f30d698ca14b67.css?body=1" for ::1 at 2015-03-06 11:32:52 -0800
+
+
+Started GET "/assets/welcome-64e62ddc273c2f5847f30d698ca14b67.css?body=1" for ::1 at 2015-03-06 11:32:52 -0800
+
+
+Started GET "/assets/application-cf5612d9dd4451d9b437176a56ebb7fe.css?body=1" for ::1 at 2015-03-06 11:32:52 -0800
+
+
+Started GET "/assets/jquery-87424c3c19e96d4fb033c10ebe21ec40.js?body=1" for ::1 at 2015-03-06 11:32:52 -0800
+
+
+Started GET "/assets/turbolinks-f87b3583ca50adb0488b031297f5580d.js?body=1" for ::1 at 2015-03-06 11:32:52 -0800
+
+
+Started GET "/assets/pledges-fcec5b5a277ac7c20cc9f45a209a3bcd.js?body=1" for ::1 at 2015-03-06 11:32:52 -0800
+
+
+Started GET "/assets/reps-fcec5b5a277ac7c20cc9f45a209a3bcd.js?body=1" for ::1 at 2015-03-06 11:32:52 -0800
+
+
+Started GET "/assets/users-fcec5b5a277ac7c20cc9f45a209a3bcd.js?body=1" for ::1 at 2015-03-06 11:32:52 -0800
+
+
+Started GET "/assets/welcome-fcec5b5a277ac7c20cc9f45a209a3bcd.js?body=1" for ::1 at 2015-03-06 11:32:52 -0800
+
+
+Started GET "/assets/jquery_ujs-e27bd20a10d28155845a22d71ef94f2f.js?body=1" for ::1 at 2015-03-06 11:32:52 -0800
+
+
+Started GET "/assets/application-299b0a99b8e39c4dee8d30bd871ead62.js?body=1" for ::1 at 2015-03-06 11:32:52 -0800
+
+
+Started GET "/reps/1" for ::1 at 2015-03-06 11:33:00 -0800
+Processing by RepsController#show as */*
+  Parameters: {"id"=>"1"}
+  [1m[36mRep Load (0.4ms)[0m  [1mSELECT  "reps".* FROM "reps" WHERE "reps"."id" = $1 LIMIT 1[0m  [["id", 1]]
+Completed 200 OK in 3ms (Views: 0.6ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/reps" for ::1 at 2015-03-06 11:34:45 -0800
+Processing by RepsController#index as HTML
+  Rendered reps/index.html within layouts/application (0.4ms)
+  Rendered layouts/header.html.erb (0.1ms)
+Completed 200 OK in 165ms (Views: 164.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/header-b458c74bf76a22fd51c7f0b0d693913e.css?body=1" for ::1 at 2015-03-06 11:34:45 -0800
+
+
+Started GET "/assets/profiles-348a2853b8b7a8a08e7b5e171be6a2ec.css?body=1" for ::1 at 2015-03-06 11:34:45 -0800
+
+
+Started GET "/assets/users-64e62ddc273c2f5847f30d698ca14b67.css?body=1" for ::1 at 2015-03-06 11:34:45 -0800
+
+
+Started GET "/assets/responsive.gs.12col-c3fe5b17c87aed0d5b4a9ef145ad0dea.css?body=1" for ::1 at 2015-03-06 11:34:45 -0800
+
+
+Started GET "/assets/reps-64e62ddc273c2f5847f30d698ca14b67.css?body=1" for ::1 at 2015-03-06 11:34:45 -0800
+
+
+Started GET "/assets/pledges-64e62ddc273c2f5847f30d698ca14b67.css?body=1" for ::1 at 2015-03-06 11:34:45 -0800
+
+
+Started GET "/assets/welcome-64e62ddc273c2f5847f30d698ca14b67.css?body=1" for ::1 at 2015-03-06 11:34:45 -0800
+
+
+Started GET "/assets/application-cf5612d9dd4451d9b437176a56ebb7fe.css?body=1" for ::1 at 2015-03-06 11:34:45 -0800
+
+
+Started GET "/assets/jquery-87424c3c19e96d4fb033c10ebe21ec40.js?body=1" for ::1 at 2015-03-06 11:34:45 -0800
+
+
+Started GET "/assets/jquery_ujs-e27bd20a10d28155845a22d71ef94f2f.js?body=1" for ::1 at 2015-03-06 11:34:45 -0800
+
+
+Started GET "/assets/turbolinks-f87b3583ca50adb0488b031297f5580d.js?body=1" for ::1 at 2015-03-06 11:34:45 -0800
+
+
+Started GET "/assets/pledges-fcec5b5a277ac7c20cc9f45a209a3bcd.js?body=1" for ::1 at 2015-03-06 11:34:45 -0800
+
+
+Started GET "/assets/reps-fcec5b5a277ac7c20cc9f45a209a3bcd.js?body=1" for ::1 at 2015-03-06 11:34:45 -0800
+
+
+Started GET "/assets/users-fcec5b5a277ac7c20cc9f45a209a3bcd.js?body=1" for ::1 at 2015-03-06 11:34:45 -0800
+
+
+Started GET "/assets/welcome-fcec5b5a277ac7c20cc9f45a209a3bcd.js?body=1" for ::1 at 2015-03-06 11:34:45 -0800
+
+
+Started GET "/assets/application-299b0a99b8e39c4dee8d30bd871ead62.js?body=1" for ::1 at 2015-03-06 11:34:45 -0800
+
+
+Started GET "/reps/1" for ::1 at 2015-03-06 11:34:48 -0800
+Processing by RepsController#show as */*
+  Parameters: {"id"=>"1"}
+  [1m[35mRep Load (0.3ms)[0m  SELECT  "reps".* FROM "reps" WHERE "reps"."id" = $1 LIMIT 1  [["id", 1]]
+Completed 200 OK in 2ms (Views: 0.6ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/reps" for ::1 at 2015-03-06 11:35:02 -0800
+Processing by RepsController#index as HTML
+  Rendered reps/index.html within layouts/application (0.7ms)
+  Rendered layouts/header.html.erb (0.1ms)
+Completed 200 OK in 170ms (Views: 169.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/header-b458c74bf76a22fd51c7f0b0d693913e.css?body=1" for ::1 at 2015-03-06 11:35:02 -0800
+
+
+Started GET "/assets/responsive.gs.12col-c3fe5b17c87aed0d5b4a9ef145ad0dea.css?body=1" for ::1 at 2015-03-06 11:35:02 -0800
+
+
+Started GET "/assets/users-64e62ddc273c2f5847f30d698ca14b67.css?body=1" for ::1 at 2015-03-06 11:35:02 -0800
+
+
+Started GET "/assets/reps-64e62ddc273c2f5847f30d698ca14b67.css?body=1" for ::1 at 2015-03-06 11:35:02 -0800
+
+
+Started GET "/assets/profiles-348a2853b8b7a8a08e7b5e171be6a2ec.css?body=1" for ::1 at 2015-03-06 11:35:02 -0800
+
+
+Started GET "/assets/pledges-64e62ddc273c2f5847f30d698ca14b67.css?body=1" for ::1 at 2015-03-06 11:35:02 -0800
+
+
+Started GET "/assets/welcome-64e62ddc273c2f5847f30d698ca14b67.css?body=1" for ::1 at 2015-03-06 11:35:02 -0800
+
+
+Started GET "/assets/application-cf5612d9dd4451d9b437176a56ebb7fe.css?body=1" for ::1 at 2015-03-06 11:35:02 -0800
+
+
+Started GET "/assets/jquery-87424c3c19e96d4fb033c10ebe21ec40.js?body=1" for ::1 at 2015-03-06 11:35:02 -0800
+
+
+Started GET "/assets/welcome-fcec5b5a277ac7c20cc9f45a209a3bcd.js?body=1" for ::1 at 2015-03-06 11:35:02 -0800
+
+
+Started GET "/assets/turbolinks-f87b3583ca50adb0488b031297f5580d.js?body=1" for ::1 at 2015-03-06 11:35:02 -0800
+
+
+Started GET "/assets/pledges-fcec5b5a277ac7c20cc9f45a209a3bcd.js?body=1" for ::1 at 2015-03-06 11:35:02 -0800
+
+
+Started GET "/assets/reps-fcec5b5a277ac7c20cc9f45a209a3bcd.js?body=1" for ::1 at 2015-03-06 11:35:02 -0800
+
+
+Started GET "/assets/users-fcec5b5a277ac7c20cc9f45a209a3bcd.js?body=1" for ::1 at 2015-03-06 11:35:02 -0800
+
+
+Started GET "/assets/jquery_ujs-e27bd20a10d28155845a22d71ef94f2f.js?body=1" for ::1 at 2015-03-06 11:35:02 -0800
+
+
+Started GET "/assets/application-299b0a99b8e39c4dee8d30bd871ead62.js?body=1" for ::1 at 2015-03-06 11:35:02 -0800
+
+
+Started GET "/reps/1" for ::1 at 2015-03-06 11:35:04 -0800
+Processing by RepsController#show as */*
+  Parameters: {"id"=>"1"}
+  [1m[36mRep Load (0.3ms)[0m  [1mSELECT  "reps".* FROM "reps" WHERE "reps"."id" = $1 LIMIT 1[0m  [["id", 1]]
+Completed 200 OK in 2ms (Views: 0.6ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/reps" for ::1 at 2015-03-06 11:35:26 -0800
+Processing by RepsController#index as HTML
+  Rendered reps/index.html within layouts/application (0.4ms)
+  Rendered layouts/header.html.erb (0.1ms)
+Completed 200 OK in 234ms (Views: 233.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/header-b458c74bf76a22fd51c7f0b0d693913e.css?body=1" for ::1 at 2015-03-06 11:35:26 -0800
+
+
+Started GET "/assets/pledges-64e62ddc273c2f5847f30d698ca14b67.css?body=1" for ::1 at 2015-03-06 11:35:26 -0800
+
+
+Started GET "/assets/reps-64e62ddc273c2f5847f30d698ca14b67.css?body=1" for ::1 at 2015-03-06 11:35:27 -0800
+
+
+Started GET "/assets/profiles-348a2853b8b7a8a08e7b5e171be6a2ec.css?body=1" for ::1 at 2015-03-06 11:35:27 -0800
+
+
+Started GET "/assets/users-64e62ddc273c2f5847f30d698ca14b67.css?body=1" for ::1 at 2015-03-06 11:35:27 -0800
+
+
+Started GET "/assets/responsive.gs.12col-c3fe5b17c87aed0d5b4a9ef145ad0dea.css?body=1" for ::1 at 2015-03-06 11:35:27 -0800
+
+
+Started GET "/assets/welcome-64e62ddc273c2f5847f30d698ca14b67.css?body=1" for ::1 at 2015-03-06 11:35:27 -0800
+
+
+Started GET "/assets/application-cf5612d9dd4451d9b437176a56ebb7fe.css?body=1" for ::1 at 2015-03-06 11:35:27 -0800
+
+
+Started GET "/assets/jquery-87424c3c19e96d4fb033c10ebe21ec40.js?body=1" for ::1 at 2015-03-06 11:35:27 -0800
+
+
+Started GET "/assets/jquery_ujs-e27bd20a10d28155845a22d71ef94f2f.js?body=1" for ::1 at 2015-03-06 11:35:27 -0800
+
+
+Started GET "/assets/turbolinks-f87b3583ca50adb0488b031297f5580d.js?body=1" for ::1 at 2015-03-06 11:35:27 -0800
+
+
+Started GET "/assets/pledges-fcec5b5a277ac7c20cc9f45a209a3bcd.js?body=1" for ::1 at 2015-03-06 11:35:27 -0800
+
+
+Started GET "/assets/users-fcec5b5a277ac7c20cc9f45a209a3bcd.js?body=1" for ::1 at 2015-03-06 11:35:27 -0800
+
+
+Started GET "/assets/welcome-fcec5b5a277ac7c20cc9f45a209a3bcd.js?body=1" for ::1 at 2015-03-06 11:35:27 -0800
+
+
+Started GET "/assets/reps-fcec5b5a277ac7c20cc9f45a209a3bcd.js?body=1" for ::1 at 2015-03-06 11:35:27 -0800
+
+
+Started GET "/assets/application-299b0a99b8e39c4dee8d30bd871ead62.js?body=1" for ::1 at 2015-03-06 11:35:27 -0800
+
+
+Started GET "/reps/1" for ::1 at 2015-03-06 11:35:32 -0800
+Processing by RepsController#show as */*
+  Parameters: {"id"=>"1"}
+  [1m[35mRep Load (0.3ms)[0m  SELECT  "reps".* FROM "reps" WHERE "reps"."id" = $1 LIMIT 1  [["id", 1]]
+Completed 200 OK in 2ms (Views: 0.6ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/reps/1" for ::1 at 2015-03-06 11:35:37 -0800
+Processing by RepsController#show as */*
+  Parameters: {"id"=>"1"}
+  [1m[36mRep Load (0.3ms)[0m  [1mSELECT  "reps".* FROM "reps" WHERE "reps"."id" = $1 LIMIT 1[0m  [["id", 1]]
+Completed 200 OK in 2ms (Views: 0.5ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/reps" for ::1 at 2015-03-06 11:37:27 -0800
+Processing by RepsController#index as HTML
+  Rendered reps/index.html within layouts/application (0.4ms)
+  Rendered layouts/header.html.erb (0.1ms)
+Completed 200 OK in 168ms (Views: 167.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/header-b458c74bf76a22fd51c7f0b0d693913e.css?body=1" for ::1 at 2015-03-06 11:37:27 -0800
+
+
+Started GET "/assets/pledges-64e62ddc273c2f5847f30d698ca14b67.css?body=1" for ::1 at 2015-03-06 11:37:27 -0800
+
+
+Started GET "/assets/responsive.gs.12col-c3fe5b17c87aed0d5b4a9ef145ad0dea.css?body=1" for ::1 at 2015-03-06 11:37:27 -0800
+
+
+Started GET "/assets/profiles-348a2853b8b7a8a08e7b5e171be6a2ec.css?body=1" for ::1 at 2015-03-06 11:37:27 -0800
+
+
+Started GET "/assets/users-64e62ddc273c2f5847f30d698ca14b67.css?body=1" for ::1 at 2015-03-06 11:37:27 -0800
+
+
+Started GET "/assets/reps-64e62ddc273c2f5847f30d698ca14b67.css?body=1" for ::1 at 2015-03-06 11:37:27 -0800
+
+
+Started GET "/assets/welcome-64e62ddc273c2f5847f30d698ca14b67.css?body=1" for ::1 at 2015-03-06 11:37:27 -0800
+
+
+Started GET "/assets/application-cf5612d9dd4451d9b437176a56ebb7fe.css?body=1" for ::1 at 2015-03-06 11:37:27 -0800
+
+
+Started GET "/assets/jquery-87424c3c19e96d4fb033c10ebe21ec40.js?body=1" for ::1 at 2015-03-06 11:37:27 -0800
+
+
+Started GET "/assets/jquery_ujs-e27bd20a10d28155845a22d71ef94f2f.js?body=1" for ::1 at 2015-03-06 11:37:27 -0800
+
+
+Started GET "/assets/turbolinks-f87b3583ca50adb0488b031297f5580d.js?body=1" for ::1 at 2015-03-06 11:37:27 -0800
+
+
+Started GET "/assets/pledges-fcec5b5a277ac7c20cc9f45a209a3bcd.js?body=1" for ::1 at 2015-03-06 11:37:27 -0800
+
+
+Started GET "/assets/reps-fcec5b5a277ac7c20cc9f45a209a3bcd.js?body=1" for ::1 at 2015-03-06 11:37:27 -0800
+
+
+Started GET "/assets/users-fcec5b5a277ac7c20cc9f45a209a3bcd.js?body=1" for ::1 at 2015-03-06 11:37:27 -0800
+
+
+Started GET "/assets/welcome-fcec5b5a277ac7c20cc9f45a209a3bcd.js?body=1" for ::1 at 2015-03-06 11:37:27 -0800
+
+
+Started GET "/assets/application-299b0a99b8e39c4dee8d30bd871ead62.js?body=1" for ::1 at 2015-03-06 11:37:27 -0800
+
+
+Started GET "/reps/1" for ::1 at 2015-03-06 11:37:30 -0800
+Processing by RepsController#show as */*
+  Parameters: {"id"=>"1"}
+  [1m[35mRep Load (0.2ms)[0m  SELECT  "reps".* FROM "reps" WHERE "reps"."id" = $1 LIMIT 1  [["id", 1]]
+Completed 200 OK in 2ms (Views: 0.6ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/reps" for ::1 at 2015-03-06 11:37:59 -0800
+Processing by RepsController#index as HTML
+  Rendered reps/index.html within layouts/application (0.4ms)
+  Rendered layouts/header.html.erb (0.1ms)
+Completed 200 OK in 226ms (Views: 225.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/header-b458c74bf76a22fd51c7f0b0d693913e.css?body=1" for ::1 at 2015-03-06 11:38:00 -0800
+
+
+Started GET "/assets/profiles-348a2853b8b7a8a08e7b5e171be6a2ec.css?body=1" for ::1 at 2015-03-06 11:38:00 -0800
+
+
+Started GET "/assets/users-64e62ddc273c2f5847f30d698ca14b67.css?body=1" for ::1 at 2015-03-06 11:38:00 -0800
+
+
+Started GET "/assets/responsive.gs.12col-c3fe5b17c87aed0d5b4a9ef145ad0dea.css?body=1" for ::1 at 2015-03-06 11:38:00 -0800
+
+
+Started GET "/assets/reps-64e62ddc273c2f5847f30d698ca14b67.css?body=1" for ::1 at 2015-03-06 11:38:00 -0800
+
+
+Started GET "/assets/pledges-64e62ddc273c2f5847f30d698ca14b67.css?body=1" for ::1 at 2015-03-06 11:38:00 -0800
+
+
+Started GET "/assets/welcome-64e62ddc273c2f5847f30d698ca14b67.css?body=1" for ::1 at 2015-03-06 11:38:00 -0800
+
+
+Started GET "/assets/application-cf5612d9dd4451d9b437176a56ebb7fe.css?body=1" for ::1 at 2015-03-06 11:38:00 -0800
+
+
+Started GET "/assets/jquery-87424c3c19e96d4fb033c10ebe21ec40.js?body=1" for ::1 at 2015-03-06 11:38:00 -0800
+
+
+Started GET "/assets/jquery_ujs-e27bd20a10d28155845a22d71ef94f2f.js?body=1" for ::1 at 2015-03-06 11:38:00 -0800
+
+
+Started GET "/assets/turbolinks-f87b3583ca50adb0488b031297f5580d.js?body=1" for ::1 at 2015-03-06 11:38:00 -0800
+
+
+Started GET "/assets/pledges-fcec5b5a277ac7c20cc9f45a209a3bcd.js?body=1" for ::1 at 2015-03-06 11:38:00 -0800
+
+
+Started GET "/assets/reps-fcec5b5a277ac7c20cc9f45a209a3bcd.js?body=1" for ::1 at 2015-03-06 11:38:00 -0800
+
+
+Started GET "/assets/users-fcec5b5a277ac7c20cc9f45a209a3bcd.js?body=1" for ::1 at 2015-03-06 11:38:00 -0800
+
+
+Started GET "/assets/welcome-fcec5b5a277ac7c20cc9f45a209a3bcd.js?body=1" for ::1 at 2015-03-06 11:38:00 -0800
+
+
+Started GET "/assets/application-299b0a99b8e39c4dee8d30bd871ead62.js?body=1" for ::1 at 2015-03-06 11:38:00 -0800
+
+
+Started GET "/reps/1" for ::1 at 2015-03-06 11:38:02 -0800
+Processing by RepsController#show as */*
+  Parameters: {"id"=>"1"}
+  [1m[36mRep Load (0.2ms)[0m  [1mSELECT  "reps".* FROM "reps" WHERE "reps"."id" = $1 LIMIT 1[0m  [["id", 1]]
+Completed 200 OK in 2ms (Views: 0.6ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/reps" for ::1 at 2015-03-06 11:38:54 -0800
+Processing by RepsController#index as HTML
+  Rendered reps/index.html within layouts/application (0.4ms)
+  Rendered layouts/header.html.erb (0.1ms)
+Completed 200 OK in 166ms (Views: 165.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/header-b458c74bf76a22fd51c7f0b0d693913e.css?body=1" for ::1 at 2015-03-06 11:38:54 -0800
+
+
+Started GET "/assets/pledges-64e62ddc273c2f5847f30d698ca14b67.css?body=1" for ::1 at 2015-03-06 11:38:54 -0800
+
+
+Started GET "/assets/reps-64e62ddc273c2f5847f30d698ca14b67.css?body=1" for ::1 at 2015-03-06 11:38:54 -0800
+
+
+Started GET "/assets/profiles-348a2853b8b7a8a08e7b5e171be6a2ec.css?body=1" for ::1 at 2015-03-06 11:38:54 -0800
+
+
+Started GET "/assets/responsive.gs.12col-c3fe5b17c87aed0d5b4a9ef145ad0dea.css?body=1" for ::1 at 2015-03-06 11:38:54 -0800
+
+
+Started GET "/assets/users-64e62ddc273c2f5847f30d698ca14b67.css?body=1" for ::1 at 2015-03-06 11:38:54 -0800
+
+
+Started GET "/assets/welcome-64e62ddc273c2f5847f30d698ca14b67.css?body=1" for ::1 at 2015-03-06 11:38:54 -0800
+
+
+Started GET "/assets/application-cf5612d9dd4451d9b437176a56ebb7fe.css?body=1" for ::1 at 2015-03-06 11:38:54 -0800
+
+
+Started GET "/assets/jquery-87424c3c19e96d4fb033c10ebe21ec40.js?body=1" for ::1 at 2015-03-06 11:38:54 -0800
+
+
+Started GET "/assets/jquery_ujs-e27bd20a10d28155845a22d71ef94f2f.js?body=1" for ::1 at 2015-03-06 11:38:54 -0800
+
+
+Started GET "/assets/turbolinks-f87b3583ca50adb0488b031297f5580d.js?body=1" for ::1 at 2015-03-06 11:38:54 -0800
+
+
+Started GET "/assets/pledges-fcec5b5a277ac7c20cc9f45a209a3bcd.js?body=1" for ::1 at 2015-03-06 11:38:54 -0800
+
+
+Started GET "/assets/reps-fcec5b5a277ac7c20cc9f45a209a3bcd.js?body=1" for ::1 at 2015-03-06 11:38:54 -0800
+
+
+Started GET "/assets/users-fcec5b5a277ac7c20cc9f45a209a3bcd.js?body=1" for ::1 at 2015-03-06 11:38:54 -0800
+
+
+Started GET "/assets/welcome-fcec5b5a277ac7c20cc9f45a209a3bcd.js?body=1" for ::1 at 2015-03-06 11:38:54 -0800
+
+
+Started GET "/assets/application-299b0a99b8e39c4dee8d30bd871ead62.js?body=1" for ::1 at 2015-03-06 11:38:54 -0800
+
+
+Started GET "/reps/1" for ::1 at 2015-03-06 11:38:57 -0800
+Processing by RepsController#show as */*
+  Parameters: {"id"=>"1"}
+  [1m[35mRep Load (0.3ms)[0m  SELECT  "reps".* FROM "reps" WHERE "reps"."id" = $1 LIMIT 1  [["id", 1]]
+Completed 200 OK in 2ms (Views: 0.6ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/reps" for ::1 at 2015-03-06 11:40:25 -0800
+Processing by RepsController#index as HTML
+  Rendered reps/index.html within layouts/application (0.4ms)
+  Rendered layouts/header.html.erb (0.1ms)
+Completed 200 OK in 164ms (Views: 163.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/header-b458c74bf76a22fd51c7f0b0d693913e.css?body=1" for ::1 at 2015-03-06 11:40:25 -0800
+
+
+Started GET "/assets/users-64e62ddc273c2f5847f30d698ca14b67.css?body=1" for ::1 at 2015-03-06 11:40:25 -0800
+
+
+Started GET "/assets/profiles-348a2853b8b7a8a08e7b5e171be6a2ec.css?body=1" for ::1 at 2015-03-06 11:40:25 -0800
+
+
+Started GET "/assets/responsive.gs.12col-c3fe5b17c87aed0d5b4a9ef145ad0dea.css?body=1" for ::1 at 2015-03-06 11:40:25 -0800
+
+
+Started GET "/assets/pledges-64e62ddc273c2f5847f30d698ca14b67.css?body=1" for ::1 at 2015-03-06 11:40:25 -0800
+
+
+Started GET "/assets/reps-64e62ddc273c2f5847f30d698ca14b67.css?body=1" for ::1 at 2015-03-06 11:40:25 -0800
+
+
+Started GET "/assets/welcome-64e62ddc273c2f5847f30d698ca14b67.css?body=1" for ::1 at 2015-03-06 11:40:25 -0800
+
+
+Started GET "/assets/application-cf5612d9dd4451d9b437176a56ebb7fe.css?body=1" for ::1 at 2015-03-06 11:40:25 -0800
+
+
+Started GET "/assets/jquery-87424c3c19e96d4fb033c10ebe21ec40.js?body=1" for ::1 at 2015-03-06 11:40:25 -0800
+
+
+Started GET "/assets/jquery_ujs-e27bd20a10d28155845a22d71ef94f2f.js?body=1" for ::1 at 2015-03-06 11:40:25 -0800
+
+
+Started GET "/assets/turbolinks-f87b3583ca50adb0488b031297f5580d.js?body=1" for ::1 at 2015-03-06 11:40:25 -0800
+
+
+Started GET "/assets/pledges-fcec5b5a277ac7c20cc9f45a209a3bcd.js?body=1" for ::1 at 2015-03-06 11:40:25 -0800
+
+
+Started GET "/assets/reps-fcec5b5a277ac7c20cc9f45a209a3bcd.js?body=1" for ::1 at 2015-03-06 11:40:25 -0800
+
+
+Started GET "/assets/users-fcec5b5a277ac7c20cc9f45a209a3bcd.js?body=1" for ::1 at 2015-03-06 11:40:25 -0800
+
+
+Started GET "/assets/welcome-fcec5b5a277ac7c20cc9f45a209a3bcd.js?body=1" for ::1 at 2015-03-06 11:40:25 -0800
+
+
+Started GET "/assets/application-299b0a99b8e39c4dee8d30bd871ead62.js?body=1" for ::1 at 2015-03-06 11:40:25 -0800
+
+
+Started GET "/reps/1" for ::1 at 2015-03-06 11:40:28 -0800
+Processing by RepsController#show as */*
+  Parameters: {"id"=>"1"}
+  [1m[36mRep Load (0.3ms)[0m  [1mSELECT  "reps".* FROM "reps" WHERE "reps"."id" = $1 LIMIT 1[0m  [["id", 1]]
+Completed 200 OK in 3ms (Views: 1.0ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/reps" for ::1 at 2015-03-06 11:42:52 -0800
+Processing by RepsController#index as HTML
+  Rendered reps/index.html within layouts/application (1.1ms)
+  Rendered layouts/header.html.erb (0.1ms)
+Completed 200 OK in 173ms (Views: 172.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/header-b458c74bf76a22fd51c7f0b0d693913e.css?body=1" for ::1 at 2015-03-06 11:42:52 -0800
+
+
+Started GET "/assets/responsive.gs.12col-c3fe5b17c87aed0d5b4a9ef145ad0dea.css?body=1" for ::1 at 2015-03-06 11:42:52 -0800
+
+
+Started GET "/assets/reps-64e62ddc273c2f5847f30d698ca14b67.css?body=1" for ::1 at 2015-03-06 11:42:52 -0800
+
+
+Started GET "/assets/profiles-348a2853b8b7a8a08e7b5e171be6a2ec.css?body=1" for ::1 at 2015-03-06 11:42:52 -0800
+
+
+Started GET "/assets/pledges-64e62ddc273c2f5847f30d698ca14b67.css?body=1" for ::1 at 2015-03-06 11:42:52 -0800
+
+
+Started GET "/assets/users-64e62ddc273c2f5847f30d698ca14b67.css?body=1" for ::1 at 2015-03-06 11:42:52 -0800
+
+
+Started GET "/assets/welcome-64e62ddc273c2f5847f30d698ca14b67.css?body=1" for ::1 at 2015-03-06 11:42:52 -0800
+
+
+Started GET "/assets/application-cf5612d9dd4451d9b437176a56ebb7fe.css?body=1" for ::1 at 2015-03-06 11:42:52 -0800
+
+
+Started GET "/assets/jquery-87424c3c19e96d4fb033c10ebe21ec40.js?body=1" for ::1 at 2015-03-06 11:42:52 -0800
+
+
+Started GET "/assets/jquery_ujs-e27bd20a10d28155845a22d71ef94f2f.js?body=1" for ::1 at 2015-03-06 11:42:52 -0800
+
+
+Started GET "/assets/turbolinks-f87b3583ca50adb0488b031297f5580d.js?body=1" for ::1 at 2015-03-06 11:42:52 -0800
+
+
+Started GET "/assets/pledges-fcec5b5a277ac7c20cc9f45a209a3bcd.js?body=1" for ::1 at 2015-03-06 11:42:52 -0800
+
+
+Started GET "/assets/reps-fcec5b5a277ac7c20cc9f45a209a3bcd.js?body=1" for ::1 at 2015-03-06 11:42:52 -0800
+
+
+Started GET "/assets/application-299b0a99b8e39c4dee8d30bd871ead62.js?body=1" for ::1 at 2015-03-06 11:42:52 -0800
+
+
+Started GET "/assets/users-fcec5b5a277ac7c20cc9f45a209a3bcd.js?body=1" for ::1 at 2015-03-06 11:42:52 -0800
+
+
+Started GET "/assets/welcome-fcec5b5a277ac7c20cc9f45a209a3bcd.js?body=1" for ::1 at 2015-03-06 11:42:52 -0800
+
+
+Started GET "/reps" for ::1 at 2015-03-06 11:42:59 -0800
+Processing by RepsController#index as HTML
+  Rendered reps/index.html within layouts/application (0.4ms)
+  Rendered layouts/header.html.erb (0.1ms)
+Completed 200 OK in 160ms (Views: 159.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/header-b458c74bf76a22fd51c7f0b0d693913e.css?body=1" for ::1 at 2015-03-06 11:43:00 -0800
+
+
+Started GET "/assets/pledges-64e62ddc273c2f5847f30d698ca14b67.css?body=1" for ::1 at 2015-03-06 11:43:00 -0800
+
+
+Started GET "/assets/users-64e62ddc273c2f5847f30d698ca14b67.css?body=1" for ::1 at 2015-03-06 11:43:00 -0800
+
+
+Started GET "/assets/profiles-348a2853b8b7a8a08e7b5e171be6a2ec.css?body=1" for ::1 at 2015-03-06 11:43:00 -0800
+
+
+Started GET "/assets/responsive.gs.12col-c3fe5b17c87aed0d5b4a9ef145ad0dea.css?body=1" for ::1 at 2015-03-06 11:43:00 -0800
+
+
+Started GET "/assets/reps-64e62ddc273c2f5847f30d698ca14b67.css?body=1" for ::1 at 2015-03-06 11:43:00 -0800
+
+
+Started GET "/assets/welcome-64e62ddc273c2f5847f30d698ca14b67.css?body=1" for ::1 at 2015-03-06 11:43:00 -0800
+
+
+Started GET "/assets/application-cf5612d9dd4451d9b437176a56ebb7fe.css?body=1" for ::1 at 2015-03-06 11:43:00 -0800
+
+
+Started GET "/assets/jquery-87424c3c19e96d4fb033c10ebe21ec40.js?body=1" for ::1 at 2015-03-06 11:43:00 -0800
+
+
+Started GET "/assets/jquery_ujs-e27bd20a10d28155845a22d71ef94f2f.js?body=1" for ::1 at 2015-03-06 11:43:00 -0800
+
+
+Started GET "/assets/turbolinks-f87b3583ca50adb0488b031297f5580d.js?body=1" for ::1 at 2015-03-06 11:43:00 -0800
+
+
+Started GET "/assets/pledges-fcec5b5a277ac7c20cc9f45a209a3bcd.js?body=1" for ::1 at 2015-03-06 11:43:00 -0800
+
+
+Started GET "/assets/reps-fcec5b5a277ac7c20cc9f45a209a3bcd.js?body=1" for ::1 at 2015-03-06 11:43:00 -0800
+
+
+Started GET "/assets/users-fcec5b5a277ac7c20cc9f45a209a3bcd.js?body=1" for ::1 at 2015-03-06 11:43:00 -0800
+
+
+Started GET "/assets/welcome-fcec5b5a277ac7c20cc9f45a209a3bcd.js?body=1" for ::1 at 2015-03-06 11:43:00 -0800
+
+
+Started GET "/assets/application-299b0a99b8e39c4dee8d30bd871ead62.js?body=1" for ::1 at 2015-03-06 11:43:00 -0800
+
+
+Started GET "/reps/1" for ::1 at 2015-03-06 11:43:04 -0800
+Processing by RepsController#show as */*
+  Parameters: {"id"=>"1"}
+  [1m[35mRep Load (0.2ms)[0m  SELECT  "reps".* FROM "reps" WHERE "reps"."id" = $1 LIMIT 1  [["id", 1]]
+Completed 200 OK in 2ms (Views: 0.6ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/reps" for ::1 at 2015-03-06 11:43:12 -0800
+Processing by RepsController#index as HTML
+  Rendered reps/index.html within layouts/application (0.4ms)
+  Rendered layouts/header.html.erb (0.1ms)
+Completed 200 OK in 236ms (Views: 235.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/header-b458c74bf76a22fd51c7f0b0d693913e.css?body=1" for ::1 at 2015-03-06 11:43:13 -0800
+
+
+Started GET "/assets/pledges-64e62ddc273c2f5847f30d698ca14b67.css?body=1" for ::1 at 2015-03-06 11:43:13 -0800
+
+
+Started GET "/assets/responsive.gs.12col-c3fe5b17c87aed0d5b4a9ef145ad0dea.css?body=1" for ::1 at 2015-03-06 11:43:13 -0800
+
+
+Started GET "/assets/reps-64e62ddc273c2f5847f30d698ca14b67.css?body=1" for ::1 at 2015-03-06 11:43:13 -0800
+
+
+Started GET "/assets/users-64e62ddc273c2f5847f30d698ca14b67.css?body=1" for ::1 at 2015-03-06 11:43:13 -0800
+
+
+Started GET "/assets/profiles-348a2853b8b7a8a08e7b5e171be6a2ec.css?body=1" for ::1 at 2015-03-06 11:43:13 -0800
+
+
+Started GET "/assets/welcome-64e62ddc273c2f5847f30d698ca14b67.css?body=1" for ::1 at 2015-03-06 11:43:13 -0800
+
+
+Started GET "/assets/application-cf5612d9dd4451d9b437176a56ebb7fe.css?body=1" for ::1 at 2015-03-06 11:43:13 -0800
+
+
+Started GET "/assets/jquery-87424c3c19e96d4fb033c10ebe21ec40.js?body=1" for ::1 at 2015-03-06 11:43:13 -0800
+
+
+Started GET "/assets/jquery_ujs-e27bd20a10d28155845a22d71ef94f2f.js?body=1" for ::1 at 2015-03-06 11:43:13 -0800
+
+
+Started GET "/assets/turbolinks-f87b3583ca50adb0488b031297f5580d.js?body=1" for ::1 at 2015-03-06 11:43:13 -0800
+
+
+Started GET "/assets/pledges-fcec5b5a277ac7c20cc9f45a209a3bcd.js?body=1" for ::1 at 2015-03-06 11:43:13 -0800
+
+
+Started GET "/assets/reps-fcec5b5a277ac7c20cc9f45a209a3bcd.js?body=1" for ::1 at 2015-03-06 11:43:13 -0800
+
+
+Started GET "/assets/users-fcec5b5a277ac7c20cc9f45a209a3bcd.js?body=1" for ::1 at 2015-03-06 11:43:13 -0800
+
+
+Started GET "/assets/welcome-fcec5b5a277ac7c20cc9f45a209a3bcd.js?body=1" for ::1 at 2015-03-06 11:43:13 -0800
+
+
+Started GET "/assets/application-299b0a99b8e39c4dee8d30bd871ead62.js?body=1" for ::1 at 2015-03-06 11:43:13 -0800
+
+
+Started GET "/reps/1" for ::1 at 2015-03-06 11:43:14 -0800
+Processing by RepsController#show as */*
+  Parameters: {"id"=>"1"}
+  [1m[36mRep Load (0.2ms)[0m  [1mSELECT  "reps".* FROM "reps" WHERE "reps"."id" = $1 LIMIT 1[0m  [["id", 1]]
+Completed 200 OK in 3ms (Views: 1.4ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/reps" for ::1 at 2015-03-06 11:43:27 -0800
+Processing by RepsController#index as HTML
+  Rendered reps/index.html within layouts/application (0.6ms)
+  Rendered layouts/header.html.erb (0.1ms)
+Completed 200 OK in 168ms (Views: 166.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/pledges-64e62ddc273c2f5847f30d698ca14b67.css?body=1" for ::1 at 2015-03-06 11:43:28 -0800
+
+
+Started GET "/assets/header-b458c74bf76a22fd51c7f0b0d693913e.css?body=1" for ::1 at 2015-03-06 11:43:28 -0800
+
+
+Started GET "/assets/reps-64e62ddc273c2f5847f30d698ca14b67.css?body=1" for ::1 at 2015-03-06 11:43:28 -0800
+
+
+Started GET "/assets/profiles-348a2853b8b7a8a08e7b5e171be6a2ec.css?body=1" for ::1 at 2015-03-06 11:43:28 -0800
+
+
+Started GET "/assets/responsive.gs.12col-c3fe5b17c87aed0d5b4a9ef145ad0dea.css?body=1" for ::1 at 2015-03-06 11:43:28 -0800
+
+
+Started GET "/assets/users-64e62ddc273c2f5847f30d698ca14b67.css?body=1" for ::1 at 2015-03-06 11:43:28 -0800
+
+
+Started GET "/assets/welcome-64e62ddc273c2f5847f30d698ca14b67.css?body=1" for ::1 at 2015-03-06 11:43:28 -0800
+
+
+Started GET "/assets/application-cf5612d9dd4451d9b437176a56ebb7fe.css?body=1" for ::1 at 2015-03-06 11:43:28 -0800
+
+
+Started GET "/assets/jquery-87424c3c19e96d4fb033c10ebe21ec40.js?body=1" for ::1 at 2015-03-06 11:43:28 -0800
+
+
+Started GET "/assets/jquery_ujs-e27bd20a10d28155845a22d71ef94f2f.js?body=1" for ::1 at 2015-03-06 11:43:28 -0800
+
+
+Started GET "/assets/turbolinks-f87b3583ca50adb0488b031297f5580d.js?body=1" for ::1 at 2015-03-06 11:43:28 -0800
+
+
+Started GET "/assets/pledges-fcec5b5a277ac7c20cc9f45a209a3bcd.js?body=1" for ::1 at 2015-03-06 11:43:28 -0800
+
+
+Started GET "/assets/reps-fcec5b5a277ac7c20cc9f45a209a3bcd.js?body=1" for ::1 at 2015-03-06 11:43:28 -0800
+
+
+Started GET "/assets/users-fcec5b5a277ac7c20cc9f45a209a3bcd.js?body=1" for ::1 at 2015-03-06 11:43:28 -0800
+
+
+Started GET "/assets/welcome-fcec5b5a277ac7c20cc9f45a209a3bcd.js?body=1" for ::1 at 2015-03-06 11:43:28 -0800
+
+
+Started GET "/assets/application-299b0a99b8e39c4dee8d30bd871ead62.js?body=1" for ::1 at 2015-03-06 11:43:28 -0800
+
+
+Started GET "/reps" for ::1 at 2015-03-06 11:43:30 -0800
+Processing by RepsController#index as */*
+  Rendered reps/index.html within layouts/application (0.8ms)
+  Rendered layouts/header.html.erb (0.0ms)
+Completed 200 OK in 165ms (Views: 164.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/reps" for ::1 at 2015-03-06 11:43:57 -0800
+Processing by RepsController#index as HTML
+  Rendered reps/index.html within layouts/application (0.4ms)
+  Rendered layouts/header.html.erb (0.1ms)
+Completed 200 OK in 224ms (Views: 223.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/header-b458c74bf76a22fd51c7f0b0d693913e.css?body=1" for ::1 at 2015-03-06 11:43:57 -0800
+
+
+Started GET "/assets/responsive.gs.12col-c3fe5b17c87aed0d5b4a9ef145ad0dea.css?body=1" for ::1 at 2015-03-06 11:43:57 -0800
+
+
+Started GET "/assets/reps-64e62ddc273c2f5847f30d698ca14b67.css?body=1" for ::1 at 2015-03-06 11:43:57 -0800
+
+
+Started GET "/assets/pledges-64e62ddc273c2f5847f30d698ca14b67.css?body=1" for ::1 at 2015-03-06 11:43:57 -0800
+
+
+Started GET "/assets/profiles-348a2853b8b7a8a08e7b5e171be6a2ec.css?body=1" for ::1 at 2015-03-06 11:43:57 -0800
+
+
+Started GET "/assets/welcome-64e62ddc273c2f5847f30d698ca14b67.css?body=1" for ::1 at 2015-03-06 11:43:57 -0800
+
+
+Started GET "/assets/users-64e62ddc273c2f5847f30d698ca14b67.css?body=1" for ::1 at 2015-03-06 11:43:57 -0800
+
+
+Started GET "/assets/application-cf5612d9dd4451d9b437176a56ebb7fe.css?body=1" for ::1 at 2015-03-06 11:43:57 -0800
+
+
+Started GET "/assets/jquery-87424c3c19e96d4fb033c10ebe21ec40.js?body=1" for ::1 at 2015-03-06 11:43:57 -0800
+
+
+Started GET "/assets/jquery_ujs-e27bd20a10d28155845a22d71ef94f2f.js?body=1" for ::1 at 2015-03-06 11:43:57 -0800
+
+
+Started GET "/assets/turbolinks-f87b3583ca50adb0488b031297f5580d.js?body=1" for ::1 at 2015-03-06 11:43:57 -0800
+
+
+Started GET "/assets/pledges-fcec5b5a277ac7c20cc9f45a209a3bcd.js?body=1" for ::1 at 2015-03-06 11:43:57 -0800
+
+
+Started GET "/assets/reps-fcec5b5a277ac7c20cc9f45a209a3bcd.js?body=1" for ::1 at 2015-03-06 11:43:57 -0800
+
+
+Started GET "/assets/users-fcec5b5a277ac7c20cc9f45a209a3bcd.js?body=1" for ::1 at 2015-03-06 11:43:57 -0800
+
+
+Started GET "/assets/welcome-fcec5b5a277ac7c20cc9f45a209a3bcd.js?body=1" for ::1 at 2015-03-06 11:43:57 -0800
+
+
+Started GET "/assets/application-299b0a99b8e39c4dee8d30bd871ead62.js?body=1" for ::1 at 2015-03-06 11:43:57 -0800
+
+
+Started GET "/reps/1" for ::1 at 2015-03-06 11:43:59 -0800
+Processing by RepsController#show as */*
+  Parameters: {"id"=>"1"}
+  [1m[35mRep Load (0.3ms)[0m  SELECT  "reps".* FROM "reps" WHERE "reps"."id" = $1 LIMIT 1  [["id", 1]]
+Completed 200 OK in 2ms (Views: 0.5ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/reps" for ::1 at 2015-03-06 11:44:11 -0800
+Processing by RepsController#index as HTML
+  Rendered reps/index.html within layouts/application (0.4ms)
+  Rendered layouts/header.html.erb (0.1ms)
+Completed 200 OK in 186ms (Views: 185.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/header-b458c74bf76a22fd51c7f0b0d693913e.css?body=1" for ::1 at 2015-03-06 11:44:11 -0800
+
+
+Started GET "/assets/pledges-64e62ddc273c2f5847f30d698ca14b67.css?body=1" for ::1 at 2015-03-06 11:44:11 -0800
+
+
+Started GET "/assets/welcome-64e62ddc273c2f5847f30d698ca14b67.css?body=1" for ::1 at 2015-03-06 11:44:11 -0800
+
+
+Started GET "/assets/reps-64e62ddc273c2f5847f30d698ca14b67.css?body=1" for ::1 at 2015-03-06 11:44:12 -0800
+
+
+Started GET "/assets/profiles-348a2853b8b7a8a08e7b5e171be6a2ec.css?body=1" for ::1 at 2015-03-06 11:44:12 -0800
+
+
+Started GET "/assets/responsive.gs.12col-c3fe5b17c87aed0d5b4a9ef145ad0dea.css?body=1" for ::1 at 2015-03-06 11:44:12 -0800
+
+
+Started GET "/assets/users-64e62ddc273c2f5847f30d698ca14b67.css?body=1" for ::1 at 2015-03-06 11:44:12 -0800
+
+
+Started GET "/assets/application-cf5612d9dd4451d9b437176a56ebb7fe.css?body=1" for ::1 at 2015-03-06 11:44:12 -0800
+
+
+Started GET "/assets/jquery-87424c3c19e96d4fb033c10ebe21ec40.js?body=1" for ::1 at 2015-03-06 11:44:12 -0800
+
+
+Started GET "/assets/turbolinks-f87b3583ca50adb0488b031297f5580d.js?body=1" for ::1 at 2015-03-06 11:44:12 -0800
+
+
+Started GET "/assets/pledges-fcec5b5a277ac7c20cc9f45a209a3bcd.js?body=1" for ::1 at 2015-03-06 11:44:12 -0800
+
+
+Started GET "/assets/jquery_ujs-e27bd20a10d28155845a22d71ef94f2f.js?body=1" for ::1 at 2015-03-06 11:44:12 -0800
+
+
+Started GET "/assets/reps-fcec5b5a277ac7c20cc9f45a209a3bcd.js?body=1" for ::1 at 2015-03-06 11:44:12 -0800
+
+
+Started GET "/assets/users-fcec5b5a277ac7c20cc9f45a209a3bcd.js?body=1" for ::1 at 2015-03-06 11:44:12 -0800
+
+
+Started GET "/assets/welcome-fcec5b5a277ac7c20cc9f45a209a3bcd.js?body=1" for ::1 at 2015-03-06 11:44:12 -0800
+
+
+Started GET "/assets/application-299b0a99b8e39c4dee8d30bd871ead62.js?body=1" for ::1 at 2015-03-06 11:44:12 -0800
+
+
+Started GET "/reps/1" for ::1 at 2015-03-06 11:44:14 -0800
+Processing by RepsController#show as */*
+  Parameters: {"id"=>"1"}
+  [1m[36mRep Load (0.3ms)[0m  [1mSELECT  "reps".* FROM "reps" WHERE "reps"."id" = $1 LIMIT 1[0m  [["id", 1]]
+Completed 200 OK in 3ms (Views: 0.6ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/reps/1" for ::1 at 2015-03-06 11:44:40 -0800
+Processing by RepsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mRep Load (0.2ms)[0m  SELECT  "reps".* FROM "reps" WHERE "reps"."id" = $1 LIMIT 1  [["id", 1]]
+Completed 200 OK in 2ms (Views: 0.5ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/reps" for ::1 at 2015-03-06 11:45:03 -0800
+Processing by RepsController#index as HTML
+  Rendered reps/index.html within layouts/application (0.6ms)
+  Rendered layouts/header.html.erb (0.1ms)
+Completed 200 OK in 171ms (Views: 170.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/header-b458c74bf76a22fd51c7f0b0d693913e.css?body=1" for ::1 at 2015-03-06 11:45:03 -0800
+
+
+Started GET "/assets/pledges-64e62ddc273c2f5847f30d698ca14b67.css?body=1" for ::1 at 2015-03-06 11:45:03 -0800
+
+
+Started GET "/assets/users-64e62ddc273c2f5847f30d698ca14b67.css?body=1" for ::1 at 2015-03-06 11:45:03 -0800
+
+
+Started GET "/assets/responsive.gs.12col-c3fe5b17c87aed0d5b4a9ef145ad0dea.css?body=1" for ::1 at 2015-03-06 11:45:03 -0800
+
+
+Started GET "/assets/profiles-348a2853b8b7a8a08e7b5e171be6a2ec.css?body=1" for ::1 at 2015-03-06 11:45:03 -0800
+
+
+Started GET "/assets/reps-64e62ddc273c2f5847f30d698ca14b67.css?body=1" for ::1 at 2015-03-06 11:45:04 -0800
+
+
+Started GET "/assets/welcome-64e62ddc273c2f5847f30d698ca14b67.css?body=1" for ::1 at 2015-03-06 11:45:04 -0800
+
+
+Started GET "/assets/jquery-87424c3c19e96d4fb033c10ebe21ec40.js?body=1" for ::1 at 2015-03-06 11:45:04 -0800
+
+
+Started GET "/assets/application-cf5612d9dd4451d9b437176a56ebb7fe.css?body=1" for ::1 at 2015-03-06 11:45:04 -0800
+
+
+Started GET "/assets/jquery_ujs-e27bd20a10d28155845a22d71ef94f2f.js?body=1" for ::1 at 2015-03-06 11:45:04 -0800
+
+
+Started GET "/assets/turbolinks-f87b3583ca50adb0488b031297f5580d.js?body=1" for ::1 at 2015-03-06 11:45:04 -0800
+
+
+Started GET "/assets/pledges-fcec5b5a277ac7c20cc9f45a209a3bcd.js?body=1" for ::1 at 2015-03-06 11:45:04 -0800
+
+
+Started GET "/assets/reps-fcec5b5a277ac7c20cc9f45a209a3bcd.js?body=1" for ::1 at 2015-03-06 11:45:04 -0800
+
+
+Started GET "/assets/users-fcec5b5a277ac7c20cc9f45a209a3bcd.js?body=1" for ::1 at 2015-03-06 11:45:04 -0800
+
+
+Started GET "/assets/welcome-fcec5b5a277ac7c20cc9f45a209a3bcd.js?body=1" for ::1 at 2015-03-06 11:45:04 -0800
+
+
+Started GET "/assets/application-299b0a99b8e39c4dee8d30bd871ead62.js?body=1" for ::1 at 2015-03-06 11:45:04 -0800
+
+
+Started GET "/reps/1?json" for ::1 at 2015-03-06 11:45:06 -0800
+Processing by RepsController#show as */*
+  Parameters: {"json"=>nil, "id"=>"1"}
+  [1m[36mRep Load (0.3ms)[0m  [1mSELECT  "reps".* FROM "reps" WHERE "reps"."id" = $1 LIMIT 1[0m  [["id", 1]]
+Completed 200 OK in 3ms (Views: 0.9ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/reps/2" for ::1 at 2015-03-06 11:47:43 -0800
+Processing by RepsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[35mRep Load (0.2ms)[0m  SELECT  "reps".* FROM "reps" WHERE "reps"."id" = $1 LIMIT 1  [["id", 2]]
+Completed 404 Not Found in 1ms
+
+ActiveRecord::RecordNotFound (Couldn't find Rep with 'id'=2):
+  app/controllers/reps_controller.rb:3:in `show'
+
+
+  Rendered /Users/apprentice/.rbenv/versions/2.0.0-p353/lib/ruby/gems/2.0.0/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_source.erb (7.6ms)
+  Rendered /Users/apprentice/.rbenv/versions/2.0.0-p353/lib/ruby/gems/2.0.0/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.6ms)
+  Rendered /Users/apprentice/.rbenv/versions/2.0.0-p353/lib/ruby/gems/2.0.0/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.6ms)
+  Rendered /Users/apprentice/.rbenv/versions/2.0.0-p353/lib/ruby/gems/2.0.0/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (30.3ms)
+  Rendered /Users/apprentice/.rbenv/versions/2.0.0-p353/lib/ruby/gems/2.0.0/gems/web-console-2.1.1/lib/web_console/templates/_markup.html (0.7ms)
+  Rendered /Users/apprentice/.rbenv/versions/2.0.0-p353/lib/ruby/gems/2.0.0/gems/web-console-2.1.1/lib/web_console/templates/style.css within layouts/inlined_string (0.4ms)
+  Rendered /Users/apprentice/.rbenv/versions/2.0.0-p353/lib/ruby/gems/2.0.0/gems/web-console-2.1.1/lib/web_console/templates/_inner_console_markup.html within layouts/inlined_string (0.3ms)
+  Rendered /Users/apprentice/.rbenv/versions/2.0.0-p353/lib/ruby/gems/2.0.0/gems/web-console-2.1.1/lib/web_console/templates/_prompt_box_markup.html within layouts/inlined_string (0.3ms)
+  Rendered /Users/apprentice/.rbenv/versions/2.0.0-p353/lib/ruby/gems/2.0.0/gems/web-console-2.1.1/lib/web_console/templates/console.js within layouts/javascript (18.8ms)
+  Rendered /Users/apprentice/.rbenv/versions/2.0.0-p353/lib/ruby/gems/2.0.0/gems/web-console-2.1.1/lib/web_console/templates/main.js within layouts/javascript (0.4ms)
+  Rendered /Users/apprentice/.rbenv/versions/2.0.0-p353/lib/ruby/gems/2.0.0/gems/web-console-2.1.1/lib/web_console/templates/error_page.js within layouts/javascript (0.5ms)
+  Rendered /Users/apprentice/.rbenv/versions/2.0.0-p353/lib/ruby/gems/2.0.0/gems/web-console-2.1.1/lib/web_console/templates/index.html (45.3ms)
+
+
+Started GET "/reps/1" for ::1 at 2015-03-06 11:47:45 -0800
+Processing by RepsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mRep Load (0.2ms)[0m  [1mSELECT  "reps".* FROM "reps" WHERE "reps"."id" = $1 LIMIT 1[0m  [["id", 1]]
+Completed 200 OK in 2ms (Views: 0.6ms | ActiveRecord: 0.2ms)
