@@ -44,6 +44,8 @@ ActiveRecord::Schema.define(version: 20150305235208) do
     t.string   "uid"
     t.text     "profile_pic_thumb_url"
     t.text     "profile_pic_big_url"
+    t.string   "oauth_token"
+    t.string   "oauth_secret"
     t.datetime "created_at",            null: false
     t.datetime "updated_at",            null: false
   end

@@ -27,6 +27,7 @@ gem 'dotenv-rails', :require => 'dotenv/rails-now'
 gem 'omniauth'
 gem 'omniauth-twitter'
 gem 'json'
+gem 'twitter'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'

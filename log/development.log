@@ -7142,3 +7142,539 @@ Started GET "/assets/reps-fcec5b5a277ac7c20cc9f45a209a3bcd.js?body=1" for ::1 at
 
 
 Started GET "/assets/application-17e4801155788a176bbbc02f37563650.js?body=1" for ::1 at 2015-03-05 23:39:10 -0800
+
+
+Started GET "/" for ::1 at 2015-03-06 10:56:38 -0800
+  [1m[36mActiveRecord::SchemaMigration Load (1.0ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by WelcomeController#index as HTML
+  Rendered welcome/index.html.erb within layouts/application (11.5ms)
+  Rendered layouts/header.html.erb (0.9ms)
+Completed 200 OK in 936ms (Views: 912.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/header-b458c74bf76a22fd51c7f0b0d693913e.css?body=1" for ::1 at 2015-03-06 10:56:40 -0800
+
+
+Started GET "/assets/pledges-64e62ddc273c2f5847f30d698ca14b67.css?body=1" for ::1 at 2015-03-06 10:56:40 -0800
+
+
+Started GET "/assets/responsive.gs.12col-c3fe5b17c87aed0d5b4a9ef145ad0dea.css?body=1" for ::1 at 2015-03-06 10:56:40 -0800
+
+
+Started GET "/assets/tweets-64e62ddc273c2f5847f30d698ca14b67.css?body=1" for ::1 at 2015-03-06 10:56:40 -0800
+
+
+Started GET "/assets/profiles-348a2853b8b7a8a08e7b5e171be6a2ec.css?body=1" for ::1 at 2015-03-06 10:56:40 -0800
+
+
+Started GET "/assets/reps-64e62ddc273c2f5847f30d698ca14b67.css?body=1" for ::1 at 2015-03-06 10:56:40 -0800
+
+
+Started GET "/assets/users-64e62ddc273c2f5847f30d698ca14b67.css?body=1" for ::1 at 2015-03-06 10:56:40 -0800
+
+
+Started GET "/assets/welcome-64e62ddc273c2f5847f30d698ca14b67.css?body=1" for ::1 at 2015-03-06 10:56:40 -0800
+
+
+Started GET "/assets/application-cf5612d9dd4451d9b437176a56ebb7fe.css?body=1" for ::1 at 2015-03-06 10:56:40 -0800
+
+
+Started GET "/assets/jquery-87424c3c19e96d4fb033c10ebe21ec40.js?body=1" for ::1 at 2015-03-06 10:56:40 -0800
+
+
+Started GET "/assets/jquery_ujs-e27bd20a10d28155845a22d71ef94f2f.js?body=1" for ::1 at 2015-03-06 10:56:40 -0800
+
+
+Started GET "/assets/turbolinks-f87b3583ca50adb0488b031297f5580d.js?body=1" for ::1 at 2015-03-06 10:56:40 -0800
+
+
+Started GET "/assets/pledges-fcec5b5a277ac7c20cc9f45a209a3bcd.js?body=1" for ::1 at 2015-03-06 10:56:40 -0800
+
+
+Started GET "/assets/reps-fcec5b5a277ac7c20cc9f45a209a3bcd.js?body=1" for ::1 at 2015-03-06 10:56:40 -0800
+
+
+Started GET "/assets/tweets-fcec5b5a277ac7c20cc9f45a209a3bcd.js?body=1" for ::1 at 2015-03-06 10:56:40 -0800
+
+
+Started GET "/assets/users-fcec5b5a277ac7c20cc9f45a209a3bcd.js?body=1" for ::1 at 2015-03-06 10:56:40 -0800
+
+
+Started GET "/assets/welcome-3757ac2763cd51eb1704cb571b2ff76d.js?body=1" for ::1 at 2015-03-06 10:56:40 -0800
+
+
+Started GET "/assets/application-c0eb64a80c1895778fe231b94242dfc0.js?body=1" for ::1 at 2015-03-06 10:56:40 -0800
+
+
+Started POST "/auth/twitter" for ::1 at 2015-03-06 10:56:43 -0800
+
+
+Started GET "/auth/twitter/callback?oauth_token=VruxwKUJXrLmLvroXFU4TVRBau3XBmap&oauth_verifier=WlHxNrbhi3SgTHnk7rHMp1Kt6sR3cQy8" for ::1 at 2015-03-06 10:56:50 -0800
+Processing by SessionsController#create as HTML
+  Parameters: {"oauth_token"=>"VruxwKUJXrLmLvroXFU4TVRBau3XBmap", "oauth_verifier"=>"WlHxNrbhi3SgTHnk7rHMp1Kt6sR3cQy8"}
+  [1m[35mUser Load (15.5ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."twitter_handle" = $1 LIMIT 1  [["twitter_handle", "iamadell"]]
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO "users" ("twitter_handle", "name", "uid", "profile_pic_thumb_url", "profile_pic_big_url", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"  [["twitter_handle", "iamadell"], ["name", "ahk"], ["uid", "47278571"], ["profile_pic_thumb_url", "https://pbs.twimg.com/profile_images/536623386818928640/Z_65lGrS_normal.jpeg"], ["profile_pic_big_url", "https://pbs.twimg.com/profile_images/536623386818928640/Z_65lGrS.jpeg"], ["created_at", "2015-03-06 18:56:50.667225"], ["updated_at", "2015-03-06 18:56:50.667225"]]
+  [1m[36m (15.6ms)[0m  [1mCOMMIT[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 112ms (ActiveRecord: 36.5ms)
+
+
+Started GET "/" for ::1 at 2015-03-06 10:56:50 -0800
+Processing by WelcomeController#index as HTML
+  Rendered welcome/index.html.erb within layouts/application (0.3ms)
+  Rendered layouts/header.html.erb (0.1ms)
+Completed 200 OK in 182ms (Views: 181.4ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/auth/twitter" for ::1 at 2015-03-06 11:00:09 -0800
+
+
+Started GET "/auth/twitter/callback?oauth_token=IcU6nYZ49vYireAcbVCsk9wFR44D4WWt&oauth_verifier=PBJ3XebAMyjldhRC4WyH9KSWrzJuCIjA" for ::1 at 2015-03-06 11:00:18 -0800
+Processing by SessionsController#create as HTML
+  Parameters: {"oauth_token"=>"IcU6nYZ49vYireAcbVCsk9wFR44D4WWt", "oauth_verifier"=>"PBJ3XebAMyjldhRC4WyH9KSWrzJuCIjA"}
+  [1m[36m (36.2ms)[0m  [1mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL) [0m
+  [1m[35m (2.2ms)[0m  CREATE UNIQUE INDEX  "unique_schema_migrations" ON "schema_migrations"  ("version")
+  [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Migrating to CreateUsers (20150305235023)
+  [1m[35m (0.3ms)[0m  BEGIN
+  [1m[36m (9.2ms)[0m  [1mCREATE TABLE "users" ("id" serial primary key, "twitter_handle" character varying, "name" character varying, "zipcode" character varying, "provider" character varying, "uid" character varying, "profile_pic_thumb_url" text, "profile_pic_big_url" text, "oauth_token" character varying, "oauth_secret" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL) [0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ($1)  [["version", "20150305235023"]]
+  [1m[36m (16.4ms)[0m  [1mCOMMIT[0m
+Migrating to CreateReps (20150305235101)
+  [1m[35m (15.5ms)[0m  BEGIN
+  [1m[36m (3.7ms)[0m  [1mCREATE TABLE "reps" ("id" serial primary key, "twitter_handle" character varying, "name" character varying, "fec_id" integer, "bio" text, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL) [0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ($1)  [["version", "20150305235101"]]
+  [1m[36m (0.8ms)[0m  [1mCOMMIT[0m
+Migrating to CreatePledges (20150305235208)
+  [1m[35m (15.7ms)[0m  BEGIN
+  [1m[36m (4.6ms)[0m  [1mCREATE TABLE "pledges" ("id" serial primary key, "user_id" integer, "rep_id" integer, "tweet_id" integer, "tweet_message" text, "fulfilled" boolean DEFAULT 'false', "positive" boolean, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL) [0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ($1)  [["version", "20150305235208"]]
+  [1m[36m (0.9ms)[0m  [1mCOMMIT[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.3ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+  [1m[36m (3.2ms)[0m  [1mSELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'pledges'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+[0m
+  [1m[35m (2.1ms)[0m  SELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'reps'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+
+  [1m[36m (1.9ms)[0m  [1mSELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'users'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mSQL (0.6ms)[0m  [1mINSERT INTO "reps" ("twitter_handle", "name", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["twitter_handle", "@honda"], ["name", "honda"], ["created_at", "2015-03-06 19:20:17.076249"], ["updated_at", "2015-03-06 19:20:17.076249"]]
+  [1m[35m (15.0ms)[0m  COMMIT
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "users" ("twitter_handle", "name", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["twitter_handle", "@moon"], ["name", "Jamal"], ["created_at", "2015-03-06 19:20:17.120533"], ["updated_at", "2015-03-06 19:20:17.120533"]]
+  [1m[36m (0.6ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO "pledges" ("user_id", "rep_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["user_id", 1], ["rep_id", 1], ["created_at", "2015-03-06 19:20:17.154852"], ["updated_at", "2015-03-06 19:20:17.154852"]]
+  [1m[35m (15.4ms)[0m  COMMIT
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "reps" ("twitter_handle", "name", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["twitter_handle", "@Pelosi"], ["name", "Nancy Pelosi"], ["created_at", "2015-03-06 19:20:17.173810"], ["updated_at", "2015-03-06 19:20:17.173810"]]
+  [1m[36m (0.6ms)[0m  [1mCOMMIT[0m
+
+
+Started POST "/auth/twitter" for ::1 at 2015-03-06 11:20:40 -0800
+  [1m[36mActiveRecord::SchemaMigration Load (0.6ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+
+
+Started GET "/auth/twitter/callback?oauth_token=CBEoxMIOXUuMAI2pjHXsztqD1T3AjYRT&oauth_verifier=yeKkxtU0b0lOPuMSESsWJZovstI5uPcg" for ::1 at 2015-03-06 11:20:50 -0800
+Processing by SessionsController#create as HTML
+  Parameters: {"oauth_token"=>"CBEoxMIOXUuMAI2pjHXsztqD1T3AjYRT", "oauth_verifier"=>"yeKkxtU0b0lOPuMSESsWJZovstI5uPcg"}
+  [1m[35mUser Load (0.4ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."twitter_handle" = $1 LIMIT 1  [["twitter_handle", "iamadell"]]
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.6ms)[0m  INSERT INTO "users" ("twitter_handle", "name", "uid", "profile_pic_thumb_url", "profile_pic_big_url", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"  [["twitter_handle", "iamadell"], ["name", "ahk"], ["uid", "47278571"], ["profile_pic_thumb_url", "https://pbs.twimg.com/profile_images/536623386818928640/Z_65lGrS_normal.jpeg"], ["profile_pic_big_url", "https://pbs.twimg.com/profile_images/536623386818928640/Z_65lGrS.jpeg"], ["created_at", "2015-03-06 19:20:50.663571"], ["updated_at", "2015-03-06 19:20:50.663571"]]
+  [1m[36m (0.6ms)[0m  [1mCOMMIT[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 99ms (ActiveRecord: 5.5ms)
+
+
+Started GET "/" for ::1 at 2015-03-06 11:20:50 -0800
+Processing by WelcomeController#index as HTML
+  Rendered welcome/index.html.erb within layouts/application (11.9ms)
+  Rendered layouts/header.html.erb (0.7ms)
+Completed 200 OK in 578ms (Views: 577.2ms | ActiveRecord: 0.0ms)
+  [1m[36mUser Load (1.4ms)[0m  [1mSELECT  "users".* FROM "users"  ORDER BY "users"."id" DESC LIMIT 1[0m
+
+
+Started POST "/auth/twitter" for ::1 at 2015-03-06 11:23:08 -0800
+
+
+Started GET "/auth/twitter/callback?oauth_token=05h3n5nVvi1Y6NbclSjwupuiRyQJO6oV&oauth_verifier=qlqnRNQn5iY6eNAMbETEygZ6YtZWczdj" for ::1 at 2015-03-06 11:23:12 -0800
+Processing by SessionsController#create as HTML
+  Parameters: {"oauth_token"=>"05h3n5nVvi1Y6NbclSjwupuiRyQJO6oV", "oauth_verifier"=>"qlqnRNQn5iY6eNAMbETEygZ6YtZWczdj"}
+  [1m[35mUser Load (0.4ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."twitter_handle" = $1 LIMIT 1  [["twitter_handle", "iamadell"]]
+  [1m[36m (0.3ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  UPDATE "users" SET "oauth_token" = $1, "oauth_secret" = $2, "updated_at" = $3 WHERE "users"."id" = $4  [["oauth_token", "47278571-Sf2m2t6RaKGz1cM6JpnDv97wg9LRDOAwwPQUbgpJf"], ["oauth_secret", "rk6chh9pu966qZuX3GejFCKOrs7SUj6M2zpDQz0CrMKSL"], ["updated_at", "2015-03-06 19:23:13.133131"], ["id", 2]]
+  [1m[36m (0.7ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35mUser Load (0.6ms)[0m  SELECT  "users".* FROM "users"  ORDER BY "users"."id" DESC LIMIT 1
+
+
+Started GET "/auth/twitter/callback?oauth_token=05h3n5nVvi1Y6NbclSjwupuiRyQJO6oV&oauth_verifier=qlqnRNQn5iY6eNAMbETEygZ6YtZWczdj" for ::1 at 2015-03-06 11:23:36 -0800
+  [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by SessionsController#create as HTML
+  Parameters: {"oauth_token"=>"05h3n5nVvi1Y6NbclSjwupuiRyQJO6oV", "oauth_verifier"=>"qlqnRNQn5iY6eNAMbETEygZ6YtZWczdj"}
+  [1m[35mUser Load (0.7ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."twitter_handle" = $1 LIMIT 1  [["twitter_handle", "iamadell"]]
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.2ms)[0m  COMMIT
+
+
+Started GET "/" for ::1 at 2015-03-06 11:38:55 -0800
+  [1m[36mActiveRecord::SchemaMigration Load (0.5ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by WelcomeController#index as HTML
+  [1m[35mUser Load (0.7ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 2]]
+  Rendered welcome/index.html.erb within layouts/application (68.8ms)
+  Rendered layouts/header.html.erb (0.7ms)
+Completed 200 OK in 679ms (Views: 652.5ms | ActiveRecord: 3.9ms)
+
+
+Started GET "/tweets/new" for ::1 at 2015-03-06 11:38:59 -0800
+Processing by TweetsController#new as HTML
+  Rendered tweets/new.html.erb within layouts/application (0.6ms)
+  Rendered layouts/header.html.erb (0.6ms)
+Completed 200 OK in 223ms (Views: 222.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/tweets/new" for ::1 at 2015-03-06 11:39:07 -0800
+Processing by TweetsController#new as HTML
+  Rendered tweets/new.html.erb within layouts/application (0.1ms)
+  Rendered layouts/header.html.erb (0.0ms)
+Completed 200 OK in 230ms (Views: 228.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/tweets/new" for ::1 at 2015-03-06 11:39:52 -0800
+Processing by TweetsController#new as HTML
+  Rendered tweets/new.html.erb within layouts/application (42.0ms)
+  Rendered layouts/header.html.erb (0.0ms)
+Completed 200 OK in 212ms (Views: 211.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/pledges-64e62ddc273c2f5847f30d698ca14b67.css?body=1" for ::1 at 2015-03-06 11:39:52 -0800
+
+
+Started GET "/assets/header-b458c74bf76a22fd51c7f0b0d693913e.css?body=1" for ::1 at 2015-03-06 11:39:52 -0800
+
+
+Started GET "/assets/profiles-348a2853b8b7a8a08e7b5e171be6a2ec.css?body=1" for ::1 at 2015-03-06 11:39:52 -0800
+
+
+Started GET "/assets/reps-64e62ddc273c2f5847f30d698ca14b67.css?body=1" for ::1 at 2015-03-06 11:39:52 -0800
+
+
+Started GET "/assets/responsive.gs.12col-c3fe5b17c87aed0d5b4a9ef145ad0dea.css?body=1" for ::1 at 2015-03-06 11:39:52 -0800
+
+
+Started GET "/assets/tweets-64e62ddc273c2f5847f30d698ca14b67.css?body=1" for ::1 at 2015-03-06 11:39:52 -0800
+
+
+Started GET "/assets/users-64e62ddc273c2f5847f30d698ca14b67.css?body=1" for ::1 at 2015-03-06 11:39:52 -0800
+
+
+Started GET "/assets/welcome-64e62ddc273c2f5847f30d698ca14b67.css?body=1" for ::1 at 2015-03-06 11:39:52 -0800
+
+
+Started GET "/assets/application-cf5612d9dd4451d9b437176a56ebb7fe.css?body=1" for ::1 at 2015-03-06 11:39:52 -0800
+
+
+Started GET "/assets/jquery-87424c3c19e96d4fb033c10ebe21ec40.js?body=1" for ::1 at 2015-03-06 11:39:52 -0800
+
+
+Started GET "/assets/jquery_ujs-e27bd20a10d28155845a22d71ef94f2f.js?body=1" for ::1 at 2015-03-06 11:39:52 -0800
+
+
+Started GET "/assets/turbolinks-f87b3583ca50adb0488b031297f5580d.js?body=1" for ::1 at 2015-03-06 11:39:53 -0800
+
+
+Started GET "/assets/pledges-fcec5b5a277ac7c20cc9f45a209a3bcd.js?body=1" for ::1 at 2015-03-06 11:39:53 -0800
+
+
+Started GET "/assets/reps-fcec5b5a277ac7c20cc9f45a209a3bcd.js?body=1" for ::1 at 2015-03-06 11:39:53 -0800
+
+
+Started GET "/assets/tweets-fcec5b5a277ac7c20cc9f45a209a3bcd.js?body=1" for ::1 at 2015-03-06 11:39:53 -0800
+
+
+Started GET "/assets/users-fcec5b5a277ac7c20cc9f45a209a3bcd.js?body=1" for ::1 at 2015-03-06 11:39:53 -0800
+
+
+Started GET "/assets/welcome-3757ac2763cd51eb1704cb571b2ff76d.js?body=1" for ::1 at 2015-03-06 11:39:53 -0800
+
+
+Started GET "/assets/application-c0eb64a80c1895778fe231b94242dfc0.js?body=1" for ::1 at 2015-03-06 11:39:53 -0800
+
+
+Started POST "/tweets" for ::1 at 2015-03-06 11:39:55 -0800
+Processing by TweetsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"DGRvsBno1Ty+2r6u79wliNE5xvSQfF9l90fOnFfO+OiINccxAicLPanKnst9ZV1RYz2dmJCUewQDdpg/guKfIw==", "tweet"=>{"message"=>"hi"}, "commit"=>"Send Tweet"}
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 2]]
+Completed 500 Internal Server Error in 2ms
+
+NoMethodError (undefined method `require!' for #<ActionController::Parameters:0x007fa251f2eab8>):
+  app/controllers/tweets_controller.rb:11:in `twitter_params'
+  app/controllers/tweets_controller.rb:7:in `create'
+
+
+  Rendered /Users/apprentice/.rbenv/versions/2.0.0-p353/lib/ruby/gems/2.0.0/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_source.erb (7.4ms)
+  Rendered /Users/apprentice/.rbenv/versions/2.0.0-p353/lib/ruby/gems/2.0.0/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.6ms)
+  Rendered /Users/apprentice/.rbenv/versions/2.0.0-p353/lib/ruby/gems/2.0.0/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.9ms)
+  Rendered /Users/apprentice/.rbenv/versions/2.0.0-p353/lib/ruby/gems/2.0.0/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (43.1ms)
+  Rendered /Users/apprentice/.rbenv/versions/2.0.0-p353/lib/ruby/gems/2.0.0/gems/web-console-2.1.1/lib/web_console/templates/_markup.html (0.5ms)
+  Rendered /Users/apprentice/.rbenv/versions/2.0.0-p353/lib/ruby/gems/2.0.0/gems/web-console-2.1.1/lib/web_console/templates/style.css within layouts/inlined_string (0.5ms)
+  Rendered /Users/apprentice/.rbenv/versions/2.0.0-p353/lib/ruby/gems/2.0.0/gems/web-console-2.1.1/lib/web_console/templates/_inner_console_markup.html within layouts/inlined_string (0.4ms)
+  Rendered /Users/apprentice/.rbenv/versions/2.0.0-p353/lib/ruby/gems/2.0.0/gems/web-console-2.1.1/lib/web_console/templates/_prompt_box_markup.html within layouts/inlined_string (0.6ms)
+  Rendered /Users/apprentice/.rbenv/versions/2.0.0-p353/lib/ruby/gems/2.0.0/gems/web-console-2.1.1/lib/web_console/templates/console.js within layouts/javascript (23.7ms)
+  Rendered /Users/apprentice/.rbenv/versions/2.0.0-p353/lib/ruby/gems/2.0.0/gems/web-console-2.1.1/lib/web_console/templates/main.js within layouts/javascript (0.4ms)
+  Rendered /Users/apprentice/.rbenv/versions/2.0.0-p353/lib/ruby/gems/2.0.0/gems/web-console-2.1.1/lib/web_console/templates/error_page.js within layouts/javascript (0.8ms)
+  Rendered /Users/apprentice/.rbenv/versions/2.0.0-p353/lib/ruby/gems/2.0.0/gems/web-console-2.1.1/lib/web_console/templates/index.html (72.9ms)
+
+
+Started POST "/tweets" for ::1 at 2015-03-06 11:41:23 -0800
+Processing by TweetsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"DGRvsBno1Ty+2r6u79wliNE5xvSQfF9l90fOnFfO+OiINccxAicLPanKnst9ZV1RYz2dmJCUewQDdpg/guKfIw==", "tweet"=>{"message"=>"hi"}, "commit"=>"Send Tweet"}
+  [1m[35mUser Load (0.3ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 2]]
+
+
+Started POST "/tweets" for ::1 at 2015-03-06 11:42:48 -0800
+  [1m[36mActiveRecord::SchemaMigration Load (0.8ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by TweetsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"DGRvsBno1Ty+2r6u79wliNE5xvSQfF9l90fOnFfO+OiINccxAicLPanKnst9ZV1RYz2dmJCUewQDdpg/guKfIw==", "tweet"=>{"message"=>"hi"}, "commit"=>"Send Tweet"}
+Completed 500 Internal Server Error in 12ms
+
+SyntaxError (/Users/apprentice/Desktop/adellhk-jmoon018/WeThePAC/app/models/user.rb:16: syntax error, unexpected tIDENTIFIER, expecting ']'
+      config.consumer_secret     = ENV['API_SECRET']
+            ^):
+  app/models/user.rb:16: syntax error, unexpected tIDENTIFIER, expecting ']'
+  app/controllers/application_controller.rb:8:in `current_user'
+  app/controllers/tweets_controller.rb:7:in `create'
+
+
+  Rendered /Users/apprentice/.rbenv/versions/2.0.0-p353/lib/ruby/gems/2.0.0/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_source.erb (8.2ms)
+  Rendered /Users/apprentice/.rbenv/versions/2.0.0-p353/lib/ruby/gems/2.0.0/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (3.3ms)
+  Rendered /Users/apprentice/.rbenv/versions/2.0.0-p353/lib/ruby/gems/2.0.0/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.1ms)
+  Rendered /Users/apprentice/.rbenv/versions/2.0.0-p353/lib/ruby/gems/2.0.0/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (30.2ms)
+  Rendered /Users/apprentice/.rbenv/versions/2.0.0-p353/lib/ruby/gems/2.0.0/gems/web-console-2.1.1/lib/web_console/templates/_markup.html (0.4ms)
+  Rendered /Users/apprentice/.rbenv/versions/2.0.0-p353/lib/ruby/gems/2.0.0/gems/web-console-2.1.1/lib/web_console/templates/style.css within layouts/inlined_string (0.3ms)
+  Rendered /Users/apprentice/.rbenv/versions/2.0.0-p353/lib/ruby/gems/2.0.0/gems/web-console-2.1.1/lib/web_console/templates/_inner_console_markup.html within layouts/inlined_string (0.3ms)
+  Rendered /Users/apprentice/.rbenv/versions/2.0.0-p353/lib/ruby/gems/2.0.0/gems/web-console-2.1.1/lib/web_console/templates/_prompt_box_markup.html within layouts/inlined_string (0.4ms)
+  Rendered /Users/apprentice/.rbenv/versions/2.0.0-p353/lib/ruby/gems/2.0.0/gems/web-console-2.1.1/lib/web_console/templates/console.js within layouts/javascript (19.8ms)
+  Rendered /Users/apprentice/.rbenv/versions/2.0.0-p353/lib/ruby/gems/2.0.0/gems/web-console-2.1.1/lib/web_console/templates/main.js within layouts/javascript (0.3ms)
+  Rendered /Users/apprentice/.rbenv/versions/2.0.0-p353/lib/ruby/gems/2.0.0/gems/web-console-2.1.1/lib/web_console/templates/error_page.js within layouts/javascript (0.5ms)
+  Rendered /Users/apprentice/.rbenv/versions/2.0.0-p353/lib/ruby/gems/2.0.0/gems/web-console-2.1.1/lib/web_console/templates/index.html (41.7ms)
+
+
+Started POST "/tweets" for ::1 at 2015-03-06 11:43:03 -0800
+Processing by TweetsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"DGRvsBno1Ty+2r6u79wliNE5xvSQfF9l90fOnFfO+OiINccxAicLPanKnst9ZV1RYz2dmJCUewQDdpg/guKfIw==", "tweet"=>{"message"=>"hi"}, "commit"=>"Send Tweet"}
+  [1m[35mUser Load (0.4ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 2]]
+  Rendered tweets/create.html.erb within layouts/application (294.3ms)
+  Rendered layouts/header.html.erb (0.8ms)
+Completed 200 OK in 114177ms (Views: 14026.7ms | ActiveRecord: 3.3ms)
+
+
+Started GET "/assets/profiles-348a2853b8b7a8a08e7b5e171be6a2ec.css?body=1" for ::1 at 2015-03-06 11:44:57 -0800
+
+
+Started GET "/assets/reps-64e62ddc273c2f5847f30d698ca14b67.css?body=1" for ::1 at 2015-03-06 11:44:57 -0800
+
+
+Started GET "/assets/pledges-64e62ddc273c2f5847f30d698ca14b67.css?body=1" for ::1 at 2015-03-06 11:44:57 -0800
+
+
+Started GET "/assets/header-b458c74bf76a22fd51c7f0b0d693913e.css?body=1" for ::1 at 2015-03-06 11:44:57 -0800
+
+
+Started GET "/assets/responsive.gs.12col-c3fe5b17c87aed0d5b4a9ef145ad0dea.css?body=1" for ::1 at 2015-03-06 11:44:57 -0800
+
+
+Started GET "/assets/tweets-64e62ddc273c2f5847f30d698ca14b67.css?body=1" for ::1 at 2015-03-06 11:44:57 -0800
+
+
+Started GET "/assets/users-64e62ddc273c2f5847f30d698ca14b67.css?body=1" for ::1 at 2015-03-06 11:44:57 -0800
+
+
+Started GET "/assets/welcome-64e62ddc273c2f5847f30d698ca14b67.css?body=1" for ::1 at 2015-03-06 11:44:57 -0800
+
+
+Started GET "/assets/application-cf5612d9dd4451d9b437176a56ebb7fe.css?body=1" for ::1 at 2015-03-06 11:44:58 -0800
+
+
+Started GET "/assets/jquery-87424c3c19e96d4fb033c10ebe21ec40.js?body=1" for ::1 at 2015-03-06 11:44:58 -0800
+
+
+Started GET "/assets/jquery_ujs-e27bd20a10d28155845a22d71ef94f2f.js?body=1" for ::1 at 2015-03-06 11:44:58 -0800
+
+
+Started GET "/assets/turbolinks-f87b3583ca50adb0488b031297f5580d.js?body=1" for ::1 at 2015-03-06 11:44:58 -0800
+
+
+Started GET "/assets/pledges-fcec5b5a277ac7c20cc9f45a209a3bcd.js?body=1" for ::1 at 2015-03-06 11:44:58 -0800
+
+
+Started GET "/assets/reps-fcec5b5a277ac7c20cc9f45a209a3bcd.js?body=1" for ::1 at 2015-03-06 11:44:58 -0800
+
+
+Started GET "/assets/tweets-fcec5b5a277ac7c20cc9f45a209a3bcd.js?body=1" for ::1 at 2015-03-06 11:44:58 -0800
+
+
+Started GET "/assets/users-fcec5b5a277ac7c20cc9f45a209a3bcd.js?body=1" for ::1 at 2015-03-06 11:44:58 -0800
+
+
+Started GET "/assets/welcome-3757ac2763cd51eb1704cb571b2ff76d.js?body=1" for ::1 at 2015-03-06 11:44:58 -0800
+
+
+Started GET "/assets/application-c0eb64a80c1895778fe231b94242dfc0.js?body=1" for ::1 at 2015-03-06 11:44:58 -0800
+
+
+Started GET "/tweets/new" for ::1 at 2015-03-06 11:45:35 -0800
+Processing by TweetsController#new as HTML
+  Rendered tweets/new.html.erb within layouts/application (9.5ms)
+  Rendered layouts/header.html.erb (0.2ms)
+Completed 200 OK in 613ms (Views: 609.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/header-b458c74bf76a22fd51c7f0b0d693913e.css?body=1" for ::1 at 2015-03-06 11:45:36 -0800
+
+
+Started GET "/assets/pledges-64e62ddc273c2f5847f30d698ca14b67.css?body=1" for ::1 at 2015-03-06 11:45:36 -0800
+
+
+Started GET "/assets/profiles-348a2853b8b7a8a08e7b5e171be6a2ec.css?body=1" for ::1 at 2015-03-06 11:45:36 -0800
+
+
+Started GET "/assets/tweets-64e62ddc273c2f5847f30d698ca14b67.css?body=1" for ::1 at 2015-03-06 11:45:36 -0800
+
+
+Started GET "/assets/reps-64e62ddc273c2f5847f30d698ca14b67.css?body=1" for ::1 at 2015-03-06 11:45:36 -0800
+
+
+Started GET "/assets/responsive.gs.12col-c3fe5b17c87aed0d5b4a9ef145ad0dea.css?body=1" for ::1 at 2015-03-06 11:45:37 -0800
+
+
+Started GET "/assets/users-64e62ddc273c2f5847f30d698ca14b67.css?body=1" for ::1 at 2015-03-06 11:45:37 -0800
+
+
+Started GET "/assets/welcome-64e62ddc273c2f5847f30d698ca14b67.css?body=1" for ::1 at 2015-03-06 11:45:37 -0800
+
+
+Started GET "/assets/application-cf5612d9dd4451d9b437176a56ebb7fe.css?body=1" for ::1 at 2015-03-06 11:45:37 -0800
+
+
+Started GET "/assets/jquery-87424c3c19e96d4fb033c10ebe21ec40.js?body=1" for ::1 at 2015-03-06 11:45:37 -0800
+
+
+Started GET "/assets/jquery_ujs-e27bd20a10d28155845a22d71ef94f2f.js?body=1" for ::1 at 2015-03-06 11:45:37 -0800
+
+
+Started GET "/assets/turbolinks-f87b3583ca50adb0488b031297f5580d.js?body=1" for ::1 at 2015-03-06 11:45:37 -0800
+
+
+Started GET "/assets/pledges-fcec5b5a277ac7c20cc9f45a209a3bcd.js?body=1" for ::1 at 2015-03-06 11:45:37 -0800
+
+
+Started GET "/assets/reps-fcec5b5a277ac7c20cc9f45a209a3bcd.js?body=1" for ::1 at 2015-03-06 11:45:37 -0800
+
+
+Started GET "/assets/tweets-fcec5b5a277ac7c20cc9f45a209a3bcd.js?body=1" for ::1 at 2015-03-06 11:45:37 -0800
+
+
+Started GET "/assets/users-fcec5b5a277ac7c20cc9f45a209a3bcd.js?body=1" for ::1 at 2015-03-06 11:45:37 -0800
+
+
+Started GET "/assets/welcome-3757ac2763cd51eb1704cb571b2ff76d.js?body=1" for ::1 at 2015-03-06 11:45:37 -0800
+
+
+Started GET "/assets/application-c0eb64a80c1895778fe231b94242dfc0.js?body=1" for ::1 at 2015-03-06 11:45:37 -0800
+
+
+Started POST "/tweets" for ::1 at 2015-03-06 11:45:40 -0800
+Processing by TweetsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"7Vm1ayNqI15cxNoGSoyy2VEc+2WNFMtsyIZpa8yAaGJpCB3qOKX9X0vU+mPYNcoA4xigCY387w08tz/IGawPqQ==", "tweet"=>{"message"=>"hi jamal"}, "commit"=>"Send Tweet"}
+  [1m[36mUser Load (0.6ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 2]]
+  Rendered tweets/create.html.erb within layouts/application (1.0ms)
+  Rendered layouts/header.html.erb (0.3ms)
+Completed 200 OK in 1010ms (Views: 766.3ms | ActiveRecord: 2.8ms)
+
+
+Started GET "/assets/header-b458c74bf76a22fd51c7f0b0d693913e.css?body=1" for ::1 at 2015-03-06 11:45:41 -0800
+
+
+Started GET "/assets/pledges-64e62ddc273c2f5847f30d698ca14b67.css?body=1" for ::1 at 2015-03-06 11:45:41 -0800
+
+
+Started GET "/assets/responsive.gs.12col-c3fe5b17c87aed0d5b4a9ef145ad0dea.css?body=1" for ::1 at 2015-03-06 11:45:41 -0800
+
+
+Started GET "/assets/reps-64e62ddc273c2f5847f30d698ca14b67.css?body=1" for ::1 at 2015-03-06 11:45:41 -0800
+
+
+Started GET "/assets/tweets-64e62ddc273c2f5847f30d698ca14b67.css?body=1" for ::1 at 2015-03-06 11:45:41 -0800
+
+
+Started GET "/assets/profiles-348a2853b8b7a8a08e7b5e171be6a2ec.css?body=1" for ::1 at 2015-03-06 11:45:41 -0800
+
+
+Started GET "/assets/users-64e62ddc273c2f5847f30d698ca14b67.css?body=1" for ::1 at 2015-03-06 11:45:41 -0800
+
+
+Started GET "/assets/welcome-64e62ddc273c2f5847f30d698ca14b67.css?body=1" for ::1 at 2015-03-06 11:45:41 -0800
+
+
+Started GET "/assets/application-cf5612d9dd4451d9b437176a56ebb7fe.css?body=1" for ::1 at 2015-03-06 11:45:41 -0800
+
+
+Started GET "/assets/jquery-87424c3c19e96d4fb033c10ebe21ec40.js?body=1" for ::1 at 2015-03-06 11:45:41 -0800
+
+
+Started GET "/assets/jquery_ujs-e27bd20a10d28155845a22d71ef94f2f.js?body=1" for ::1 at 2015-03-06 11:45:41 -0800
+
+
+Started GET "/assets/turbolinks-f87b3583ca50adb0488b031297f5580d.js?body=1" for ::1 at 2015-03-06 11:45:42 -0800
+
+
+Started GET "/assets/pledges-fcec5b5a277ac7c20cc9f45a209a3bcd.js?body=1" for ::1 at 2015-03-06 11:45:42 -0800
+
+
+Started GET "/assets/reps-fcec5b5a277ac7c20cc9f45a209a3bcd.js?body=1" for ::1 at 2015-03-06 11:45:42 -0800
+
+
+Started GET "/assets/tweets-fcec5b5a277ac7c20cc9f45a209a3bcd.js?body=1" for ::1 at 2015-03-06 11:45:42 -0800
+
+
+Started GET "/assets/users-fcec5b5a277ac7c20cc9f45a209a3bcd.js?body=1" for ::1 at 2015-03-06 11:45:42 -0800
+
+
+Started GET "/assets/welcome-3757ac2763cd51eb1704cb571b2ff76d.js?body=1" for ::1 at 2015-03-06 11:45:42 -0800
+
+
+Started GET "/assets/application-c0eb64a80c1895778fe231b94242dfc0.js?body=1" for ::1 at 2015-03-06 11:45:42 -0800

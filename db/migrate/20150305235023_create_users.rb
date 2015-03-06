@@ -8,6 +8,8 @@ class CreateUsers < ActiveRecord::Migration
       t.string :uid
       t.text :profile_pic_thumb_url
       t.text :profile_pic_big_url
+      t.string :oauth_token
+      t.string :oauth_secret
 
       t.timestamps null: false
     end
