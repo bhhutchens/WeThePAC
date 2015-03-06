@@ -4,15 +4,16 @@
 
 
 
-.profile_page {
-  /*width: 80%;*/
+/*.profile_page {
   width: 600px;
   margin: auto;
-}
+}*/
+
 
 .profile_upper {
   margin: auto;
   display: table;
+  width: 100%;
 }
 
 .profile_image_box {
@@ -21,9 +22,9 @@
 }
 
 .profile_image {
-  display: table;
   min-width: 100px;
   min-height: 100px;
+  max-width: 400px;
 }
 
 .profile_name {
@@ -34,7 +35,7 @@
 }
 
 .profile_handle {
-  font-size: -2.5em;
+  font-size: 0.85em;
   color: gray;
 }
 
@@ -50,11 +51,17 @@
 
 .profile_tweet_list {
   width: 100%;
+  max-width: 600px;
   margin-top: 5em;
   list-style-type: none;
+  margin-left: auto;
+  margin-right: auto;
+  font-family: Helvetica Neue;
 }
 
 .profile_tweet_list_item {
   border-bottom: 1px solid black;
   padding: 10px;
 }
+
+
