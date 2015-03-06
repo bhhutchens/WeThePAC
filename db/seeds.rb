@@ -6,10 +6,6 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
-# Rep.create(twitter_handle:"@honda", name: "honda")
-# User.create(twitter_handle:"@moon", name:"Jamal")
-# Pledge.create(user_id:1, rep_id: 1)
-
 x = 1
 response_array = []
 11.times do
@@ -30,6 +26,8 @@ response_array.each do |page|
 end
 
 
-
-
+# Rep.create(twitter_handle:"@honda", name: "honda")
+# User.create(twitter_handle:"@moon", name:"Jamal")
+# Pledge.create(user_id:1, rep_id: 1)
+# Rep.create(twitter_handle:"@Pelosi", name:"Nancy Pelosi")
 
