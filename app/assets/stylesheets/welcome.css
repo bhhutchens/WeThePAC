@@ -1,21 +1,38 @@
 div#searchResults {
     position: relative;
-    border: 1px solid black;
+    padding-left: 2%;
     display: table;
     text-align: center;
+    padding-top: 1%;
+    width: 100%;
 }
 
 div.search-result {
-    /*float: left;*/
+    float: left;
     margin: 1px;
     border: 1px solid black;
     border-radius: 3px;
     display: inline-block;
     padding: 3px;
+    width: 32%;
+    height: 75px;
+}
+
+.search-result-anchor {
+  display: block;
 }
 
 .search-result-thumbnail, .feed-thumbnail {
   height: 40px;
   float: left;
   border-radius: 35px;
+}
+
+.search-form {
+  position: relative;
+  left: 50%;
+  margin-left: -160px;
+}
+#searchBarInput {
+  font-size: 30px;
 }
