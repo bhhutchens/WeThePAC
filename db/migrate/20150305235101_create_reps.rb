@@ -6,6 +6,8 @@ class CreateReps < ActiveRecord::Migration
       t.string :fec_id
       t.text  :bio
       t.text :json
+      t.string :thumbnail_url
+      t.string :big_pic_url
 
       t.timestamps null: false
     end
