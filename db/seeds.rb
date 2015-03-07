@@ -21,6 +21,7 @@ def seed_reps
       name = rep["first_name"] + ' ' + rep["last_name"]
       fec_id = rep["fec_ids"]
       twitter_handle = rep['twitter_id']
+      twitter_handle = twitter_handle.downcase if twitter_handle
 
       Rep.create(name: name, fec_id: fec_id, twitter_handle: twitter_handle, json: json)
     end

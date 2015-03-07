@@ -9,6 +9,8 @@ Rails.application.routes.draw do
   get 'twitter/login' => 'twitters#login'
   post 'sessions/logout' => 'sessions#destroy'
 
+  # a route that requires a special ENV key and seeds the database with the rep's image urls
+  get "seed_reps" => "reps#seed"
 
   # api calls to get rep and user jsons
   get 'api/reps/:id' => 'api#show_rep'

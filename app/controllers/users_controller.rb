@@ -13,10 +13,6 @@ class UsersController < ApplicationController
     else
       puts "User found!"
       puts @user
-      #@user.pledge_count = @user.pledges.count
-      #@pledges = @user.pledges
     end
-    #return @user.to_json
-    # render json: @user
   end
 end
