@@ -1,11 +1,9 @@
-<div class="profile_upper span_4"></div>
-<button id="positive-pledge">pledge for</button>
-<button id="negative-pledge">pledge against</button>
-<form id="pledge-form" style="display:none">
-  <textarea id="tweet-box" placeholder="your message associated with this pledge"></textarea>
-  <button type="submit">submit</button>
-</form>
+<div class="profile_upper"></div>
+
+
 <ul class="profile_pledge_list" id="pledge_list"></ul>
+
+
 
 <script type="text/x-handlebars-template" id="rep_info">
   <div class="profile_image_box">
@@ -15,8 +13,17 @@
   </div>
 
   <p class="profile_name">
-    {{rep.name}} <span class="profile_handle"><a href="http://twitter.com/{{rep.twitter_handle}}">@{{rep.twitter_handle}}</a></span>
+    {{rep.name}} <a class="profile_handle" href="http://twitter.com/{{rep.twitter_handle}}">@{{rep.twitter_handle}}</a>
   </p>
+
+  <button id="positive-pledge">pledge for</button>
+  <button id="negative-pledge">pledge against</button>
+  <form id="pledge-form" style="display:none">
+    <div id="close-tweet-button">Close</div>
+    <p class="tweet_box_title">Send a Tweet!</p>
+    <textarea id="tweet-box" placeholder="your message associated with this pledge"></textarea>
+    <button type="submit">Tweet!</button>
+  </form>
 </script>
 
 <script type="text/x-handlebars-template" id="rep_pledge_feed">

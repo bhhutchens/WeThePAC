@@ -21,6 +21,7 @@ $(document).ready(function() {
         var isHidden = $(".header_right_box")[0].style.display == "none";
         if (width <= 480 && !isHidden) {
           $(".header_right_box").hide();
+
         }
         else if (width > 480 && isHidden) {
           $(".header_right_box").show();

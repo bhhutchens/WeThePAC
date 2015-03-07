@@ -1,0 +1,30 @@
+#pledge-form {
+  position: fixed;
+  top: 30%;
+  left: 30%;
+  max-height: 40%;
+  width: 40%;
+  background-color: white;
+  box-shadow: 0 0 3px 3px;
+  padding: 1em;
+}
+
+#tweet-box {
+  width: 80%;
+  height: 70%;
+  min-height: 150px;
+  margin-left: 10%;
+}
+
+.tweet_box_title {
+  text-align: center;
+  font-size: 2em;
+}
+
+#close-tweet-button {
+  background-color: gray;
+  width: 60px;
+  height: 30px;
+  text-align: center;
+  float: right;
+}

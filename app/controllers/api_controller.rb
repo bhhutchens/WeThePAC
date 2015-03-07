@@ -33,5 +33,4 @@ class ApiController < ApplicationController
 
     render json: pledge, status: 200
   end
-
 end

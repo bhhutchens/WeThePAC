@@ -53,6 +53,7 @@ function getRepInfo() {
     $(".profile_upper").append(repInfoTemplate({rep: data}));
 
     renderPledges(); // RENDER THE PLEDGES FEED
+    pledgeButtonSetup();
   }).
   fail(function(data) {
     console.log("failed getting a rep with an ajax call");
@@ -63,65 +64,40 @@ function getRepInfo() {
 $(document).ready(function() {
   console.log("reps js loaded");
   getRepInfo();
-  pledgeButtonSetup();
+
 });
 
 
-// function getRep() {
-//   $.ajax({
-//     url: api_server + pathname,
-//     type: "GET"
-//   }).done(function(data) {
-//     // console.log(data);
-//     var rep_template = $("#rep_info").html();
-//     var compiled_rep_template = Handlebars.compile(rep_template);
-
-//     // usage: apnd (compiled_template ({ key: data }))
-//     var apnd = function(data) { $("body").append(data); }
-//     apnd(compiled_rep_template({rep: data}));
-
-//     pledgeButtonSetup();
-//   }).fail(function(data){
-//     console.log("failed getting a rep with ajax call");
-//   })
-// }
-
-// function getRepPledges() {
-//   // get pledges feeed
-//   $.ajax({
-//     url: api_server + pathname+"/pledges",
-//     type: "GET"
-//   }).done(function(data){
-//     console.log("succes getting rep's pledges");
-//   // title the pledge feed. Remove this after adding #pledges div.p
-//   $('body').append("<h1>Pledges</h1>")
-//     // iterate through each pledge response and append it to the page
-//     $.each(data, function(index, pledge) {
-//       var rep_pledge_feed_template = $("#rep_pledge_feed").html();
-//       var compiled_pledge_feed_template = Handlebars.compile(rep_pledge_feed_template);
-//       $('body').append(compiled_pledge_feed_template({pledge: pledge}));
-//     });
-//   }).fail(function(){
-//     console.log('unable to get pledges feed');
-//   });
-// }
+// HIDES or SHOWS the positive/negative pledge buttons
+function togglePledgeButtons(visible) {
+    if (visible) {
+      $('#positive-pledge').show()
+      $('#negative-pledge').show()
+    }
+    else if (!visible) {
+      $('#positive-pledge').hide()
+      $('#negative-pledge').hide()
+    }
+}
 
 function pledgeButtonSetup() {
   //adds event listeners to pledge buttons
   $('#positive-pledge').on('click', function(){
-    $('#positive-pledge').hide()
-    $('#negative-pledge').hide()
+    togglePledgeButtons(false);
     $("#tweet-box").data('positive', 'true')
     $('#pledge-form').show()
   })
 
   $('#negative-pledge').on('click', function(){
-    $('#positive-pledge').hide()
-    $('#negative-pledge').hide()
+    togglePledgeButtons(false);
     $("#tweet-box").data('positive', 'false')
     $('#pledge-form').show()
   })
 
+  $("#close-tweet-button").on('click', function() {
+    $("#pledge-form").hide();
+    togglePledgeButtons(true);
+  })
   pledgeFormSubmit();
 }
 
@@ -129,9 +105,11 @@ function pledgeFormSubmit() {
   $('#pledge-form').on('submit', function(form) {
     form.preventDefault();
     makeTweet($('#tweet-box').val());
+
+    // remove the form to tweet and show the pledge buttons again
+    togglePledgeButtons(true);
+    $("#pledge-form").hide();
   });
-
-
 };
 
 
