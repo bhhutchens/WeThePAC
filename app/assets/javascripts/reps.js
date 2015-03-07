@@ -1,9 +1,9 @@
 $(document).ready(function() {
   // get a rep
   console.log("reps js loaded");
-
+  var pathname = location.pathname
   $.ajax({
-    url: api_server + "reps/1",
+    url: api_server + pathname,
     type: "GET"
   }).done(function(data) {
     console.log(data);
@@ -19,9 +19,10 @@ $(document).ready(function() {
   })
 
 
+  console.log(api_server + pathname.substr(1, pathname.length)+"pledges")
   // get pledges feeed
   $.ajax({
-    url: api_server + "reps/1/pledges",
+    url: api_server + pathname+"pledges",
     type: "GET"
   }).done(function(data){
     console.log("succes getting rep's pledges");

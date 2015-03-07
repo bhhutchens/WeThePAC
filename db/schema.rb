@@ -21,10 +21,14 @@ ActiveRecord::Schema.define(version: 20150305235208) do
     t.integer  "rep_id"
     t.integer  "tweet_id"
     t.text     "tweet_message"
-    t.boolean  "fulfilled",     default: false
+    t.boolean  "fulfilled",           default: false
     t.boolean  "positive"
-    t.datetime "created_at",                    null: false
-    t.datetime "updated_at",                    null: false
+    t.string   "user_thumbnail_url"
+    t.string   "rep_thumbnail_url"
+    t.string   "user_twitter_handle"
+    t.string   "rep_twitter_handle"
+    t.datetime "created_at",                          null: false
+    t.datetime "updated_at",                          null: false
   end
 
   create_table "reps", force: :cascade do |t|
@@ -33,6 +37,8 @@ ActiveRecord::Schema.define(version: 20150305235208) do
     t.string   "fec_id"
     t.text     "bio"
     t.text     "json"
+    t.string   "thumbnail_url"
+    t.string   "big_pic_url"
     t.datetime "created_at",     null: false
     t.datetime "updated_at",     null: false
   end

@@ -1,8 +1,5 @@
 <h1>HI</h1>
 <%= button_to "Sign in with Twitter", "/auth/twitter" %>
-<form class="search-form">
-  <input id="searchBarInput" placeholder="eg. Pelosi or 94107"></input>
-</form>
 
 <b>Tweeting:</b>
 <% unless current_user.nil? %>
@@ -11,3 +8,22 @@
 <% else %>
     <p>You must log in to send a tweet.</p>
 <% end %>
+
+<form class="search-form">
+  <input id="searchBarInput" placeholder="eg. Pelosi or 94107"></input>
+</form>
+
+<div id="searchResults"></div>
+
+
+
+
+<script type="text/x-handlebars-template" id="searchResultTemplate">
+  <a href={{rep.profile_url}}><div class="search-result">
+      <b>{{rep.name}}</b> @{{rep.twitter_handle}}
+      <img src={{rep.thumbnail_url}} class="search-result-thumbnail">
+      <p>FEC ID: {{rep.fec_id}}</p>
+    </div></a>
+</script>
+
+<%= javascript_include_tag 'welcome', 'data-turbolinks-track' => true %>
