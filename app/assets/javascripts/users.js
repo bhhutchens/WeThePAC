@@ -11,11 +11,11 @@ function compileTemplate (selector) {
 function renderPledges() {
   // ajax GET call
   $.ajax({
-    url: api_server + pathname + "/pledges",
+    url: api_server + pathname + "/pledges"
   }).
   done(function(data) {
     // add the name of the list in html
-    console.log("success getting user's pledges");
+    console.log("success getting rep's pledges");
     $('#pledge_list').prepend("<h1>Pledges</h1>");
 
     // loop through each pledge and append it as a list item

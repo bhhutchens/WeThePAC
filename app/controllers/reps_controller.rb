@@ -31,7 +31,5 @@ class RepsController < ApplicationController
       this_rep.big_pic_url = twitter_object.profile_image_url.to_s.gsub("_normal", "")
       this_rep.save!
     end
-
   end
-
 end
