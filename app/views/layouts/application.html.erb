@@ -10,7 +10,11 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/3.0.0/handlebars.js"></script>
 </head>
 <body>
-<%= render file: "/layouts/header.html.erb" %>
+<% if current_user %>
+  <%= render file: "/layouts/_logged_in_header.html.erb" %>
+<% else %>
+  <%= render file: "/layouts/_logged_out_header.html.erb" %>
+<% end %>
 <%= csrf_meta_tag %>
 <div class="content">
   <%= yield %>
