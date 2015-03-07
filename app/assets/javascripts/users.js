@@ -13,12 +13,13 @@ $(document).ready(function() {
     // usage: apnd (compiled_template ({ key: data }))
     var apnd = function(data) { $("body").append(data); }
 
-    apnd(compiled_user_template({user: data}));
+    //apnd(compiled_user_template({user: data}));
+    apnd(compiled_user_template({user:data}))
   }).fail(function(data){
     console.log("failed getting a user with ajax call");
   })
 
-// get pledges feeed
+// get pledges feed
 $.ajax({
   url: api_server + "/users/1/pledges",
   type: "GET"
@@ -30,11 +31,10 @@ $.ajax({
     $.each(data, function(index, pledge) {
       var user_pledge_feed_template = $("#user_pledge_feed").html();
       var compiled_pledge_feed_template = Handlebars.compile(user_pledge_feed_template);
+      console.log(pledge);
       $('body').append(compiled_pledge_feed_template({pledge: pledge}));
     });
   }).fail(function(){
     console.log('unable to get pledges feed');
   });
-
-
 });
