@@ -23,6 +23,7 @@ $(document).ready(function(){
     var compiledSearchResultTemplate = Handlebars.compile($("#searchResultTemplate").html());
     $.each(searchResults, function(index, rep) {
       if (rep.thumbnail_url === null) { rep.thumbnail_url = server+"no-avatar.jpg" }
+        rep.profile_url = server+"reps/{{rep.id}}"
       $("#searchResults").append(compiledSearchResultTemplate({rep: rep}));
     });
   };
