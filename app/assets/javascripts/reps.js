@@ -23,10 +23,19 @@ function renderPledges() {
         pledge.rep_thumbnail_url = server + "/images/no-avatar.jpg";
       }
 
-      // get and compile templates
+      // compile + append templates
       var template = compileTemplate("#rep_pledge_feed");
-
       $("#pledge_list").append(template({pledge: pledge}));
+
+      // add style for negative or positive pledge
+      if (pledge.positive) {
+        console.log("the pledge is positive");
+        $("#pledge_list > li").last().addClass("positive-tweet");
+      }
+      else {
+        console.log("the pledge is negative");
+        $("#pledge_list > li").last().addClass("negative-tweet");
+      }
     });
   }).
   fail(function() {
@@ -83,7 +92,8 @@ function setupPledgeForm() {
 
     var maxTweetCharacters = 140;
     var wtpac = "#WeThePAC";
-    var availableLetters = 140 - wtpac.length; // 131 characters
+    var handle = $("#tweet-handle").text();
+    var availableLetters = 140 - wtpac.length - handle.length;
     availableLetters -= characterCnt;
 
     $("#tweet-character-count").text("Available characters: " + availableLetters);
@@ -96,6 +106,11 @@ function setupPledgeForm() {
       return true;
     }
   });
+
+   // trigger the event above so that the "available characters: ..."
+   // text is calculated and shown.. otherwise we'd have to wait
+   // until the user actually types something
+  $("#pledge-form").keyup();
 }
 
 

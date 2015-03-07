@@ -54,4 +54,7 @@
   padding: 10px;
 }
 
+.profile_pledge_list_item_text {
+  overflow-wrap: break-word;
+}
 

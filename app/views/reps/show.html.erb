@@ -16,12 +16,19 @@
     {{rep.name}} <a class="profile_handle" href="http://twitter.com/{{rep.twitter_handle}}">@{{rep.twitter_handle}}</a>
   </p>
 
-  <button id="positive-pledge">pledge for</button>
-  <button id="negative-pledge">pledge against</button>
+  <% if current_user %>
+    <button id="positive-pledge">pledge for</button>
+    <button id="negative-pledge">pledge against</button>
+  <% end %>
   <form id="pledge-form" style="display:none">
+
     <div id="close-tweet-button">Close</div>
     <p class="tweet_box_title">Send a Tweet!</p>
+    <p id="tweet-handle">@{{rep.twitter_handle}}</p>
+
     <textarea id="tweet-box" placeholder="your message associated with this pledge"></textarea>
+    <p id="tweet-hashtag">#WeThePAC</p>
+
     <button type="submit">Tweet!</button>
     <span id="tweet-character-count"></span>
   </form>
