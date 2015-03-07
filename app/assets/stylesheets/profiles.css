@@ -2,14 +2,6 @@
 
 
 
-
-
-/*.profile_page {
-  width: 600px;
-  margin: auto;
-}*/
-
-
 .profile_upper {
   margin: auto;
   display: table;
@@ -31,9 +23,6 @@
 .profile_name {
   font-size: 3.5em;
   line-height: 50px;
- /* text-align: center;*/
-/*  margin-top: 0.5em;
-  margin-bottom: 1em;*/
 }
 
 .profile_handle {

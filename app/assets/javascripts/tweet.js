@@ -30,6 +30,4 @@ function postPledge(tweetId) {
   .fail(function() {
     console.log("error posting pledge");
   });
-
 }
-

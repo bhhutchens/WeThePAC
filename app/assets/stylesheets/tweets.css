@@ -28,3 +28,15 @@
   text-align: center;
   float: right;
 }
+
+.negative-tweet {
+  background-color: rgba(255, 0, 0, 0.1);
+}
+
+.positive-tweet {
+  background-color: rgba(0, 255, 0, 0.1);
+}
+
+.red {
+  color: red;
+}

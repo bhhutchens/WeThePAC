@@ -60,24 +60,55 @@ function getRepInfo() {
   })
 }
 
+function tweetMessageOkay() {
+  if ($("#tweet-box").val().length >= 131) {
+    return false;
+  }
+  else {
+    return true;
+  }
+}
 
-$(document).ready(function() {
-  console.log("reps js loaded");
-  getRepInfo();
+function tweetMessageError() {
+  console.log("Error: message too long");
+  $("#tweet-character-count").text("Too many characters!");
+}
 
-});
+function setupPledgeForm() {
+   $("#pledge-form").keyup(function(e) {
+    e.preventDefault();
+    var currentTweetMsg = $("#tweet-box").val();
+    var characterCnt = currentTweetMsg.length;
+    console.log("current tweet message on search form: " + currentTweetMsg + "...count: " + characterCnt);
+
+    var maxTweetCharacters = 140;
+    var wtpac = "#WeThePAC";
+    var availableLetters = 140 - wtpac.length; // 131 characters
+    availableLetters -= characterCnt;
+
+    $("#tweet-character-count").text("Available characters: " + availableLetters);
+    if (availableLetters < 0) {
+      $("#tweet-character-count").addClass("red");
+      return false;
+    }
+    else {
+      $("#tweet-character-count").removeClass("red");
+      return true;
+    }
+  });
+}
 
 
 // HIDES or SHOWS the positive/negative pledge buttons
 function togglePledgeButtons(visible) {
-    if (visible) {
-      $('#positive-pledge').show()
-      $('#negative-pledge').show()
-    }
-    else if (!visible) {
-      $('#positive-pledge').hide()
-      $('#negative-pledge').hide()
-    }
+  if (visible) {
+    $('#positive-pledge').show()
+    $('#negative-pledge').show()
+  }
+  else if (!visible) {
+    $('#positive-pledge').hide()
+    $('#negative-pledge').hide()
+  }
 }
 
 function pledgeButtonSetup() {
@@ -98,12 +129,21 @@ function pledgeButtonSetup() {
     $("#pledge-form").hide();
     togglePledgeButtons(true);
   })
+
+  setupPledgeForm();
   pledgeFormSubmit();
 }
 
 function pledgeFormSubmit() {
   $('#pledge-form').on('submit', function(form) {
     form.preventDefault();
+
+    // don't submit the tweet if the tweet message
+    // is too long etc
+    if (!tweetMessageOkay()) {
+      tweetMessageError();
+      return;
+    }
     makeTweet($('#tweet-box').val());
 
     // remove the form to tweet and show the pledge buttons again
@@ -112,7 +152,7 @@ function pledgeFormSubmit() {
   });
 };
 
-
-
-
-
+$(document).ready(function() {
+  console.log("reps js loaded");
+  getRepInfo();
+});
