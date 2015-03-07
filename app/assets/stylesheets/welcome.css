@@ -1,0 +1,21 @@
+div#searchResults {
+    position: relative;
+    border: 1px solid black;
+    display: table;
+    text-align: center;
+}
+
+div.search-result {
+    /*float: left;*/
+    margin: 1px;
+    border: 1px solid black;
+    border-radius: 3px;
+    display: inline-block;
+    padding: 3px;
+}
+
+.search-result-thumbnail {
+  height: 40px;
+  float: left;
+  border-radius: 35px;
+}

@@ -37,6 +37,8 @@ ActiveRecord::Schema.define(version: 20150305235208) do
     t.string   "fec_id"
     t.text     "bio"
     t.text     "json"
+    t.string   "thumbnail_url"
+    t.string   "big_pic_url"
     t.datetime "created_at",     null: false
     t.datetime "updated_at",     null: false
   end

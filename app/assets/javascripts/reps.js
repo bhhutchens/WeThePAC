@@ -1,15 +1,16 @@
 $(document).ready(function() {
-  getRep(repId);
-  getRepPledges(repId);
+  console.log("reps js loaded");
+  getRep();
+  getRepPledges();
+  var pathname = location.pathname
 });
 
 
 
 
-function getRep(repId) {
-  // get a rep
+function getRep() {
   $.ajax({
-    url: api_server + "reps/"+repId,
+    url: api_server + pathname,
     type: "GET"
   }).done(function(data) {
     console.log(data);
@@ -26,11 +27,10 @@ function getRep(repId) {
   })
 }
 
-
-function getRepPledges(repId) {
+function getRepPledges() {
   // get pledges feeed
   $.ajax({
-    url: api_server + "reps/"+repId+"/pledges",
+    url: api_server + pathname+"pledges",
     type: "GET"
   }).done(function(data){
     console.log("succes getting rep's pledges");
