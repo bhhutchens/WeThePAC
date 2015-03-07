@@ -1,8 +1,16 @@
 .header {
-  background-color: gray;
+  background-color: #5256AE;
+  box-shadow: 0px 0px 4px 1px #1C206B;
   height: 50px;
   width: 100%;
   margin-bottom: 10px;
+}
+
+.header-content {
+  width: 70%;
+  display: table;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .header_right_box {
@@ -10,9 +18,31 @@
   display: table;
 }
 
-.header_right_button {
-  height: 45px;
-  margin-top: 2.5px;
-  width: 45px;
-  margin-right: 8px;
+.header_right_box a {
+  float: left;
+  line-height: 50px;
+}
+
+.header_right_box form {
+  float: left;
+  margin-top: 15px;
+}
+
+.header_right_box img {
+  float: left;
+  margin-right: 5px;
+}
+
+.nav-title-link {
+  line-height: 50px;
+  font-size: 200%;
+}
+
+.header a {
+  text-decoration: none;
+  color: #EFFCFF;
+}
+
+.header a:hover {
+  color: #CC564E;
 }

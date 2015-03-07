@@ -1,29 +1,30 @@
 <div class="header">
-  <div class="header_right_box">
-    <button class="header_right_button">Reps</button>
-    <button class="header_right_button">Settings</button>
-      <%= button_to "logout", sessions_logout_path %>
+  <div class="header-content">
+    <span class="nav-title-link"><%= link_to "WeThePAC", root_path %></span>
+    <div class="header_right_box">
       <img src=<%= current_user.profile_pic_thumb_url %> alt="@<%= current_user.twitter_handle %>'s thumbnail"/>
       <%= link_to current_user.name, current_user %>
+      <%= button_to "logout", sessions_logout_path %>
+    </div>
   </div>
 </div>
 
 <script>
 
 // add event handling so we can catch the changes of the browser's width ... after the width is below some threshhold (~480px) we want to adjust the responsive design and optimize for mobile
-  $(document).ready(function() {
-    $(window).on('resize orientationChanged', function() {
-        var width = $(window).width();
-        console.log("Window width: " + width);
+$(document).ready(function() {
+  $(window).on('resize orientationChanged', function() {
+    var width = $(window).width();
+    console.log("Window width: " + width);
 
         // make the is hidden check so we dont have to hide/show EVERY time the browser width changes... small efficiency improvement
-      var isHidden = $(".header_right_box")[0].style.display == "none";
-       if (width <= 480 && !isHidden) {
+        var isHidden = $(".header_right_box")[0].style.display == "none";
+        if (width <= 480 && !isHidden) {
           $(".header_right_box").hide();
-       }
-       else if (width > 480 && isHidden) {
+        }
+        else if (width > 480 && isHidden) {
           $(".header_right_box").show();
-       }
-    });
-  });
+        }
+      });
+});
 </script>

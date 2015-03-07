@@ -1,25 +1,28 @@
 <div class="header">
-  <div class="header_right_box">
-    <%= button_to "Sign in with Twitter", "/auth/twitter" %>
+  <div class="header-content">
+    <span class="nav-title-link"><%= link_to "WeThePAC", root_path %></span>
+    <div class="header_right_box">
+      <%= button_to "Sign in with Twitter", "/auth/twitter" %>
+    </div>
   </div>
 </div>
 
 <script>
 
 // add event handling so we can catch the changes of the browser's width ... after the width is below some threshhold (~480px) we want to adjust the responsive design and optimize for mobile
-  $(document).ready(function() {
-    $(window).on('resize orientationChanged', function() {
-        var width = $(window).width();
-        console.log("Window width: " + width);
+$(document).ready(function() {
+  $(window).on('resize orientationChanged', function() {
+    var width = $(window).width();
+    console.log("Window width: " + width);
 
         // make the is hidden check so we dont have to hide/show EVERY time the browser width changes... small efficiency improvement
-      var isHidden = $(".header_right_box")[0].style.display == "none";
-       if (width <= 480 && !isHidden) {
+        var isHidden = $(".header_right_box")[0].style.display == "none";
+        if (width <= 480 && !isHidden) {
           $(".header_right_box").hide();
-       }
-       else if (width > 480 && isHidden) {
+        }
+        else if (width > 480 && isHidden) {
           $(".header_right_box").show();
-       }
-    });
-  });
+        }
+      });
+});
 </script>
