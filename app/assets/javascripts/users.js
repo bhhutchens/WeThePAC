@@ -1,40 +1,65 @@
-$(document).ready(function() {
-  // get a user
-  console.log("users js loaded");
+var pathname = location.pathname
 
+// input: jquery selector
+// output: handlebar template to be appended
+function compileTemplate (selector) {
+  return Handlebars.compile($(selector).html());
+}
+
+// gets pledges thru ajax
+// renders them onto the page as a list
+function renderPledges() {
+  // ajax GET call
   $.ajax({
-    url: api_server + "/users/1",
-    type: "GET"
-  }).done(function(data) {
-    console.log(data);
-    var user_template = $("#user_info").html();
-    var compiled_user_template = Handlebars.compile(user_template);
+    url: api_server + pathname + "/pledges",
+  }).
+  done(function(data) {
+    // add the name of the list in html
+    console.log("success getting user's pledges");
+    $('#pledge_list').prepend("<h1>Pledges</h1>");
 
-    // usage: apnd (compiled_template ({ key: data }))
-    var apnd = function(data) { $("body").append(data); }
-
-    //apnd(compiled_user_template({user: data}));
-    apnd(compiled_user_template({user:data}))
-  }).fail(function(data){
-    console.log("failed getting a user with ajax call");
-  })
-
-// get pledges feed
-$.ajax({
-  url: api_server + "/users/1/pledges",
-  type: "GET"
-}).done(function(data){
-  console.log("succes getting user's pledges");
-  // title the pledge feed. Remove this after adding #pledges div.p
-  $('body').append("<h1>Pledges</h1>")
-    // iterate through each pledge response and append it to the page
+    // loop through each pledge and append it as a list item
     $.each(data, function(index, pledge) {
-      var user_pledge_feed_template = $("#user_pledge_feed").html();
-      var compiled_pledge_feed_template = Handlebars.compile(user_pledge_feed_template);
-      console.log(pledge);
-      $('body').append(compiled_pledge_feed_template({pledge: pledge}));
+      if (pledge.rep_thumbnail_url === null) {
+        pledge.rep_thumbnail_url = server+"/images/no-avatar.jpg"
+      }
+      // get and compile templates
+      var template = compileTemplate("#user_pledge_feed");
+
+      // append to list -- var name: pledge
+      $("#pledge_list").append(template({pledge: pledge}));
     });
-  }).fail(function(){
+  }).
+  fail(function(){
     console.log('unable to get pledges feed');
   });
+}
+
+
+// gets user information (name, handle, img url, etc) thru ajax
+// renders it onto the page, then renders the pledge feed
+function getUserInfo() {
+
+  $.ajax({
+    url: api_server + pathname,
+    type: "GET"
+  }).
+  done(function(data) {
+    console.log("Successfully received user data");
+
+    // get + append template
+    var userInfoTemplate = compileTemplate("#user_info");
+    $(".profile_upper").append(userInfoTemplate({user: data}));
+
+    renderPledges(); // RENDER THE PLEDGES FEED
+  }).
+  fail(function(data) {
+    console.log("failed getting a user with an ajax call");
+  })
+}
+
+$(document).ready(function() {
+  // populate the page w/ data
+  console.log("users js loaded");
+  getUserInfo();
 });

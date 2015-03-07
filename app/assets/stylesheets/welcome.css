@@ -14,7 +14,7 @@ div.search-result {
     padding: 3px;
 }
 
-.search-result-thumbnail {
+.search-result-thumbnail, .feed-thumbnail {
   height: 40px;
   float: left;
   border-radius: 35px;
