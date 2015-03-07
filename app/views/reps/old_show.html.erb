@@ -1,0 +1,65 @@
+<div class="profile_upper span_4"></div>
+<ul class="profile_pledge_list" id="pledge_list"></ul>
+
+<script type="text/x-handlebars-template" id="user_info">
+  <div class="profile_image_box">
+    <a href={{user.profile_pic_big_url}}>
+      <img class="profile_image" src={{user.profile_pic_thumb_url}} alt="Profile Picture" />
+    </a>
+  </div>
+
+  <p class="profile_name">
+    {{user.name}}
+    <span class="profile_handle">{{user.twitter_handle}}</span>
+  </p>
+</script>
+
+<script type="text/x-handlebars-template" id="user_pledge_feed">
+  <li class="profile_pledge_list_item">
+    <img src={{pledge.rep_thumbnail_url}}
+      alt="@{{pledge.rep_twitter_handle}}'s picture"
+      class="feed-thumbnail" />
+    <p>@{{pledge.rep_twitter_handle}}</p>
+    <p class="profile_pledge_list_item_text">
+      {{pledge.tweet_message}}
+    </p>
+  </li>
+</script>
+
+<script type="text/x-handlebars-template" id="rep_info">
+  name: {{rep.name}}
+  <br>
+  handle: {{rep.twitter_handle}}
+  <br>
+  fec_id: {{rep.fec_id}}
+  <br>
+  bio: {{rep.bio}}
+  <br>
+
+<button id='positive-pledge'>Positive</button>
+<button id='negative-pledge'>Negative</button>
+
+<form id='pledge-form' style="display: none">
+  <input id='tweet-box' type='text' name='message' placeholder='WHY?'></input>
+  <input type='submit' value='Submit my Pledge'></input>
+</form>
+
+</script>
+
+<script type="text/x-handlebars-template" id="rep_pledge_feed">
+<div class="feed-thumbnail">
+  <img src={{pledge.user_thumbnail_url}} alt="@{{user_twitter_handle}}'s thumbnail" />
+  <p>@{{pledge.user_twitter_handle}}</p>
+  {{pledge.tweet_id}}
+  <br>{{pledge.tweet_message}}
+  <br>{{pledge.positive}}
+</div>
+</script>
+
+<script>repId = <%= @rep.id %></script>
+
+<%= javascript_include_tag 'reps', 'data-turbolinks-track' => true %>
+
+<%= javascript_include_tag 'tweet', 'data-turbolinks-track' => true %>
+
+
