@@ -17,10 +17,12 @@ $(document).ready(function() {
 
         // make the is hidden check so we dont have to hide/show EVERY time the browser width changes... small efficiency improvement
         var isHidden = $(".header_right_box")[0].style.display == "none";
-        if (width <= 480 && !isHidden) {
+        if (width <= 605 && !isHidden) {
           $(".header_right_box").hide();
+          $(".small-header_right_box").show();
         }
-        else if (width > 480 && isHidden) {
+        else if (width > 605 && isHidden) {
+          $(".small-header_right_box").hide();
           $(".header_right_box").show();
         }
       });
