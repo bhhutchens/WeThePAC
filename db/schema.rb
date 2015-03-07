@@ -19,7 +19,7 @@ ActiveRecord::Schema.define(version: 20150305235208) do
   create_table "pledges", force: :cascade do |t|
     t.integer  "user_id"
     t.integer  "rep_id"
-    t.integer  "tweet_id"
+    t.string   "tweet_id"
     t.text     "tweet_message"
     t.boolean  "fulfilled",           default: false
     t.boolean  "positive"

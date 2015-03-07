@@ -3,7 +3,7 @@ $(document).ready(function() {
   console.log("users js loaded");
 
   $.ajax({
-    url: api_server + "users/1",
+    url: api_server + "/users/1",
     type: "GET"
   }).done(function(data) {
     console.log(data);
@@ -20,7 +20,7 @@ $(document).ready(function() {
 
 // get pledges feeed
 $.ajax({
-  url: api_server + "users/1/pledges",
+  url: api_server + "/users/1/pledges",
   type: "GET"
 }).done(function(data){
   console.log("succes getting user's pledges");

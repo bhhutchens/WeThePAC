@@ -1,8 +1,8 @@
 $(document).ready(function() {
   console.log("reps js loaded");
+  pathname = location.pathname
   getRep();
   getRepPledges();
-  var pathname = location.pathname
 });
 
 
@@ -13,7 +13,7 @@ function getRep() {
     url: api_server + pathname,
     type: "GET"
   }).done(function(data) {
-    console.log(data);
+    // console.log(data);
     var rep_template = $("#rep_info").html();
     var compiled_rep_template = Handlebars.compile(rep_template);
 
@@ -30,7 +30,7 @@ function getRep() {
 function getRepPledges() {
   // get pledges feeed
   $.ajax({
-    url: api_server + pathname+"pledges",
+    url: api_server + pathname+"/pledges",
     type: "GET"
   }).done(function(data){
     console.log("succes getting rep's pledges");
@@ -52,14 +52,14 @@ function pledgeButtonSetup() {
   $('#positive-pledge').on('click', function(){
     $('#positive-pledge').hide()
     $('#negative-pledge').hide()
-    $('#pledge-form').addClass('positive')
+    $("#tweet-box").data('positive', 'true')
     $('#pledge-form').show()
   })
 
   $('#negative-pledge').on('click', function(){
     $('#positive-pledge').hide()
     $('#negative-pledge').hide()
-    $('#pledge-form').addClass('negative')
+    $("#tweet-box").data('positive', 'false')
     $('#pledge-form').show()
   })
 
