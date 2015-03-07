@@ -9,6 +9,8 @@ class CreatePledges < ActiveRecord::Migration
       t.boolean :positive
       t.string :user_thumbnail_url
       t.string :rep_thumbnail_url
+      t.string :user_name
+      t.string :rep_name
       t.string :user_twitter_handle
       t.string :rep_twitter_handle
 

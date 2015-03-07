@@ -9,14 +9,14 @@
   </div>
 
   <p class="profile_name">
-    {{user.name}} <span class="profile_handle">{{user.twitter_handle}}</span>
+    {{user.name}} <span class="profile_handle"><a href="http://twitter.com/{{user.twitter_handle}}">@{{user.twitter_handle}}</a></span>
   </p>
 </script>
 
 <script type="text/x-handlebars-template" id="user_pledge_feed">
   <li class="profile_pledge_list_item">
-    <img src={{pledge.rep_thumbnail_url}} alt="@{{pledge.rep_twitter_handle}}'s picture"  class="feed-thumbnail"/>
-    <p>@{{pledge.rep_twitter_handle}}</p>
+    <a href="/reps/{{pledge.rep_id}}"><img src={{pledge.rep_thumbnail_url}} alt="@{{pledge.rep_twitter_handle}}'s picture"  class="feed-thumbnail"/></a>
+    <p><a href="/reps/{{pledge.rep_id}}">{{pledge.rep_name}}</a> - <a href="http://twitter.com/{{pledge.rep_twitter_handle}}">@{{pledge.rep_twitter_handle}}</a></p>
     <p class="profile_pledge_list_item_text">
       {{pledge.tweet_message}}
     </p>
