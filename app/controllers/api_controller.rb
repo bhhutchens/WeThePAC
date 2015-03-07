@@ -9,8 +9,8 @@ class ApiController < ApplicationController
   end
 
   def create_tweet
-    current_user.tweet(api_params['message'])
-    render json: {tweet: 'sent'}
+    tweet = current_user.tweet(api_params['message'])
+    render json: {tweet_id: tweet.id}
   end
 
   def api_params
@@ -23,6 +23,11 @@ class ApiController < ApplicationController
 
   def rep_pledges
     render json: Pledge.where(rep_id: params[:rep_id]), status: 200
+  end
+
+  def post_pledge
+    Pledge.create()
+
   end
 
 end

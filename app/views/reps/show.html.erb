@@ -7,6 +7,16 @@
   fec_id: {{rep.fec_id}}
   <br>
   bio: {{rep.bio}}
+  <br>
+
+<button id='positive-pledge'>Positive</button>
+<button id='negative-pledge'>Negative</button>
+
+<form id='pledge-form' style="display: none">
+  <input id='tweet-box' type='text' name='message' placeholder='WHY?'></input>
+  <input type='submit' value='Submit my Pledge'></input>
+</form>
+
 </script>
 
 <script type="text/x-handlebars-template" id="rep_pledge_feed">
@@ -16,4 +26,10 @@
 <br>{{pledge.positive}}
 </script>
 
+<script>repId = <%= @rep.id %></script>
+
 <%= javascript_include_tag 'reps', 'data-turbolinks-track' => true %>
+
+<%= javascript_include_tag 'tweet', 'data-turbolinks-track' => true %>
+
+

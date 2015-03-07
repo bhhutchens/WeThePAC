@@ -1,9 +1,15 @@
 $(document).ready(function() {
-  // get a rep
-  console.log("reps js loaded");
+  getRep(repId);
+  getRepPledges(repId);
+});
 
+
+
+
+function getRep(repId) {
+  // get a rep
   $.ajax({
-    url: api_server + "reps/1",
+    url: api_server + "reps/"+repId,
     type: "GET"
   }).done(function(data) {
     console.log(data);
@@ -12,16 +18,19 @@ $(document).ready(function() {
 
     // usage: apnd (compiled_template ({ key: data }))
     var apnd = function(data) { $("body").append(data); }
-
     apnd(compiled_rep_template({rep: data}));
+
+    pledgeButtonSetup();
   }).fail(function(data){
     console.log("failed getting a rep with ajax call");
   })
+}
 
 
+function getRepPledges(repId) {
   // get pledges feeed
   $.ajax({
-    url: api_server + "reps/1/pledges",
+    url: api_server + "reps/"+repId+"/pledges",
     type: "GET"
   }).done(function(data){
     console.log("succes getting rep's pledges");
@@ -36,5 +45,36 @@ $(document).ready(function() {
   }).fail(function(){
     console.log('unable to get pledges feed');
   });
+}
 
-});
+function pledgeButtonSetup() {
+  //adds event listeners to pledge buttons
+  $('#positive-pledge').on('click', function(){
+    $('#positive-pledge').hide()
+    $('#negative-pledge').hide()
+    $('#pledge-form').addClass('positive')
+    $('#pledge-form').show()
+  })
+
+  $('#negative-pledge').on('click', function(){
+    $('#positive-pledge').hide()
+    $('#negative-pledge').hide()
+    $('#pledge-form').addClass('negative')
+    $('#pledge-form').show()
+  })
+
+  pledgeFormSubmit();
+}
+
+function pledgeFormSubmit() {
+  $('#pledge-form').on('submit', function(form) {
+    form.preventDefault();
+    makeTweet($('#tweet-box').val());
+  })
+
+
+}
+
+
+
+
