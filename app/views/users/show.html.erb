@@ -2,23 +2,23 @@
 <ul class="profile_tweet_list" id="tweet_list"></ul>
 
 <script type="text/x-handlebars-template" id="user_info">
-<div class="profile_image_box">
-<a href={{user.profile_pic_big_url}}>
-<img class="profile_image" src={{user.profile_pic_thumb_url}} alt="Profile Picture" />
-</a>
-</div>
+  <div class="profile_image_box">
+    <a href={{user.profile_pic_big_url}}>
+      <img class="profile_image" src={{user.profile_pic_thumb_url}} alt="Profile Picture" />
+    </a>
+  </div>
 
-<p class="profile_name">
-{{user.name}} <span class="profile_handle">{{user.twitter_handle}}</span>
-</p>
+  <p class="profile_name">
+    {{user.name}} <span class="profile_handle">{{user.twitter_handle}}</span>
+  </p>
 </script>
 
 <script type="text/x-handlebars-template" id="user_pledge_feed">
-<li class="profile_tweet_list_item">
-<p class="profile_tweet_list_item_text">
-{{pledge.tweet_message}}
-</p>
-</li>
+  <li class="profile_tweet_list_item">
+    <p class="profile_tweet_list_item_text">
+      {{pledge.tweet_message}}
+    </p>
+  </li>
 </script>
 
 <%= javascript_include_tag 'users', 'data-turbolinks-track' => true %>

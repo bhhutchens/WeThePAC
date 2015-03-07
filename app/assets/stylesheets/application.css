@@ -25,7 +25,8 @@ gets rid of any B.S. innate margins, paddings, etc etc. This probably won't caus
 }
 
 html {
-  background: url(http://wallpoper.com/images/00/38/64/29/flags-american_00386429.jpg) no-repeat center center fixed;
+  background: url("/images/american_flag.jpeg") no-repeat center center fixed;
+  background-size: auto 105%;
   font-family: 'Slabo 27px', serif;
 }
 
