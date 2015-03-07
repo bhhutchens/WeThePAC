@@ -14,7 +14,8 @@ function renderPledges() {
   }).
   done(function(data) {
     console.log("success getting the rep's pledges");
-    $("#pledge_list").prepend("<h1>Pledges</h1>");
+    if ( $("#pledge_list_title").length === 0 ) {
+      $("#pledge_list").prepend("<h1 id='pledge_list_title'>Pledges</h1>") };
 
     // loop through each pledge and append it as a list item
     $.each(data, function(index, pledge) {
@@ -32,6 +33,10 @@ function renderPledges() {
     console.log("unable to get pledges feed");
   })
 }
+
+function removeOldPledges() {
+  $(".profile_pledge_list_item").remove();
+};
 
 // gets rep information (name, handle, img url, etc) thru ajax
 // renders it onto the page, then renders the pledge feed
@@ -58,6 +63,7 @@ function getRepInfo() {
 $(document).ready(function() {
   console.log("reps js loaded");
   getRepInfo();
+  pledgeButtonSetup();
 });
 
 
@@ -100,33 +106,33 @@ $(document).ready(function() {
 //   });
 // }
 
-// function pledgeButtonSetup() {
-//   //adds event listeners to pledge buttons
-//   $('#positive-pledge').on('click', function(){
-//     $('#positive-pledge').hide()
-//     $('#negative-pledge').hide()
-//     $("#tweet-box").data('positive', 'true')
-//     $('#pledge-form').show()
-//   })
+function pledgeButtonSetup() {
+  //adds event listeners to pledge buttons
+  $('#positive-pledge').on('click', function(){
+    $('#positive-pledge').hide()
+    $('#negative-pledge').hide()
+    $("#tweet-box").data('positive', 'true')
+    $('#pledge-form').show()
+  })
 
-//   $('#negative-pledge').on('click', function(){
-//     $('#positive-pledge').hide()
-//     $('#negative-pledge').hide()
-//     $("#tweet-box").data('positive', 'false')
-//     $('#pledge-form').show()
-//   })
+  $('#negative-pledge').on('click', function(){
+    $('#positive-pledge').hide()
+    $('#negative-pledge').hide()
+    $("#tweet-box").data('positive', 'false')
+    $('#pledge-form').show()
+  })
 
-//   pledgeFormSubmit();
-// }
+  pledgeFormSubmit();
+}
 
-// function pledgeFormSubmit() {
-//   $('#pledge-form').on('submit', function(form) {
-//     form.preventDefault();
-//     makeTweet($('#tweet-box').val());
-//   })
+function pledgeFormSubmit() {
+  $('#pledge-form').on('submit', function(form) {
+    form.preventDefault();
+    makeTweet($('#tweet-box').val());
+  });
 
 
-// }
+};
 
 
 

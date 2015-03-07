@@ -1,17 +1,20 @@
 function makeTweet(newMessage) {
-  var tweet =$.ajax({ url: api_server+'/tweets',
+  var tweet = $.ajax({ url: api_server+'/tweets',
     type: 'POST',
     beforeSend: function(xhr) {xhr.setRequestHeader('X-CSRF-Token', $('meta[name="csrf-token"]').attr('content'))},
     data: {tweet: {message: newMessage}},
     success: function(response) {
-      postPledge(response.tweet_id, repId);
+      postPledge(response.tweet_id);
     }
   });
 }
 
-function postPledge(tweetId, repId) {
+function postPledge(tweetId) {
   var positive = $('#tweet-box').data('positive')
   var tweet_message = $('#tweet-box').val()
+
+  // regexp to get any number of digits (#) starting from end ($) of path name
+  var repId = location.pathname.match(/\d*$/)[0]
   $.ajax({
     url: server+'/api/pledges/',
     type: 'POST',
@@ -20,10 +23,12 @@ function postPledge(tweetId, repId) {
     data: {tweet_id: tweetId, rep_id: repId, positive: positive, tweet_message: tweet_message}
   })
   .done(function() {
-    console.log("success");
+    console.log("successfully posted pledge");
+    removeOldPledges();
+    renderPledges();
   })
   .fail(function() {
-    console.log("error");
+    console.log("error posting pledge");
   });
 
 }
