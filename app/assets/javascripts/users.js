@@ -1,3 +1,5 @@
+var pathname = location.pathname
+
 // input: jquery selector
 // output: handlebar template to be appended
 function compileTemplate (selector) {
@@ -9,21 +11,23 @@ function compileTemplate (selector) {
 function renderPledges() {
   // ajax GET call
   $.ajax({
-    url: api_server + "users/1/pledges",
+    url: api_server + pathname + "/pledges",
   }).
   done(function(data) {
     // add the name of the list in html
     console.log("success getting user's pledges");
-    $('#tweet_list').prepend("<h1>Pledges</h1>");
+    $('#pledge_list').prepend("<h1>Pledges</h1>");
 
     // loop through each pledge and append it as a list item
     $.each(data, function(index, pledge) {
-
+      if (pledge.rep_thumbnail_url === null) {
+        pledge.rep_thumbnail_url = server+"/images/no-avatar.jpg"
+      }
       // get and compile templates
       var template = compileTemplate("#user_pledge_feed");
 
       // append to list -- var name: pledge
-      $("#tweet_list").append(template({pledge: pledge}));
+      $("#pledge_list").append(template({pledge: pledge}));
     });
   }).
   fail(function(){
@@ -35,8 +39,9 @@ function renderPledges() {
 // gets user information (name, handle, img url, etc) thru ajax
 // renders it onto the page, then renders the pledge feed
 function getUserInfo() {
+
   $.ajax({
-    url: api_server + "users/1",
+    url: api_server + pathname,
     type: "GET"
   }).
   done(function(data) {
@@ -52,10 +57,6 @@ function getUserInfo() {
     console.log("failed getting a user with an ajax call");
   })
 }
-
-// DOCUMENT READY
-// TODO: ONLY WORKS FOR USER 1
-//============================
 
 $(document).ready(function() {
   // populate the page w/ data

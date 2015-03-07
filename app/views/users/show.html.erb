@@ -1,5 +1,5 @@
 <div class="profile_upper span_4"></div>
-<ul class="profile_tweet_list" id="tweet_list"></ul>
+<ul class="profile_pledge_list" id="pledge_list"></ul>
 
 <script type="text/x-handlebars-template" id="user_info">
   <div class="profile_image_box">
@@ -14,8 +14,10 @@
 </script>
 
 <script type="text/x-handlebars-template" id="user_pledge_feed">
-  <li class="profile_tweet_list_item">
-    <p class="profile_tweet_list_item_text">
+  <li class="profile_pledge_list_item">
+    <img src={{pledge.rep_thumbnail_url}} alt="@{{pledge.rep_twitter_handle}}'s picture"  class="feed-thumbnail"/>
+    <p>@{{pledge.rep_twitter_handle}}</p>
+    <p class="profile_pledge_list_item_text">
       {{pledge.tweet_message}}
     </p>
   </li>
