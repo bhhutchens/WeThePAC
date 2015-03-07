@@ -7,11 +7,8 @@ Rails.application.config.assets.version = '1.0'
 # Rails.application.config.assets.paths << Emoji.images_path
 Rails.application.config.assets.precompile += %w( users.js )
 Rails.application.config.assets.precompile += %w( reps.js )
-<<<<<<< HEAD
 Rails.application.config.assets.precompile += %w( tweet.js )
-=======
 Rails.application.config.assets.precompile += %w( welcome.js )
->>>>>>> master
 
 # Precompile additional assets.
 # application.js, application.css, and all non-JS/CSS in app/assets folder are already added.
