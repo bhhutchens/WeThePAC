@@ -18,5 +18,4 @@ class User < ActiveRecord::Base
     end
     client.update(tweet)
   end
-
 end
