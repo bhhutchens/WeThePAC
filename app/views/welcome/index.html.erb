@@ -1,6 +1,8 @@
-<form class="search-form">
-  <input id="searchBarInput" placeholder="eg. Pelosi or 94107"></input>
-</form>
+<div class="central-search-wrapper">
+  <form class="search-form">
+    <input id="searchBarInput" placeholder="eg. Pelosi or 94107"></input>
+  </form>
+</div>
 
 <div id="searchResults"></div>
 
@@ -14,7 +16,7 @@
     </a>
 
     <a class="search-result-anchor" href={{rep.profile_url}}>{{rep.name}}</a>
-      <a href="http://twitter.com/{{rep.twitter_handle}}">{{rep.twitter_display}}</a>
+      <a class="search-result-anchor" href="http://twitter.com/{{rep.twitter_handle}}">{{rep.twitter_display}}</a>
     </div>
 </script>
 

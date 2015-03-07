@@ -1,6 +1,6 @@
 $(document).ready(function(){
 
-  $(".search-form").eq(0).submit(function(e){
+  $(".search-form").eq(0).keyup(function(e){
     e.preventDefault();
     var searchTerms = $('#searchBarInput').val();
     console.log("searching /welcome/search with terms: "+searchTerms);

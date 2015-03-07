@@ -20,6 +20,7 @@ div.search-result {
 
 .search-result-anchor {
   display: block;
+  font-size: 135%;
 }
 
 .search-result-thumbnail, .feed-thumbnail {
@@ -29,10 +30,12 @@ div.search-result {
 }
 
 .search-form {
-  position: relative;
-  left: 50%;
-  margin-left: -160px;
+
 }
 #searchBarInput {
   font-size: 30px;
+}
+.central-search-wrapper{
+  margin: auto;
+  display: table;
 }

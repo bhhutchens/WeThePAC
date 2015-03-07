@@ -14,13 +14,17 @@
 }
 
 .header_right_box {
-  float:right;
+  float: right;
   display: table;
+  margin: auto;
 }
 
 .header_right_box a {
   float: left;
   line-height: 50px;
+  font-size: 150%;
+  /*margin-right: 1%;*/
+  /*margin-left: 1%;*/
 }
 
 .header_right_box form {
@@ -30,7 +34,7 @@
 
 .header_right_box img {
   float: left;
-  margin-right: 5px;
+  /*margin-right: 5px;*/
 }
 
 .nav-title-link {
