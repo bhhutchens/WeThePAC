@@ -18,11 +18,11 @@ class ApiController < ApplicationController
   end
 
   def user_pledges
-    render json: Pledge.where(user_id: params[:user_id]), status: 200
+    render json: Pledge.where(user_id: params[:user_id]).order('created_at DESC'), status: 200
   end
 
   def rep_pledges
-    render json: Pledge.where(rep_id: params[:rep_id]), status: 200
+    render json: Pledge.where(rep_id: params[:rep_id]).order('created_at DESC'), status: 200
   end
 
   def post_pledge
