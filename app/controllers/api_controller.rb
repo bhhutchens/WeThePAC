@@ -21,6 +21,10 @@ class ApiController < ApplicationController
     render json: Pledge.where(user_id: params[:user_id]).order('created_at DESC'), status: 200
   end
 
+  def user_unfulfilled_pledges
+    render json: Pledge.where(user_id: params[:user_id]).where(fulfilled: false).where(positive: true).order('created_at DESC'), status: 200
+  end
+
   def rep_pledges
     render json: Pledge.where(rep_id: params[:rep_id]).order('created_at DESC'), status: 200
   end
@@ -29,8 +33,15 @@ class ApiController < ApplicationController
     puts "="*100
     puts params
     rep = Rep.find(params[:rep_id])
-    pledge = Pledge.create(tweet_id: params[:tweet_id], rep_id: rep.id, user_id: current_user.id, user_twitter_handle: current_user.twitter_handle, user_thumbnail_url: current_user.profile_pic_thumb_url, rep_twitter_handle: rep.twitter_handle, positive: params[:positive], tweet_message: params[:tweet_message], rep_thumbnail_url: rep.thumbnail_url, user_name: current_user.name, rep_name: rep.name)
+    pledge = Pledge.create(tweet_id: params[:tweet_id], rep_id: rep.id, user_id: current_user.id, user_twitter_handle: current_user.twitter_handle, user_thumbnail_url: current_user.profile_pic_thumb_url, rep_twitter_handle: rep.twitter_handle, positive: params[:positive], tweet_message: params[:tweet_message], rep_thumbnail_url: rep.thumbnail_url, user_name: current_user.name, rep_name: rep.name, rep_external_url: rep.external_url)
 
+    render json: pledge, status: 200
+  end
+
+  def update_pledge
+    pledge = Pledge.find(params[:pledge_id])
+    pledge.fulfilled = true
+    pledge.save!
     render json: pledge, status: 200
   end
 

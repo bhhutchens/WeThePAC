@@ -16,8 +16,10 @@ Rails.application.routes.draw do
   get 'api/reps/:id' => 'api#show_rep'
   get 'api/users/:id' => 'api#show_user'
   post 'api/pledges/' => 'api#post_pledge'
+  put 'api/pledges' => 'api#update_pledge'
 
   get 'api/users/:user_id/pledges' => 'api#user_pledges'
+  get 'api/users/:user_id/unfulfilled' => 'api#user_unfulfilled_pledges'
   get 'api/reps/:rep_id/pledges' => 'api#rep_pledges'
 
   post 'api/tweets/' => 'api#create_tweet'
