@@ -20,10 +20,13 @@
 </script>
 
 <script type="text/x-handlebars-template" id="rep_pledge_feed">
-<br>{{pledge.user_id}}
-<br>{{pledge.tweet_id}}
-<br>{{pledge.tweet_message}}
-<br>{{pledge.positive}}
+<div class="feed-thumbnail">
+  <img src={{pledge.user_thumbnail_url}} alt="@{{user_twitter_handle}}'s thumbnail" />
+  <p>@{{pledge.user_twitter_handle}}</p>
+  {{pledge.tweet_id}}
+  <br>{{pledge.tweet_message}}
+  <br>{{pledge.positive}}
+</div>
 </script>
 
 <script>repId = <%= @rep.id %></script>
