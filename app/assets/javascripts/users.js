@@ -16,7 +16,7 @@ function renderPledges() {
   done(function(data) {
     // add the name of the list in html
     console.log("success getting rep's pledges");
-    $('#pledge_list').prepend("<h1>Pledges</h1>");
+    $('#pledge_list').prepend("<h1 id='pledge_list_title'>Pledges</h1>");
 
     // loop through each pledge and append it as a list item
     $.each(data, function(index, pledge) {
