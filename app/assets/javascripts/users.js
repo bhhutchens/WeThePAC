@@ -16,7 +16,7 @@ function renderPledges() {
   done(function(data) {
     // add the name of the list in html
     console.log("success getting rep's pledges");
-    $('#pledge_list').prepend("<h1>Pledges</h1>");
+    $('#pledge_list').prepend("<h1 class='pledge_list_title'>Pledges</h1>");
 
     // loop through each pledge and append it as a list item
     $.each(data, function(index, pledge) {
@@ -109,6 +109,7 @@ function bindExternalLinkButton() {
   // on externa-link-button click, go to the rep's webpage
   $('#fulfillment_list').on('click', '.external-link-button', function() {
     var externalLink = $(this).parent().data('repExternalUrl');
+    $(this).data("list")
     window.open(externalLink);
   })
 };
@@ -123,8 +124,7 @@ function markAsFulfilled(pledgeId) {
     data: {pledge_id: pledgeId}
   }).success(function(data){
     console.log('success markAsFulfilled');
-    removeOldPledges();
-    getAndPopulateUnfulfilledPledges();
+    removePledge(data.id);
   }).fail(function(){
     console.log('no joy markAsFulfilled');
   });
@@ -146,3 +146,15 @@ $(document).ready(function() {
   bindFulfillButton();
 
 });
+
+function removePledge(id) {
+  var listItem = $("div[data-pledge-id=" + id + "]").parent();
+  listItem.animate({
+    padding: 0,
+    "min-height": 0,
+    height: 0,
+    opacity: 0
+    }, 800, function() {
+      listItem.hide();
+  });
+}

@@ -8,6 +8,7 @@
   margin: auto;
   display: table;
   margin-bottom:50px;
+  padding-top:10px;
 }
 
 .profile_image_box {
@@ -23,7 +24,7 @@
 }
 
 .profile_name {
-  font-size: 3.5em;
+  font-size: 2.3em;
   line-height: 50px;
 }
 
@@ -56,6 +57,7 @@
   border-bottom: 1px solid black;
   padding: 10px;
   min-height: 60px;
+  overflow-wrap: break-word;
 }
 
 .profile_pledge_list_item_text {
@@ -90,17 +92,16 @@
 
 
 
-#pledge_list_title {
+.pledge_list_title {
   margin:auto;
-  width:600px;
-  font-size: 3em;
+  width:100%;
+  font-size: 2em;
+  margin-left: 10px;
+  font-family: 'Slabo 27px', serif;
 }
 
 
 
 .profile_upper {
-    /* position: fixed; */
-    /* background: white; */
-    /* z-index: 1; */
     margin-top: 20px;
 }
