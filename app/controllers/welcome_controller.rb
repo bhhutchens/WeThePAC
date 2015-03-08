@@ -15,30 +15,28 @@ class WelcomeController < ApplicationController
     end
     puts zips
 
-    # calls sunlight API and pass "zips". Add results to matches.
+    matches = []
+
+    # checks database for reps whose names are found using the zip, adds to matches
     if zips && zips[0].length == 7
       returned_reps = get_rep_zips(zips[0][1..5])
-      keywords << returned_reps
-      keywords.flatten!
+      matches << Rep.where({ name: returned_reps })
     end
 
     # checks database for reps whose names match keywords
-    matches = Rep.where('name ilike any ( array[?] )', keywords).limit(21)
+    matches << Rep.where('name ilike any ( array[?] )', keywords).limit(21)
 
-    render json: matches, status: 200
+    render json: matches[0], status: 200
   end
 end
-
 
 def get_rep_zips(zip)
   # calls sunlight api, gets reps from zip, and returns rep names to search
   response = HTTParty.get("http://congress.api.sunlightfoundation.com/legislators/locate?zip=#{zip}&apikey=db117ccbb61e4b82abc74d37a9b58ed2")
   rep_names = []
   response['results'].each do |rep|
-    rep_first_name = '%' + rep['first_name'] + '%'
-    rep_last_name = '%' + rep['last_name'] + '%'
-    rep_names << rep_first_name
-    rep_names << rep_last_name
+    rep_name = rep['first_name'] + ' ' + rep['last_name']
+    rep_names << rep_name
   end
   return rep_names
 end
