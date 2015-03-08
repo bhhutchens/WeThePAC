@@ -1,5 +1,13 @@
 $(document).ready(function(){
 
+  // suppresses any actions caused by pressing the enter key
+  $(window).keydown(function(e) {
+    if (e.keyCode == 13) { // ascii code for enter
+      e.preventDefault();
+      return false;
+    }
+  })
+
   // this is a redundant copy of the same function in reps.js
   function compileTemplate (selector) {
     return Handlebars.compile($(selector).html());
