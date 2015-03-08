@@ -42,6 +42,7 @@ div.search-result {
 .central-search-wrapper{
   margin: auto;
   display: table;
+  margin-top: 20px;
 }
 
 .feed-exchange-icon {
