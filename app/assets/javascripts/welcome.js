@@ -21,7 +21,6 @@ $(document).ready(function(){
       url: "/welcome/search",
       type: "GET",
       dataType: 'JSON',
-      beforeSend: function(xhr) {xhr.setRequestHeader('X-CSRF-Token', $('meta[name="csrf-token"]').attr('content'))},
       data: {"searchBarInput": searchTerms}
     }).done(function(serverData){
       console.log("db search query success!")
@@ -35,8 +34,7 @@ $(document).ready(function(){
 
   function getActivityFeed() {
     $.ajax({
-      url: api_server + "/activity_feed",
-      beforeSend: function(xhr) {xhr.setRequestHeader('X-CSRF-Token', $('meta[name="csrf-token"]').attr('content'))}
+      url: api_server + "/activity_feed"
     }).done(function(data){
       console.log('success getAndPopulateActivityFeed :)');
       populateActivityFeed(data);
