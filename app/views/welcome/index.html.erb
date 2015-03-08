@@ -9,8 +9,6 @@
   <h1>Recent Activity</h1>
 </div>
 
-
-
 <script type="text/x-handlebars-template" id="searchResultTemplate">
   <div class="search-result">
     <a class="search-result-anchor" href={{rep.profile_url}}>
@@ -24,6 +22,8 @@
 
 <script type="text/x-handlebars-template" id="activityFeedTemplate">
   <li class="profile_pledge_list_item">
+    <a href="/users/{{activityFeedItem.user_id}}"><img src="{{activityFeedItem.user_thumbnail_url}}" alt="@{{activityFeedItem.user_twitter_handle}}'s picture"  class="feed-thumbnail"/></a>
+    <i class="fa fa-exchange fa-lg feed-exchange-icon"></i>
     <a href="/reps/{{activityFeedItem.rep_id}}"><img src="{{activityFeedItem.rep_thumbnail_url}}" alt="@{{activityFeedItem.rep_twitter_handle}}'s picture"  class="feed-thumbnail"/></a>
     <p><a href="/reps/{{activityFeedItem.rep_id}}">{{activityFeedItem.rep_name}}</a> - <a href="http://twitter.com/{{activityFeedItem.rep_twitter_handle}}">@{{activityFeedItem.rep_twitter_handle}}</a></p>
     <p class="profile_activityFeedItem_list_item_text">

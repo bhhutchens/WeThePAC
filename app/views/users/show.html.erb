@@ -50,7 +50,9 @@ function updateFulfillMeter() {
 
 <script type="text/x-handlebars-template" id="user_pledge_feed">
   <li class="profile_pledge_list_item">
-    <a href="/reps/{{pledge.rep_id}}"><img src={{pledge.rep_thumbnail_url}} alt="@{{pledge.rep_twitter_handle}}'s picture"  class="feed-thumbnail"/></a>
+    <a href="/users/{{pledge.user_id}}"><img src="{{pledge.user_thumbnail_url}}" alt="@{{pledge.user_twitter_handle}}'s picture"  class="feed-thumbnail"/></a>
+    <i class="fa fa-exchange fa-lg feed-exchange-icon"></i>
+    <a href="/reps/{{pledge.rep_id}}"><img src="{{pledge.rep_thumbnail_url}}" alt="@{{pledge.rep_twitter_handle}}'s picture"  class="feed-thumbnail"/></a>
     <p><a href="/reps/{{pledge.rep_id}}">{{pledge.rep_name}}</a> - <a href="http://twitter.com/{{pledge.rep_twitter_handle}}">@{{pledge.rep_twitter_handle}}</a></p>
     <p class="profile_pledge_list_item_text">
       {{pledge.tweet_message}}
@@ -64,6 +66,8 @@ function updateFulfillMeter() {
     <div class="fulfill-action" data-rep-external-url="{{unfulfilledPledge.rep_external_url}}" data-pledge-id="{{unfulfilledPledge.id}}">
       <button class="fulfill-button">Fulfill</button>
     </div>
+    <a href="/users/{{unfulfilledPledge.user_id}}"><img src="{{unfulfilledPledge.user_thumbnail_url}}" alt="@{{unfulfilledPledge.user_twitter_handle}}'s picture"  class="feed-thumbnail"/></a>
+    <i class="fa fa-exchange fa-lg feed-exchange-icon"></i>
     <a href="/reps/{{unfulfilledPledge.rep_id}}"><img src="{{unfulfilledPledge.rep_thumbnail_url}}" alt="@{{unfulfilledPledge.rep_twitter_handle}}'s picture"  class="feed-thumbnail"/></a>
     <p><a href="/reps/{{unfulfilledPledge.rep_id}}">{{unfulfilledPledge.rep_name}}</a> - <a href="http://twitter.com/{{unfulfilledPledge.rep_twitter_handle}}">@{{unfulfilledPledge.rep_twitter_handle}}</a></p>
     <p class="profile_fulfillment_list_item_text">

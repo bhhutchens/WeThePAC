@@ -23,21 +23,15 @@ def seed_reps
       twitter_handle = rep['twitter_id']
       twitter_handle = twitter_handle.downcase if twitter_handle
       external_url = rep['website']
+      default_image = "/images/no-avatar.jpg"
 
-      Rep.create(name: name, fec_id: fec_id, twitter_handle: twitter_handle, external_url: external_url, json: json)
+      Rep.create(name: name, fec_id: fec_id, twitter_handle: twitter_handle, external_url: external_url, json: json,
+        thumbnail_url: default_image)
     end
   end
 end
 
-# create pledges
-def create_pledges_with_messages(args)
-  num_pledges = args[:num_pledges] || 20
-  num_pledges.times do
-    user_id = args[:user_id] || [*1..User.count].sample
-    rep_id = args[:rep_id] || [*1..Rep.count].sample
-    Pledge.create(user_id: user_id, rep_id: rep_id, tweet_message: Faker::Hacker.say_something_smart, positive: true)
-  end
-end
+
 
 def create_jamal
   User.create(twitter_handle:'jmoon018', name: "Jamal Moon", zipcode: nil, provider: nil, uid: nil, profile_pic_thumb_url: "https://abs.twimg.com/sticky/default_profile_images/default_profile_6_normal.png", profile_pic_big_url: "https://abs.twimg.com/sticky/default_profile_images/default_profile_6.png")

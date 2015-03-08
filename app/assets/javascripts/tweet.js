@@ -24,7 +24,7 @@ function postPledge(tweetId) {
   })
   .done(function() {
     console.log("successfully posted pledge");
-    removeOldPledges();
+    //removeOldPledges();
     renderPledges();
   })
   .fail(function() {

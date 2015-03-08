@@ -24,18 +24,28 @@ div.search-result {
 }
 
 .search-result-thumbnail, .feed-thumbnail {
+  width: 40px;
   height: 40px;
   float: left;
   border-radius: 35px;
+  margin-right: 5px;
 }
 
 .search-form {
 
 }
+
 #searchBarInput {
   font-size: 30px;
 }
+
 .central-search-wrapper{
   margin: auto;
   display: table;
+}
+
+.feed-exchange-icon {
+  float: left;
+  line-height: 1.75em !important;
+  padding-right: 1%;
 }
