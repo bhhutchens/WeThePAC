@@ -49,7 +49,7 @@
   display: table;
 }
 
-.profile_pledge_list, .profile_fulfillment_list {
+.profile_pledge_list, .profile_fulfillment_list, #activityFeed {
   width: 100%;
   max-width: 600px;
   list-style-type: none;

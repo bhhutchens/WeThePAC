@@ -45,4 +45,9 @@ class ApiController < ApplicationController
     render json: pledge, status: 200
   end
 
+  def activity_feed
+    pledges = Pledge.all.order('created_at DESC').limit(10)
+    render json: pledges, status: 200
+  end
+
 end

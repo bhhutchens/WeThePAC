@@ -21,6 +21,7 @@ Rails.application.routes.draw do
   get 'api/users/:user_id/pledges' => 'api#user_pledges'
   get 'api/users/:user_id/unfulfilled' => 'api#user_unfulfilled_pledges'
   get 'api/reps/:rep_id/pledges' => 'api#rep_pledges'
+  get 'api/activity_feed' => 'api#activity_feed'
 
   post 'api/tweets/' => 'api#create_tweet'
 
