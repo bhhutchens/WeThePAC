@@ -183,7 +183,7 @@ function pledgeFormSubmit() {
 
 
     // clear the tweet box
-    $("#tweet-box").text("");
+    $("#tweet-box").val("");
   });
 };
 
