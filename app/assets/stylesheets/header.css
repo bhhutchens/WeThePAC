@@ -53,11 +53,12 @@
 
 
 #dropdown_menu {
-  display: absolute;
+  position: absolute;
   right: 0;
   display: none;
   background-color: #5256AE;
   text-align: center;
+  margin-top: 50px;
 }
 
 .small-header-right-box {
