@@ -69,6 +69,15 @@
   float: right;
 }
 
-.small-header-right-box button {
+.dropdown_button {
   float: right;
+  display: table;
+  height: 100%;
+}
+
+.dropdown_button img {
+  height: 30px;
+  padding-top: 5px;
+  padding-right: 5px;
+  padding-left: 5px;
 }
