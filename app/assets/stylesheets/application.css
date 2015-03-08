@@ -1,4 +1,4 @@
-/*
+ /*
  * This is a manifest file that'll be compiled into application.css, which will include all the files
  * listed below.
  *
@@ -29,6 +29,7 @@ html {
   background-size: auto 105%;
   font-family: 'Slabo 27px', serif;
   overflow-y: scroll;
+  overflow-x: hidden;
   height: 100%;
 }
 
