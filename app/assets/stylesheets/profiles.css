@@ -2,6 +2,8 @@
 
 
 
+
+
 .profile_upper {
   margin: auto;
   display: table;
@@ -16,8 +18,8 @@
 }
 
 .profile_image {
-  width: 100px;
-  height: 100px;
+  /* width: 100px; */
+  max-height: 100px;
 }
 
 .profile_name {
@@ -94,3 +96,11 @@
   font-size: 3em;
 }
 
+
+
+.profile_upper {
+    /* position: fixed; */
+    /* background: white; */
+    /* z-index: 1; */
+    margin-top: 20px;
+}
