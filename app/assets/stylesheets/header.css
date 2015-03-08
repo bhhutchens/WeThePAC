@@ -5,6 +5,7 @@
   width: 100%;
   margin-bottom: 10px;
   float: left;
+  position: fixed;
 }
 
 .header-content {
