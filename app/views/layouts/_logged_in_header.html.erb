@@ -15,7 +15,7 @@
       <div id='dropdown_menu'>
         <p></p>
         <p><span><%= link_to current_user.name, current_user %></span></p>
-        <p><span><%= link_to "logout", sessions_logout_path %></span></p>
+        <p><span><%= link_to "logout", sessions_logout_path, {method: :post} %></span></p>
       </div>
     </div>
   </div>
