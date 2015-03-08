@@ -15,11 +15,9 @@ function renderPledges() {
   done(function(data) {
     console.log("success getting the rep's pledges");
     if ( $("#pledge_list_title").length === 0 ) {
-      //$("#pledge_list").prepend("<h1 id='pledge_list_title'>Pledges</h1>")
     };
 
     // loop through each pledge and append it as a list item
-    var pledgesInDB = data.length;
     var displayedPledges = $(".profile_pledge_list_item").length;
     data.reverse();
     $.each(data, function(index, pledge) {
@@ -27,19 +25,23 @@ function renderPledges() {
         pledge.rep_thumbnail_url = server + "/images/no-avatar.jpg";
       }
 
-
+      // only append a pledge if it is not in the list by comparing the index + number of currently displayed pledges
       if (index < displayedPledges) {
         console.log("index < displayedPledges.." + index + " < " + displayedPledges);
-        console.log("returning");
-        return;
-      } else {
-        console.log("index >= displayedPledges.." + index + " >= " + displayedPledges);
+        return; // breaks one step of .each iteration
       }
 
 
       // compile + append templates
       var template = compileTemplate("#rep_pledge_feed");
       $("#pledge_list").prepend(template({pledge: pledge}));
+
+      // make a slide down animation when adding a tweet
+      // 3 consecutive steps: prepend (b4 this) -> hide -> slideDown
+      if(displayedPledges != 0) {
+        console.log("sliding down");
+        $("#pledge_list > li").first().hide().slideDown("slow");
+      }
 
       // add style for negative or positive pledge
       if (pledge.positive) {
@@ -84,12 +86,9 @@ function getRepInfo() {
 }
 
 function tweetMessageOkay() {
-  if ($("#tweet-box").val().length >= 131) {
-    return false;
-  }
-  else {
-    return true;
-  }
+  var necessaryCharacters = $("#tweet-handle").text().length + 1 +
+    " #WeThePAC".length; // added 1 because of a space
+  return ($("#tweet-box").val().length + necessaryCharacters) < 140
 }
 
 function tweetMessageError() {
@@ -102,12 +101,11 @@ function setupPledgeForm() {
     e.preventDefault();
     var currentTweetMsg = $("#tweet-box").val();
     var characterCnt = currentTweetMsg.length;
-    console.log("current tweet message on search form: " + currentTweetMsg + "...count: " + characterCnt);
 
     var maxTweetCharacters = 140;
     var wtpac = " #WeThePAC";
     var handle = $("#tweet-handle").text();
-    var availableLetters = 140 - wtpac.length - handle.length;
+    var availableLetters = maxTweetCharacters - wtpac.length - handle.length;
     availableLetters -= characterCnt;
 
     $("#tweet-character-count").text("Available characters: " + availableLetters);

@@ -1,9 +1,4 @@
 #pledge-form {
-  position: fixed;
-  top: 30%;
-  left: 30%;
-  max-height: 40%;
-  width: 40%;
   background-color: white;
   box-shadow: 0 0 3px 3px;
   padding: 1em;
@@ -54,4 +49,12 @@
 }
 .red {
   color: red;
+}
+
+.pledge-form-wrapper {
+  position:fixed;
+  z-index:2;
+  width: 400px;
+  left: 50%;
+  margin-left: -200px;
 }
