@@ -53,6 +53,7 @@
 .profile_pledge_list_item, .profile_fulfillment_list_item {
   border-bottom: 1px solid black;
   padding: 10px;
+  min-height: 60px;
 }
 
 .profile_pledge_list_item_text {
