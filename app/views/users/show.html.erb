@@ -7,16 +7,43 @@
   <div class="profile_image_box">
     <a href={{user.profile_pic_big_url}}>
       <img class="profile_image" src={{user.profile_pic_big_url}} alt="Profile Picture" />
-    </a>
+    </a><br>
   </div>
 
   <p class="profile_name">
     {{user.name}} <span class="profile_handle"><a href="http://twitter.com/{{user.twitter_handle}}">@{{user.twitter_handle}}</a></span>
   </p>
   <% if current_user && current_user.id.to_s == params[:id] %>
-    <button id="TogglePledgeFeed">Show All Pledges</button><button id="ToggleFulfillmentFeed">Fulfill Pledges</button>
+    <button id="TogglePledgeFeed">Show All Pledges</button><button id="ToggleFulfillmentFeed">Fulfill Pledges</button><br>
   <% end %>
+
+
+  <% profile_user = User.find(params[:id]) %>
+
+  <% fulfilled_percent = profile_user.pledges.where(fulfilled: true, positive: true).count/profile_user.pledges.where(positive: true).count.to_f*100 %>
+
+
+<div id='fulfill_o_meter'><div id='fulfilled_bar' style='width: <%= fulfilled_percent.to_i %>%;'></div>
+
+
 </script>
+
+
+<script type="text/javascript">
+
+function updateFulfillMeter() {
+  var pledgeTotal = <%= profile_user.pledges.where(positive: true).count %>
+  var ful = <%= profile_user.pledges.where(fulfilled: true, positive: true).count %>
+
+  ful += 1
+  $('#fulfilled_bar').width((ful/pledgeTotal)*100+'%')
+}
+
+</script>
+
+
+
+
 
 <script type="text/x-handlebars-template" id="user_pledge_feed">
   <li class="profile_pledge_list_item">

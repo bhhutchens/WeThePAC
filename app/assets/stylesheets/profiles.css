@@ -66,3 +66,21 @@
   font-size: 100%;
 }
 
+#fulfill_o_meter {
+  height: 5px;
+  width: 50%;
+  background-color: red;
+  border: 1px solid black;
+}
+
+#fulfill_o_meter div {
+  display: inline-block;
+  float: left;
+  height: 100%;
+}
+
+#fulfilled_bar {
+  background-color: lime;
+}
+
+
