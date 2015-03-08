@@ -1,2 +1,2 @@
-var api_server = "http://localhost:3000/api";
-var server = "http://localhost:3000";
+var api_server = "https://rocky-crag-6360.herokuapp.com/api";
+var server = "https://rocky-crag-6360.herokuapp.com/";

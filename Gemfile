@@ -28,6 +28,7 @@ gem 'omniauth'
 gem 'omniauth-twitter'
 gem 'json'
 gem 'twitter'
+gem 'httparty'
 
 gem 'rails_12factor'
 
@@ -51,7 +52,6 @@ group :development, :test do
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
 
-  gem 'httparty'
 
 
 end
