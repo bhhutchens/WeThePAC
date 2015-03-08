@@ -5,7 +5,7 @@
 .profile_upper {
   margin: auto;
   display: table;
-  margin-bottom:100px;
+  margin-bottom:50px;
 }
 
 .profile_image_box {
@@ -66,3 +66,8 @@
   font-size: 100%;
 }
 
+#pledge_list_title {
+  margin:auto;
+  width:600px;
+  font-size: 3em;
+}

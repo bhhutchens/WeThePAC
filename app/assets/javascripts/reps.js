@@ -15,26 +15,40 @@ function renderPledges() {
   done(function(data) {
     console.log("success getting the rep's pledges");
     if ( $("#pledge_list_title").length === 0 ) {
-      $("#pledge_list").prepend("<h1 id='pledge_list_title'>Pledges</h1>") };
+      //$("#pledge_list").prepend("<h1 id='pledge_list_title'>Pledges</h1>")
+    };
 
     // loop through each pledge and append it as a list item
+    var pledgesInDB = data.length;
+    var displayedPledges = $(".profile_pledge_list_item").length;
+    data.reverse();
     $.each(data, function(index, pledge) {
       if (pledge.rep_thumbnail_url === null) {
         pledge.rep_thumbnail_url = server + "/images/no-avatar.jpg";
       }
 
+
+      if (index < displayedPledges) {
+        console.log("index < displayedPledges.." + index + " < " + displayedPledges);
+        console.log("returning");
+        return;
+      } else {
+        console.log("index >= displayedPledges.." + index + " >= " + displayedPledges);
+      }
+
+
       // compile + append templates
       var template = compileTemplate("#rep_pledge_feed");
-      $("#pledge_list").append(template({pledge: pledge}));
+      $("#pledge_list").prepend(template({pledge: pledge}));
 
       // add style for negative or positive pledge
       if (pledge.positive) {
         console.log("the pledge is positive");
-        $("#pledge_list > li").last().addClass("positive-tweet");
+        $("#pledge_list > li").first().addClass("positive-tweet");
       }
       else {
         console.log("the pledge is negative");
-        $("#pledge_list > li").last().addClass("negative-tweet");
+        $("#pledge_list > li").first().addClass("negative-tweet");
       }
     });
   }).
