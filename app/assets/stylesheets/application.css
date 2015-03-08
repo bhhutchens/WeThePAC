@@ -30,6 +30,7 @@ html {
   font-family: 'Slabo 27px', serif;
   overflow-y: scroll;
   height: 100%;
+  overflow-x: hidden;
 }
 
 body {
