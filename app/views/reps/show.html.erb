@@ -37,6 +37,8 @@
 <script type="text/x-handlebars-template" id="rep_pledge_feed">
   <li class="profile_pledge_list_item">
     <a href="/users/{{pledge.user_id}}"><img src={{pledge.user_thumbnail_url}} alt="@{{pledge.user_twitter_handle}}'s picture"  class="feed-thumbnail"/></a>
+    <i class="fa fa-exchange fa-lg feed-exchange-icon"></i>
+    <a href="/reps/{{pledge.rep_id}}"><img src="{{pledge.rep_thumbnail_url}}" alt="@{{pledge.rep_twitter_handle}}'s picture"  class="feed-thumbnail"/></a>
     <p><a href="/users/{{pledge.user_id}}">{{pledge.user_name}}</a> - <a href="http://twitter.com/{{pledge.user_twitter_handle}}">@{{pledge.user_twitter_handle}}</a></p>
     <p class="profile_pledge_list_item_text">
       {{pledge.tweet_message}}

@@ -34,10 +34,18 @@ div.search-result {
 .search-form {
 
 }
+
 #searchBarInput {
   font-size: 30px;
 }
+
 .central-search-wrapper{
   margin: auto;
   display: table;
+}
+
+.feed-exchange-icon {
+  float: left;
+  line-height: 1.75em !important;
+  padding-right: 1%;
 }
