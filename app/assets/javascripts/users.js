@@ -95,6 +95,7 @@ function bindFulfillButton() {
     if ( $(this).data('fulfillAction') === 'in progress' ) {
       var pledgeId = $(this).parent().data('pledgeId');
       markAsFulfilled(pledgeId);
+      debugger;
       updateFulfillMeter();
     } else {
       $(this).parent().append(' <button class="external-link-button"><i class="fa fa-external-link"></i></button>');
