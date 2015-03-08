@@ -34,7 +34,7 @@ $(document).ready(function(){
 
   function getActivityFeed() {
     $.ajax({
-      url: api_server + "/activity_feed"
+      url: "/api/activity_feed"
     }).done(function(data){
       console.log('success getAndPopulateActivityFeed :)');
       populateActivityFeed(data);
