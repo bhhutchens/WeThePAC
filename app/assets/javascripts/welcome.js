@@ -21,9 +21,8 @@ $(document).ready(function(){
       url: "/welcome/search",
       type: "GET",
       dataType: 'JSON',
-      beforeSend: function(xhr) {xhr.setRequestHeader('X-CSRF-Token', $('meta[name="csrf-token"]').attr('content'))},
-      data: {tweet_id: tweetId, rep_id: repId, positive: positive, tweet_message: tweet_message}
-    }),
+      beforeSend: function(xhr) {xhr.setRequestHeader('X-CSRF-Token', $('meta[name="csrf-token"]').attr('content'))}
+    })
     data: {"searchBarInput": searchTerms}
   }).done(function(serverData){
     console.log("db search query success!")
@@ -38,15 +37,13 @@ $(document).ready(function(){
 function getActivityFeed() {
   $.ajax({
     url: api_server + "/activity_feed",
-    beforeSend: function(xhr) {xhr.setRequestHeader('X-CSRF-Token', $('meta[name="csrf-token"]').attr('content'))},
-    data: {tweet_id: tweetId, rep_id: repId, positive: positive, tweet_message: tweet_message}
-  })
-}).done(function(data){
-  console.log('success getAndPopulateActivityFeed :)');
-  populateActivityFeed(data);
-}).fail(function(){
-  console.log('failed to getAndPopulateActivityFeed :(');
-});
+    beforeSend: function(xhr) {xhr.setRequestHeader('X-CSRF-Token', $('meta[name="csrf-token"]').attr('content'))}
+  }).done(function(data){
+    console.log('success getAndPopulateActivityFeed :)');
+    populateActivityFeed(data);
+  }).fail(function(){
+    console.log('failed to getAndPopulateActivityFeed :(');
+  });
 };
 
 getActivityFeed();
