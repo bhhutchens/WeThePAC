@@ -20,18 +20,21 @@
     <button id="positive-pledge">pledge for</button>
     <button id="negative-pledge">pledge against</button>
   <% end %>
-  <form id="pledge-form" style="display:none">
 
-    <div id="close-tweet-button">Close</div>
-    <p class="tweet_box_title">Send a Tweet!</p>
-    <p id="tweet-handle">@{{rep.twitter_handle}}</p>
+  <div class="pledge-form-wrapper">
+    <form id="pledge-form" style="display:none">
 
-    <textarea id="tweet-box" placeholder="your message associated with this pledge"></textarea>
-    <p id="tweet-hashtag">#WeThePAC</p>
+      <div id="close-tweet-button">Close</div>
+      <p class="tweet_box_title">Send a Tweet!</p>
+      <p id="tweet-handle">@{{rep.twitter_handle}}</p>
 
-    <button type="submit">Tweet!</button>
-    <span id="tweet-character-count"></span>
-  </form>
+      <textarea id="tweet-box" placeholder="your message associated with this pledge"></textarea>
+      <p id="tweet-hashtag">#WeThePAC</p>
+
+      <button type="submit">Tweet!</button>
+      <span id="tweet-character-count"></span>
+    </form>
+  </div>
 </script>
 
 <script type="text/x-handlebars-template" id="rep_pledge_feed">
