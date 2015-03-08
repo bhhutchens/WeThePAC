@@ -2,40 +2,31 @@
 
 
 
-
-
-/*.profile_page {
-  width: 600px;
-  margin: auto;
-}*/
-
-
 .profile_upper {
   margin: auto;
   display: table;
-  width: 100%;
+  margin-bottom:100px;
 }
 
 .profile_image_box {
   margin: auto;
   display: table;
+  float: left;
+  margin-right: 10px;
 }
 
 .profile_image {
-  min-width: 100px;
-  min-height: 100px;
-  max-width: 400px;
+  width: 100px;
+  height: 100px;
 }
 
 .profile_name {
   font-size: 3.5em;
-  text-align: center;
-  margin-top: 0.5em;
-  margin-bottom: 1em;
+  line-height: 50px;
 }
 
 .profile_handle {
-  font-size: 0.65em;
+  font-size: 0.55em;
   color: gray;
 }
 
@@ -61,6 +52,10 @@
 .profile_pledge_list_item, .profile_fulfillment_list_item {
   border-bottom: 1px solid black;
   padding: 10px;
+}
+
+.profile_pledge_list_item_text {
+  overflow-wrap: break-word;
 }
 
 .fulfill-action {

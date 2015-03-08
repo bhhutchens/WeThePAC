@@ -18,7 +18,12 @@ class RepsController < ApplicationController
       twitter_objects = client.users(hundred_twit_handles)
       save_images_to_reps(twitter_objects)
     end
+
+    seed_pledges
     redirect_to root_url
+  end
+
+  def seed_pledges
   end
 
   def save_images_to_reps(twitter_objects)

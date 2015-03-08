@@ -1,0 +1,57 @@
+#pledge-form {
+  position: fixed;
+  top: 30%;
+  left: 30%;
+  max-height: 40%;
+  width: 40%;
+  background-color: white;
+  box-shadow: 0 0 3px 3px;
+  padding: 1em;
+}
+
+#tweet-box {
+  width: 80%;
+  height: 70%;
+  min-height: 150px;
+  margin-left: 10%;
+}
+
+.tweet_box_title {
+  text-align: center;
+  font-size: 2em;
+  color: rgb(85, 172, 238);
+}
+
+#close-tweet-button {
+  width: 60px;
+  height: 30px;
+  line-height: 30px;
+
+  border: 1px solid black;
+  font-size: 140%;
+  text-align: center;
+  float: right;
+  cursor: pointer;
+}
+
+.negative-tweet {
+  background-color: rgba(255, 0, 0, 0.1);
+}
+
+.positive-tweet {
+  background-color: rgba(0, 255, 0, 0.1);
+}
+
+#tweet-hashtag {
+  margin-left: 10%;
+  color: rgb(0, 132, 180);
+}
+
+#tweet-handle {
+  margin-left: 10%;
+  font-style: bold;
+  color: rgb(0, 132, 180);
+}
+.red {
+  color: red;
+}

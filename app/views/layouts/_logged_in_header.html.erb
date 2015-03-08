@@ -29,6 +29,7 @@ function responsiveHeader()  {
     var width = $(window).width();
     console.log("Window width: " + width);
         // make the is hidden check so we dont have to hide/show EVERY time the browser width changes... small efficiency improvement
+
     var isHidden = $(".header_right_box")[0].style.display == "none";
      if (width <= 605 && !isHidden) {
       $(".header_right_box").hide();
