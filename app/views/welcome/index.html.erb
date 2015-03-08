@@ -5,7 +5,9 @@
 </div>
 
 <div id="searchResults"></div>
-
+<div id="activityFeed">
+  <h1>Recent Activity</h1>
+</div>
 
 
 
@@ -18,6 +20,16 @@
     <a class="search-result-anchor" href={{rep.profile_url}}>{{rep.name}}</a>
       <a class="search-result-anchor" href="http://twitter.com/{{rep.twitter_handle}}">{{rep.twitter_display}}</a>
     </div>
+</script>
+
+<script type="text/x-handlebars-template" id="activityFeedTemplate">
+  <li class="profile_pledge_list_item">
+    <a href="/reps/{{activityFeedItem.rep_id}}"><img src="{{activityFeedItem.rep_thumbnail_url}}" alt="@{{activityFeedItem.rep_twitter_handle}}'s picture"  class="feed-thumbnail"/></a>
+    <p><a href="/reps/{{activityFeedItem.rep_id}}">{{activityFeedItem.rep_name}}</a> - <a href="http://twitter.com/{{activityFeedItem.rep_twitter_handle}}">@{{activityFeedItem.rep_twitter_handle}}</a></p>
+    <p class="profile_activityFeedItem_list_item_text">
+      {{activityFeedItem.tweet_message}}
+    </p>
+  </li>
 </script>
 
 <%= javascript_include_tag 'welcome', 'data-turbolinks-track' => true %>

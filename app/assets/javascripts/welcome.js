@@ -1,5 +1,10 @@
 $(document).ready(function(){
 
+  // this is a redundant copy of the same function in reps.js
+  function compileTemplate (selector) {
+    return Handlebars.compile($(selector).html());
+  }
+
   $(".search-form").eq(0).keyup(function(e){
     e.preventDefault();
     var searchTerms = $('#searchBarInput').val();
@@ -18,6 +23,26 @@ $(document).ready(function(){
       console.log('failed')
     })
   });
+
+  function getActivityFeed() {
+    $.ajax({
+      url: api_server + "/activity_feed"
+    }).done(function(data){
+      console.log('success getAndPopulateActivityFeed :)');
+      populateActivityFeed(data);
+    }).fail(function(){
+      console.log('failed to getAndPopulateActivityFeed :(');
+    });
+  };
+
+  getActivityFeed();
+
+  function populateActivityFeed(recentPledges){
+    var activityFeedTemplate = compileTemplate('#activityFeedTemplate');
+    $.each(recentPledges, function(index, pledge) {
+      $('#activityFeed').append(activityFeedTemplate({activityFeedItem : pledge}));
+    });
+  };
 
   function removeExistingSearchResults(){
     if ( $('.search-result').length > 0 ) {
