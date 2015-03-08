@@ -27,6 +27,7 @@ ActiveRecord::Schema.define(version: 20150305235208) do
     t.string   "rep_thumbnail_url"
     t.string   "user_name"
     t.string   "rep_name"
+    t.string   "rep_external_url"
     t.string   "user_twitter_handle"
     t.string   "rep_twitter_handle"
     t.datetime "created_at",                          null: false
@@ -41,6 +42,7 @@ ActiveRecord::Schema.define(version: 20150305235208) do
     t.text     "json"
     t.string   "thumbnail_url"
     t.string   "big_pic_url"
+    t.string   "external_url"
     t.datetime "created_at",     null: false
     t.datetime "updated_at",     null: false
   end

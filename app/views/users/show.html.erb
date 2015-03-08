@@ -1,5 +1,7 @@
 <div class="profile_upper span_4"></div>
 <ul class="profile_pledge_list" id="pledge_list"></ul>
+<ul class="profile_fulfillment_list" id="fulfillment_list">
+<h1>Unfulfilled Pledges</h1></ul>
 
 <script type="text/x-handlebars-template" id="user_info">
   <div class="profile_image_box">
@@ -11,6 +13,9 @@
   <p class="profile_name">
     {{user.name}} <span class="profile_handle"><a href="http://twitter.com/{{user.twitter_handle}}">@{{user.twitter_handle}}</a></span>
   </p>
+  <% if current_user.id.to_s == params[:id] %>
+    <button id="TogglePledgeFeed">Show All Pledges</button><button id="ToggleFulfillmentFeed">Fulfill Pledges</button>
+  <% end %>
 </script>
 
 <script type="text/x-handlebars-template" id="user_pledge_feed">
@@ -19,6 +24,20 @@
     <p><a href="/reps/{{pledge.rep_id}}">{{pledge.rep_name}}</a> - <a href="http://twitter.com/{{pledge.rep_twitter_handle}}">@{{pledge.rep_twitter_handle}}</a></p>
     <p class="profile_pledge_list_item_text">
       {{pledge.tweet_message}}
+    </p>
+  </li>
+</script>
+
+<!-- fulfillment feed -->
+<script type="text/x-handlebars-template" id="user_fulfillment_feed">
+  <li class="profile_fulfillment_list_item">
+    <div class="fulfill-action" data-rep-external-url="{{unfulfilledPledge.rep_external_url}}" data-pledge-id="{{unfulfilledPledge.id}}">
+      <button class="fulfill-button">Fulfill</button>
+    </div>
+    <a href="/reps/{{unfulfilledPledge.rep_id}}"><img src="{{unfulfilledPledge.rep_thumbnail_url}}" alt="@{{unfulfilledPledge.rep_twitter_handle}}'s picture"  class="feed-thumbnail"/></a>
+    <p><a href="/reps/{{unfulfilledPledge.rep_id}}">{{unfulfilledPledge.rep_name}}</a> - <a href="http://twitter.com/{{unfulfilledPledge.rep_twitter_handle}}">@{{unfulfilledPledge.rep_twitter_handle}}</a></p>
+    <p class="profile_fulfillment_list_item_text">
+      {{unfulfilledPledge.tweet_message}}
     </p>
   </li>
 </script>

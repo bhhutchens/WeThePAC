@@ -17,7 +17,7 @@ class WelcomeController < ApplicationController
     # TODO: call sunlight API and pass "zips". Add results to matches.
 
     # checks database for reps whose names mach keywords
-    matches = Rep.where('name ilike any ( array[?] )', keywords)
+    matches = Rep.where('name ilike any ( array[?] )', keywords).limit(21)
 
     render json: matches, status: 200
   end

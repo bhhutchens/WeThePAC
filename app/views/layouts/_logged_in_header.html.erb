@@ -6,26 +6,61 @@
       <%= link_to current_user.name, current_user %>
       <%= button_to "logout", sessions_logout_path %>
     </div>
+
+    <div class='small-header-right-box' style='display: none'>
+      <!-- <button class='dropdown_button'>sadsadadsas</button> -->
+      <div class='dropdown_button'><img src="/images/hamburgericon.png"></div>
+      <img src=<%= current_user.profile_pic_thumb_url %> alt="@<%= current_user.twitter_handle %>'s thumbnail"/>
+
+      <div id='dropdown_menu'>
+        <p></p>
+        <p><span><%= link_to current_user.name, current_user %></span></p>
+        <p><span><%= link_to "logout", sessions_logout_path %></span></p>
+      </div>
+    </div>
   </div>
 </div>
 
-<script>
 
+<script>
 // add event handling so we can catch the changes of the browser's width ... after the width is below some threshhold (~480px) we want to adjust the responsive design and optimize for mobile
-$(document).ready(function() {
-  $(window).on('resize orientationChanged', function() {
+
+function responsiveHeader()  {
     var width = $(window).width();
     console.log("Window width: " + width);
-
         // make the is hidden check so we dont have to hide/show EVERY time the browser width changes... small efficiency improvement
-        var isHidden = $(".header_right_box")[0].style.display == "none";
-        if (width <= 480 && !isHidden) {
-          $(".header_right_box").hide();
 
-        }
-        else if (width > 480 && isHidden) {
-          $(".header_right_box").show();
-        }
-      });
-});
+    var isHidden = $(".header_right_box")[0].style.display == "none";
+     if (width <= 605 && !isHidden) {
+      $(".header_right_box").hide();
+      $(".small-header-right-box").show();
+    }
+    else if (width > 605 && isHidden) {
+      $(".small-header-right-box").hide();
+      $(".header_right_box").show();
+    }
+}
+
+function responsiveResizeHeader() {
+        $(window).on('resize orientationChanged', function() {responsiveHeader()
+        });
+      }
+
+function setupDropDownListener() {
+  $(".dropdown_button").on('click', function() {
+    if (($("#dropdown_menu").css('display') == "none")) {
+      $("#dropdown_menu").show();
+    } else {
+      $("#dropdown_menu").hide();
+    }
+  })
+}
+
+function setUpHeader() {
+  responsiveHeader();
+  responsiveResizeHeader();
+  setupDropDownListener();
+}
+
+$( document ).ready(setUpHeader());
 </script>

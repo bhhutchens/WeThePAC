@@ -7,10 +7,9 @@
 }
 
 .header-content {
-  width: 70%;
+  width: 100%;
   display: table;
-  margin-left: auto;
-  margin-right: auto;
+  padding-left: calc(30%/2);
 }
 
 .header_right_box {
@@ -49,4 +48,36 @@
 
 .header a:hover {
   color: #CC564E;
+}
+
+
+#dropdown_menu {
+  display: absolute;
+  right: 0;
+  display: none;
+  background-color: #5256AE;
+  text-align: center;
+}
+
+.small-header-right-box {
+  display: table;
+  float: right;
+  width: 100px;
+}
+
+.small-header-right-box img {
+  float: right;
+}
+
+.dropdown_button {
+  float: right;
+  display: table;
+  height: 100%;
+}
+
+.dropdown_button img {
+  height: 30px;
+  padding-top: 5px;
+  padding-right: 5px;
+  padding-left: 5px;
 }

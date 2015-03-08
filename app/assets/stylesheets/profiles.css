@@ -40,7 +40,7 @@
   display: table;
 }
 
-.profile_pledge_list {
+.profile_pledge_list, .profile_fulfillment_list, #activityFeed {
   width: 100%;
   max-width: 600px;
   list-style-type: none;
@@ -49,12 +49,20 @@
   font-family: Helvetica Neue;
 }
 
-.profile_pledge_list_item {
+.profile_pledge_list_item, .profile_fulfillment_list_item {
   border-bottom: 1px solid black;
   padding: 10px;
 }
 
 .profile_pledge_list_item_text {
   overflow-wrap: break-word;
+}
+
+.fulfill-action {
+  float: right;
+}
+
+.fulfillment-button {
+  font-size: 100%;
 }
 
