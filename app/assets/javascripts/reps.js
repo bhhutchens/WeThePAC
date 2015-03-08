@@ -91,7 +91,7 @@ function setupPledgeForm() {
     console.log("current tweet message on search form: " + currentTweetMsg + "...count: " + characterCnt);
 
     var maxTweetCharacters = 140;
-    var wtpac = "#WeThePAC";
+    var wtpac = " #WeThePAC";
     var handle = $("#tweet-handle").text();
     var availableLetters = 140 - wtpac.length - handle.length;
     availableLetters -= characterCnt;
@@ -159,11 +159,17 @@ function pledgeFormSubmit() {
       tweetMessageError();
       return;
     }
+    var msg = $("#tweet-handle").text();
     makeTweet($('#tweet-box').val());
+    //makeTweet(handle + $("#tweet-box").val() + " #WeThePAC")
 
     // remove the form to tweet and show the pledge buttons again
     togglePledgeButtons(true);
     $("#pledge-form").hide();
+
+
+    // clear the tweet box
+    $("#tweet-box").text("");
   });
 };
 
