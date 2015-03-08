@@ -11,7 +11,7 @@ function compileTemplate (selector) {
 function renderPledges() {
   // ajax GET call
   $.ajax({
-    url: api_server + pathname + "/pledges"
+    url: "/api" + pathname + "/pledges"
   }).
   done(function(data) {
     // add the name of the list in html
@@ -21,7 +21,7 @@ function renderPledges() {
     // loop through each pledge and append it as a list item
     $.each(data, function(index, pledge) {
       if (pledge.rep_thumbnail_url === null) {
-        pledge.rep_thumbnail_url = server+"/images/no-avatar.jpg"
+        pledge.rep_thumbnail_url = "/images/no-avatar.jpg"
       }
       // get and compile templates
       var template = compileTemplate("#user_pledge_feed");
@@ -41,7 +41,7 @@ function renderPledges() {
 function getUserInfo() {
 
   $.ajax({
-    url: api_server + pathname,
+    url: "/api" + pathname,
     type: "GET"
   }).
   done(function(data) {
@@ -60,7 +60,7 @@ function getUserInfo() {
 
 function getAndPopulateUnfulfilledPledges() {
   $.ajax({
-    url: api_server + pathname + "/unfulfilled"
+    url: "/api" + pathname + "/unfulfilled"
   }).
   done(function(data){
     console.log("Successfully got unfulfilled pledges");
@@ -69,7 +69,7 @@ function getAndPopulateUnfulfilledPledges() {
     // populate profile_fulfillment_list with unfulfilled pledges
     $.each(data, function(index, unfulfilledPledge) {
       if (unfulfilledPledge.rep_thumbnail_url === null) {
-        unfulfilledPledge.rep_thumbnail_url = server+"/images/no-avatar.jpg"
+        unfulfilledPledge.rep_thumbnail_url = "/images/no-avatar.jpg"
       }
       $("#fulfillment_list").append(unfulfilledsTemplate({unfulfilledPledge: unfulfilledPledge}));
     });
@@ -117,7 +117,7 @@ function markAsFulfilled(pledgeId) {
   // change pledge in DB from fulfilled false to true && refresh pledge feeds
   console.log('marking as fulfilled')
   $.ajax({
-    url: api_server+'/pledges',
+    url: "/api/pledges",
     type: 'put',
     beforeSend: function(xhr) {xhr.setRequestHeader('X-CSRF-Token', $('meta[name="csrf-token"]').attr('content'))},
     data: {pledge_id: pledgeId}

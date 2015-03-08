@@ -10,7 +10,7 @@ function compileTemplate (selector) {
 function renderPledges() {
   // ajax GET call
   $.ajax({
-    url: api_server + pathname + "/pledges"
+    url: "/api" + pathname + "/pledges"
   }).
   done(function(data) {
     console.log("success getting the rep's pledges");
@@ -24,7 +24,7 @@ function renderPledges() {
     data.reverse();
     $.each(data, function(index, pledge) {
       if (pledge.rep_thumbnail_url === null) {
-        pledge.rep_thumbnail_url = server + "/images/no-avatar.jpg";
+        pledge.rep_thumbnail_url = "/images/no-avatar.jpg";
       }
 
 
@@ -65,7 +65,7 @@ function removeOldPledges() {
 // renders it onto the page, then renders the pledge feed
 function getRepInfo() {
   $.ajax({
-    url: api_server + pathname,
+    url: "/api" + pathname,
     type: "GET"
   }).
   done(function(data) {

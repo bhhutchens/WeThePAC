@@ -1,5 +1,5 @@
 function makeTweet(newMessage) {
-  var tweet = $.ajax({ url: api_server+'/tweets',
+  var tweet = $.ajax({ url: "/api/tweets",
     type: 'POST',
     beforeSend: function(xhr) {xhr.setRequestHeader('X-CSRF-Token', $('meta[name="csrf-token"]').attr('content'))},
     data: {tweet: {message: newMessage}},
@@ -16,7 +16,7 @@ function postPledge(tweetId) {
   // regexp to get any number of digits (#) starting from end ($) of path name
   var repId = location.pathname.match(/\d*$/)[0]
   $.ajax({
-    url: server+'/api/pledges/',
+    url: '/api/pledges/',
     type: 'POST',
     dataType: 'json',
     beforeSend: function(xhr) {xhr.setRequestHeader('X-CSRF-Token', $('meta[name="csrf-token"]').attr('content'))},

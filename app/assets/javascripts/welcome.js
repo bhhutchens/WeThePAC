@@ -63,8 +63,8 @@ $(document).ready(function(){
     var compiledSearchResultTemplate = Handlebars.compile($("#searchResultTemplate").html());
     $.each(searchResults, function(index, rep) {
       if (rep.thumbnail_url === null) {
-        rep.thumbnail_url = server+"/images/no-avatar.jpg" }
-        rep.profile_url = server+"/reps/"+rep.id
+        rep.thumbnail_url = "/images/no-avatar.jpg" }
+        rep.profile_url = "/reps/"+rep.id
         if (rep.twitter_handle != null) {rep.twitter_display = "@" + rep.twitter_handle} else { rep.twitter_display = ""}
           $("#searchResults").append(compiledSearchResultTemplate({rep: rep}));
       });
