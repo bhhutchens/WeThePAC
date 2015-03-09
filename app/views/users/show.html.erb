@@ -1,18 +1,19 @@
-<div class="profile_upper span_4"></div>
+<div class="profile_upper"></div>
 <ul class="profile_pledge_list" id="pledge_list"></ul>
 <ul class="profile_fulfillment_list" id="fulfillment_list">
-<h1>Unfulfilled Pledges</h1></ul>
+<h1 class="pledge_list_title">Unfulfilled Pledges</h1></ul>
 
 <script type="text/x-handlebars-template" id="user_info">
   <div class="profile_image_box">
     <a href={{user.profile_pic_big_url}}>
       <img class="profile_image" src={{user.profile_pic_big_url}} alt="Profile Picture" />
-    </a><br>
+    </a>
   </div>
 
   <p class="profile_name">
-    {{user.name}} <span class="profile_handle"><a href="http://twitter.com/{{user.twitter_handle}}">@{{user.twitter_handle}}</a></span>
+      {{user.name}} <span class="profile_handle"><a href="http://twitter.com/{{user.twitter_handle}}">@{{user.twitter_handle}}</a></span>
   </p>
+
   <% if current_user && current_user.id.to_s == params[:id] %>
     <button id="TogglePledgeFeed">Show All Pledges</button><button id="ToggleFulfillmentFeed">Fulfill Pledges</button><br>
   <% end %>
@@ -39,7 +40,7 @@ function updateFulfillMeter() {
   $(document).data().fulfilled += 1
   var ful = $(document).data().fulfilled
   var pledgeTotal = $(document).data().pledgeTotal
-  $('#fulfilled_bar').width((ful/pledgeTotal)*100+'%')
+  $('#fulfilled_bar').animate({width: ((ful/pledgeTotal)*100+'%')}, 800);
 }
 
 </script>

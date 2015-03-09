@@ -14,9 +14,6 @@ function renderPledges() {
   }).
   done(function(data) {
     console.log("success getting the rep's pledges");
-    if ( $("#pledge_list_title").length === 0 ) {
-      //$("#pledge_list").prepend("<h1 id='pledge_list_title'>Pledges</h1>")
-    };
 
     // loop through each pledge and append it as a list item
     var pledgesInDB = data.length;
