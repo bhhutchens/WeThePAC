@@ -38,7 +38,7 @@ require 'open-uri'
 
 
 def doRepWebsiteSearch (rep_name)
-  blacklist = [".gov", "facebook.com", "twitter.com", "linkedin.com", "wikipedia.com", ".govtrack", "cspan", "opensecrets.org"]
+  blacklist = [".gov", "facebook.com", "twitter.com", "linkedin.com", "wikipedia.com", ".govtrack", "cspan", ".edu", "opensecrets.org"]
   rep_name += " website"
   rep_name.gsub!(" ", "%20")
   query = "http://www.google.com/search?q=#{rep_name}"
@@ -46,13 +46,43 @@ def doRepWebsiteSearch (rep_name)
     query += "+-#{word}"
   end
 
-  # query.each_char do |letter|
-  #   if letter.ord > 123
-  #     puts "NOT a-z!!!"
-  #     puts "======================"
-  #     return "SPECIALCHARACTERS"
-  #   end
-  # end
+  searchPage = Nokogiri::HTML(open(query))
+  puts searchPage.class
+
+  websiteLink = searchPage.css("cite")[0].text
+  websiteContributeLink = ""
+
+  #donateContributeQuery = "site:#{websiteLink}
+  donateContributeQuery = ""
+
+  if websiteLink.index("/") == nil
+    donateContributeQuery = "http://www.google.com/search?q=site:#{websiteLink}/contribute+OR+site:#{websiteLink}/donate"
+  else
+    donateContributeQuery = "http://www.google.com/search?q=site:#{websiteLink}contribute+OR+site:#{websiteLink}donate"
+  end
+
+  donateContributeQuery.gsub(" ", "%20")
+  # make new search
+  searchPage = Nokogiri::HTML(open(donateContributeQuery))
+  donateContributeLink = searchPage.css("cite")
+
+  puts "getting rep: #{rep_name}"
+  puts "websiteLink: #{donateContributeLink}"
+  if donateContributeLink == nil
+    return websiteLink
+  else
+    return donateContributeLink[0].text
+  end
+end
+
+def doRepWebsiteSearchOld (rep_name)
+  blacklist = [".gov", "facebook.com", "twitter.com", "linkedin.com", "wikipedia.com", ".govtrack", "cspan", "opensecrets.org"]
+  rep_name += " website"
+  rep_name.gsub!(" ", "%20")
+  query = "http://www.google.com/search?q=#{rep_name}"
+  blacklist.each do |word|
+    query += "+-#{word}"
+  end
 
   searchPage = Nokogiri::HTML(open(query))
   puts searchPage.class
@@ -67,7 +97,6 @@ def doRepWebsiteSearch (rep_name)
   end
   return websiteContributeLink
 end
-
 
 
 # This file should contain all the record creation needed to seed the database with its default values.
@@ -106,12 +135,19 @@ def seed_reps
   end
 end
 
+def specialCharCheck(name)
+  return name.length != name.match(/[a-zA-z\s]+/).to_s.length
+end
+
 def updateAllReps(start=0)
   Rep.all.each do |rep|
     puts "rep id: #{rep.id}"
     if rep.id >= start
-      if rep.id != 135 && rep.id != 181 && rep.id != 195 && rep.id != 212 && rep.id != 314 && rep.id != 335 && rep.id != 366 && rep.id != 378 && rep.id != 381 && rep.id != 463
+     # if rep.id != 135 && rep.id != 181 && rep.id != 195 && rep.id != 212 && rep.id != 314 && rep.id != 335 && rep.id != 366 && rep.id != 378 && rep.id != 381 && rep.id != 463
+      if !specialCharCheck(rep.name)
         rep.update({contribute_url: doRepWebsiteSearch(rep.name)})
+      else
+        rep.update({contribute_url: "SPECIALCHARACTER"})
       end
     end
   end
@@ -121,7 +157,8 @@ def create_jamal
   User.create(twitter_handle:'jmoon018', name: "Jamal Moon", zipcode: nil, provider: nil, uid: nil, profile_pic_thumb_url: "https://abs.twimg.com/sticky/default_profile_images/default_profile_6_normal.png", profile_pic_big_url: "https://abs.twimg.com/sticky/default_profile_images/default_profile_6.png")
 end
 
-updateAllReps(310)
+# updateAllReps(0)
+doRepWebsiteSearch("Barbara Lee")
 # called seeding methods
 # 10.times {create_jamal}
 # seed_reps if Rep.count < 20
