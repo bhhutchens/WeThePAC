@@ -1,2 +1,2 @@
-var api_server = "https://rocky-crag-6360.herokuapp.com/api";
-var server = "https://rocky-crag-6360.herokuapp.com/";
+var api_server = "http://wethepac.net/api";
+var server = "http://wethepac.net";

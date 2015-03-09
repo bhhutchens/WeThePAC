@@ -39,6 +39,10 @@ Rails.application.routes.draw do
   resources :tweets, only: [:new, :create]
 
   root 'welcome#index'
+
+  controller 'api' do
+    match '*unmatched_route', :to => 'api#route_options', via: [:options]
+  end
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
