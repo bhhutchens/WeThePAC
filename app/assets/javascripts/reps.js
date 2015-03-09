@@ -172,6 +172,7 @@ function pledgeFormSubmit() {
     }
     var msg = $("#tweet-handle").text();
     makeTweet($('#tweet-box').val());
+    updateFulfillMeter($("#tweet-box").data().positive);
     //makeTweet(handle + $("#tweet-box").val() + " #WeThePAC")
 
     // remove the form to tweet and show the pledge buttons again

@@ -21,6 +21,10 @@
     <button id="negative-pledge">pledge against</button>
   <% end %>
 
+  <% positive_percent = (@rep.pledges.where(positive: true).count.to_f/@rep.pledges.count.to_f)*100 %>
+
+  <div id='meter_wrapper'><div id='positive_bar' style='width: <%= positive_percent %>%;'></div>
+
   <div class="pledge-form-wrapper">
     <form id="pledge-form" style="display:none">
 
@@ -35,7 +39,29 @@
       <span id="tweet-character-count"></span>
     </form>
   </div>
+
+
+<script type="text/javascript">
+$(document).data().negative = <%= @rep.pledges.where(positive: false).count  %>;
+$(document).data().positive = <%= @rep.pledges.where(positive: true).count %>;
+
+
+function updateFulfillMeter(positive) {
+  if(positive === 'true') {
+    $(document).data().positive += 1;
+  } else {
+    $(document).data().negative += 1;
+  }
+
+  var pos = $(document).data().positive;
+  var total = $(document).data().positive + $(document).data().negative;
+
+  $('#positive_bar').animate({width: ((pos/total)*100+'%')}, 800);
+}
+
 </script>
+
+
 
 <script type="text/x-handlebars-template" id="rep_pledge_feed">
   <li class="profile_pledge_list_item">
