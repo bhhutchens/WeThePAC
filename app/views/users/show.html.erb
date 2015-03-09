@@ -24,7 +24,7 @@
   <% fulfilled_percent = profile_user.pledges.where(fulfilled: true, positive: true).count/profile_user.pledges.where(positive: true).count.to_f*100 %>
 
 
-<div id='fulfill_o_meter'><div id='fulfilled_bar' style='width: <%= fulfilled_percent %>%;'></div>
+<div id='meter_wrapper'><div id='positive_bar' style='width: <%= fulfilled_percent %>%;'></div>
 
 
 </script>
@@ -40,7 +40,7 @@ function updateFulfillMeter() {
   $(document).data().fulfilled += 1
   var ful = $(document).data().fulfilled
   var pledgeTotal = $(document).data().pledgeTotal
-  $('#fulfilled_bar').animate({width: ((ful/pledgeTotal)*100+'%')}, 800);
+  $('#positive_bar').animate({width: ((ful/pledgeTotal)*100+'%')}, 800);
 }
 
 </script>
