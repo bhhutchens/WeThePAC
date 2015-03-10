@@ -250,6 +250,10 @@ end
 # "mike kelly" AND ("Rep*" OR "Sen*") -"Targeted News Service"
 # final query: "TYPE FIRST_NAME LAST_NAME" where TYPE="Rep" or "Sen"
 def googleNewsSearch(name, mins = 720)
+
+  # fix the name -- so if there is 'ç' or some weird
+  # character like that, it turns into 'c'
+  name = ActiveSupport::Inflector.transliterate(name)
   type = ""
   theRep = Rep.all
   puts "THE REP! : #{theRep}"
@@ -293,7 +297,7 @@ def fetchArticles
       rep.articles.create(article)
     end
     puts "=" * 50
-    sleep (10..15).to_a.sample.to_i
+    sleep (5..10).to_a.sample.to_i
   end
 end
 
