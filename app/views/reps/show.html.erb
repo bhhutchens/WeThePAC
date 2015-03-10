@@ -95,18 +95,39 @@ function makeGraph() {
   }
 
   function reconsileDates(positive, negative) {
-    for(var key in positive) {
-      if (key in negative === false) {
-        negative[key] = 0
+    dateArray = [];
+    var DateData = function(date, positive, negative) {
+      this.date = date;
+      if(positive === undefined) {
+        this.positive = 0;
+      } else {
+        this.positive = positive;
+      }
+
+      if(negative === undefined) {
+        this.negative = 0;
+      } else {
+        this.negative = negative;
       }
     }
 
-    for(var key in negative) {
-      if (key in positive === false) {
-        negative[key] = 0
-      }
+    for(var key in positive) {
+      dateArray.push(new DateData(key, positive[key], negative[key]))
     }
-    return {positive: positive, negative: negative}
+    for(var key in negative) {
+      if(positive[key] === undefined) {
+        dateArray.push(new DateData(key, positive[key], negative[key]))
+      }
+
+      dateArray = dateArray.sort(function(a, b) {
+        a = new Date(a.date);
+        b = new Date(b.date);
+        return a<b ? -1 : a>b ? 1 : 0;
+      });
+
+    }
+
+    return dateArray
   }
 
   function makeDatesArray(object) {
@@ -114,7 +135,7 @@ function makeGraph() {
     negativeArray = ['negative']
     dateArray = ['x']
 
-    function converDate(date) {
+    function convertDate(date) {
       var date = new Date(date);
       var year = date.getFullYear(), month = (date.getMonth() + 1), day = date.getDate();
 
@@ -124,28 +145,66 @@ function makeGraph() {
       return ("" + year + '-' + month + '-' + day);
     }
 
-
-    for(var key in object.positive) {
-      positiveArray.push(object.positive[key]);
-    }
-
-    for(var key in object.negative) {
-      negativeArray.push(object.negative[key]);
-      dateArray.push(converDate(key));
-    }
+    object.forEach(function(object) {
+      positiveArray.push(object.positive);
+      negativeArray.push(object.negative);
+      dateArray.push(convertDate(object.date))
+    })
 
     return {positive: positiveArray, negative: negativeArray, x: dateArray}
   }
 
+
+
+
+
+
   var positivePledges = '<%= @rep.pledges.where(positive: true).group("DATE(created_at)").count %>';
   var negativePledges = '<%= @rep.pledges.where(positive: false).group("DATE(created_at)").count %>';
   var myRegexp = /(\d\d\s\w\w\w\s\d\d\d\d)\W\W...(\d{1,})/g;
-
   var positiveDates = getMatches(positivePledges, myRegexp);
   var negativeDates = getMatches(negativePledges, myRegexp);
-  var datesObject = reconsileDates(positiveDates, negativeDates);
-  var graphArrays = makeDatesArray(datesObject);
+  var datesObjects = reconsileDates(positiveDates, negativeDates);
+  var graphArrays = makeDatesArray(datesObjects);
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+  // makeGraphObject(positivePledges, negativePledges);
+
+
+
+
+
+
+
+
+
+  // function makeGraphObject (positive, negative) {
+  //   var DateData = function(date, positive, negative) {
+  //     this.date = date;
+  //     this.positive = positive;
+  //     this.negative = negative;
+  //   }
+
+  //   for(var key in positive) {
+  //     var x = new DateData(key, positive[key], negative[key])
+  //     debugger
+  //   }
+
+
+
+  // }
 
 
   var chart = c3.generate({
