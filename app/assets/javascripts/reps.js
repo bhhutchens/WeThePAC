@@ -49,9 +49,9 @@ function renderPledges() {
       }
     });
   }).
-  fail(function() {
-    console.log("unable to get pledges feed");
-  })
+fail(function() {
+  console.log("unable to get pledges feed");
+})
 }
 
 function removeOldPledges() {
@@ -95,34 +95,34 @@ function tweetMessageError() {
 }
 
 function setupPledgeForm() {
-   $("#pledge-form").keyup(function(e) {
-    e.preventDefault();
-    var currentTweetMsg = $("#tweet-box").val();
-    var characterCnt = currentTweetMsg.length;
-    console.log("current tweet message on search form: " + currentTweetMsg + "...count: " + characterCnt);
+ $("#pledge-form").keyup(function(e) {
+  e.preventDefault();
+  var currentTweetMsg = $("#tweet-box").val();
+  var characterCnt = currentTweetMsg.length;
+  console.log("current tweet message on search form: " + currentTweetMsg + "...count: " + characterCnt);
 
-    var maxTweetCharacters = 140;
-    var wtpac = " #WeThePAC";
-    var handle = $("#tweet-handle").text();
-    var availableLetters = 140 - wtpac.length - handle.length;
-    availableLetters -= characterCnt;
+  var maxTweetCharacters = 140;
+  var wtpac = " #WeThePAC";
+  var handle = $("#tweet-handle").text();
+  var availableLetters = 140 - wtpac.length - handle.length;
+  availableLetters -= characterCnt;
 
-    $("#tweet-character-count").text("Available characters: " + availableLetters);
-    if (availableLetters < 0) {
-      $("#tweet-character-count").addClass("red");
-      return false;
-    }
-    else {
-      $("#tweet-character-count").removeClass("red");
-      return true;
-    }
-  });
+  $("#tweet-character-count").text("Available characters: " + availableLetters);
+  if (availableLetters < 0) {
+    $("#tweet-character-count").addClass("red");
+    return false;
+  }
+  else {
+    $("#tweet-character-count").removeClass("red");
+    return true;
+  }
+});
 
    // trigger the event above so that the "available characters: ..."
    // text is calculated and shown.. otherwise we'd have to wait
    // until the user actually types something
-  $("#pledge-form").keyup();
-}
+   $("#pledge-form").keyup();
+ }
 
 
 // HIDES or SHOWS the positive/negative pledge buttons
@@ -188,4 +188,8 @@ function pledgeFormSubmit() {
 $(document).ready(function() {
   console.log("reps js loaded");
   getRepInfo();
+  makeGraph();
+
 });
+
+
