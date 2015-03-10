@@ -293,7 +293,7 @@ def fetchArticles
       rep.articles.create(article)
     end
     puts "=" * 50
-    sleep 10
+    sleep (10..15).to_a.sample.to_i
   end
 end
 
