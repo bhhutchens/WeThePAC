@@ -1,0 +1,16 @@
+<div class="leftCol"></div>
+<div class="midCol">
+  <ul id="midFeedList" class="feedList"></ul>
+</div>
+<div class="rightCol"></div>
+
+<script type="text/x-handlebars-template" id="midFeedListTemplate">
+  <li class="midFeedListItem">
+    <p class="midFeedListItemTitle">{{article.title}}</p>
+    <p class="midFeedListItemExcept">{{article.excerpt}}...
+      <a href="{{article.url}}" class="midFeedListItemLink">more</a>
+    </p>
+  </li>
+</script>
+
+<%= javascript_include_tag 'articles', 'data-turbolinks-track' => true %>

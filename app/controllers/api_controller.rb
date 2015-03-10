@@ -50,4 +50,13 @@ class ApiController < ApplicationController
     render json: pledges, status: 200
   end
 
+  # article routes
+  def get_articles
+    render json: Article.all.order('created_at DESC'), status: 200
+  end
+
+  def get_article
+    render json: Article.find(params[:id]), status: 200
+  end
+
 end

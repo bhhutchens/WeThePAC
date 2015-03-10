@@ -23,7 +23,10 @@ Rails.application.routes.draw do
   end
   resources :tweets, only: [:new, :create]
 
+  # articles
   resources :articles
+  get 'api/articles' => 'api#get_articles'
+  get 'api/articles/:id' => 'api#get_article'
 
   root 'welcome#index'
 

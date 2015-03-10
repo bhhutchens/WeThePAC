@@ -251,9 +251,6 @@ end
 # final query: "TYPE FIRST_NAME LAST_NAME" where TYPE="Rep" or "Sen"
 def googleNewsSearch(name, mins = 720)
 
-  # fix the name -- so if there is 'ç' or some weird
-  # character like that, it turns into 'c'
-  name = ActiveSupport::Inflector.transliterate(name)
   type = ""
   theRep = Rep.all
   puts "THE REP! : #{theRep}"
@@ -263,6 +260,9 @@ def googleNewsSearch(name, mins = 720)
     type = "Rep"
   end
 
+  # fix the name -- so if there is 'ç' or some weird
+  # character like that, it turns into 'c'
+  name = ActiveSupport::Inflector.transliterate(name)
   query = "%22#{type} #{name}%22"
   query.gsub!(" ", "%20")
 
@@ -274,6 +274,8 @@ def googleNewsSearch(name, mins = 720)
   urls = document.css('h3 > a')
   excerpts = document.css('.st')
   dates = document.css('div.slp > span.f')
+
+
 
   articles = []
   for i in 0..(titles.length - 1)
