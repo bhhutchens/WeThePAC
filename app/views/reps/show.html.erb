@@ -1,5 +1,5 @@
 <div class="profile_upper"></div>
-<div id="chart"></div>
+<div id="graph"></div>
 <h1 class="pledge_list_title">Pledges</h1>
 <ul class="profile_pledge_list" id="pledge_list"></ul>
 
@@ -83,8 +83,6 @@ function updateFulfillMeter(positive) {
 <script type="text/javascript">
 
 function makeGraph() {
-
-
   function getMatches(string, regex) {
     var matches = {};
     var match;
@@ -95,7 +93,7 @@ function makeGraph() {
   }
 
   function reconsileDates(positive, negative) {
-    dateArray = [];
+    var dateArray = [];
     var DateData = function(date, positive, negative) {
       this.date = date;
       if(positive === undefined) {
@@ -120,8 +118,8 @@ function makeGraph() {
       }
 
       dateArray = dateArray.sort(function(a, b) {
-        a = new Date(a.date);
-        b = new Date(b.date);
+        var a = new Date(a.date);
+        var b = new Date(b.date);
         return a<b ? -1 : a>b ? 1 : 0;
       });
 
@@ -131,9 +129,9 @@ function makeGraph() {
   }
 
   function makeDatesArray(object) {
-    positiveArray = ['positive']
-    negativeArray = ['negative']
-    dateArray = ['x']
+    var positiveArray = ['positive']
+    var negativeArray = ['negative']
+    var dateArray = ['x']
 
     function convertDate(date) {
       var date = new Date(date);
@@ -166,74 +164,40 @@ function makeGraph() {
   var negativeDates = getMatches(negativePledges, myRegexp);
   var datesObjects = reconsileDates(positiveDates, negativeDates);
   var graphArrays = makeDatesArray(datesObjects);
+  c3Generate();
 
+  function c3Generate() {
+    chart = c3.generate({
+      bindto: '#graph',
 
+      data: {
+        x: 'x',
+        columns: [
+        graphArrays.x,
+        graphArrays.positive,
+        graphArrays.negative
+        ]
+      },
 
+      types: {
+        positive: 'area-spline',
+        negative: 'area-spline',
+      },
 
-
-
-
-
-
-
-
-
-
-
-  // makeGraphObject(positivePledges, negativePledges);
-
-
-
-
-
-
-
-
-
-  // function makeGraphObject (positive, negative) {
-  //   var DateData = function(date, positive, negative) {
-  //     this.date = date;
-  //     this.positive = positive;
-  //     this.negative = negative;
-  //   }
-
-  //   for(var key in positive) {
-  //     var x = new DateData(key, positive[key], negative[key])
-  //     debugger
-  //   }
-
-
-
-  // }
-
-
-  var chart = c3.generate({
-    bindto: '#chart',
-
-    data: {
-      x: 'x',
-      columns: [
-      graphArrays.x,
-      graphArrays.positive,
-      graphArrays.negative
-      ]
-    },
-
-    types: {
-      positive: 'area-spline',
-      negative: 'area-spline',
-    },
-
-    axis: {
-      x: {
-        type: 'timeseries',
-        tick: {
-          format: '%Y-%m-%d'
+      axis: {
+        x: {
+          type: 'timeseries',
+          tick: {
+            format: '%Y-%m-%d'
+          }
         }
       }
-    }
-  });
+    });
+  }
 };
+
+
+function()
 
 </script>
 
