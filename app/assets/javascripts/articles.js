@@ -32,10 +32,46 @@ function displayAllArticles(articles) {
   }
 }
 
+
+
+// get pledges based on an article
+// route: /api/articles/:id/pledges
+function getAndDisplayPledgesByArticle(articleId) {
+  $.ajax({
+    url: "/api" + pathname + "/" + articleId + "/pledges"
+  }).
+  done(function(data) {
+    displayAllPledges(data);
+  })
+}
+
+function displayPledge(pledge) {
+  console.log("Displaying a pledge.." + pledge);
+  var list, template;
+  if (pledge.positive) {
+    list = $("#positiveFeedList")
+    template = "#positiveFeedListTemplate";
+  }
+  else {
+    list = $("#negativeFeedList")
+    template = "#negativeFeedListTemplate";
+  }
+
+  var template = compileTemplate(template);
+  list.prepend(template({pledge: pledge}));
+}
+
+function displayAllPledges(pledges) {
+  for(var i = 0; i < pledges.length; i++) {
+    displayPledge(pledges[i])
+  }
+}
+
 $(document).ready(function() {
   console.log("Article js loaded");
 
   getAndDisplayArticles(10);
+  getAndDisplayPledgesByArticle(1);
 });
 
 

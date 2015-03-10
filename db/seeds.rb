@@ -244,7 +244,7 @@ def cleanString (input)
     :replace   => '',
     :universal_newline => true})
   puts input
-  return input.to_s.gsub(/[^0-9A-Za-z\s]/, "")
+  return input
 end
 
 # "mike kelly" AND ("Rep*" OR "Sen*") -"Targeted News Service"

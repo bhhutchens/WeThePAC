@@ -27,6 +27,8 @@ Rails.application.routes.draw do
   resources :articles
   get 'api/articles' => 'api#get_articles'
   get 'api/articles/:id' => 'api#get_article'
+  get 'api/articles/:id/pledges' => 'api#get_pledges_by_article'
+
 
   root 'welcome#index'
 

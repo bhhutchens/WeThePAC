@@ -59,4 +59,8 @@ class ApiController < ApplicationController
     render json: Article.find(params[:id]), status: 200
   end
 
+  def get_pledges_by_article
+    render json: Article.find(params[:id]).pledges, status: 200
+  end
+
 end

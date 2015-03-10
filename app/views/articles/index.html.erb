@@ -1,15 +1,23 @@
-<div class="leftCol"></div>
-<div class="midCol">
-  <ul id="midFeedList" class="feedList"></ul>
+<div class="colsContainer">
+  <div class="leftCol"></div>
+  <div class="midCol">
+    <ul id="midFeedList" class="feedList"></ul>
+  </div>
+  <div class="rightCol"></div>
 </div>
-<div class="rightCol"></div>
 
 <script type="text/x-handlebars-template" id="midFeedListTemplate">
-  <li class="midFeedListItem">
-    <p class="midFeedListItemTitle">{{article.title}}</p>
-    <p class="midFeedListItemExcept">{{article.excerpt}}...
-      <a href="{{article.url}}" class="midFeedListItemLink">more</a>
+  <li class="feedListItem">
+    <p class="feedListItemTitle">{{article.title}}</p>
+    <p class="feedListItemExcerpt">{{article.excerpt}}...
+      <a href="{{article.url}}" class="feedListItemLink">more</a>
     </p>
+  </li>
+</script>
+
+<script type="text/x-handlebars-template" id="sideFeedListTemplate">
+  <li class="feedListItem">
+    <p class="feedListItemExcerpt">{{pledge.text}}</p>
   </li>
 </script>
 
