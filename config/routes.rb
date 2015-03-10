@@ -11,21 +11,6 @@ Rails.application.routes.draw do
 
   # a route that requires a special ENV key and seeds the database with the reps' image urls
   get "seed" => "seed#seed"
-
-  # api calls to get rep and user jsons
-  get 'api/reps/:id' => 'api#show_rep'
-  get 'api/users/:id' => 'api#show_user'
-  post 'api/pledges/' => 'api#post_pledge'
-  put 'api/pledges' => 'api#update_pledge'
-
-  get 'api/users/:user_id/pledges' => 'api#user_pledges'
-  get 'api/users/:user_id/unfulfilled' => 'api#user_unfulfilled_pledges'
-  get 'api/reps/:rep_id/pledges' => 'api#rep_pledges'
-  get 'api/activity_feed' => 'api#activity_feed'
-
-  post 'api/tweets/' => 'api#create_tweet'
-
-
   match "/auth/twitter/callback" => "sessions#create", via: [:get, :post]
 
   get 'welcome/search' => "welcome#zip_rep_search"
@@ -41,6 +26,22 @@ Rails.application.routes.draw do
   resources :articles
 
   root 'welcome#index'
+
+  controller 'api' do
+    match '*unmatched_route', :to => 'api#route_options', via: [:options]
+  end
+  # api calls to get rep and user jsons
+  get 'api/reps/:id' => 'api#show_rep'
+  get 'api/users/:id' => 'api#show_user'
+  post 'api/pledges/' => 'api#post_pledge'
+  put 'api/pledges' => 'api#update_pledge'
+
+  get 'api/users/:user_id/pledges' => 'api#user_pledges'
+  get 'api/users/:user_id/unfulfilled' => 'api#user_unfulfilled_pledges'
+  get 'api/reps/:rep_id/pledges' => 'api#rep_pledges'
+  get 'api/activity_feed' => 'api#activity_feed'
+
+  post 'api/tweets/' => 'api#create_tweet'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

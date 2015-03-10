@@ -10,7 +10,7 @@ function compileTemplate (selector) {
 function renderPledges() {
   // ajax GET call
   $.ajax({
-    url: api_server + pathname + "/pledges"
+    url: "/api" + pathname + "/pledges"
   }).
   done(function(data) {
     console.log("success getting the rep's pledges");
@@ -21,7 +21,7 @@ function renderPledges() {
     data.reverse();
     $.each(data, function(index, pledge) {
       if (pledge.rep_thumbnail_url === null) {
-        pledge.rep_thumbnail_url = server + "/images/no-avatar.jpg";
+        pledge.rep_thumbnail_url = "/images/no-avatar.jpg";
       }
 
 
@@ -62,7 +62,7 @@ function removeOldPledges() {
 // renders it onto the page, then renders the pledge feed
 function getRepInfo() {
   $.ajax({
-    url: api_server + pathname,
+    url: "/api" + pathname,
     type: "GET"
   }).
   done(function(data) {
@@ -128,12 +128,12 @@ function setupPledgeForm() {
 // HIDES or SHOWS the positive/negative pledge buttons
 function togglePledgeButtons(visible) {
   if (visible) {
-    $('#positive-pledge').show()
-    $('#negative-pledge').show()
+    $('#positive-pledge').css("visibility", "visible")
+    $('#negative-pledge').css("visibility", "visible")
   }
   else if (!visible) {
-    $('#positive-pledge').hide()
-    $('#negative-pledge').hide()
+    $("#positive-pledge").css("visibility", "hidden");
+    $('#negative-pledge').css("visibility", "hidden")
   }
 }
 
@@ -142,17 +142,17 @@ function pledgeButtonSetup() {
   $('#positive-pledge').on('click', function(){
     togglePledgeButtons(false);
     $("#tweet-box").data('positive', 'true')
-    $('#pledge-form').show()
+    $('.pledge-form-wrapper').show()
   })
 
   $('#negative-pledge').on('click', function(){
     togglePledgeButtons(false);
     $("#tweet-box").data('positive', 'false')
-    $('#pledge-form').show()
+    $('.pledge-form-wrapper').show()
   })
 
   $("#close-tweet-button").on('click', function() {
-    $("#pledge-form").hide();
+    $(".pledge-form-wrapper").hide();
     togglePledgeButtons(true);
   })
 
@@ -172,11 +172,12 @@ function pledgeFormSubmit() {
     }
     var msg = $("#tweet-handle").text();
     makeTweet($('#tweet-box').val());
+    updateFulfillMeter($("#tweet-box").data().positive);
     //makeTweet(handle + $("#tweet-box").val() + " #WeThePAC")
 
     // remove the form to tweet and show the pledge buttons again
     togglePledgeButtons(true);
-    $("#pledge-form").hide();
+    $(".pledge-form-wrapper").hide();
 
 
     // clear the tweet box
