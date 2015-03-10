@@ -66,8 +66,22 @@ def cleanUrl (url)
   return "https://www.google.com#{url}"
 end
 
-def googleNewsSearch(name = 'Barbara Lee')
-  link = 'https://www.google.com/search?q=Barbara+Lee&tbm=nws&tbs=qdr:n480'
+# "mike kelly" AND ("Rep*" OR "Sen*") -"Targeted News Service"
+# final query: "TYPE FIRST_NAME LAST_NAME" where TYPE="Rep" or "Sen"
+def googleNewsSearch(name, mins = 720)
+  type = ""
+  theRep = Rep.all
+  puts "THE REP! : #{theRep}"
+  if Rep.where(name: name)[0].json.index("senate") != nil
+    type = "Sen"
+  else
+    type = "Rep"
+  end
+
+  query = "%22#{type} #{name}%22"
+  query.gsub!(" ", "%20")
+
+  link = "https://www.google.com/search?q=#{query}&tbm=nws&tbs=qdr:n#{mins}"
   file = open(link)
   document = Nokogiri::HTML(file)
   puts document.class
@@ -92,4 +106,4 @@ def googleNewsSearch(name = 'Barbara Lee')
   return articles
 end
 
-puts googleNewsSearch
+puts googleNewsSearch("Mike Kelly")
