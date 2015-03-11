@@ -205,11 +205,17 @@ firebase = (function() {
 
   fb.on("value", function(data) {
     var response = data.val();
-    appendPledges(response.pledge)
+    if(firebase.initialize === true) {
+      debugger
+      firebase.initialize = false
+    } else {
+      appendPledges(response.pledge)
+    }
   });
 
   return{
     DataRef: fb,
+    initialize: true
   }
 
 })();
