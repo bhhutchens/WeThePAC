@@ -26,24 +26,24 @@
 
 <div id='meter_wrapper'>
 
-  <div id='positive_bar' style='width: <%= positive_percent %>%;'>
-  </div>
+<div id='positive_bar' style='width: <%= positive_percent %>%;'>
+</div>
 </div>
 
 
 <div class="pledge-form-wrapper" style="display:none">
-  <form id="pledge-form">
+<form id="pledge-form">
 
-  <div id="close-tweet-button">Close</div>
-  <p class="tweet_box_title">Send a Tweet!</p>
-  <p id="tweet-handle">@{{rep.twitter_handle}}</p>
+<div id="close-tweet-button">Close</div>
+<p class="tweet_box_title">Send a Tweet!</p>
+<p id="tweet-handle">@{{rep.twitter_handle}}</p>
 
-  <textarea id="tweet-box" placeholder="your message associated with this pledge"></textarea>
-  <p id="tweet-hashtag">#WeThePAC</p>
+<textarea id="tweet-box" placeholder="your message associated with this pledge"></textarea>
+<p id="tweet-hashtag">#WeThePAC</p>
 
-  <button type="submit">Tweet!</button>
-  <span id="tweet-character-count"></span>
-  </form>
+<button type="submit">Tweet!</button>
+<span id="tweet-character-count"></span>
+</form>
 </div>
 
 
@@ -71,19 +71,19 @@ function updateFulfillMeter(positive) {
 
 
 <script type="text/x-handlebars-template" id="rep_pledge_feed">
-  <li class="profile_pledge_list_item">
-    <a href="/users/{{pledge.user_id}}">
-      <img src={{pledge.user_thumbnail_url}} alt="@{{pledge.user_twitter_handle}}'s picture"  class="feed-thumbnail"/>
-    </a>
-    <i class="fa fa-exchange fa-lg feed-exchange-icon"></i>
-    <a href="/reps/{{pledge.rep_id}}"><img src="{{pledge.rep_thumbnail_url}}" alt="@{{pledge.rep_twitter_handle}}'s picture"  class="feed-thumbnail"/></a>
-    <p>
-      <a href="/users/{{pledge.user_id}}">{{pledge.user_name}}</a> - <a href="http://twitter.com/{{pledge.user_twitter_handle}}">@{{pledge.user_twitter_handle}}</a>
-    </p>
-    <p class="profile_pledge_list_item_text">
-    {{pledge.tweet_message}}
-    </p>
-  </li>
+<li class="profile_pledge_list_item">
+<a href="/users/{{pledge.user_id}}">
+<img src={{pledge.user_thumbnail_url}} alt="@{{pledge.user_twitter_handle}}'s picture"  class="feed-thumbnail"/>
+</a>
+<i class="fa fa-exchange fa-lg feed-exchange-icon"></i>
+<a href="/reps/{{pledge.rep_id}}"><img src="{{pledge.rep_thumbnail_url}}" alt="@{{pledge.rep_twitter_handle}}'s picture"  class="feed-thumbnail"/></a>
+<p>
+<a href="/users/{{pledge.user_id}}">{{pledge.user_name}}</a> - <a href="http://twitter.com/{{pledge.user_twitter_handle}}">@{{pledge.user_twitter_handle}}</a>
+</p>
+<p class="profile_pledge_list_item_text">
+{{pledge.tweet_message}}
+</p>
+</li>
 </script>
 
 <div class="colsContainer">
@@ -99,24 +99,24 @@ function updateFulfillMeter(positive) {
 </div>
 
 <script type="text/x-handlebars-template" id="midFeedListTemplate">
-  <li class="feedListItem" data-id={{data.id}} data-open="false">
-    <p class="feedListItemTitle">{{data.title}}</p>
-    <p class="feedListItemExcerpt">{{data.excerpt}}...
-      <a href="{{data.url}}" class="feedListItemLink">more</a>
-    </p>
-  </li>
+<li class="feedListItem" data-id={{data.id}} data-open="false">
+<p class="feedListItemTitle">{{data.title}}</p>
+<p class="feedListItemExcerpt">{{data.excerpt}}...
+<a href="{{data.url}}" class="feedListItemLink">more</a>
+</p>
+</li>
 </script>
 
 <script type="text/x-handlebars-template" id="leftFeedListTemplate">
-  <li class="feedListItem">
-    <p class="feedListItemExcerpt">{{data.tweet_message}}</p>
-  </li>
+<li class="feedListItem">
+<p class="feedListItemExcerpt">{{data.tweet_message}}</p>
+</li>
 </script>
 
 <script type="text/x-handlebars-template" id="rightFeedListTemplate">
-  <li class="feedListItem">
-    <p class="feedListItemExcerpt">{{data.tweet_message}}</p>
-  </li>
+<li class="feedListItem">
+<p class="feedListItemExcerpt">{{data.tweet_message}}</p>
+</li>
 </script>
 
 <script type="text/javascript">
@@ -218,9 +218,25 @@ function makeGraph() {
         ]
       },
 
+      padding: {
+        right: 20,
+        left: 20
+      },
+
+
       types: {
         positive: 'area-spline',
         negative: 'area-spline',
+      },
+
+
+      colors: {
+        positive: '#6ec86e',
+        negative: '#c86e6e'
+      },
+
+      color: {
+        pattern: ['#6ec86e', '#c86e6e']
       },
 
       axis: {
