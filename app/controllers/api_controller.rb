@@ -83,4 +83,10 @@ class ApiController < ApplicationController
     render json: Rep.find(params[:rep_id]).articles,
       status: 200
   end
+
+  def reps_search
+    puts params
+    puts "="*100
+    render json: Rep.find(1), status: 200
+  end
 end
