@@ -35,8 +35,18 @@ function renderPledges() {
 
 
       // compile + append templates
-      var template = compileTemplate("#rep_pledge_feed");
-      $("#pledge_list").prepend(template({pledge: pledge}));
+      appendPledges(pledge);
+    });
+  }).
+  fail(function() {
+    console.log("unable to get pledges feed");
+  })
+}
+
+
+function appendPledges(pledge) {
+  var template = compileTemplate("#rep_pledge_feed");
+  $("#pledge_list").prepend(template({pledge: pledge}));
 
       // add style for negative or positive pledge
       if (pledge.positive) {
@@ -47,16 +57,16 @@ function renderPledges() {
         console.log("the pledge is negative");
         $("#pledge_list > li").first().addClass("negative-tweet");
       }
-    });
-  }).
-  fail(function() {
-    console.log("unable to get pledges feed");
-  })
-}
+    }
 
-function removeOldPledges() {
-  $(".profile_pledge_list_item").remove();
-};
+
+
+
+
+
+    function removeOldPledges() {
+      $(".profile_pledge_list_item").remove();
+    };
 
 // gets rep information (name, handle, img url, etc) thru ajax
 // renders it onto the page, then renders the pledge feed
@@ -95,34 +105,34 @@ function tweetMessageError() {
 }
 
 function setupPledgeForm() {
-   $("#pledge-form").keyup(function(e) {
-    e.preventDefault();
-    var currentTweetMsg = $("#tweet-box").val();
-    var characterCnt = currentTweetMsg.length;
-    console.log("current tweet message on search form: " + currentTweetMsg + "...count: " + characterCnt);
+ $("#pledge-form").keyup(function(e) {
+  e.preventDefault();
+  var currentTweetMsg = $("#tweet-box").val();
+  var characterCnt = currentTweetMsg.length;
+  console.log("current tweet message on search form: " + currentTweetMsg + "...count: " + characterCnt);
 
-    var maxTweetCharacters = 140;
-    var wtpac = " #WeThePAC";
-    var handle = $("#tweet-handle").text();
-    var availableLetters = 140 - wtpac.length - handle.length;
-    availableLetters -= characterCnt;
+  var maxTweetCharacters = 140;
+  var wtpac = " #WeThePAC";
+  var handle = $("#tweet-handle").text();
+  var availableLetters = 140 - wtpac.length - handle.length;
+  availableLetters -= characterCnt;
 
-    $("#tweet-character-count").text("Available characters: " + availableLetters);
-    if (availableLetters < 0) {
-      $("#tweet-character-count").addClass("red");
-      return false;
-    }
-    else {
-      $("#tweet-character-count").removeClass("red");
-      return true;
-    }
-  });
+  $("#tweet-character-count").text("Available characters: " + availableLetters);
+  if (availableLetters < 0) {
+    $("#tweet-character-count").addClass("red");
+    return false;
+  }
+  else {
+    $("#tweet-character-count").removeClass("red");
+    return true;
+  }
+});
 
    // trigger the event above so that the "available characters: ..."
    // text is calculated and shown.. otherwise we'd have to wait
    // until the user actually types something
-  $("#pledge-form").keyup();
-}
+   $("#pledge-form").keyup();
+ }
 
 
 // HIDES or SHOWS the positive/negative pledge buttons
@@ -188,4 +198,22 @@ function pledgeFormSubmit() {
 $(document).ready(function() {
   console.log("reps js loaded");
   getRepInfo();
+  makeGraph();
 });
+
+
+firebase = (function() {
+  fb = new Firebase('https://we-the-pac.firebaseio.com/pledge')
+
+  fb.on("value", function(data) {
+    var pledge = data.val();
+    console.log("pledge: " + pledge);
+  });
+
+  return{
+    DataRef: fb,
+  }
+
+})();
+
+

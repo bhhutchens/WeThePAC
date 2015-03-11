@@ -1,44 +1,50 @@
 <div class="profile_upper"></div>
+<div id="graph"></div>
 <h1 class="pledge_list_title">Pledges</h1>
 <ul class="profile_pledge_list" id="pledge_list"></ul>
 
 
 
 <script type="text/x-handlebars-template" id="rep_info">
-  <div class="profile_image_box">
-    <a href={{rep.big_pic_url}}>
-      <img class="profile_image" src="{{rep.big_pic_url}}" alt="Profile Picture" />
-    </a>
-  </div>
+<div class="profile_image_box">
+<a href={{rep.big_pic_url}}>
+<img class="profile_image" src="{{rep.big_pic_url}}" alt="Profile Picture" />
+</a>
+</div>
 
-  <p class="profile_name">
-    {{rep.name}} <a class="profile_handle" href="http://twitter.com/{{rep.twitter_handle}}">@{{rep.twitter_handle}}</a>
-  </p>
+<p class="profile_name">
+{{rep.name}} <a class="profile_handle" href="http://twitter.com/{{rep.twitter_handle}}">@{{rep.twitter_handle}}</a>
+</p>
 
 
-  <% if current_user %>
-    <button id="positive-pledge">pledge for</button>
-    <button id="negative-pledge">pledge against</button>
-  <% end %>
+<% if current_user %>
+<button id="positive-pledge">pledge for</button>
+<button id="negative-pledge">pledge against</button>
+<% end %>
 
-  <% positive_percent = (@rep.pledges.where(positive: true).count.to_f/@rep.pledges.count.to_f)*100 %>
+<% positive_percent = (@rep.pledges.where(positive: true).count.to_f/@rep.pledges.count.to_f)*100 %>
 
-  <div id='meter_wrapper'><div id='positive_bar' style='width: <%= positive_percent %>%;'></div>
+<div id='meter_wrapper'><div id='positive_bar' style='width: <%= positive_percent %>%;'></div>
 
   <div class="pledge-form-wrapper" style="display:none">
     <form id="pledge-form">
 
-      <div id="close-tweet-button">Close</div>
-      <p class="tweet_box_title">Send a Tweet!</p>
-      <p id="tweet-handle">@{{rep.twitter_handle}}</p>
 
-      <textarea id="tweet-box" placeholder="your message associated with this pledge"></textarea>
-      <p id="tweet-hashtag">#WeThePAC</p>
+<div class="pledge-form-wrapper">
+<form id="pledge-form" style="display:none">
 
-      <button type="submit">Tweet!</button>
-      <span id="tweet-character-count"></span>
-    </form>
-  </div>
+<div id="close-tweet-button">Close</div>
+<p class="tweet_box_title">Send a Tweet!</p>
+<p id="tweet-handle">@{{rep.twitter_handle}}</p>
+
+<textarea id="tweet-box" placeholder="your message associated with this pledge"></textarea>
+<p id="tweet-hashtag">#WeThePAC</p>
+
+<button type="submit">Tweet!</button>
+<span id="tweet-character-count"></span>
+</form>
+</div>
+
 
 
 <script type="text/javascript">
@@ -64,16 +70,161 @@ function updateFulfillMeter(positive) {
 
 
 <script type="text/x-handlebars-template" id="rep_pledge_feed">
-  <li class="profile_pledge_list_item">
-    <a href="/users/{{pledge.user_id}}"><img src={{pledge.user_thumbnail_url}} alt="@{{pledge.user_twitter_handle}}'s picture"  class="feed-thumbnail"/></a>
-    <i class="fa fa-exchange fa-lg feed-exchange-icon"></i>
-    <a href="/reps/{{pledge.rep_id}}"><img src="{{pledge.rep_thumbnail_url}}" alt="@{{pledge.rep_twitter_handle}}'s picture"  class="feed-thumbnail"/></a>
-    <p><a href="/users/{{pledge.user_id}}">{{pledge.user_name}}</a> - <a href="http://twitter.com/{{pledge.user_twitter_handle}}">@{{pledge.user_twitter_handle}}</a></p>
-    <p class="profile_pledge_list_item_text">
-      {{pledge.tweet_message}}
-    </p>
-  </li>
+<li class="profile_pledge_list_item">
+<a href="/users/{{pledge.user_id}}"><img src={{pledge.user_thumbnail_url}} alt="@{{pledge.user_twitter_handle}}'s picture"  class="feed-thumbnail"/></a>
+<i class="fa fa-exchange fa-lg feed-exchange-icon"></i>
+<a href="/reps/{{pledge.rep_id}}"><img src="{{pledge.rep_thumbnail_url}}" alt="@{{pledge.rep_twitter_handle}}'s picture"  class="feed-thumbnail"/></a>
+<p><a href="/users/{{pledge.user_id}}">{{pledge.user_name}}</a> - <a href="http://twitter.com/{{pledge.user_twitter_handle}}">@{{pledge.user_twitter_handle}}</a></p>
+<p class="profile_pledge_list_item_text">
+{{pledge.tweet_message}}
+</p>
+</li>
 </script>
+
+
+<script type="text/javascript">
+
+function makeGraph() {
+  function getMatches(string, regex) {
+    var matches = {};
+    var match;
+    while (match = regex.exec(string)) {
+      matches[match[1]] = match[2];
+    }
+    return matches;
+  }
+
+  function reconsileDates(positive, negative) {
+    var dateArray = [];
+    var DateData = function(date, positive, negative) {
+      this.date = date;
+      if(positive === undefined) {
+        this.positive = 0;
+      } else {
+        this.positive = positive;
+      }
+
+      if(negative === undefined) {
+        this.negative = 0;
+      } else {
+        this.negative = negative;
+      }
+    }
+
+    for(var key in positive) {
+      dateArray.push(new DateData(key, positive[key], negative[key]))
+    }
+    for(var key in negative) {
+      if(positive[key] === undefined) {
+        dateArray.push(new DateData(key, positive[key], negative[key]))
+      }
+
+      dateArray = dateArray.sort(function(a, b) {
+        var a = new Date(a.date);
+        var b = new Date(b.date);
+        return a<b ? -1 : a>b ? 1 : 0;
+      });
+
+    }
+
+    return dateArray
+  }
+
+  function makeDatesArray(object) {
+    var positiveArray = ['positive']
+    var negativeArray = ['negative']
+    var dateArray = ['x']
+
+    function convertDate(date) {
+      var date = new Date(date);
+      var year = date.getFullYear(), month = (date.getMonth() + 1), day = date.getDate();
+
+      if (month < 10) month = "0" + month;
+      if (day < 10) day = "0" + day;
+
+      return ("" + year + '-' + month + '-' + day);
+    }
+
+    object.forEach(function(object) {
+      positiveArray.push(object.positive);
+      negativeArray.push(object.negative);
+      dateArray.push(convertDate(object.date))
+    })
+
+    return {positive: positiveArray, negative: negativeArray, x: dateArray}
+  }
+
+
+
+
+
+
+  var positivePledges = '<%= @rep.pledges.where(positive: true).group("DATE(created_at)").count %>';
+  var negativePledges = '<%= @rep.pledges.where(positive: false).group("DATE(created_at)").count %>';
+  var myRegexp = /(\d\d\s\w\w\w\s\d\d\d\d)\W\W...(\d{1,})/g;
+  var positiveDates = getMatches(positivePledges, myRegexp);
+  var negativeDates = getMatches(negativePledges, myRegexp);
+  var datesObjects = reconsileDates(positiveDates, negativeDates);
+  var graphArrays = makeDatesArray(datesObjects);
+  c3Generate();
+
+  function c3Generate() {
+    chart = c3.generate({
+      bindto: '#graph',
+
+      data: {
+        x: 'x',
+        columns: [
+        graphArrays.x,
+        graphArrays.positive,
+        graphArrays.negative
+        ]
+      },
+
+      types: {
+        positive: 'area-spline',
+        negative: 'area-spline',
+      },
+
+      axis: {
+        x: {
+          type: 'timeseries',
+          tick: {
+            format: '%Y-%m-%d'
+          }
+        }
+      }
+    });
+  }
+};
+
+</script>
+
+<script type="text/javascript">
+
+firebase = (function() {
+  fb = new Firebase('https://we-the-pac.firebaseio.com/<%= @rep.id %>')
+
+  fb.on("value", function(data) {
+    var response = data.val();
+    if(firebase.initialize === true) {
+      debugger
+      firebase.initialize = false
+    } else {
+      appendPledges(response.pledge)
+    }
+  });
+
+  return{
+    DataRef: fb,
+    initialize: true
+  }
+
+})();
+
+
+</script>
+
 
 
 <%= javascript_include_tag 'reps', 'data-turbolinks-track' => true %>
