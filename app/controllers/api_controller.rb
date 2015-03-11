@@ -72,7 +72,7 @@ class ApiController < ApplicationController
   end
 
   def get_positive_pledges_by_article
-    render json: Article.find(params[:id]).pledges.where(positive: true), status: 200
+    render json: Article.find(params[:id]).pledges.where(positive: true).order("created_at DESC"), status: 200
   end
 
   def get_negative_pledges_by_article
@@ -80,7 +80,7 @@ class ApiController < ApplicationController
   end
 
   def reps_articles
-    render json: Rep.find(params[:rep_id]).articles,
+    render json: Rep.find(params[:rep_id]).articles.order("created_at DESC"),
       status: 200
   end
 
