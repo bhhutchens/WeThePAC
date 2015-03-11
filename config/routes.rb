@@ -50,6 +50,7 @@ Rails.application.routes.draw do
   get 'api/users/:user_id/unfulfilled' => 'api#user_unfulfilled_pledges'
   get 'api/reps/:rep_id/pledges' => 'api#rep_pledges'
   get 'api/activity_feed' => 'api#activity_feed'
+  post 'api/reps/search' => 'api#reps_search'
 
   post 'api/tweets/' => 'api#create_tweet'
   # The priority is based upon order of creation: first created -> highest priority.
