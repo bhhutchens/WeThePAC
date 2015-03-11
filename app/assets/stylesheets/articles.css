@@ -4,6 +4,7 @@
   min-height: 100%;
   margin: auto;
   display: table;
+  background-color: rgba(255, 255, 255, 0.95);
 }
 
 .leftCol {
@@ -19,6 +20,7 @@
   width: 50%;
   display: inline-block;
   float: left;
+  border: 5px solid rgba(255, 255, 255, 0);
 }
 
 .rightCol {
@@ -30,9 +32,7 @@
 
 .feedList {
   width: 100%;
-  padding: 2px;
   list-style-type: none;
-  background-color: rgba(255, 255, 255, 0.95);
 }
 
 .feedListItem {
