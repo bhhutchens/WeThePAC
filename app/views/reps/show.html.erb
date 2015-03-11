@@ -1,8 +1,18 @@
+<div id="searchResults"></div>
 <div class="profile_upper"></div>
 <h1 class="pledge_list_title">Pledges</h1>
 <ul class="profile_pledge_list" id="pledge_list"></ul>
 
+<script type="text/x-handlebars-template" id="searchResultTemplate">
+  <div class="search-result">
+    <a class="search-result-anchor" href={{rep.profile_url}}>
+      <img src="{{rep.thumbnail_url}}" class="search-result-thumbnail">
+    </a>
 
+    <a class="search-result-anchor" href={{rep.profile_url}}>{{rep.name}}</a>
+    <a class="search-result-anchor" href="http://twitter.com/{{rep.twitter_handle}}">{{rep.twitter_display}}</a>
+  </div>
+</script>
 
 <script type="text/x-handlebars-template" id="rep_info">
   <div class="profile_image_box">
@@ -80,4 +90,5 @@ function updateFulfillMeter(positive) {
 
 <%= javascript_include_tag 'tweet', 'data-turbolinks-track' => true %>
 
+<%= javascript_include_tag 'header-search-bar', 'data-turbolinks-track' => true %>
 
