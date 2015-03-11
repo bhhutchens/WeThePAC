@@ -165,7 +165,7 @@ def updateAllReps(start=0)
       rep.update({contribute_url: websiteSearchResult})
       puts "Website search resulted in: #{websiteSearchResult} FOR #{Rep.name}"
     end
-    sleep (25..30).to_a.sample
+    sleep (30..35).to_a.sample
   end
 end
 
