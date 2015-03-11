@@ -1,3 +1,4 @@
+<div id="searchResults"></div>
 <div class='about'>
   <h1>
     About We the PAC
@@ -17,3 +18,16 @@
     </p>
   </div>
 </div>
+
+<script type="text/x-handlebars-template" id="searchResultTemplate">
+  <div class="search-result">
+    <a class="search-result-anchor" href={{rep.profile_url}}>
+      <img src="{{rep.thumbnail_url}}" class="search-result-thumbnail">
+    </a>
+
+    <a class="search-result-anchor" href={{rep.profile_url}}>{{rep.name}}</a>
+      <a class="search-result-anchor" href="http://twitter.com/{{rep.twitter_handle}}">{{rep.twitter_display}}</a>
+    </div>
+</script>
+
+<%= javascript_include_tag 'welcome', 'data-turbolinks-track' => true %>
