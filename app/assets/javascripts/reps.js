@@ -40,12 +40,10 @@ function renderPledges() {
 
       // add style for negative or positive pledge
       if (pledge.positive) {
-        console.log("the pledge is positive");
         $("#pledge_list > li").first().addClass("positive-tweet");
         $("#pledge_list > li").first().find('.positive_icon').css('display', 'inline')
       }
       else {
-        console.log("the pledge is negative");
         $("#pledge_list > li").first().addClass("negative-tweet");
         $("#pledge_list > li").first().find('.negative_icon').css('display', 'inline')
       }
