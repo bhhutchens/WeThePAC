@@ -36,9 +36,20 @@ require 'open-uri'
 
 # end
 
+def getDomain (url)
+  puts "getting domain for url: #{url}"
+  separatedUrl = url.scan(/([^.|\/\/]+[\/]?)/).flatten
+  domain = separatedUrl[separatedUrl.length-1]
+  if domain.index("/") == nil
+    return domain
+  else
+    return domain[0..domain.index("/")-1]
+  end
+end
 
 def doRepWebsiteSearch (rep_name)
-  blacklist = [".gov", "facebook.com", "twitter.com", "linkedin.com", "wikipedia.com", ".govtrack", "cspan", ".edu", "opensecrets.org"]
+  originalRepName = rep_name
+  blacklist = ["site:.gov", "site:www.facebook.com", "site:www.twitter.com", "site:www.linkedin.com", "site:www.wikipedia.org", ".govtrack", "cspan", "opensecrets.org"]
   rep_name += " website"
   rep_name.gsub!(" ", "%20")
   query = "http://www.google.com/search?q=#{rep_name}"
@@ -50,6 +61,15 @@ def doRepWebsiteSearch (rep_name)
   puts searchPage.class
 
   websiteLink = searchPage.css("cite")[0].text
+
+  # check if the domain is .org or .com, if not, default to gov't website
+  domain = getDomain(websiteLink)
+
+  if domain != "org" && domain != "com" || domain == nil
+    puts "Website link domain does not have .org or .com; it is useless to us"
+    puts "Domain: #{domain}"
+    return Rep.find_by(name: originalRepName).external_url
+  end
   websiteContributeLink = ""
 
   #donateContributeQuery = "site:#{websiteLink}
@@ -68,7 +88,7 @@ def doRepWebsiteSearch (rep_name)
 
   puts "getting rep: #{rep_name}"
   puts "websiteLink: #{donateContributeLink}"
-  if donateContributeLink == nil
+  if donateContributeLink == nil || donateContributeLink.empty?
     return websiteLink
   else
     return donateContributeLink[0].text
@@ -126,6 +146,8 @@ def seed_reps
       external_url = rep['website']
       default_image = "/images/no-avatar.jpg"
 
+      # needs to have delay or else there will probably be a timeout
+      # you're welcome
       link = doRepWebsiteSearch(name)
 
       Rep.create(name: name, fec_id: fec_id, twitter_handle: twitter_handle, external_url: external_url, json: json,
@@ -135,21 +157,15 @@ def seed_reps
   end
 end
 
-def specialCharCheck(name)
-  return name.length != name.match(/[a-zA-z\s]+/).to_s.length
-end
-
 def updateAllReps(start=0)
   Rep.all.each do |rep|
     puts "rep id: #{rep.id}"
     if rep.id >= start
-     # if rep.id != 135 && rep.id != 181 && rep.id != 195 && rep.id != 212 && rep.id != 314 && rep.id != 335 && rep.id != 366 && rep.id != 378 && rep.id != 381 && rep.id != 463
-      if !specialCharCheck(rep.name)
-        rep.update({contribute_url: doRepWebsiteSearch(rep.name)})
-      else
-        rep.update({contribute_url: "SPECIALCHARACTER"})
-      end
+      websiteSearchResult = doRepWebsiteSearch(rep.name)
+      rep.update({contribute_url: websiteSearchResult})
+      puts "Website search resulted in: #{websiteSearchResult} FOR #{Rep.name}"
     end
+    sleep (25..30).to_a.sample
   end
 end
 
@@ -316,4 +332,5 @@ def fetchArticles
   end
 end
 
-fetchArticles
+#fetchArticles
+updateAllReps
