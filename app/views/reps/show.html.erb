@@ -200,14 +200,14 @@ function makeGraph() {
 
 <script type="text/javascript">
 
-firebase = (function() {
+fireb = (function() {
   fb = new Firebase('https://we-the-pac.firebaseio.com/<%= @rep.id %>')
 
   fb.on("value", function(data) {
     var response = data.val();
-    if(firebase.initialize === true) {
+    if(fireb.initialize === true) {
       debugger
-      firebase.initialize = false
+      fireb.initialize = false
     } else {
       appendPledges(response.pledge)
     }
