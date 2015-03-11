@@ -281,4 +281,208 @@
 
 // });
 
+var pathname = location.pathname
+var ANIMATION_DURATION = 100;
+var ANIMATION_DELAY = 50 + ANIMATION_DURATION
 
+// global container for all list items
+var ListOfItems = function() {
+  this.negListItems = [];
+  this.midListItems = [];
+  this.posListItems = [];
+}
+
+var ListItems = new ListOfItems();
+
+// should contain methods to hide, show, create html, animate, etc
+var ListItem = function(data, column, type) {
+  this.id = data.id;
+  this.data = data;
+  this.column = column;
+  this.html = "";
+  this.posPledges = [];
+  this.negPledges = [];
+  this.type = type;
+  this.css = {};
+
+  if (column == "midFeedList") {
+    ListItems.midListItems.unshift(this);
+  } else if (column == "rightFeedList") {
+    ListItems.negListItems.unshift(this);
+  } else if (column == "leftFeedList") {
+    ListItems.posListItems.unshift(this);
+  }
+}
+
+ListItem.prototype.createPositivePledge = function(data) {
+  this.posPledges.unshift(new ListItem(data, "leftFeedList"));
+}
+
+ListItem.prototype.createNegativePledge = function(data) {
+  this.negPledges.unshift(new ListItem(data, "rightFeedList"));
+}
+
+ListItem.prototype.createHtml = function(prepend, hide) {
+  console.log("Creating HTML for list item: " + this);
+
+  // handlebar template to populate page w/ data
+  var list = $("#" + this.column);
+  var templateName = "#" + this.column + "Template";
+  var template = compileTemplate(templateName);
+
+  // create the html on the page and add the html
+  // to the ListItem object for later access
+  if (prepend) {
+    list.prepend(template({data: this.data}))
+    this.html = list.children().first();
+  } else {
+    list.append(template({data: this.data}))
+    this.html = list.children().last();
+  }
+  // get the height property for later access
+  this.css["height"] = this.html.css("height");
+
+  // make it invisible upon creation, perhaps
+  if (hide) {
+    this.html.hide();
+  }
+
+  // add event handler
+  if (this.type == "article") {
+    addArticleClickEvent(this);
+  }
+
+
+}
+
+// animate the list item -- make it expand
+// to match the size of the pledges
+ListItem.prototype.expand = function(expand) {
+
+  // calculate the height at which we want to expand the div
+  // it should match the height of the pledges
+  var padding = 15;
+  if (expand) {
+    var height = 0;
+    var pledges;
+
+    // figure out which has more -- positive or negative pledges
+    if (this.posPledges.length > this.negPledges.length) {
+      pledges = this.posPledges;
+    } else {
+      pledges = this.negPledges;
+    }
+
+    // add up the heights of the selected (pos/neg) pledges
+    for (var i = 0; i < pledges.length; i++) {
+      height += parseInt(pledges[i].css["height"]);
+    }
+
+    // #math
+    padding = height - (parseInt(this.html.css("height")) -
+      parseInt(this.html.css("padding-top")) * 2);
+    padding /= 2; // applied to paddingTop/Bot, so split in half
+  }
+
+  if (expand) {
+    this.html.animate({
+      paddingTop: (String(padding) + "px"),
+      paddingBottom: (String(padding) + "px")
+    }, ANIMATION_DURATION)
+  }
+  else {
+    this.html.animate({
+      paddingTop: "15px",
+      paddingBottom: "15px"
+    }, ANIMATION_DURATION);
+  }
+}
+
+
+ListItem.prototype.createPledges = function(hide) {
+  for (var i = 0; i < this.posPledges.length; i++) {
+    this.posPledges[i].createHtml(true, hide);
+  }
+  for (var i = 0; i < this.negPledges.length; i++) {
+    this.negPledges[i].createHtml(true, hide);
+  }
+}
+
+ListItem.prototype.showPledges = function() {
+  for (var i = 0; i < this.posPledges.length; i++) {
+    this.posPledges[i].html.slideDown();
+  }
+  for (var i = 0; i < this.negPledges.length; i++) {
+    this.negPledges[i].html.slideDown();
+  }
+}
+
+function addArticleClickEvent(article) {
+  article.html.click(function() {
+    console.log("Clicked on an article.");
+    getPledgesByArticle(article, true);
+  })
+}
+
+// AJAX CALLS
+//==========================================================
+
+// get the articles w/ ajax call and display them w/ promise
+function getAndDisplayArticles(count, hide) {
+  $.ajax({
+    url: "/api/articles"
+  }).
+  done(function(data) {
+    console.log("Successfully got data from getAndDisplayArticles");
+
+    // in case we are trying to access too many articles
+    if (count >= data.length) { count = data.length; }
+
+    for (var i = 0; i < count; i++) {
+      var li = new ListItem(data[i], "midFeedList", "article");
+      li.createHtml(true, hide);
+    }
+  })
+}
+
+function getPledgesByArticle(article, hide) {
+  hide = hide || false;
+  $.ajax({
+    // TODO: replace w/ articleId
+    url: "/api/articles/" + 1 + "/pledges"
+  }).
+  done(function(pledges) {
+    console.log("Successfully got data from getPledgesByArticle");
+
+    // reset the pledges it has if any
+    article.posPledges.length = 0;
+    article.negPledges.length = 0;
+    for (var i = 0; i < pledges.length; i++) {
+      if (pledges[i].positive) {
+        console.log("going thru pos pledges: " + i);
+        var li = new ListItem(pledges[i], "leftFeedList");
+        article.posPledges.unshift(li);
+      } else {
+        console.log("going thru neg pledges: " + i);
+        var li = new ListItem(pledges[i], "rightFeedList");
+        article.negPledges.unshift(li);
+      }
+    }
+    article.createPledges(true);
+    article.showPledges();
+    article.expand(true);
+  });
+
+}
+
+
+// HELPERS
+// ========================================
+function compileTemplate (selector) {
+  return Handlebars.compile($(selector).html());
+}
+
+$(document).ready(function() {
+  console.log("Loaded Article JS");
+  getAndDisplayArticles(10, false);
+})
