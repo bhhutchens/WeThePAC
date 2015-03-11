@@ -15,6 +15,8 @@ Rails.application.routes.draw do
 
   get 'welcome/search' => "welcome#zip_rep_search"
 
+  get '/about' => 'welcome#about'
+
   resources :users do
     resources :pledges
   end

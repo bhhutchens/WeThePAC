@@ -138,12 +138,12 @@ function setupPledgeForm() {
 // HIDES or SHOWS the positive/negative pledge buttons
 function togglePledgeButtons(visible) {
   if (visible) {
-    $('#positive-pledge').show()
-    $('#negative-pledge').show()
+    $('#positive-pledge').css("visibility", "visible")
+    $('#negative-pledge').css("visibility", "visible")
   }
   else if (!visible) {
-    $('#positive-pledge').hide()
-    $('#negative-pledge').hide()
+    $("#positive-pledge").css("visibility", "hidden");
+    $('#negative-pledge').css("visibility", "hidden")
   }
 }
 
@@ -152,17 +152,17 @@ function pledgeButtonSetup() {
   $('#positive-pledge').on('click', function(){
     togglePledgeButtons(false);
     $("#tweet-box").data('positive', 'true')
-    $('#pledge-form').show()
+    $('.pledge-form-wrapper').show()
   })
 
   $('#negative-pledge').on('click', function(){
     togglePledgeButtons(false);
     $("#tweet-box").data('positive', 'false')
-    $('#pledge-form').show()
+    $('.pledge-form-wrapper').show()
   })
 
   $("#close-tweet-button").on('click', function() {
-    $("#pledge-form").hide();
+    $(".pledge-form-wrapper").hide();
     togglePledgeButtons(true);
   })
 
@@ -187,7 +187,7 @@ function pledgeFormSubmit() {
 
     // remove the form to tweet and show the pledge buttons again
     togglePledgeButtons(true);
-    $("#pledge-form").hide();
+    $(".pledge-form-wrapper").hide();
 
 
     // clear the tweet box
