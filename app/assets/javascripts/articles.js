@@ -497,6 +497,7 @@ function getRepsArticles(repId) {
 
 // get the articles w/ ajax call and display them w/ promise
 function getAndDisplayArticles(count, hide) {
+  console.log("getting and displaying articles");
   $.ajax({
     url: "/api/articles"
   }).
@@ -515,12 +516,10 @@ function getAndDisplayArticles(count, hide) {
 
 function getPledgesByArticle(article, hide) {
   hide = hide || false;
-  var url;
-
 
   $.ajax({
     // TODO: replace w/ articleId
-   url: url = "/api/articles/" + article.id + "/pledges",
+   url: "/api/articles/" + article.id + "/pledges",
    data: {rep_id: repId}
   }).
   done(function(pledges) {
