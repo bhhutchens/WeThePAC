@@ -206,7 +206,6 @@ fireb = (function() {
   fb.on("value", function(data) {
     var response = data.val();
     if(fireb.initialize === true) {
-      debugger
       fireb.initialize = false
     } else {
       appendPledges(response.pledge)
