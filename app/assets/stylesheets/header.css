@@ -83,3 +83,7 @@
   padding-right: 5px;
   padding-left: 5px;
 }
+
+.header-search-wrapper {
+  display: inline-block;
+}
