@@ -1,13 +1,17 @@
 <div class="colsContainer">
-  <div class="leftCol"></div>
+  <div class="leftCol">
+    <ul id="leftFeedList" class="feedList"></ul>
+  </div>
   <div class="midCol">
     <ul id="midFeedList" class="feedList"></ul>
   </div>
-  <div class="rightCol"></div>
+  <div class="rightCol">
+    <ul id="rightFeedList" class="feedList"></ul>
+  </div>
 </div>
 
 <script type="text/x-handlebars-template" id="midFeedListTemplate">
-  <li class="feedListItem">
+  <li class="feedListItem" data-id={{article.id}} data-open="false">
     <p class="feedListItemTitle">{{article.title}}</p>
     <p class="feedListItemExcerpt">{{article.excerpt}}...
       <a href="{{article.url}}" class="feedListItemLink">more</a>
@@ -17,7 +21,7 @@
 
 <script type="text/x-handlebars-template" id="sideFeedListTemplate">
   <li class="feedListItem">
-    <p class="feedListItemExcerpt">{{pledge.text}}</p>
+    <p class="feedListItemExcerpt">{{pledge.tweet_message}}</p>
   </li>
 </script>
 

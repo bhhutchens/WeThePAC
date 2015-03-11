@@ -310,7 +310,7 @@ def fetchArticles
       end
     end
     puts "=" * 50
-    sleep (5..10).to_a.sample.to_i
+    sleep (25..30).to_a.sample.to_i
   end
 end
 

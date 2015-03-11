@@ -63,4 +63,12 @@ class ApiController < ApplicationController
     render json: Article.find(params[:id]).pledges, status: 200
   end
 
+  def get_positive_pledges_by_article
+    render json: Article.find(params[:id]).pledges.where(positive: true), status: 200
+  end
+
+  def get_negative_pledges_by_article
+    render json: Article.find(params[:id]).pledges.where(positive: false), status: 200
+  end
+
 end
