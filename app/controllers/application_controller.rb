@@ -5,7 +5,7 @@ class ApplicationController < ActionController::Base
   helper_method :current_user
   # http://stackoverflow.com/questions/14734243/rails-csrf-protection-angular-js-protect-from-forgery-makes-me-to-log-out-on
   after_filter :cors_set_access_control_headers#, :set_csrf_cookie_for_ng
-
+ 
   def current_user
     if session[:user_id] && User.find(session[:user_id])
       @current_user ||= User.find(session[:user_id])
