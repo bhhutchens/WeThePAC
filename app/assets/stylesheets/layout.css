@@ -1,9 +1,11 @@
 .content {
-  width: 70%;
+  width: 90%;
+  height: 1px;
   min-height: 100%;
   min-width: 400px;
   margin: auto;
-  background-color: rgba(255, 255, 255, 0.95);
-  padding-top: 5%;
+  background-color: rgba(255, 255, 255, 0.9);
+  padding-top: 50px;
   padding-bottom: 5%;
+  display: table;
 }

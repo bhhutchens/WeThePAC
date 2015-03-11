@@ -1,7 +1,19 @@
+<div id="searchResults"></div>
 <div class="profile_upper"></div>
 <ul class="profile_pledge_list" id="pledge_list"></ul>
 <ul class="profile_fulfillment_list" id="fulfillment_list">
 <h1 class="pledge_list_title">Unfulfilled Pledges</h1></ul>
+
+<script type="text/x-handlebars-template" id="searchResultTemplate">
+  <div class="search-result">
+    <a class="search-result-anchor" href={{rep.profile_url}}>
+      <img src="{{rep.thumbnail_url}}" class="search-result-thumbnail">
+    </a>
+
+    <a class="search-result-anchor" href={{rep.profile_url}}>{{rep.name}}</a>
+    <a class="search-result-anchor" href="http://twitter.com/{{rep.twitter_handle}}">{{rep.twitter_display}}</a>
+  </div>
+</script>
 
 <script type="text/x-handlebars-template" id="user_info">
   <div class="profile_image_box">
@@ -86,3 +98,5 @@ function updateFulfillMeter() {
 </script>
 
 <%= javascript_include_tag 'users', 'data-turbolinks-track' => true %>
+
+<%= javascript_include_tag 'header-search-bar', 'data-turbolinks-track' => true %>

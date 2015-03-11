@@ -1,44 +1,61 @@
+<div id="searchResults"></div>
 <div class="profile_upper"></div>
+<div id="graph"></div>
 <h1 class="pledge_list_title">Pledges</h1>
 <ul class="profile_pledge_list" id="pledge_list"></ul>
 
+<script type="text/x-handlebars-template" id="searchResultTemplate">
+  <div class="search-result">
+    <a class="search-result-anchor" href={{rep.profile_url}}>
+      <img src="{{rep.thumbnail_url}}" class="search-result-thumbnail">
+    </a>
 
+    <a class="search-result-anchor" href={{rep.profile_url}}>{{rep.name}}</a>
+    <a class="search-result-anchor" href="http://twitter.com/{{rep.twitter_handle}}">{{rep.twitter_display}}</a>
+  </div>
+</script>
 
 <script type="text/x-handlebars-template" id="rep_info">
-  <div class="profile_image_box">
-    <a href={{rep.big_pic_url}}>
-      <img class="profile_image" src="{{rep.big_pic_url}}" alt="Profile Picture" />
-    </a>
-  </div>
+<div class="profile_image_box">
+<a href={{rep.big_pic_url}}>
+<img class="profile_image" src="{{rep.big_pic_url}}" alt="Profile Picture" />
+</a>
+</div>
 
-  <p class="profile_name">
-    {{rep.name}} <a class="profile_handle" href="http://twitter.com/{{rep.twitter_handle}}">@{{rep.twitter_handle}}</a>
-  </p>
+<p class="profile_name">
+{{rep.name}} <a class="profile_handle" href="http://twitter.com/{{rep.twitter_handle}}">@{{rep.twitter_handle}}</a>
+</p>
 
 
-  <% if current_user %>
-    <button id="positive-pledge">pledge for</button>
-    <button id="negative-pledge">pledge against</button>
-  <% end %>
+<% if current_user %>
+<button id="positive-pledge">pledge for</button>
+<button id="negative-pledge">pledge against</button>
+<% end %>
 
-  <% positive_percent = (@rep.pledges.where(positive: true).count.to_f/@rep.pledges.count.to_f)*100 %>
+<% positive_percent = (@rep.pledges.where(positive: true).count.to_f/@rep.pledges.count.to_f)*100 %>
 
-  <div id='meter_wrapper'><div id='positive_bar' style='width: <%= positive_percent %>%;'></div>
+<div id='meter_wrapper'>
 
-  <div class="pledge-form-wrapper" style="display:none">
-    <form id="pledge-form">
+<div id='positive_bar' style='width: <%= positive_percent %>%;'>
+</div>
+</div>
 
-      <div id="close-tweet-button">Close</div>
-      <p class="tweet_box_title">Send a Tweet!</p>
-      <p id="tweet-handle">@{{rep.twitter_handle}}</p>
 
-      <textarea id="tweet-box" placeholder="your message associated with this pledge"></textarea>
-      <p id="tweet-hashtag">#WeThePAC</p>
+<div class="pledge-form-wrapper" style="display:none">
+<form id="pledge-form">
 
-      <button type="submit">Tweet!</button>
-      <span id="tweet-character-count"></span>
-    </form>
-  </div>
+<div id="close-tweet-button">Close</div>
+<p class="tweet_box_title">Send a Tweet!</p>
+<p id="tweet-handle">@{{rep.twitter_handle}}</p>
+
+<textarea id="tweet-box" placeholder="your message associated with this pledge"></textarea>
+<p id="tweet-hashtag">#WeThePAC</p>
+
+<button type="submit">Tweet!</button>
+<span id="tweet-character-count"></span>
+</form>
+</div>
+
 
 
 <script type="text/javascript">
@@ -81,11 +98,205 @@ function updateFulfillMeter(positive) {
       <i class="fa fa-money fa-4x"></i>
     </div>
   </li>
+
+</script>
+
+<div class="colsContainer">
+  <div class="leftCol">
+    <ul id="leftFeedList" class="feedList"></ul>
+  </div>
+  <div class="midCol">
+    <ul id="midFeedList" class="feedList"></ul>
+  </div>
+  <div class="rightCol">
+    <ul id="rightFeedList" class="feedList"></ul>
+  </div>
+</div>
+
+<script type="text/x-handlebars-template" id="midFeedListTemplate">
+<li class="feedListItem" data-id={{data.id}} data-open="false">
+<p class="feedListItemTitle">{{data.title}}</p>
+<p class="feedListItemExcerpt">{{data.excerpt}}...
+<a href="{{data.url}}" class="feedListItemLink">more</a>
+</p>
+</li>
+</script>
+
+<script type="text/x-handlebars-template" id="leftFeedListTemplate">
+<li class="feedListItem">
+<p class="feedListItemExcerpt">{{data.tweet_message}}</p>
+</li>
+</script>
+
+<script type="text/x-handlebars-template" id="rightFeedListTemplate">
+<li class="feedListItem">
+<p class="feedListItemExcerpt">{{data.tweet_message}}</p>
+</li>
+</script>
+
+<script type="text/javascript">
+
+function makeGraph() {
+  function getMatches(string, regex) {
+    var matches = {};
+    var match;
+    while (match = regex.exec(string)) {
+      matches[match[1]] = match[2];
+    }
+    return matches;
+  }
+
+  function reconsileDates(positive, negative) {
+    var dateArray = [];
+    var DateData = function(date, positive, negative) {
+      this.date = date;
+      if(positive === undefined) {
+        this.positive = 0;
+      } else {
+        this.positive = positive;
+      }
+
+      if(negative === undefined) {
+        this.negative = 0;
+      } else {
+        this.negative = negative;
+      }
+    }
+
+    for(var key in positive) {
+      dateArray.push(new DateData(key, positive[key], negative[key]))
+    }
+    for(var key in negative) {
+      if(positive[key] === undefined) {
+        dateArray.push(new DateData(key, positive[key], negative[key]))
+      }
+
+      dateArray = dateArray.sort(function(a, b) {
+        var a = new Date(a.date);
+        var b = new Date(b.date);
+        return a<b ? -1 : a>b ? 1 : 0;
+      });
+
+    }
+
+    return dateArray
+  }
+
+  function makeDatesArray(object) {
+    var positiveArray = ['positive']
+    var negativeArray = ['negative']
+    var dateArray = ['x']
+
+    function convertDate(date) {
+      var date = new Date(date);
+      var year = date.getFullYear(), month = (date.getMonth() + 1), day = date.getDate();
+
+      if (month < 10) month = "0" + month;
+      if (day < 10) day = "0" + day;
+
+      return ("" + year + '-' + month + '-' + day);
+    }
+
+    object.forEach(function(object) {
+      positiveArray.push(object.positive);
+      negativeArray.push(object.negative);
+      dateArray.push(convertDate(object.date))
+    })
+
+    return {positive: positiveArray, negative: negativeArray, x: dateArray}
+  }
+
+
+
+
+
+
+  var positivePledges = '<%= @rep.pledges.where(positive: true).group("DATE(created_at)").count %>';
+  var negativePledges = '<%= @rep.pledges.where(positive: false).group("DATE(created_at)").count %>';
+  var myRegexp = /(\d\d\s\w\w\w\s\d\d\d\d)\W\W...(\d{1,})/g;
+  var positiveDates = getMatches(positivePledges, myRegexp);
+  var negativeDates = getMatches(negativePledges, myRegexp);
+  var datesObjects = reconsileDates(positiveDates, negativeDates);
+  var graphArrays = makeDatesArray(datesObjects);
+  c3Generate();
+
+  function c3Generate() {
+    chart = c3.generate({
+      bindto: '#graph',
+
+      data: {
+        x: 'x',
+        columns: [
+        graphArrays.x,
+        graphArrays.positive,
+        graphArrays.negative
+        ]
+      },
+
+      padding: {
+        right: 20,
+        left: 20
+      },
+
+
+      types: {
+        positive: 'area-spline',
+        negative: 'area-spline',
+      },
+
+
+      colors: {
+        positive: '#6ec86e',
+        negative: '#c86e6e'
+      },
+
+      color: {
+        pattern: ['#6ec86e', '#c86e6e']
+      },
+
+      axis: {
+        x: {
+          type: 'timeseries',
+          tick: {
+            format: '%Y-%m-%d'
+          }
+        }
+      }
+    });
+  }
+};
+
+</script>
+
+<script type="text/javascript">
+
+fireb = (function() {
+  fb = new Firebase('https://we-the-pac.firebaseio.com/<%= @rep.id %>')
+
+  fb.on("value", function(data) {
+    var response = data.val();
+    if(fireb.initialize === true) {
+      fireb.initialize = false
+    } else {
+      appendPledges(response.pledge)
+    }
+  });
+
+  return{
+    DataRef: fb,
+    initialize: true
+  }
+
+})();
+
+
 </script>
 
 
-<%= javascript_include_tag 'reps', 'data-turbolinks-track' => true %>
 
+<%= javascript_include_tag 'articles', 'data-turbolinks-track' => true %>
+<%= javascript_include_tag 'reps', 'data-turbolinks-track' => true %>
 <%= javascript_include_tag 'tweet', 'data-turbolinks-track' => true %>
 
+<%= javascript_include_tag 'header-search-bar', 'data-turbolinks-track' => true %>
 

@@ -25,6 +25,16 @@ Rails.application.routes.draw do
   end
   resources :tweets, only: [:new, :create]
 
+  # articles
+  resources :articles
+  get 'api/articles' => 'api#get_articles'
+  get 'api/articles/:id' => 'api#get_article'
+  get 'api/articles/:id/pledges' => 'api#get_pledges_by_article'
+  get 'api/articles/:id/pledges/positive' => 'api#get_positive_pledges_by_article'
+  get 'api/articles/:id/pledges/negative' => 'api#get_negative_pledges_by_article'
+  get 'api/reps/:rep_id/articles' => "api#reps_articles"
+
+
   root 'welcome#index'
 
   controller 'api' do
@@ -40,6 +50,7 @@ Rails.application.routes.draw do
   get 'api/users/:user_id/unfulfilled' => 'api#user_unfulfilled_pledges'
   get 'api/reps/:rep_id/pledges' => 'api#rep_pledges'
   get 'api/activity_feed' => 'api#activity_feed'
+  post 'api/reps/search' => 'api#reps_search'
 
   post 'api/tweets/' => 'api#create_tweet'
   # The priority is based upon order of creation: first created -> highest priority.
