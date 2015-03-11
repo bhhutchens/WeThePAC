@@ -205,7 +205,7 @@ firebase = (function() {
 
   fb.on("value", function(data) {
     var response = data.val();
-
+    appendPledges(response.pledge)
   });
 
   return{

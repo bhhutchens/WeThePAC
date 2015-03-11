@@ -35,8 +35,18 @@ function renderPledges() {
 
 
       // compile + append templates
-      var template = compileTemplate("#rep_pledge_feed");
-      $("#pledge_list").prepend(template({pledge: pledge}));
+      appendPledges(pledge);
+    });
+  }).
+  fail(function() {
+    console.log("unable to get pledges feed");
+  })
+}
+
+
+function appendPledges(pledge) {
+  var template = compileTemplate("#rep_pledge_feed");
+  $("#pledge_list").prepend(template({pledge: pledge}));
 
       // add style for negative or positive pledge
       if (pledge.positive) {
@@ -47,16 +57,16 @@ function renderPledges() {
         console.log("the pledge is negative");
         $("#pledge_list > li").first().addClass("negative-tweet");
       }
-    });
-  }).
-fail(function() {
-  console.log("unable to get pledges feed");
-})
-}
+    }
 
-function removeOldPledges() {
-  $(".profile_pledge_list_item").remove();
-};
+
+
+
+
+
+    function removeOldPledges() {
+      $(".profile_pledge_list_item").remove();
+    };
 
 // gets rep information (name, handle, img url, etc) thru ajax
 // renders it onto the page, then renders the pledge feed
@@ -192,19 +202,18 @@ $(document).ready(function() {
 });
 
 
-// firebase = (function() {
-//   fb = new Firebase('https://we-the-pac.firebaseio.com/pledge')
+firebase = (function() {
+  fb = new Firebase('https://we-the-pac.firebaseio.com/pledge')
 
-//   fb.on("value", function(data) {
-//   var pledge = data.val();
-//   console.log("pledge: " + pledge);
-//   debugger
-// });
+  fb.on("value", function(data) {
+    var pledge = data.val();
+    console.log("pledge: " + pledge);
+  });
 
-//   return{
-//     DataRef: fb,
-//   }
+  return{
+    DataRef: fb,
+  }
 
-// })();
+})();
 
 
