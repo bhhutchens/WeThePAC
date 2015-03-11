@@ -291,26 +291,28 @@ def googleNewsSearch(name, mins = 720)
 end
 
 def fetchArticles
-  Rep.all.each do |rep|
-    puts "Fetching  articles for #{rep.name} .. #{rep.id}"
-    articles = googleNewsSearch(rep.name, 60 * 22 )
-    articles.each do |article|
-      puts article
+  while true
+    Rep.all.each do |rep|
+      puts "Fetching  articles for #{rep.name} .. #{rep.id}"
+      articles = googleNewsSearch(rep.name, 60 * 22 )
+      articles.each do |article|
+        puts article
 
-      artReturn = Article.create(article)
-      if artReturn.id == nil
-        # this means that the article url already exists in the database
-        dupId = Article.where(url: article.url)[0].id
-        ArticlesRep.create(article_id: dupId,
-        rep_id: rep.id)
-      else
-        #   the article does not already exist in the database and it is therefore created
-        ArticlesRep.create(article_id: artReturn.id,
+        artReturn = Article.create(article)
+        if artReturn.id == nil
+          # this means that the article url already exists in the database
+          dupId = Article.where(url: article.url)[0].id
+          ArticlesRep.create(article_id: dupId,
           rep_id: rep.id)
+        else
+          #   the article does not already exist in the database and it is therefore created
+          ArticlesRep.create(article_id: artReturn.id,
+            rep_id: rep.id)
+        end
       end
+      puts "=" * 50
+      sleep (25..30).to_a.sample.to_i
     end
-    puts "=" * 50
-    sleep (25..30).to_a.sample.to_i
   end
 end
 

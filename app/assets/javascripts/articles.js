@@ -515,10 +515,13 @@ function getAndDisplayArticles(count, hide) {
 
 function getPledgesByArticle(article, hide) {
   hide = hide || false;
+  var url;
+
+
   $.ajax({
     // TODO: replace w/ articleId
-    url: "/api/articles/" + article.id + "/pledges",
-    data: {rep_id: repId}
+   url: url = "/api/articles/" + article.id + "/pledges",
+   data: {rep_id: repId}
   }).
   done(function(pledges) {
     console.log("Successfully got data from getPledgesByArticle");
@@ -565,5 +568,6 @@ $(document).ready(function() {
   //getAndDisplayArticles(10, false);
 
   // start getting the articles from a particular rep
-  getRepsArticles(repId);
+  //getRepsArticles(repId);
+  getAndDisplayArticles(10, false);
 })
