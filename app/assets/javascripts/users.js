@@ -35,11 +35,13 @@ function renderPledges() {
         console.log("the pledge is positive");
         var pos_pledge = $("#pledge_list > li")[index]
         $(pos_pledge).addClass("positive-tweet");
+        $(pos_pledge).find('.positive_icon').css('display', 'inline')
       }
       else {
         console.log("the pledge is negative");
         var neg_pledge = $("#pledge_list > li")[index]
         $(neg_pledge).addClass("negative-tweet");
+        $(neg_pledge).find('.negative_icon').css('display', 'inline')
       }
     });
   }).
