@@ -87,11 +87,11 @@ class ApiController < ApplicationController
   def reps_search
     puts params
     puts "="*100
-    name = params[:name].chomp.capitalize
-    puts name
+    name = params[:name].split.map{|word| word.capitalize}.join(" ")
+    puts "Name: " + name
     rep = Rep.find_by(name: name)
-    puts rep
-    puts rep.name
+    puts "Rep: " + rep
+    puts "Rep name:" + rep.name
     render json: rep, status: 200
   end
 end
