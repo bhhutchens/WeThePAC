@@ -92,6 +92,8 @@ $(document).ready(function(){
     }
   })();
 
+  // populate the feed
+  getAndDisplayAllPledges(10);
 });
 
 

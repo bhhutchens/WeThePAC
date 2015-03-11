@@ -260,7 +260,39 @@ function getPledgesByArticle(article, hide) {
   });
 }
 
+// take the pledges from the middle feed list column
+// and create the html
+// and prepend it
+// and stuff
+function displayPledges() {
+  var pledges = ListItems.midListItems;
+  for (var i = 0; i < pledges.length; i++) {
+    var pledge = pledges[i];
+    console.log(pledge + "..." + i);
 
+    pledge.createHtml(true, false);
+  }
+}
+
+// use ajax call to get pledges from repId
+function getAndDisplayAllPledges(count) {
+  $.ajax({
+    url: "/api/activity_feed"
+  }).
+  done(function(data) {
+    console.log("Getting pledges from activity feed. SUCCESS");
+    if (count >= data.length) {
+      count = data.length;
+    }
+    for (var i = 0; i < count; i++) {
+      var li = new ListItem(data[i], "midFeedList");
+    }
+    displayPledges();
+  }).
+  fail(function(data) {
+    console.log("Tried to get pledges from activity feed. FAILED");
+  })
+}
 
 
 // HELPERS
