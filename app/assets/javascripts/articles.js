@@ -479,6 +479,21 @@ function addArticleClickEvent(article) {
 
 // AJAX CALLS
 //==========================================================
+// get articles specific to the rep whose page this call should originate from
+function getRepsArticles(repId) {
+  $.ajax({
+    url: "/api/reps/"+repId+"/articles"
+  }).
+  done(function(data){
+    console.log("success gettingRepsArticles");
+    $.each(data, function(index, article) {
+      var li = new ListItem(data[index], "midFeedList", "article");
+      li.createHtml(true, false);
+    })
+  }) // why are there no fail conditions?
+}
+
+
 
 // get the articles w/ ajax call and display them w/ promise
 function getAndDisplayArticles(count, hide) {
@@ -502,7 +517,8 @@ function getPledgesByArticle(article, hide) {
   hide = hide || false;
   $.ajax({
     // TODO: replace w/ articleId
-    url: "/api/articles/" + 1 + "/pledges"
+    url: "/api/articles/" + article.id + "/pledges",
+    data: {rep_id: repId}
   }).
   done(function(pledges) {
     console.log("Successfully got data from getPledgesByArticle");
@@ -523,8 +539,9 @@ function getPledgesByArticle(article, hide) {
     }
     article.onExpand();
   });
-
 }
+
+
 
 
 // HELPERS
@@ -542,7 +559,11 @@ function clearSideColumns() {
   clearColumn("#rightFeedList");
 }
 
+var repId = location.pathname.match(/\d*$/)[0]
 $(document).ready(function() {
   console.log("Loaded Article JS");
-  getAndDisplayArticles(10, false);
+  //getAndDisplayArticles(10, false);
+
+  // start getting the articles from a particular rep
+  getRepsArticles(repId);
 })

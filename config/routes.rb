@@ -32,6 +32,7 @@ Rails.application.routes.draw do
   get 'api/articles/:id/pledges' => 'api#get_pledges_by_article'
   get 'api/articles/:id/pledges/positive' => 'api#get_positive_pledges_by_article'
   get 'api/articles/:id/pledges/negative' => 'api#get_negative_pledges_by_article'
+  get 'api/reps/:rep_id/articles' => "api#reps_articles"
 
 
   root 'welcome#index'

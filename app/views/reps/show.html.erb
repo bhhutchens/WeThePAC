@@ -81,7 +81,38 @@ function updateFulfillMeter(positive) {
 </li>
 </script>
 
+<div class="colsContainer">
+  <div class="leftCol">
+    <ul id="leftFeedList" class="feedList"></ul>
+  </div>
+  <div class="midCol">
+    <ul id="midFeedList" class="feedList"></ul>
+  </div>
+  <div class="rightCol">
+    <ul id="rightFeedList" class="feedList"></ul>
+  </div>
+</div>
 
+<script type="text/x-handlebars-template" id="midFeedListTemplate">
+  <li class="feedListItem" data-id={{data.id}} data-open="false">
+    <p class="feedListItemTitle">{{data.title}}</p>
+    <p class="feedListItemExcerpt">{{data.excerpt}}...
+      <a href="{{data.url}}" class="feedListItemLink">more</a>
+    </p>
+  </li>
+</script>
+
+<script type="text/x-handlebars-template" id="leftFeedListTemplate">
+  <li class="feedListItem">
+    <p class="feedListItemExcerpt">{{data.tweet_message}}</p>
+  </li>
+</script>
+
+<script type="text/x-handlebars-template" id="rightFeedListTemplate">
+  <li class="feedListItem">
+    <p class="feedListItemExcerpt">{{data.tweet_message}}</p>
+  </li>
+</script>
 
 <script type="text/javascript">
 
@@ -227,7 +258,7 @@ fireb = (function() {
 
 
 
-
+<%= javascript_include_tag 'articles', 'data-turbolinks-track' => true %>
 <%= javascript_include_tag 'reps', 'data-turbolinks-track' => true %>
 <%= javascript_include_tag 'tweet', 'data-turbolinks-track' => true %>
 

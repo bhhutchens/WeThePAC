@@ -78,4 +78,8 @@ class ApiController < ApplicationController
     render json: Article.find(params[:id]).pledges.where(positive: false), status: 200
   end
 
+  def reps_articles
+    render json: Rep.find(params[:rep_id]).articles,
+      status: 200
+  end
 end
