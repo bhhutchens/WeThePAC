@@ -85,7 +85,11 @@ $(document).ready(function(){
   fireb = (function() {
     fb = new Firebase('https://we-the-pac.firebaseio.com')
     fb.on('child_changed', function(childSnapshot, prevChildName) {
-      childSnapshot.val().pledge
+      var pledgeData = childSnapshot.val().pledge
+
+      console.log("FIREBASE: ADDING A PLEDGE");
+      var li = new ListItem(pledgeData, "midFeedList");
+      displayPledge(li, true, true, true);
     });
     return{
       DataRef: fb,

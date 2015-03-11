@@ -1,5 +1,5 @@
 var pathname = location.pathname
-var ANIMATION_DURATION = 100;
+var ANIMATION_DURATION = 1000;
 var ANIMATION_DELAY = 50 + ANIMATION_DURATION
 
 // global container for all list items
@@ -178,7 +178,15 @@ ListItem.prototype.onCollapse = function() {
   this.animateSize(false); // collapse
 }
 
-
+ListItem.prototype.slideDown = function() {
+  console.log("SLIDING DOWN: " + this);
+  this.html.slideDown({
+    duration: ANIMATION_DURATION,
+    queue: false});
+  this.html.css("opacity", 0).animate({
+    opacity: 1
+  }, ANIMATION_DURATION);
+}
 
 function addArticleClickEvent(article) {
   article.html.click(function() {
@@ -260,6 +268,16 @@ function getPledgesByArticle(article, hide) {
   });
 }
 
+
+function displayPledge(pledge, prepend, hidden, animate) {
+  pledge.createHtml(prepend, hidden);
+
+  // make it slide into existence
+  if (animate) {
+    pledge.slideDown();
+  }
+}
+
 // take the pledges from the middle feed list column
 // and create the html
 // and prepend it
@@ -269,8 +287,7 @@ function displayPledges() {
   for (var i = 0; i < pledges.length; i++) {
     var pledge = pledges[i];
     console.log(pledge + "..." + i);
-
-    pledge.createHtml(true, false);
+    displayPledge(pledge, true, true, true);
   }
 }
 
@@ -320,6 +337,6 @@ $(document).ready(function() {
     getRepsArticles(repId);
   }
   else {
-    getAndDisplayArticles(10, false);
+    //getAndDisplayArticles(10, false);
   }
 })
