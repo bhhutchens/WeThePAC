@@ -82,4 +82,18 @@ $(document).ready(function(){
       });
   };
 
+  fireb = (function() {
+    fb = new Firebase('https://we-the-pac.firebaseio.com')
+    fb.on('child_changed', function(childSnapshot, prevChildName) {
+      childSnapshot.val().pledge
+    });
+    return{
+      DataRef: fb,
+    }
+  })();
+
+  // populate the feed
+  getAndDisplayAllPledges(10);
 });
+
+
