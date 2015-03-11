@@ -90,7 +90,6 @@ class ApiController < ApplicationController
     name = params[:name].split.map{|word| word.capitalize}.join(" ")
     puts "Name: " + name
     rep = Rep.find_by(name: name)
-    puts "Rep: " + rep
     puts "Rep name:" + rep.name
     render json: rep, status: 200
   end
