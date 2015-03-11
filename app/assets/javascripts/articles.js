@@ -19,16 +19,61 @@ function getAndDisplayArticles(count, delay) {
   })
 }
 
+
+function clearList(list) {
+  for (var i = 0; i < list.children().length; i++) {
+    removeListItem(list, i);
+  }
+}
+
 // on click
 function addExpansionEvent(item) {
   item.on("click", function() {
     console.log("clicked on item");
-    toggleSize(item);
     var itemId = $(this).attr("data-id");
 
+
+    // clear the sides
+    clearList($("#leftFeedList"));
+    clearList($("#rightFeedList"));
+
     // TODO: CHANGE THE ARGUMENT TO BE: articleId
-    var pledges = getPledgesByArticle(1);
+    if (toggleSize(item)) {
+      var pledges = getPledgesByArticle(1, function() {
+        changeSideUpperPadding(item, true, false);
+      })
+    }
+    else {
+      changeSideUpperPadding(item, false, true);
+    }
   });
+}
+
+function changeSideUpperPadding(listItem, add, animate) {
+
+  // remove the padding
+  if (!add) {
+    $("#leftFeedList").animate({paddingTop: 0}, ARTICLE_DISPLAY_DURATION );
+    $("#rightFeedList").animate({paddingTop: 0}, ARTICLE_DISPLAY_DURATION);
+    return;
+  }
+
+  // add padding -- calculate it from the middle div
+  var parent = listItem.parent();
+  var distance = 0;
+  var index = 0;
+  parent.children().each(function() {
+    console.log("Index: " + index++);
+    var height = parseInt($(this).css("height"));
+    if ($(this).attr("data-id") == listItem.attr("data-id")) {
+      console.log("Found it...adding side padding..." + distance);
+      $("#leftFeedList").css("padding-top", (String(distance) + "px"));
+      $("#rightFeedList").css("padding-top", (String(distance) + "px"));
+      return;
+    }
+    // increment height
+    distance += height;
+  })
 }
 
 function toggleSize(listItem) {
@@ -38,13 +83,15 @@ function toggleSize(listItem) {
       queue: false
     }, 500);
     listItem.attr("data-open", "false");
+    return false; // closing
   }
   else {
     listItem.animate({
-      padding: "100px 5px",
+      padding: (String(100)+ "px 5px"),
       queue: false
     }, 500);
     listItem.attr("data-open", "true");
+    return true; // opening
   }
 }
 
@@ -66,6 +113,7 @@ function addListItem(list, template, itemData, prepend, animate) {
   if (!animate) { return; }
 
   // hide children elements or else they fully appear b4 animation
+  $.data(listItem, 'css', {height: listItem.css("height")})
   listItem.children().hide().slideDown({
      duration: ARTICLE_DISPLAY_DURATION,
      queue: false
@@ -73,7 +121,7 @@ function addListItem(list, template, itemData, prepend, animate) {
 
   // make the listItem (div) also grow
   listItem.css("height", 0).animate({
-    height: "100%",
+    height: "100%"
   }, {
     duration: ARTICLE_DISPLAY_DURATION,
     queue: false
@@ -167,27 +215,42 @@ function displaySidePledge(list, pledge, article) {
   });
 }
 
-function displayPledges(pledges) {
-  displayListItems(pledges, "leftFeedList", true);
+function displayPledges(negativePledges, positivePledges) {
+  displayListItems(positivePledges.slice(0, 3), "leftFeedList", true);
+  displayListItems(negativePledges.slice(0, 3), "rightFeedList", true);
 }
 
 // get pledges for an article
-function getPledgesByArticle(articleId) {
+function getPledgesByArticle(articleId, callback) {
   $.ajax({
     url: "/api" + pathname + "/" + articleId + "/pledges"
   }).
   done(function(data) {
     console.log("Successfully received pledges by article");
     // data = pledges
-    var pledges = data.slice(0, 2); // get the first three pledges if they exist
 
-    if (pledges.length == 0) {
+    if (data.length == 0) {
       console.log("no pledges to display :(((");
       return;
     }
     else {
       console.log("going to display some pledges");
-      displayPledges(data);
+
+      // filter the data by positive and negative pledges
+      var posPledges = [];
+      var negPledges = [];
+      for (var i = 0; i < data.length; i++) {
+        console.log("adding data: " + data[i]);
+        if (data[i].positive) {
+          posPledges.push(data[i]);
+        } else {
+          negPledges.push(data[i]);
+        }
+      }
+      displayPledges(posPledges, negPledges);
+
+      console.log("calling back");
+      callback();
     }
   }).
   fail(function(data) {
