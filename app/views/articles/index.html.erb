@@ -11,17 +11,17 @@
 </div>
 
 <script type="text/x-handlebars-template" id="midFeedListTemplate">
-  <li class="feedListItem" data-id={{article.id}} data-open="false">
-    <p class="feedListItemTitle">{{article.title}}</p>
-    <p class="feedListItemExcerpt">{{article.excerpt}}...
+  <li class="feedListItem" data-id={{data.id}} data-open="false">
+    <p class="feedListItemTitle">{{data.title}}</p>
+    <p class="feedListItemExcerpt">{{data.excerpt}}...
       <a href="{{article.url}}" class="feedListItemLink">more</a>
     </p>
   </li>
 </script>
 
-<script type="text/x-handlebars-template" id="sideFeedListTemplate">
+<script type="text/x-handlebars-template" id="leftFeedListTemplate">
   <li class="feedListItem">
-    <p class="feedListItemExcerpt">{{pledge.tweet_message}}</p>
+    <p class="feedListItemExcerpt">{{data.tweet_message}}</p>
   </li>
 </script>
 

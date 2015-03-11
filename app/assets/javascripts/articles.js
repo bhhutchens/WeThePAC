@@ -14,53 +14,53 @@ function getAndDisplayArticles(count, delay) {
     url: "/api" + pathname
   }).
   done(function(data) {
-    console.log("Successfully retrieved articles");
-    displayAllArticles(data.slice(0, 10), delay);
+    console.log("Successfully retrieved items");
+    displayListItems(data.slice(0, 10), "midFeedList", delay);
   })
 }
 
-
 // on click
-function addArticleEventHandler(article) {
-  article.on("click", function() {
-    console.log("clicked on article");
-    togglePledgesFromArticle(article);
-    //displayPledge(this, article)
-    var pledges = getPledgesByArticle(article);
-    displayPledges(pledges);
+function addExpansionEvent(item) {
+  item.on("click", function() {
+    console.log("clicked on item");
+    toggleSize(item);
+    var itemId = $(this).attr("data-id");
+
+    // TODO: CHANGE THE ARGUMENT TO BE: articleId
+    var pledges = getPledgesByArticle(1);
   });
 }
 
-function togglePledgesFromArticle(article) {
-  console.log("article: " + article)
-  if (article.attr("data-open") == "true") {
-    article.animate({
+function toggleSize(listItem) {
+  if (listItem.attr("data-open") == "true") {
+    listItem.animate({
       padding: "15px 5px",
       queue: false
     }, 500);
-    article.attr("data-open", "false");
+    listItem.attr("data-open", "false");
   }
   else {
-    article.animate({
-      padding: "100px 15px",
+    listItem.animate({
+      padding: "100px 5px",
       queue: false
     }, 500);
-    article.attr("data-open", "true");
+    listItem.attr("data-open", "true");
   }
 }
 
 // adds an article to top or bottom of list w/ animation
-function addArticle(list, template, article, prepend, animate) {
+function addListItem(list, template, itemData, prepend, animate) {
+
   // add to the bottom or the top
   if (prepend) {
-    list.prepend(template({article: article})); // add
+    list.prepend(template({data: itemData})); // add
   } else {
-    list.append(template({article: article}));
+    list.append(template({data: itemData}));
   }
 
   // gets the list item that was just appended
   var listItem = list.children().first();
-  addArticleEventHandler(listItem); // do stuff when clicked
+  addExpansionEvent(listItem); // do stuff when clicked
 
   // no animation, just quit this method here
   if (!animate) { return; }
@@ -81,7 +81,7 @@ function addArticle(list, template, article, prepend, animate) {
 }
 
 // removes the list item at the given index w/ animation
-function removeArticle(list, childIndex) {
+function removeListItem(list, childIndex) {
   var listItem = list.children().eq(childIndex);
   listItem.slideUp(ARTICLE_DISPLAY_DURATION,
     function() {
@@ -90,68 +90,70 @@ function removeArticle(list, childIndex) {
 }
 
 // takes an article json and adds it to view in html
-function displayArticle(article, animate) {
-  console.log("Displaying a single article: " + article);
-  var list = $("#midFeedList");
-  var template = compileTemplate("#midFeedListTemplate");
-  addArticle(list, template, article, true, animate); // prepend
+function displayListItem(listName, item, animate) {
+  console.log("Displaying a single list item: " + item);
+  console.log("listName: " + listName);
+  var list = $("#" + listName);
+  console.log("LIST: " + list);
+  listName = "#" + listName + "Template"
+  console.log("fixed list name: " + listName);
+  var template = compileTemplate(listName);
+  console.log("compiled");
+  addListItem(list, template, item, true, animate); // prepend
 }
 
 // calls displayArticles many times
-function displayAllArticles(articles, delay) {
-  for (var i = 0; i < articles.length; i++) {
+function displayListItems(listItems, listName, delay) {
+  console.log("displaying list items .. " + listName);
+  for (var i = 0; i < listItems.length; i++) {
     if (delay) {
       setTimeout(function() {
-        displayArticle(articles.shift(), true)
+        displayListItem(listName, listItems.shift(), true)
       }, ARTICLE_DISPLAY_DELAY * i);
     } else {
       console.log("delayed");
-      displayArticle(articles[i], false);
+      displayListItem(listItems[i], false);
     }
   }
 }
 
 
 // get pledges based on an article
-// route: /api/articles/:id/pledges
-function getAndDisplayPledgesByArticle(articleId) {
-  $.ajax({
-    url: "/api" + pathname + "/" + articleId + "/pledges"
-  }).
-  done(function(data) {
-    displayAllPledges(data);
-  }).
-  fail(function(data) {
-    console.log("Error retreiving data by article id");
-  })
-}
+// // route: /api/articles/:id/pledges
+// function getAndDisplayPledgesByArticle(articleId) {
+//   $.ajax({
+//     url: "/api" + pathname + "/" + articleId + "/pledges"
+//   }).
+//   done(function(data) {
+//     displayAllPledges(data);
+//   }).
+//   fail(function(data) {
+//     console.log("Error retreiving data by article id");
+//   })
+// }
 
-function displayPledge(pledge) {
-  console.log("Displaying a pledge.." + pledge);
-  console.log(pledge.inspect);
-  var list, templateId;
-  if (pledge.positive) {
-    list = $("#leftFeedList")
-    templateId = "#sideFeedListTemplate";
-  }
-  else {
-    list = $("#rightFeedList")
-    templateId = "#sideFeedListTemplate";
-  }
+// function displayPledge(pledge) {
+//   console.log("Displaying a pledge.." + pledge);
+//   console.log(pledge.inspect);
+//   var list, templateId;
+//   if (pledge.positive) {
+//     list = $("#leftFeedList")
+//     templateId = "#sideFeedListTemplate";
+//   }
+//   else {
+//     list = $("#rightFeedList")
+//     templateId = "#sideFeedListTemplate";
+//   }
 
-  var template = compileTemplate(templateId);
-  list.prepend(template({pledge: pledge}));
-}
+//   var template = compileTemplate(templateId);
+//   list.prepend(template({pledge: pledge}));
+// }
 
-function displayAllPledges(pledges) {
-  for(var i = 0; i < pledges.length; i++) {
-    displayPledge(pledges[i]);
-  }
-}
-
-
-
-
+// function displayAllPledges(pledges) {
+//   for(var i = 0; i < pledges.length; i++) {
+//     displayPledge(pledges[i]);
+//   }
+// }
 
 // display a pledge based on the article
 function displaySidePledge(list, pledge, article) {
@@ -166,15 +168,13 @@ function displaySidePledge(list, pledge, article) {
 }
 
 function displayPledges(pledges) {
-  for (var i = 0; i < pledges.length; i++) {
-    displaySidePledge(list, pledges[i], article);
-  }
+  displayListItems(pledges, "leftFeedList", true);
 }
 
 // get pledges for an article
-function getPledgesByArticle(article) {
+function getPledgesByArticle(articleId) {
   $.ajax({
-    url: "/api" + pathname + "/" + article.id + "/pledges"
+    url: "/api" + pathname + "/" + articleId + "/pledges"
   }).
   done(function(data) {
     console.log("Successfully received pledges by article");
@@ -187,6 +187,7 @@ function getPledgesByArticle(article) {
     }
     else {
       console.log("going to display some pledges");
+      displayPledges(data);
     }
   }).
   fail(function(data) {
@@ -194,12 +195,22 @@ function getPledgesByArticle(article) {
   })
 }
 
+function getArticleById(index) {
+  $.ajax({
+    url: "/api" + pathname + "/" + index
+  })
+}
 
 $(document).ready(function() {
   console.log("Article js loaded");
 
   getAndDisplayArticles(10, true);
-  getAndDisplayPledgesByArticle(2);
+  //getAndDisplayPledgesByArticle(2);
+
+  // addArticle(list, template, article, prepend, animate)
+
+  // get the first article so i can play around with it
+  //addArticle($("#midFeedList"),
+  //compileTemplate($("midFeedListTemplate")),
+
 });
-
-
