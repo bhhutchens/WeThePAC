@@ -26,7 +26,7 @@ class ApiController < ApplicationController
   end
 
   def rep_pledges
-    render json: Pledge.where(rep_id: params[:rep_id]).order('created_at DESC'), status: 200
+    render json: Pledge.where(rep_id: params[:rep_id]).order('created_at DESC').limit(15), status: 200
   end
 
   def post_pledge
