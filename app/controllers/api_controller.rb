@@ -87,7 +87,7 @@ class ApiController < ApplicationController
   def reps_search
     puts params
     puts "="*100
-    name = params[:name].chomp.capitalize!
+    name = params[:name].chomp.capitalize
     puts name
     render json: Rep.where(name: name)[0], status: 200
   end
