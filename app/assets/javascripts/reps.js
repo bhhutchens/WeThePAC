@@ -24,6 +24,9 @@ function renderPledges() {
         pledge.rep_thumbnail_url = "/images/no-avatar.jpg";
       }
 
+      if (pledge.user_thumbnail_url === null) {
+        pledge.user_thumbnail_url = "/images/no-avatar.jpg";
+      }
 
       if (index < displayedPledges) {
         console.log("index < displayedPledges.." + index + " < " + displayedPledges);
