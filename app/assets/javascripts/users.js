@@ -28,6 +28,19 @@ function renderPledges() {
 
       // append to list -- var name: pledge
       $("#pledge_list").append(template({pledge: pledge}));
+
+
+      // add style for negative or positive pledge
+      if (pledge.positive) {
+        var pos_pledge = $("#pledge_list > li")[index]
+        $(pos_pledge).addClass("positive-tweet");
+        $(pos_pledge).find('.positive_icon').css('display', 'inline')
+      }
+      else {
+        var neg_pledge = $("#pledge_list > li")[index]
+        $(neg_pledge).addClass("negative-tweet");
+        $(neg_pledge).find('.negative_icon').css('display', 'inline')
+      }
     });
   }).
   fail(function(){

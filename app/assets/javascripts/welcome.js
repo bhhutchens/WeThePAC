@@ -49,6 +49,18 @@ $(document).ready(function(){
     var activityFeedTemplate = compileTemplate('#activityFeedTemplate');
     $.each(recentPledges, function(index, pledge) {
       $('#activityFeed').append(activityFeedTemplate({activityFeedItem : pledge}));
+
+      // add style for negative or positive pledge
+      if (pledge.positive) {
+        var pos_pledge = $("#activityFeed > li")[index]
+        $(pos_pledge).addClass("positive-tweet");
+        $(pos_pledge).find('.positive_icon').css('display', 'inline')
+      }
+      else {
+        var neg_pledge = $("#activityFeed > li")[index]
+        $(neg_pledge).addClass("negative-tweet");
+        $(neg_pledge).find('.negative_icon').css('display', 'inline')
+      }
     });
   };
 
