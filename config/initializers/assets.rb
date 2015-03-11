@@ -10,6 +10,7 @@ Rails.application.config.assets.precompile += %w( reps.js )
 Rails.application.config.assets.precompile += %w( tweet.js )
 Rails.application.config.assets.precompile += %w( welcome.js )
 Rails.application.config.assets.precompile += %w( articles.js )
+Rails.application.config.assets.precompile += %w( header-search-bar.js )
 
 # Precompile additional assets.
 # application.js, application.css, and all non-JS/CSS in app/assets folder are already added.
