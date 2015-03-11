@@ -567,6 +567,10 @@ $(document).ready(function() {
   //getAndDisplayArticles(10, false);
 
   // start getting the articles from a particular rep
-  //getRepsArticles(repId);
-  getAndDisplayArticles(10, false);
+  if (repId > 0) {
+    getRepsArticles(repId);
+  }
+  else {
+    getAndDisplayArticles(10, false);
+  }
 })
