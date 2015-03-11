@@ -189,7 +189,22 @@ $(document).ready(function() {
   console.log("reps js loaded");
   getRepInfo();
   makeGraph();
-
 });
+
+
+// firebase = (function() {
+//   fb = new Firebase('https://we-the-pac.firebaseio.com/pledge')
+
+//   fb.on("value", function(data) {
+//   var pledge = data.val();
+//   console.log("pledge: " + pledge);
+//   debugger
+// });
+
+//   return{
+//     DataRef: fb,
+//   }
+
+// })();
 
 

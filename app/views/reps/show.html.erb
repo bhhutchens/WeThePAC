@@ -196,15 +196,26 @@ function makeGraph() {
   }
 };
 
-
-function()
-
 </script>
 
+<script type="text/javascript">
+
+firebase = (function() {
+  fb = new Firebase('https://we-the-pac.firebaseio.com/<%= @rep.id %>')
+
+  fb.on("value", function(data) {
+    var response = data.val();
+
+  });
+
+  return{
+    DataRef: fb,
+  }
+
+})();
 
 
-
-
+</script>
 
 
 
