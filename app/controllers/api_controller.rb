@@ -26,7 +26,7 @@ class ApiController < ApplicationController
   end
 
   def rep_pledges
-    render json: Pledge.where(rep_id: params[:rep_id]).order('created_at DESC'), status: 200
+    render json: Pledge.where(rep_id: params[:rep_id]).order('created_at DESC').limit(15), status: 200
   end
 
   def post_pledge
@@ -35,7 +35,7 @@ class ApiController < ApplicationController
     rep = Rep.find(params[:rep_id])
     pledge = Pledge.create(tweet_id: params[:tweet_id], rep_id: rep.id, user_id: current_user.id, user_twitter_handle: current_user.twitter_handle, user_thumbnail_url: current_user.profile_pic_thumb_url, rep_twitter_handle: rep.twitter_handle, positive: params[:positive], tweet_message: params[:tweet_message], rep_thumbnail_url: rep.thumbnail_url, user_name: current_user.name, rep_name: rep.name, rep_external_url: rep.external_url)
 
-    firebase = Firebase::Client.new("https://we-the-pac.firebaseio.com/#{rep.id}")
+    firebase = Firebase::Client.new("https://we-the-pac.firebaseio.com/#{rep.id}", ENV['FIREBASE_SECRET'])
     response = firebase.set('pledge', pledge)
     puts response.success? # => true
     puts response.code # => 200
