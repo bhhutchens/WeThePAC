@@ -304,6 +304,7 @@ var ListItem = function(data, column, type) {
   this.negPledges = [];
   this.type = type;
   this.css = {};
+  this.clicked = false;
 
   if (column == "midFeedList") {
     ListItems.midListItems.unshift(this);
@@ -357,7 +358,7 @@ ListItem.prototype.createHtml = function(prepend, hide) {
 
 // animate the list item -- make it expand
 // to match the size of the pledges
-ListItem.prototype.expand = function(expand) {
+ListItem.prototype.animateSize = function(expand) {
 
   // calculate the height at which we want to expand the div
   // it should match the height of the pledges
@@ -408,19 +409,71 @@ ListItem.prototype.createPledges = function(hide) {
   }
 }
 
-ListItem.prototype.showPledges = function() {
-  for (var i = 0; i < this.posPledges.length; i++) {
-    this.posPledges[i].html.slideDown();
-  }
-  for (var i = 0; i < this.negPledges.length; i++) {
-    this.negPledges[i].html.slideDown();
+ListItem.prototype.calcDistFromTop = function() {
+  var distance = 0;
+  var id = this.data.id;
+  var children = $("#"+this.column).children();
+  for (var i = 0; i < children.length; i++) {
+    if (parseInt(children.eq(i).attr("data-id")) == parseInt(id)) {
+      return distance;
+    } else {
+      distance += parseInt(children.eq(i).css("height"));
+    }
   }
 }
+
+ListItem.prototype.toggleSidePadding = function(paddingOn) {
+  if(paddingOn) {
+    var paddingAmt = this.calcDistFromTop();
+    $("#leftFeedList").css("paddingTop", paddingAmt);
+    $("#rightFeedList").css("paddingTop", paddingAmt);
+  }
+  else {
+    $("#leftFeedList").css("paddingTop", 0);
+    $("#rightFeedList").css("paddingTop", 0);
+  }
+}
+ListItem.prototype.showPledges = function() {
+  for (var i = 0; i < this.posPledges.length; i++) {
+    this.posPledges[i].html.slideDown({duration: ANIMATION_DURATION});
+  }
+  for (var i = 0; i < this.negPledges.length; i++) {
+    this.negPledges[i].html.slideDown({duration: ANIMATION_DURATION});
+  }
+}
+
+ListItem.prototype.onExpand = function() {
+  this.createPledges(true);
+  this.showPledges();
+  this.animateSize(true);
+  this.toggleSidePadding(true);
+}
+
+ListItem.prototype.clearPledges = function() {
+  this.posPledges.length = 0;
+  this.negPledges.length = 0;
+  clearSideColumns();
+}
+
+ListItem.prototype.onCollapse = function() {
+  this.clearPledges();
+  this.toggleSidePadding(false);
+  this.animateSize(false); // collapse
+}
+
+
 
 function addArticleClickEvent(article) {
   article.html.click(function() {
     console.log("Clicked on an article.");
-    getPledgesByArticle(article, true);
+    var clicked = article.clicked;
+    article.clicked = !clicked; // swap value
+    if (!clicked) {
+      getPledgesByArticle(article);
+    }
+    else {
+      article.onCollapse();
+    }
   })
 }
 
@@ -468,9 +521,7 @@ function getPledgesByArticle(article, hide) {
         article.negPledges.unshift(li);
       }
     }
-    article.createPledges(true);
-    article.showPledges();
-    article.expand(true);
+    article.onExpand();
   });
 
 }
@@ -480,6 +531,15 @@ function getPledgesByArticle(article, hide) {
 // ========================================
 function compileTemplate (selector) {
   return Handlebars.compile($(selector).html());
+}
+
+function clearColumn(colName) {
+  $(colName).children().remove();
+}
+
+function clearSideColumns() {
+  clearColumn("#leftFeedList");
+  clearColumn("#rightFeedList");
 }
 
 $(document).ready(function() {
