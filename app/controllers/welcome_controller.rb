@@ -28,6 +28,9 @@ class WelcomeController < ApplicationController
 
     render json: matches[0], status: 200
   end
+
+  def about
+  end
 end
 
 def get_rep_zips(zip)
@@ -40,3 +43,4 @@ def get_rep_zips(zip)
   end
   return rep_names
 end
+
