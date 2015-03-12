@@ -79,3 +79,38 @@ video#bgvid {
   margin-top: 20px;
   margin-bottom: 20px;
 }
+
+.tagline {
+  margin-top: 10px;
+  text-align: center;
+  font-size: 3em;
+}
+
+.step-list {
+  margin: auto;
+  margin-top: 15px;
+  margin-bottom: 25px;
+  width: 80%;
+  display: table;
+  min-width: 400px;
+  list-style-type: none;
+}
+
+.step-list-item {
+  font-size: 1.8em;
+  padding: 10px;
+  text-align: left;
+}
+
+.huge-step-number {
+  font-weight: bold;
+  font-size: 1.65em;
+}
+
+.recentPledges {
+  border-top: 1px solid black;
+  text-align: center;
+  font-size: 3.25em;
+  font-weight: bold;
+  margin: 20px auto;
+}

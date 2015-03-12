@@ -3,16 +3,30 @@
 <!-- <source src="polina.mp4" type="video/mp4"> -->
 </video>
 
-<div class='tagline'>
-  <h2>
-    Take your vote beyond the ballot box.
-  </h2>
-</div>
+<h1 class="tagline">
+  Take your vote beyond the ballot box.
+</h1>
+
 
 <div id="searchResults"></div>
-<div id="activityFeed">
-  <h1>Recent Activity</h1>
-</div>
+
+<ul class="step-list">
+  <li class="step-list-item">
+    <span class="huge-step-number">1.</span>
+    Login with Twitter and find Representatives.
+  </li>
+
+  <li class="step-list-item">
+    <span class="huge-step-number">2.</span>
+    Pledge a dollar if you like what they've done. <br>Unpledge a dollar <i>if you don't</i>.
+  </li>
+
+  <li class="step-list-item">
+    <span class="huge-step-number">3.</span>
+    Fulfill your pledges.
+  </li>
+</ul>
+
 
 <script type="text/x-handlebars-template" id="searchResultTemplate">
   <div class="search-result">
@@ -25,25 +39,7 @@
     </div>
 </script>
 
-<script type="text/x-handlebars-template" id="activityFeedTemplate">
-  <li class="profile_pledge_list_item">
-    <a href="/users/{{activityFeedItem.user_id}}"><img src="{{activityFeedItem.user_thumbnail_url}}" alt="@{{activityFeedItem.user_twitter_handle}}'s picture"  class="feed-thumbnail"/></a>
-    <i class="fa fa-exchange fa-lg feed-exchange-icon"></i>
-    <a href="/reps/{{activityFeedItem.rep_id}}"><img src="{{activityFeedItem.rep_thumbnail_url}}" alt="@{{activityFeedItem.rep_twitter_handle}}'s picture"  class="feed-thumbnail"/></a>
-    <p><a href="/reps/{{activityFeedItem.rep_id}}">{{activityFeedItem.rep_name}}</a> - <a href="http://twitter.com/{{activityFeedItem.rep_twitter_handle}}">@{{activityFeedItem.rep_twitter_handle}}</a></p>
-    <p class="profile_activityFeedItem_list_item_text">
-      {{activityFeedItem.tweet_message}}
-    </p>
-    <div class='positive_icon' style='display:none'>
-      <i class="fa fa-plus fa-3x"></i>
-      <i class="fa fa-money fa-4x"></i>
-    </div>
-    <div class='negative_icon' style='display:none'>
-      <i class="fa fa-minus fa-3x"></i>
-      <i class="fa fa-money fa-4x"></i>
-    </div>
-  </li>
-</script>
+<h1 class="recentPledges">Recent Pledges</h1>
 
 <div class="colsContainer">
   <div class="leftCol">
