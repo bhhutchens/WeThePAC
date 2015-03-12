@@ -158,14 +158,14 @@ def seed_reps
 end
 
 def updateAllReps(start=0)
-  Rep.all.each do |rep|
+  Rep.order("id ASC") do |rep|
     puts "rep id: #{rep.id}"
     if rep.id >= start
       websiteSearchResult = doRepWebsiteSearch(rep.name)
       rep.update({contribute_url: websiteSearchResult})
       puts "Website search resulted in: #{websiteSearchResult} FOR #{Rep.name}"
     end
-    sleep (35..55).to_a.sample
+    sleep (45..55).to_a.sample
   end
 end
 
@@ -308,7 +308,7 @@ end
 
 def fetchArticles
   while true
-    Rep.all.each do |rep|
+    Rep.order("id ASC").each do |rep|
       puts "Fetching  articles for #{rep.name} .. #{rep.id}"
       articles = googleNewsSearch(rep.name, 60 * 22 )
       articles.each do |article|
@@ -333,4 +333,4 @@ def fetchArticles
 end
 
 #fetchArticles
-updateAllReps
+updateAllReps(39)
