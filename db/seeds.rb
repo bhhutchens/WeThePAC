@@ -157,15 +157,17 @@ def seed_reps
   end
 end
 
-def updateAllReps(start=0)
-  Rep.order("id ASC") do |rep|
+def updateAllReps (start)
+  puts "updating all reps"
+  Rep.all.order("id ASC").each do |rep|
     puts "rep id: #{rep.id}"
     if rep.id >= start
       websiteSearchResult = doRepWebsiteSearch(rep.name)
       rep.update({contribute_url: websiteSearchResult})
       puts "Website search resulted in: #{websiteSearchResult} FOR #{Rep.name}"
+      sleep (45..55).to_a.sample
     end
-    sleep (45..55).to_a.sample
+
   end
 end
 
@@ -332,5 +334,5 @@ def fetchArticles
   end
 end
 
-#fetchArticles
-updateAllReps(39)
+# fetchArticles
+updateAllReps (39)
