@@ -20,6 +20,7 @@ ActiveRecord::Schema.define(version: 20150310175305) do
     t.text     "url"
     t.string   "title"
     t.text     "excerpt"
+    t.integer  "rep_id"
     t.datetime "date"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

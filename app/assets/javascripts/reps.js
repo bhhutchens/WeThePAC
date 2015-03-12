@@ -147,16 +147,18 @@ function togglePledgeButtons(visible) {
 
 function pledgeButtonSetup() {
   //adds event listeners to pledge buttons
-  $('#positive-pledge').on('click', function(){
+  $(document).on('click', '#positive-pledge', function(){
     togglePledgeButtons(false);
     $("#tweet-box").data('positive', 'true')
     $('.pledge-form-wrapper').show()
+    sessionStorage.currentArticleId = $(this).parent().data('article-id');
   })
 
-  $('#negative-pledge').on('click', function(){
+  $(document).on('click', '#negative-pledge', function(){
     togglePledgeButtons(false);
     $("#tweet-box").data('positive', 'false')
     $('.pledge-form-wrapper').show()
+    sessionStorage.currentArticleId = $(this).parent().data('article-id');
   })
 
   $("#close-tweet-button").on('click', function() {
@@ -179,7 +181,8 @@ function pledgeFormSubmit() {
       return;
     }
     var msg = $("#tweet-handle").text();
-    makeTweet($('#tweet-box').val());
+    var articleId = sessionStorage.currentArticleId
+    makeTweet($('#tweet-box').val(), articleId);
     updateFulfillMeter($("#tweet-box").data().positive);
     //makeTweet(handle + $("#tweet-box").val() + " #WeThePAC")
 
