@@ -52,7 +52,7 @@
 .positive_icon, .negative_icon {
   display: table;
   float:right;
-  margin-top: -15px;
+  margin-top: -10px;
 }
 .plus-icon {
   float: left;

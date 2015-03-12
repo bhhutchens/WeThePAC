@@ -56,3 +56,31 @@
 .feedListItemExcerpt {
   font-size: 0.9em;
 }
+
+.pledge-rep-name {
+  color: rgb(30, 178, 235);
+  /*color: rgb(6, 128, 165);*/
+  text-decoration: none;
+  font-size: 2em;
+}
+
+.pledge-rep-name:visited{
+}
+
+.pledge-rep-name:hover {
+  color: rgb(40, 218, 255);
+}
+
+.pledge-rep-handle {
+  color: rgb(30, 178, 235);
+  text-decoration: none;
+  font-style: italic;
+  font-size: 1.4em;
+}
+
+.pledge-rep-handle:visited{
+}
+
+.pledge-rep-handle:hover {
+  color: rgb(40, 218, 255);
+}
