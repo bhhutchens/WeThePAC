@@ -59,7 +59,6 @@
 
 .pledge-rep-name {
   color: rgb(30, 178, 235);
-  /*color: rgb(6, 128, 165);*/
   text-decoration: none;
   font-size: 2em;
 }
@@ -75,7 +74,8 @@
   color: rgb(30, 178, 235);
   text-decoration: none;
   font-style: italic;
-  font-size: 1.4em;
+  font-size: 1.5em;
+  font-family: 'Slabo 27px', serif;
 }
 
 .pledge-rep-handle:visited{
@@ -83,4 +83,9 @@
 
 .pledge-rep-handle:hover {
   color: rgb(40, 218, 255);
+}
+
+.pledge_list_item_text {
+  font-size: 1.3em;
+  font-family: 'Slabo 27px', serif;
 }
