@@ -114,3 +114,7 @@ video#bgvid {
   font-weight: bold;
   margin: 20px auto;
 }
+
+.curtains-closed {
+  display: none;
+}

@@ -1,0 +1,67 @@
+<video autoplay loop poster="/images/american_flag.jpeg" id="bgvid">
+<source src="/images/flag.webm" type="video/webm">
+<!-- <source src="polina.mp4" type="video/mp4"> -->
+</video>
+
+<div class='tagline'>
+  <h2>
+    Take your vote beyond the ballot box.
+  </h2>
+</div>
+
+<div id="searchResults"></div>
+<div id="activityFeed">
+  <h1>Recent Activity</h1>
+</div>
+
+<script type="text/x-handlebars-template" id="searchResultTemplate">
+  <div class="search-result">
+    <a class="search-result-anchor" href={{rep.profile_url}}>
+      <img src="{{rep.thumbnail_url}}" class="search-result-thumbnail">
+    </a>
+
+    <a class="search-result-anchor" href={{rep.profile_url}}>{{rep.name}}</a>
+      <a class="search-result-anchor" href="http://twitter.com/{{rep.twitter_handle}}">{{rep.twitter_display}}</a>
+    </div>
+</script>
+
+<script type="text/x-handlebars-template" id="activityFeedTemplate">
+  <li class="profile_pledge_list_item">
+    <a href="/users/{{activityFeedItem.user_id}}"><img src="{{activityFeedItem.user_thumbnail_url}}" alt="@{{activityFeedItem.user_twitter_handle}}'s picture"  class="feed-thumbnail"/></a>
+    <i class="fa fa-exchange fa-lg feed-exchange-icon"></i>
+    <a href="/reps/{{activityFeedItem.rep_id}}"><img src="{{activityFeedItem.rep_thumbnail_url}}" alt="@{{activityFeedItem.rep_twitter_handle}}'s picture"  class="feed-thumbnail"/></a>
+    <p><a href="/reps/{{activityFeedItem.rep_id}}">{{activityFeedItem.rep_name}}</a> - <a href="http://twitter.com/{{activityFeedItem.rep_twitter_handle}}">@{{activityFeedItem.rep_twitter_handle}}</a></p>
+    <p class="profile_activityFeedItem_list_item_text">
+      {{activityFeedItem.tweet_message}}
+    </p>
+    <div class='positive_icon' style='display:none'>
+      <i class="fa fa-plus fa-2x"></i>
+      <i class="fa fa-money fa-2x"></i>
+    </div>
+    <div class='negative_icon' style='display:none'>
+      <i class="fa fa-minus fa-2x"></i>
+      <i class="fa fa-money fa-2x"></i>
+    </div>
+  </li>
+</script>
+
+<div class="colsContainer">
+
+  <div class="midCol">
+    <ul id="midFeedList" class="feedList"></ul>
+  </div>
+
+</div>
+
+
+<!-- the 3-column feed -->
+<script type="text/x-handlebars-template" id="midFeedListTemplate">
+<li class="feedListItem" data-id={{data.id}} data-open="false">
+  <p class="feedListItemExcerpt">{{data.tweet_message}}</p>
+</li>
+</script>
+
+
+
+<%= javascript_include_tag 'welcome', 'data-turbolinks-track' => true %>
+<%= javascript_include_tag 'articles', 'data-turbolinks-track' => true %>
