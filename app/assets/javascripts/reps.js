@@ -214,12 +214,14 @@ function displayFeedPledge(pledge, animation) {
   $("#pledge-feed-list").prepend(template({pledge: pledge}));
   var firstChild = list.children().first().hide();
   var lastChild = list.children().last();
-  lastChild.slideUp({duration: 1000,
-    queue: true,
-    complete: function() {
-      $(this).remove();
-    }
-  })
+  if (list.children().length > 3) {
+    lastChild.slideUp({duration: 1000,
+      queue: true,
+      complete: function() {
+        $(this).remove();
+      }
+    })
+  }
   firstChild.slideDown({duration: 1000});
 }
 
