@@ -1,6 +1,5 @@
 <div id="searchResults"></div>
 <div class="profile_upper"></div>
-
 <div class="graph-pledge-wrapper">
   <ul id="pledge-feed-list" class="pledge-feed-list"></ul>
   <div id="graph"></div>
@@ -38,8 +37,8 @@
 
 
 <% if current_user %>
-<button id="positive-pledge">pledge for</button>
-<button id="negative-pledge">pledge against</button>
+<button id="positive-pledge" class='b6'>pledge for</button>
+<button id="negative-pledge" class='b6'>pledge against</button>
 <% end %>
 
 <% positive_percent = (@rep.pledges.where(positive: true).count.to_f/@rep.pledges.count.to_f)*100 %>
@@ -244,6 +243,7 @@ function makeGraph() {
       },
 
       padding: {
+        right: 50
       },
 
 
