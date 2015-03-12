@@ -118,22 +118,6 @@ function updateFulfillMeter(positive) {
 
 
 
- <li class="pledge-feed-list-item">
-    <a href="/users/{{pledge.user_id}}" >
-      <img src="{{pledge.user_thumbnail_url}}" alt="Thumbnail for {{pledge.user_twitter_handle}}" class="small-image feed-thumbnail" />
-    </a>
-
-    <p class="pledge_list_item_text small-message">
-      <a class="pledge-rep-name small-title" href="/users/{{pledge.user_id}}">
-        {{pledge.user_name}}:
-      </a>
-      <span>
-        {{pledge.tweet_message}}
-      </span>
-    </p>
-   </li>
-
-
 <script type="text/x-handlebars-template" id="midFeedListTemplate">
   <li class="feedListItem" data-id={{data.id}} data-open="false" data-article-id={{data.id}}>
   <p class="feedListItemTitle">{{data.title}}</p>
