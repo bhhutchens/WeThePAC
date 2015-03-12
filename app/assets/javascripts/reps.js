@@ -62,11 +62,6 @@ function appendPledges(pledge) {
       }
     }
 
-
-
-
-
-
     function removeOldPledges() {
       $(".profile_pledge_list_item").remove();
     };
@@ -198,10 +193,60 @@ function pledgeFormSubmit() {
   });
 };
 
+
+// remove the bottom pledge from the feed w/ animation
+function removeFeedPledge() {
+  var list = $("#pledge-feed-list")
+  var len = list.children().length;
+  while (len > 3) {
+    list.children().last().slideUp(function() {
+      console.log("Removing last child from pledge feed list");
+      $(this).remove();
+    })
+    len--;
+  }
+}
+
+// add the pledge to the top of the feed w/ animation
+function displayFeedPledge(pledge) {
+  var template = compileTemplate("#pledge-feed-list-template");
+  $("#pledge-feed-list").prepend(template({pledge: pledge}));
+  removeFeedPledge();
+}
+
+// add (and possibly remove) multiple pledges to feed
+function displayFeedPledges(pledges) {
+  for (var i = 0; i < pledges.length; i++) {
+    displayFeedPledge(pledges[i]);
+  }
+}
+
+// get pledge for feed
+function getFeedPledges() {
+  $.ajax({
+    url: "/api" + location.pathname + "/pledges"
+  }).
+  done(function(pledges) {
+    console.log("Successfully got the pledges for the rep");
+    console.log(pledges);
+    // can't cut three pieces of nothing, right?
+    if (pledges.length >= 3) {
+      pledges = pledges.slice(0, 3);
+    }
+
+    displayFeedPledges(pledges);
+  }).
+  fail(function(data) {
+    console.log("Could not get the pledges feed for rep");
+  })
+}
+
+
 $(document).ready(function() {
   console.log("reps js loaded");
   getRepInfo();
   makeGraph();
+  getFeedPledges();
 });
 
 
