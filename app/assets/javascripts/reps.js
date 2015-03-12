@@ -202,16 +202,17 @@ function removeFeedPledge() {
     list.children().last().slideUp(function() {
       console.log("Removing last child from pledge feed list");
       $(this).remove();
-    })
+    }, 1000)
     len--;
   }
 }
 
 // add the pledge to the top of the feed w/ animation
-function displayFeedPledge(pledge) {
+function displayFeedPledge(pledge, animation) {
   var template = compileTemplate("#pledge-feed-list-template");
-  $("#pledge-feed-list").prepend(template({pledge: pledge}));
   removeFeedPledge();
+  $("#pledge-feed-list").prepend(template({pledge: pledge}));
+  $("#pledge-feed-list").children().eq(0).hide().slideDown(1000);
 }
 
 // add (and possibly remove) multiple pledges to feed
