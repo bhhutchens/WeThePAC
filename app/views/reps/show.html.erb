@@ -36,12 +36,6 @@
 {{rep.name}} <a class="profile_handle" href="http://twitter.com/{{rep.twitter_handle}}">@{{rep.twitter_handle}}</a>
 </p>
 
-
-<% if current_user %>
-<button id="positive-pledge">pledge for</button>
-<button id="negative-pledge">pledge against</button>
-<% end %>
-
 <% positive_percent = (@rep.pledges.where(positive: true).count.to_f/@rep.pledges.count.to_f)*100 %>
 
 <div id='meter_wrapper'>
@@ -124,11 +118,15 @@ function updateFulfillMeter(positive) {
 
 
 <script type="text/x-handlebars-template" id="midFeedListTemplate">
-<li class="feedListItem" data-id={{data.id}} data-open="false">
+<li class="feedListItem" data-id={{data.id}} data-open="false" data-article-id={{data.id}}>
 <p class="feedListItemTitle">{{data.title}}</p>
 <p class="feedListItemExcerpt">{{data.excerpt}}...
 <a href="{{data.url}}" class="feedListItemLink">more</a>
 </p>
+<% if current_user %>
+<button id="positive-pledge">pledge for</button>
+<button id="negative-pledge">pledge against</button>
+<% end %>
 </li>
 </script>
 
