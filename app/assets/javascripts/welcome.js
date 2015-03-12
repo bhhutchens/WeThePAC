@@ -103,6 +103,18 @@ $(document).ready(function(){
 
   // populate the feed
   getAndDisplayAllPledges(10);
+
+  changeToSingleColumn();
 });
 
+function changeToSingleColumn() {
+  $(".leftCol").remove();
+  $(".rightCol").remove();
+  $(".midCol").css({
+    float: "none",
+    margin: "auto",
+    minWidth: "480px",
+    display: "block"
+  })
+}
 

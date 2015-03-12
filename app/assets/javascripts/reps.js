@@ -216,6 +216,13 @@ function displayFeedPledge(pledge, animation) {
   var list = $("#pledge-feed-list");
   $("#pledge-feed-list").prepend(template({pledge: pledge}));
   var firstChild = list.children().first().hide();
+
+  if (pledge.positive == true) {
+    firstChild.addClass("positive-tweet");
+  } else if (pledge.positive == false) {
+    firstChild.addClass("negative-tweet");
+  }
+
   var lastChild = list.children().last();
   if (list.children().length > 3) {
     lastChild.slideUp({duration: 1000,
@@ -247,7 +254,7 @@ function getFeedPledges() {
     if (pledges.length >= 3) {
       pledges = pledges.slice(0, 3);
     }
-
+    pledges = pledges.reverse();
     displayFeedPledges(pledges);
   }).
   fail(function(data) {
