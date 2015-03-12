@@ -149,7 +149,17 @@ function updateFulfillMeter(positive) {
 
 <script type="text/x-handlebars-template" id="rightFeedListTemplate">
   <li class="feedListItem">
-    <p class="feedListItemExcerpt">{{data.tweet_message}}</p>
+    <a href="/users/{{data.user_id}}">
+      <img src="{{data.user_thumbnail_url}}" alt="Thumbnail for {{data.user_twitter_handle}}" class="small-image feed-thumbnail" />
+    </a>
+
+    <p class="data_list_item_text small-message">
+      <a class="pledge-rep-name small-title" href="/users/{{data.user_id}}">
+        {{data.user_name}}
+      </a>
+      <span>
+        {{data.tweet_message}}
+      </span>
   </li>
 </script>
 
