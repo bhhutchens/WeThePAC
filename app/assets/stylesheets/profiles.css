@@ -87,12 +87,11 @@
   background-color: lime;
 }
 
-.pledge_list_title {
-  margin:auto;
-  width:100%;
-  font-size: 2em;
+.article_list_title {
+  margin: 25px 0;
+  font-size: 3em;
   font-family: 'Slabo 27px', serif;
-  max-width: 600px;
+  text-align: center;
 }
 
 .profile_upper {

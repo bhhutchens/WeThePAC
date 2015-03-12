@@ -80,7 +80,7 @@ function getRepInfo() {
     var repInfoTemplate = compileTemplate("#rep_info");
     $(".profile_upper").append(repInfoTemplate({rep: data}));
 
-    renderPledges(); // RENDER THE PLEDGES FEED
+    //renderPledges(); // RENDER THE PLEDGES FEED
     pledgeButtonSetup();
   }).
   fail(function(data) {
