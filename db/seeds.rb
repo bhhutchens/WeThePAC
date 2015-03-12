@@ -51,6 +51,7 @@ def doRepWebsiteSearch (rep_name)
   originalRepName = rep_name
   blacklist = ["site:.gov", "site:www.facebook.com", "site:www.twitter.com", "site:www.linkedin.com", "site:www.wikipedia.org", ".govtrack", "cspan", "opensecrets.org"]
   rep_name += " website"
+  rep_name = ActiveSupport::transliterate(rep_name)
   rep_name.gsub!(" ", "%20")
   query = "http://www.google.com/search?q=#{rep_name}"
   blacklist.each do |word|
@@ -335,4 +336,4 @@ def fetchArticles
 end
 
 # fetchArticles
-updateAllReps (39)
+updateAllReps (135)
