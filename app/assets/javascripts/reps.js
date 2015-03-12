@@ -195,24 +195,32 @@ function pledgeFormSubmit() {
 
 
 // remove the bottom pledge from the feed w/ animation
-function removeFeedPledge() {
-  var list = $("#pledge-feed-list")
-  var len = list.children().length;
-  while (len > 3) {
-    list.children().last().slideUp(1000, function() {
-      console.log("Removing last child from pledge feed list");
-      $(this).remove();
-    })
-    len--;
-  }
-}
+// function removeFeedPledge() {
+//   var list = $("#pledge-feed-list")
+//   var len = list.children().length;
+//   while (len > 3) {
+//     list.children().last().slideUp(1000, function() {
+//       console.log("Removing last child from pledge feed list");
+//       $(this).remove();
+//     })
+//     len--;
+//   }
+// }
 
 // add the pledge to the top of the feed w/ animation
 function displayFeedPledge(pledge, animation) {
   var template = compileTemplate("#pledge-feed-list-template");
-  removeFeedPledge();
+  var list = $("#pledge-feed-list");
   $("#pledge-feed-list").prepend(template({pledge: pledge}));
-  $("#pledge-feed-list").children().eq(0).hide().slideDown(1000);
+  var firstChild = list.children().first().hide();
+  var lastChild = list.children().last();
+  lastChild.slideUp({duration: 1000,
+    queue: true,
+    complete: function() {
+      $(this).remove();
+    }
+  })
+  firstChild.slideDown({duration: 1000});
 }
 
 // add (and possibly remove) multiple pledges to feed
