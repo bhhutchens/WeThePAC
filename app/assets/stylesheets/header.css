@@ -87,3 +87,25 @@
 .header-search-wrapper {
   display: inline-block;
 }
+
+
+.header-search-wrapper {
+    margin-left: 10px;
+}
+
+input#searchBarInput {
+    border-radius: 4px;
+}
+
+input[type="submit"] {
+    margin-left: 5px;
+}
+
+.header_right_box img {
+    margin-right: 5px;
+    border-radius: 41px;
+}
+
+.header_right_box input[type="submit"] {
+    font-size: 100%;
+}
