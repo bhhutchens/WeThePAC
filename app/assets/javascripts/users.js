@@ -32,6 +32,7 @@ function hideButtons() {
 
 function showFulfillButtons() {
   console.log("showing fulfill buttons");
+  getAndDisplayUnfulfilledPledgesByUser(10);
   $(".fulfillButton").show();
 }
 
@@ -46,12 +47,12 @@ function showTwoButtons(button) {
   button.parent().find(".gotoWebsiteButton").show();
 }
 
-
 function addEventsToButtons() {
   console.log("add events to buttons");
 
   $("#TogglePledgeFeed").on("click", function() {
-      hideButtons();
+      //hideButtons();
+      showAllPledges();
    });
 
   $("#ToggleFulfillmentFeed").on("click", function() {
@@ -65,12 +66,22 @@ function addEventsToButtons() {
     gotoWebsiteButtonClick($(this));
   })
 
-  $("markFulfilledButton").click(function(){
+  $(".markFulfilledButton").click(function(){
     markFulfilledButtonClick($(this));
   })
 
 
   console.log("add events to end buttons");
+}
+
+
+function showAllPledges() {
+  clearColumn("#midFeedList");
+  while(ListItems.midListItems.length > 0) {
+      ListItems.midListItems.pop();
+    }
+
+  getAndDisplayPledgesByUser(10);
 }
 
 function fulfillButtonClick(button) {
@@ -86,6 +97,7 @@ function gotoWebsiteButtonClick(button) {
 
 function markFulfilledButtonClick(button) {
   console.log("Clickedo n the markFulfilledButton");
+  fulfillPledgeRoute(button);
 }
 
 function getListItemFromHtml(html) {
@@ -97,6 +109,23 @@ function getListItemFromHtml(html) {
   }
   return null
 }
+
+function fulfillPledgeRoute(button) {
+  var id = button.parent().attr("data-id");
+  console.log (id);
+  $.ajax({
+    url: "/api/pledges/",
+    data: {pledge_id: id},
+    type: "PUT"
+  }).done(function(data) {
+    console.log("fulfilled a pledge yay");
+    updateFulfillMeter();
+  }).
+  fail(function(data){
+    console.log("could not fulfill a pledge.. :(");
+  })
+}
+
 $(document).ready(function() {
   // change the mode to PLEDGES not articles
   // populate the page w/ data

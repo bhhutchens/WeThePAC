@@ -46,6 +46,7 @@ class ApiController < ApplicationController
   end
 
   def update_pledge
+    puts "pledge ID: #{params[:pledge_id]}"
     pledge = Pledge.find(params[:pledge_id])
     pledge.fulfilled = true
     pledge.save!

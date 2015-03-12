@@ -330,6 +330,10 @@ function getAndDisplayPledgesByUser(count) {
   done(function(data) {
     console.log("successfully ogt and displayed pledges by user");
 
+    clearColumn("#midFeedList");
+      while(ListItems.midListItems.length > 0) {
+        ListItems.midListItems.pop();
+      }
       if (count >= data.length) {
         count = data.length;
       }
@@ -341,6 +345,32 @@ function getAndDisplayPledgesByUser(count) {
   }).
   fail(function(data) {
     console.log("failed to get and display pledges by user");
+  })
+}
+
+function getAndDisplayUnfulfilledPledgesByUser(count) {
+//route: /api/users/:user_id/unfulfilled(.:format)
+  $.ajax({
+    url: "/api" + location.pathname + "/unfulfilled"
+  }).
+  done(function(pledges) {
+    console.log("GOT + displaying the unfulfilled pledges by user");
+    clearColumn("#midFeedList");
+    while(ListItems.midListItems.length > 0) {
+      ListItems.midListItems.pop();
+    }
+
+    if (count >= pledges.length) { count = pledges.length; }
+    for (var i = 0; i < count; i++) {
+      var li = new ListItem(pledges[i], "midFeedList");
+    }
+    displayPledges();
+    addEventsToButtons();
+    $(".markFulfilledButton").show();
+    $(".gotoWebsiteButton").show();
+  }).
+  fail(function(data) {
+    console.log("could not get and display unfulfilled pledges by user");
   })
 }
 
