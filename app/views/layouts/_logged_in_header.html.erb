@@ -37,14 +37,19 @@ function responsiveHeader()  {
         // make the is hidden check so we dont have to hide/show EVERY time the browser width changes... small efficiency improvement
 
     var isHidden = $(".header_right_box")[0].style.display == "none";
-     if (width <= 605 && !isHidden) {
+     if (width <= 915 && !isHidden) {
       $(".header_right_box").hide();
       $(".small-header-right-box").show();
     }
-    else if (width > 605 && isHidden) {
+    else if (width > 914 && isHidden) {
       $(".small-header-right-box").hide();
       $(".header_right_box").show();
     }
+    if(width < 1146){
+    $('.nav-title-link').children().text('WtP')
+  } else if(width > 1145){
+    $('.nav-title-link').children().text('WeThePAC')
+  }
 }
 
 function responsiveResizeHeader() {
