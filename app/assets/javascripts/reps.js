@@ -199,10 +199,10 @@ function removeFeedPledge() {
   var list = $("#pledge-feed-list")
   var len = list.children().length;
   while (len > 3) {
-    list.children().last().slideUp(function() {
+    list.children().last().slideUp(1000, function() {
       console.log("Removing last child from pledge feed list");
       $(this).remove();
-    }, 1000)
+    })
     len--;
   }
 }
