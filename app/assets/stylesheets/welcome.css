@@ -118,3 +118,27 @@ video#bgvid {
 .curtains-closed {
   display: none;
 }
+
+#stepListCaret {
+  font-size: .8em;
+}
+
+#stepListCaret:hover {
+  color: gray;
+  cursor: pointer;
+}
+
+#aboutLink {
+  text-decoration: none;
+  color: gray;
+  font-size: .7em;
+}
+
+#aboutLink:hover {
+  color: lightgray;
+}
+
+
+
+
+
