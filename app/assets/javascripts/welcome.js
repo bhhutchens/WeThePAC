@@ -45,10 +45,15 @@ $(document).ready(function(){
 
   getActivityFeed();
 
+
+  // MADE CHANGES RECENTLY
+  // WE DONT KNOW WHAT THE CONSEQUENCES COULD BE
+  // EXCEPT REMOVING A HANDLEBAR ISSUE ON WELCOME
   function populateActivityFeed(recentPledges){
-    var activityFeedTemplate = compileTemplate('#activityFeedTemplate');
+    // var activityFeedTemplate = compileTemplate('#activityFeedTemplate');
+    console.log("populating activity feed");
     $.each(recentPledges, function(index, pledge) {
-      $('#activityFeed').append(activityFeedTemplate({activityFeedItem : pledge}));
+      // $('#activityFeed').append(activityFeedTemplate({activityFeedItem : pledge}));
 
       // add style for negative or positive pledge
       if (pledge.positive) {

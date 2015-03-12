@@ -1,15 +1,15 @@
-function makeTweet(newMessage) {
+function makeTweet(newMessage, articleId) {
   var tweet = $.ajax({ url: "/api/tweets",
     type: 'POST',
     beforeSend: function(xhr) {xhr.setRequestHeader('X-CSRF-Token', $('meta[name="csrf-token"]').attr('content'))},
     data: {tweet: {message: newMessage}},
     success: function(response) {
-      postPledge(response.tweet_id, newMessage);
+      postPledge(response.tweet_id, newMessage, articleId);
     }
   });
 }
 
-function postPledge(tweetId, newMessage) {
+function postPledge(tweetId, newMessage, articleId) {
   var positive = $('#tweet-box').data('positive')
 
   // regexp to get any number of digits (#) starting from end ($) of path name
@@ -19,7 +19,7 @@ function postPledge(tweetId, newMessage) {
     type: 'POST',
     dataType: 'json',
     beforeSend: function(xhr) {xhr.setRequestHeader('X-CSRF-Token', $('meta[name="csrf-token"]').attr('content'))},
-    data: {tweet_id: tweetId, rep_id: repId, positive: positive, tweet_message: newMessage}
+    data: {tweet_id: tweetId, rep_id: repId, positive: positive, tweet_message: newMessage, articleId: articleId}
   })
   .done(function() {
     console.log("successfully posted pledge");

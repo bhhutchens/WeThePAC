@@ -4,7 +4,6 @@
   min-height: 100%;
   margin: auto;
   display: table;
-
 }
 
 .leftCol {
@@ -20,7 +19,9 @@
   width: 50%;
   display: inline-block;
   float: left;
-  border: 5px solid rgba(255, 255, 255, 0);
+  /*border: 5px solid rgba(255, 255, 255, 0);*/
+  background-color: rgba(255, 255, 255, 0.95);
+  box-shadow: 0px 0px 5px;
 }
 
 .rightCol {
@@ -53,4 +54,37 @@
 
 .feedListItemExcerpt {
   font-size: 0.9em;
+}
+
+.pledge-rep-name {
+  color: rgb(30, 178, 235);
+  text-decoration: none;
+  font-size: 2em;
+}
+
+.pledge-rep-name:visited{
+}
+
+.pledge-rep-name:hover {
+  color: rgb(40, 218, 255);
+}
+
+.pledge-rep-handle {
+  color: rgb(30, 178, 235);
+  text-decoration: none;
+  font-style: italic;
+  font-size: 1.5em;
+  font-family: 'Slabo 27px', serif;
+}
+
+.pledge-rep-handle:visited{
+}
+
+.pledge-rep-handle:hover {
+  color: rgb(40, 218, 255);
+}
+
+.pledge_list_item_text {
+  font-size: 1.3em;
+  font-family: 'Slabo 27px', serif;
 }
