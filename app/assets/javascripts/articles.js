@@ -7,8 +7,20 @@ var ListOfItems = function() {
   this.negListItems = [];
   this.midListItems = [];
   this.posListItems = [];
+  this.onUnfulfilledOnly = false;
 }
 
+ListOfItems.prototype.removeSideStyling = function() {
+  $(".rightCol").css("border", 0);
+  $(".leftCol").css("border", 0);
+}
+
+ListOfItems.prototype.resetAll = function() {
+  clearAllColumns();
+  this.negListItems.length = 0;
+  this.midListItems.length = 0;
+  this.posListItems.length = 0;
+}
 var ListItems = new ListOfItems();
 
 // should contain methods to hide, show, create html, animate, etc
@@ -311,6 +323,27 @@ function getAndDisplayAllPledges(count) {
   })
 }
 
+function getAndDisplayPledgesByUser(count) {
+  $.ajax({
+    url: "/api" + location.pathname + "/pledges"
+  }).
+  done(function(data) {
+    console.log("successfully ogt and displayed pledges by user");
+
+      if (count >= data.length) {
+        count = data.length;
+      }
+      for (var i = 0; i < count; i++) {
+        var li = new ListItem(data[i], "midFeedList");
+      }
+      displayPledges();
+      addEventsToButtons();
+  }).
+  fail(function(data) {
+    console.log("failed to get and display pledges by user");
+  })
+}
+
 
 // HELPERS
 // ========================================
@@ -325,6 +358,11 @@ function clearColumn(colName) {
 function clearSideColumns() {
   clearColumn("#leftFeedList");
   clearColumn("#rightFeedList");
+}
+
+function clearAllColumns() {
+  clearSideColumns();
+  clearColumn("#midFeedList");
 }
 
 var repId = location.pathname.match(/\d*$/)[0]
