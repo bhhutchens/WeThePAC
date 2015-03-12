@@ -25,7 +25,7 @@ gets rid of any B.S. innate margins, paddings, etc etc. This probably won't caus
 }
 
 html {
-  background: url("/images/american_flag.jpeg") no-repeat center center fixed;
+  background: url("/images/american_flag-300kb.jpeg") no-repeat center center fixed;
   background-size: auto 105%;
   font-family: 'Slabo 27px', serif;
   overflow-y: scroll;
