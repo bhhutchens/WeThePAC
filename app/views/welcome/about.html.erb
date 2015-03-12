@@ -1,15 +1,16 @@
 <div id="searchResults"></div>
 <div class='about'>
-  <h1>
-    About We the PAC
-  </h1>
   <div class='about-blurb'>
+    <i class="icon-group-4x"></i>
+    <h1 class='about-header'>
+      About We the PAC
+    </h1>
     <p>
       Following the Supreme Court's decision in Citizens United, Super PACs can spend unlimited amounts of money in US politics. Super PACs spent over $1 billion dollars in the 2012 election cycle alone. Clearly, for we the people, voting is no longer enough.
-    </p>
+    </p><br>
     <p>
-      We the people need a way to hold our Representatives accountable.
-    </p>
+      <strong>We the people need a way to hold our Representatives accountable!</strong>
+    </p><br>
     <p>
       We the PAC empowers citizens by allowing them to publicly declare their support for, or oppostion against, a Representative. When a user approves of a Representative's action, they can make a $1 pledge to their reelection. A tweet is sent to the Representative, including a user-submitted explanation for their pledge. Conversly, when a user disapproves of a Representative's action, they can subtract a $1 from their previous pledges. Another tweet is sent to the Representative, including another explanation. Periodically users make good on their word by fulfilling their pledges.
     </p>
@@ -20,14 +21,14 @@
 </div>
 
 <script type="text/x-handlebars-template" id="searchResultTemplate">
-  <div class="search-result">
-    <a class="search-result-anchor" href={{rep.profile_url}}>
-      <img src="{{rep.thumbnail_url}}" class="search-result-thumbnail">
-    </a>
+<div class="search-result">
+<a class="search-result-anchor" href={{rep.profile_url}}>
+<img src="{{rep.thumbnail_url}}" class="search-result-thumbnail">
+</a>
 
-    <a class="search-result-anchor" href={{rep.profile_url}}>{{rep.name}}</a>
-      <a class="search-result-anchor" href="http://twitter.com/{{rep.twitter_handle}}">{{rep.twitter_display}}</a>
-    </div>
+<a class="search-result-anchor" href={{rep.profile_url}}>{{rep.name}}</a>
+<a class="search-result-anchor" href="http://twitter.com/{{rep.twitter_handle}}">{{rep.twitter_display}}</a>
+</div>
 </script>
 
 <%= javascript_include_tag 'welcome', 'data-turbolinks-track' => true %>

@@ -6,6 +6,8 @@ Rails.application.routes.draw do
 
   get 'welcome/index'
 
+  get 'welcome/about' => 'welcome#about'
+
   get 'twitter/login' => 'twitters#login'
   post 'sessions/logout' => 'sessions#destroy'
 
