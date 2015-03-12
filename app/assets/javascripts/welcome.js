@@ -8,6 +8,18 @@ $(document).ready(function(){
     }
   })
 
+  // function to toggle show/hide of step list by clicking on caret.
+  caretToggle = (function(){
+    $("#stepListCaret").click(function(e) {
+      // toggle caret direction
+      if ($(this).text() === "▼") {$(this).text("▲") }
+        else {$(this).text("▼")};
+
+      // toggle list
+      $(".step-list-item").slideToggle(600)
+    });
+  })();
+
   // this is a redundant copy of the same function in reps.js
   function compileTemplate (selector) {
     return Handlebars.compile($(selector).html());

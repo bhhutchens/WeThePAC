@@ -5,7 +5,7 @@
 </video>
 
 <h1 class="tagline">
-  Take your vote beyond the ballot box.
+  Take your vote beyond the ballot box.<span id="stepListCaret">&#9650;</span>
 </h1>
 
 
@@ -27,7 +27,7 @@
     Fulfill your pledges.
   </li>
   <li class="step-list-item">
-    <a href="/welcome/about">about</a>
+    <a id="aboutLink" href="/welcome/about">about</a>
   </li>
 </ul>
 
@@ -85,10 +85,10 @@
 
   <!-- the twitter handle's next to their images + webpage link' -->
   <p>
-    <a class="pledge-rep-name" href="/reps/{{data.rep_id}}">
-      {{data.rep_name}}
+    <a class="pledge-user-name" href="/users/{{data.user_id}}">
+      {{data.user_name}}
     </a>
-    <a class="pledge-rep-handle" href="http://twitter.com/{{data.rep_twitter_handle}}">@{{data.rep_twitter_handle}}
+    <a class="pledge-user-handle" href="http://twitter.com/{{data.user_twitter_handle}}">@{{data.user_twitter_handle}}
     </a>
   </p>
 
