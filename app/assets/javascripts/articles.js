@@ -70,6 +70,16 @@ ListItem.prototype.createHtml = function(prepend, hide) {
     addArticleClickEvent(this);
   }
 
+  if (this.type == "pledge") {
+    console.log("Type: pledge. Positive: " + this.data.positive);
+    if (this.data.positive) {
+      this.html.find(".positive_icon").show();
+      this.html.addClass("positive-tweet");
+    } else if (this.data.positive == false) {
+      this.html.find(".negative_icon").show();
+      this.html.addClass("negative-tweet");
+    }
+  }
 
 }
 
@@ -303,6 +313,7 @@ function getAndDisplayAllPledges(count) {
     }
     for (var i = 0; i < count; i++) {
       var li = new ListItem(data[i], "midFeedList");
+      li.type = "pledge";
     }
     displayPledges();
   }).
