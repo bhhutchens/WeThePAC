@@ -61,9 +61,49 @@
 <!-- the 3-column feed -->
 <script type="text/x-handlebars-template" id="midFeedListTemplate">
 <li class="feedListItem" data-id={{data.id}} data-open="false">
-  <p class="feedListItemExcerpt">{{data.tweet_message}}</p>
+<!-- icons -->
+  <div class='positive_icon' style='display:none'>
+      <i class="plus-icon fa fa-plus fa-2x"></i>
+      <i class="fa fa-money fa-3x"></i>
+  </div>
+  <div class='negative_icon' style='display:none'>
+    <i class="plus-icon fa fa-minus fa-2x"></i>
+    <i class="fa fa-money fa-3x"></i>
+  </div>
+
+
+  <!-- user's profile image '-->
+  <a href="/users/{{data.user_id}}">
+    <img src="{{data.user_thumbnail_url}}" alt="@{{data.user_twitter_handle}}'s picture"  class="feed-thumbnail"/>
+  </a>
+  <i class="fa fa-exchange fa-lg feed-exchange-icon"></i>
+
+  <!-- rep's image ' -->
+  <a href="/reps/{{data.rep_id}}">
+    <img src="{{data.rep_thumbnail_url}}" alt="@{{data.rep_twitter_handle}}'s picture"  class="feed-thumbnail"/>
+  </a>
+
+  <!-- the twitter handle's next to their images + webpage link' -->
+  <p>
+    <a href="/reps/{{data.rep_id}}">
+      {{data.rep_name}}
+    </a> -
+    <a href="http://twitter.com/{{data.rep_twitter_handle}}">@{{data.rep_twitter_handle}}
+    </a>
+  </p>
+
+  <p class="profile_activityFeedItem_list_item_text">
+    {{data.tweet_message}}
+  </p>
+
+  <!--<p class="feedListItemExcerpt">{{data.tweet_message}}</p>-->
+
+
 </li>
 </script>
+
+
+
 
 <script type="text/x-handlebars-template" id="leftFeedListTemplate">
 <li class="feedListItem">

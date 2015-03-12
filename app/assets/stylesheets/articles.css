@@ -4,13 +4,13 @@
   min-height: 100%;
   margin: auto;
   display: table;
-  background-color: rgba(255, 255, 255, 0.95);
+  /*background-color: rgba(255, 255, 255, 0.95);*/
 }
 
 .leftCol {
   height: 100%;
   width: 25%;
-  border: 5px solid rgb(110, 200, 110);
+  /*border: 5px solid rgb(110, 200, 110);*/
   display: inline-block;
   float: left;
 }
@@ -20,13 +20,15 @@
   width: 50%;
   display: inline-block;
   float: left;
-  border: 5px solid rgba(255, 255, 255, 0);
+  /*border: 5px solid rgba(255, 255, 255, 0);*/
+  background-color: rgba(255, 255, 255, 0.95);
+  box-shadow: 0px 0px 5px;
 }
 
 .rightCol {
   height:100%;
   width: 25%;
-  border: 5px solid rgb(200, 110, 110);
+  /*border: 5px solid rgb(200, 110, 110);*/
   display: inline-block;
 }
 

@@ -40,10 +40,24 @@
 
 .negative-tweet {
   background-color: rgba(255, 0, 0, 0.1);
+ /* display: table;
+  float:right;
+  margin-top: -15px;*/
 }
 
 .positive-tweet {
   background-color: rgba(0, 255, 0, 0.1);
+}
+
+.positive_icon, .negative_icon {
+  display: table;
+  float:right;
+  margin-top: -15px;
+}
+.plus-icon {
+  float: left;
+  padding-top: 9px;
+  margin-right: 5px;
 }
 
 #tweet-hashtag {
