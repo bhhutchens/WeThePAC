@@ -89,7 +89,10 @@ function getRepInfo() {
 }
 
 function tweetMessageOkay() {
-  if ($("#tweet-box").val().length >= 131) {
+  var handle = ".@ "+$("#tweet-handle").text();
+  var wtpac = " #WeThePAC";
+  var numExtraChars = handle.length + wtpac.length
+  if ($("#tweet-box").val().length >= (140 - numExtraChars)) {
     return false;
   }
   else {
@@ -111,7 +114,7 @@ function setupPledgeForm() {
 
   var maxTweetCharacters = 140;
   var wtpac = " #WeThePAC";
-  var handle = $("#tweet-handle").text();
+  var handle = ".@ "+$("#tweet-handle").text();
   var availableLetters = 140 - wtpac.length - handle.length;
   availableLetters -= characterCnt;
 
@@ -180,9 +183,11 @@ function pledgeFormSubmit() {
       tweetMessageError();
       return;
     }
-    var msg = $("#tweet-handle").text();
+    debugger
+    var repHandle = $("#tweet-handle").text();
     var articleId = sessionStorage.currentArticleId
-    makeTweet($('#tweet-box').val(), articleId);
+    var tweetMsg = "." + repHandle + " " + $("#tweet-box").val() + " #WeThePAC"
+    makeTweet(tweetMsg, articleId);
     updateFulfillMeter($("#tweet-box").data().positive);
     //makeTweet(handle + $("#tweet-box").val() + " #WeThePAC")
 
