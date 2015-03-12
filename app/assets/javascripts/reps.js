@@ -183,7 +183,6 @@ function pledgeFormSubmit() {
       tweetMessageError();
       return;
     }
-    debugger
     var repHandle = $("#tweet-handle").text();
     var articleId = sessionStorage.currentArticleId
     var tweetMsg = "." + repHandle + " " + $("#tweet-box").val() + " #WeThePAC"

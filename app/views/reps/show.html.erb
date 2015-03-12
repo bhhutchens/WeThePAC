@@ -117,29 +117,56 @@ function updateFulfillMeter(positive) {
 </div>
 
 
+
+ <li class="pledge-feed-list-item">
+    <a href="/users/{{pledge.user_id}}" >
+      <img src="{{pledge.user_thumbnail_url}}" alt="Thumbnail for {{pledge.user_twitter_handle}}" class="small-image feed-thumbnail" />
+    </a>
+
+    <p class="pledge_list_item_text small-message">
+      <a class="pledge-rep-name small-title" href="/users/{{pledge.user_id}}">
+        {{pledge.user_name}}:
+      </a>
+      <span>
+        {{pledge.tweet_message}}
+      </span>
+    </p>
+   </li>
+
+
 <script type="text/x-handlebars-template" id="midFeedListTemplate">
-<li class="feedListItem" data-id={{data.id}} data-open="false" data-article-id={{data.id}}>
-<p class="feedListItemTitle">{{data.title}}</p>
-<p class="feedListItemExcerpt">{{data.excerpt}}...
-<a href="{{data.url}}" class="feedListItemLink">more</a>
-</p>
-<% if current_user %>
-<button id="positive-pledge">pledge for</button>
-<button id="negative-pledge">pledge against</button>
-<% end %>
-</li>
+  <li class="feedListItem" data-id={{data.id}} data-open="false" data-article-id={{data.id}}>
+  <p class="feedListItemTitle">{{data.title}}</p>
+  <p class="feedListItemExcerpt">{{data.excerpt}}...
+  <a href="{{data.url}}" class="feedListItemLink">more</a>
+  </p>
+  <% if current_user %>
+  <button id="positive-pledge">pledge for</button>
+  <button id="negative-pledge">pledge against</button>
+  <% end %>
+  </li>
 </script>
 
 <script type="text/x-handlebars-template" id="leftFeedListTemplate">
-<li class="feedListItem">
-<p class="feedListItemExcerpt">{{data.tweet_message}}</p>
-</li>
+  <li class="feedListItem">
+    <a href="/users/{{data.user_id}}">
+      <img src="{{data.user_thumbnail_url}}" alt="Thumbnail for {{data.user_twitter_handle}}" class="small-image feed-thumbnail" />
+    </a>
+
+    <p class="data_list_item_text small-message">
+      <a class="pledge-rep-name small-title" href="/users/{{data.user_id}}">
+        {{data.user_name}}
+      </a>
+      <span>
+        {{data.tweet_message}}
+      </span>
+  </li>
 </script>
 
 <script type="text/x-handlebars-template" id="rightFeedListTemplate">
-<li class="feedListItem">
-<p class="feedListItemExcerpt">{{data.tweet_message}}</p>
-</li>
+  <li class="feedListItem">
+    <p class="feedListItemExcerpt">{{data.tweet_message}}</p>
+  </li>
 </script>
 
 <script type="text/javascript">

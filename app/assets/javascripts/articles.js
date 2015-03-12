@@ -69,13 +69,12 @@ ListItem.prototype.createHtml = function(prepend, hide) {
   if (this.type == "article") {
     addArticleClickEvent(this);
   }
-
   if (this.type == "pledge") {
     console.log("Type: pledge. Positive: " + this.data.positive);
     if (this.data.positive) {
       this.html.find(".positive_icon").show();
       this.html.addClass("positive-tweet");
-    } else if (this.data.positive == false) {
+    } else if (!this.data.positive) {
       this.html.find(".negative_icon").show();
       this.html.addClass("negative-tweet");
     }
@@ -129,9 +128,11 @@ ListItem.prototype.animateSize = function(expand) {
 
 ListItem.prototype.createPledges = function(hide) {
   for (var i = 0; i < this.posPledges.length; i++) {
+    this.posPledges[i].type = "pledge";
     this.posPledges[i].createHtml(true, hide);
   }
   for (var i = 0; i < this.negPledges.length; i++) {
+    this.negPledges[i].type = "pledge";
     this.negPledges[i].createHtml(true, hide);
   }
 }
@@ -252,9 +253,10 @@ function getAndDisplayArticles(count, hide) {
 function getPledgesByArticle(article, hide) {
   hide = hide || false;
 
+  url = "/api/articles/" + article.id + "/pledges"
   $.ajax({
     // TODO: replace w/ articleId
-   url: "/api/articles/" + article.id + "/pledges",
+   url: url,
    data: {rep_id: repId}
   }).
   done(function(pledges) {
@@ -263,17 +265,22 @@ function getPledgesByArticle(article, hide) {
     // reset the pledges it has if any
     article.posPledges.length = 0;
     article.negPledges.length = 0;
+    var posPledges = 0;
+    var negPledges = 0;
     for (var i = 0; i < pledges.length; i++) {
-      if (pledges[i].positive) {
+      if (pledges[i].positive && posPledges < 3) {
         console.log("going thru pos pledges: " + i);
         var li = new ListItem(pledges[i], "leftFeedList");
         article.posPledges.unshift(li);
-      } else {
+        posPledges++;
+      } else if (!pledges[i].positive && negPledges < 3) {
         console.log("going thru neg pledges: " + i);
         var li = new ListItem(pledges[i], "rightFeedList");
         article.negPledges.unshift(li);
+        negPledges++;
       }
     }
+    // SPAWN EVERYTHING
     article.onExpand();
   });
 }

@@ -68,7 +68,7 @@ class ApiController < ApplicationController
 
   def get_pledges_by_article
     #render json: Article.find(params[:id]).pledges, status: 200
-    render json: Pledge.where(rep_id: params[:rep_id]).where(article_id: params[:id]), status: 200
+    render json: Pledge.where(rep_id: params[:rep_id]).where(article_id: params[:id]).order("created_at DESC"), status: 200
   end
 
   def get_positive_pledges_by_article
