@@ -56,7 +56,7 @@
   font-size: 0.9em;
 }
 
-.pledge-rep-name {
+.pledge-rep-name, .pledge-user-name {
   color: rgb(30, 178, 235);
   text-decoration: none;
   font-size: 2em;
@@ -65,11 +65,11 @@
 .pledge-rep-name:visited{
 }
 
-.pledge-rep-name:hover {
+.pledge-rep-name:hover, .pledge-user-name {
   color: rgb(40, 218, 255);
 }
 
-.pledge-rep-handle {
+.pledge-rep-handle, .pledge-user-handle {
   color: rgb(30, 178, 235);
   text-decoration: none;
   font-style: italic;
@@ -80,7 +80,7 @@
 .pledge-rep-handle:visited{
 }
 
-.pledge-rep-handle:hover {
+.pledge-rep-handle:hover, .pledge-user-handle:hover {
   color: rgb(40, 218, 255);
 }
 
