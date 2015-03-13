@@ -272,8 +272,38 @@ $(document).ready(function() {
   getRepInfo();
   makeGraph();
   getFeedPledges();
+  toggleFeedGraphSize();
 });
 
+function toggleFeedGraphSize() {
+  $(window).resize(function() {
+    console.log("RESIZING!");
+    var item = $(".pledge-feed-list")
+    var width = item.css("width");
+    if (width <= 400) {
+      console.log("making it smaller");
+      item.css({
+        margin: "10px",
+        display: "block",
+        float: "none"
+      })
+    }
+  })
+
+  $(window).resize(function() {
+    console.log("RESIZING!");
+    var item = $("#graph")
+    var width = item.css("width");
+    if (width <= 400) {
+      console.log("making it smaller");
+      item.css({
+        margin: "10px",
+        display: "block",
+        float: "none"
+      })
+    }
+  })
+}
 
 firebase = (function() {
   fb = new Firebase('https://we-the-pac.firebaseio.com/pledge')

@@ -49,7 +49,7 @@ end
 
 def doRepWebsiteSearch (rep_name)
   originalRepName = rep_name
-  blacklist = ["site:.gov", "site:www.facebook.com", "site:www.twitter.com", "site:www.linkedin.com", "site:www.wikipedia.org", ".govtrack", "cspan", "opensecrets.org"]
+  blacklist = ["site:.gov", "site:www.facebook.com", "site:www.twitter.com", "site:www.linkedin.com", "site:www.wikipedia.org", "site:en.wikipedia.org", ".govtrack", "cspan", "opensecrets.org"]
   rep_name += " website"
   rep_name = ActiveSupport::Inflector.transliterate(rep_name)
   rep_name.gsub!(" ", "%20")
@@ -94,29 +94,6 @@ def doRepWebsiteSearch (rep_name)
   else
     return donateContributeLink[0].text
   end
-end
-
-def doRepWebsiteSearchOld (rep_name)
-  blacklist = [".gov", "facebook.com", "twitter.com", "linkedin.com", "wikipedia.com", ".govtrack", "cspan", "opensecrets.org"]
-  rep_name += " website"
-  rep_name.gsub!(" ", "%20")
-  query = "http://www.google.com/search?q=#{rep_name}"
-  blacklist.each do |word|
-    query += "+-#{word}"
-  end
-
-  searchPage = Nokogiri::HTML(open(query))
-  puts searchPage.class
-
-  websiteLink = searchPage.css("cite")[0].text
-  websiteContributeLink = ""
-
-  if websiteLink.index("/") == nil
-    websiteContributeLink = websiteLink + "/contribute"
-  else
-    websiteContributeLink = websiteLink[0..websiteLink.index("/")] + "contribute"
-  end
-  return websiteContributeLink
 end
 
 
@@ -336,4 +313,4 @@ def fetchArticles
 end
 
 # fetchArticles
-updateAllReps (287)
+updateAllReps (378)
