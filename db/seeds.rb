@@ -312,5 +312,5 @@ def fetchArticles
   end
 end
 
-# fetchArticles
-updateAllReps (378)
+fetchArticles
+# updateAllReps (378)
