@@ -106,6 +106,7 @@ $(document).ready(function(){
 
       console.log("FIREBASE: ADDING A PLEDGE");
       var li = new ListItem(pledgeData, "midFeedList");
+      li.type = "pledge";
       displayPledge(li, true, true, true);
     });
     return{

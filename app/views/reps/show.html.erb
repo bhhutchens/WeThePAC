@@ -307,7 +307,10 @@ fireb = (function() {
       fireb.initialize = false
     } else {
       console.log("displaying a feed pledge");
-      displayFeedPledge(response.pledge)
+
+      if (parseInt(response.pledge.rep_id) == parseInt(<%=@rep.id%>)) {
+        displayFeedPledge(response.pledge)
+      }
     }
   });
 
