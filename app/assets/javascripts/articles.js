@@ -49,8 +49,8 @@ ListItem.prototype.createHtml = function(prepend, hide) {
   var template = compileTemplate(templateName);
   // replace rep's twitter handle, such as @nancypelosi with a hyperlinked twitter handle such as <a href="/reps/267">@nancypelosi</a>
   var pledge = this.data
-  var splitOldTweetMessage = pledge.tweet_message.split(" ");
-  splitOldTweetMessage[0] = "";
+  var splitOldTweetMessage = pledge.tweet_message //.split(" ");
+  // splitOldTweetMessage[0] = "";
   // var regEx = /(\.\@\w*)?/;
   // var linkedHandle = '<a href="/reps/' + pledge.rep_id + '">' + splitOldTweetMessage[0]+"</a>"
   // splitOldTweetMessage[0] = linkedHandle
