@@ -61,7 +61,7 @@ def doRepWebsiteSearch (rep_name)
   searchPage = Nokogiri::HTML(open(query))
   puts searchPage.class
 
-  websiteLink = searchPage.css("cite")[0].text
+  websiteLink = ActiveSupport::Inflector.transliterate(searchPage.css("cite")[0].text)
 
   # check if the domain is .org or .com, if not, default to gov't website
   domain = getDomain(websiteLink)
