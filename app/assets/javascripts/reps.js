@@ -151,6 +151,8 @@ function togglePledgeButtons(visible) {
 function pledgeButtonSetup() {
   //adds event listeners to pledge buttons
   $(document).on('click', '#positive-pledge', function(){
+
+    console.log("clicking on POSITIVE PLEDGE");
     togglePledgeButtons(false);
     $("#tweet-box").data('positive', 'true')
     $('.pledge-form-wrapper').show()

@@ -212,6 +212,7 @@ ListItem.prototype.slideDown = function() {
 
 function addArticleClickEvent(article) {
   article.html.click(function() {
+    if ($(".pledge-form-wrapper").css("display") != "none") { return }
     console.log("Clicked on an article.");
     var clicked = article.clicked;
     article.clicked = !clicked; // swap value
