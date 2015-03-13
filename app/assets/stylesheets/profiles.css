@@ -89,6 +89,7 @@
 }
 
 .article_list_title {
+  padding-top: 20px;
   margin: 25px 0;
   font-size: 3em;
   font-family: 'Slabo 27px', serif;
@@ -200,5 +201,19 @@ svg {
   outline: none;
   -webkit-box-shadow: none;
   box-shadow: none;
+}
+
+#pledge-feed-title {
+  font-size: 2em;
+  width: 50%;
+  text-align: center;
+  display: inline-block;
+}
+
+#graph-title {
+  font-size: 2em;
+  width: 50%;
+  text-align: center;
+  display: inline-block;
 }
 
