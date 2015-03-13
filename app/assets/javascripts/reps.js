@@ -229,20 +229,31 @@ function displayFeedPledge(pledge, animation) {
 
   var lastChild = list.children().last();
   if (list.children().length > 3) {
-    lastChild.slideUp({duration: 1000,
-      queue: true,
-      complete: function() {
+    // lastChild.slideUp({duration: 1000,
+    //   queue: true,
+    //   complete: function() {
+    //     $(this).remove();
+    //   }
+      lastChild.animate({
+        opacity: "0",
+        height: "0"
+      }, 1000, function() {
         $(this).remove();
-      }
-    })
+      })
   }
-  firstChild.slideDown({duration: 1000});
+  //firstChild.slideDown({duration: 1000});
+  firstChild.css({display: "block", opacity: "0", height: "0"})
+  firstChild.animate({
+    opacity: "1",
+    height: "33.33%"
+  }, 1000)
 }
 
 // add (and possibly remove) multiple pledges to feed
 function displayFeedPledges(pledges) {
   for (var i = 0; i < pledges.length; i++) {
     displayFeedPledge(pledges[i]);
+    setTimeout(1000)
   }
 }
 

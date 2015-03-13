@@ -62,15 +62,8 @@ function updateFulfillMeter() {
 
 
 <script type="text/x-handlebars-template" id="user_pledge_feed">
-  <li class="profile_pledge_list_item">
-    <a href="/users/{{pledge.user_id}}"><img src="{{pledge.user_thumbnail_url}}" alt="@{{pledge.user_twitter_handle}}'s picture"  class="feed-thumbnail"/></a>
-    <i class="fa fa-exchange fa-lg feed-exchange-icon"></i>
-    <a href="/reps/{{pledge.rep_id}}"><img src="{{pledge.rep_thumbnail_url}}" alt="@{{pledge.rep_twitter_handle}}'s picture"  class="feed-thumbnail"/></a>
-    <p><a href="/reps/{{pledge.rep_id}}">{{pledge.rep_name}}</a> - <a href="http://twitter.com/{{pledge.rep_twitter_handle}}">@{{pledge.rep_twitter_handle}}</a></p>
-    <p class="profile_pledge_list_item_text">
-      {{pledge.tweet_message}}
-    </p>
-    <div class='positive_icon' style='display:none'>
+  <li class="feedListItem">
+   <div class='positive_icon' style='display:none'>
       <i class="fa fa-plus fa-2x"></i>
       <i class="fa fa-money fa-2x"></i>
     </div>
@@ -78,12 +71,21 @@ function updateFulfillMeter() {
       <i class="fa fa-minus fa-2x"></i>
       <i class="fa fa-money fa-2x"></i>
     </div>
+
+     <a href="/users/{{pledge.user_id}}"><img src="{{pledge.user_thumbnail_url}}" alt="@{{pledge.user_twitter_handle}}'s picture"  class="feed-thumbnail"/></a>
+    <i class="fa fa-exchange fa-lg feed-exchange-icon"></i>
+    <a href="/reps/{{pledge.rep_id}}"><img src="{{pledge.rep_thumbnail_url}}" alt="@{{pledge.rep_twitter_handle}}'s picture"  class="feed-thumbnail"/></a>
+    <p><a href="/reps/{{pledge.rep_id}}">{{pledge.rep_name}}</a> - <a href="http://twitter.com/{{pledge.rep_twitter_handle}}">@{{pledge.rep_twitter_handle}}</a></p>
+    <p class="profile_pledge_list_item_text">
+      {{pledge.tweet_message}}
+    </p>
+
   </li>
 </script>
 
 <!-- fulfillment feed -->
 <script type="text/x-handlebars-template" id="user_fulfillment_feed">
-  <li class="profile_fulfillment_list_item">
+  <li class="profile_fulfillment_list_item positive-tweet">
     <div class="fulfill-action" data-rep-external-url="{{unfulfilledPledge.rep_external_url}}" data-pledge-id="{{unfulfilledPledge.id}}">
       <button class="fulfill-button">Fulfill</button>
     </div>

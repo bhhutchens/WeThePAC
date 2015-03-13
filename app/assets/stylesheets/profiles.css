@@ -171,15 +171,11 @@ svg {
 }
 
 .pledge-feed-list-item {
-  height: 33.3333%;
+  height: 33.3%;
   width: 100%;
   padding: 5px;
 }
 
-
-/*.pledge-feed-list-item:last-child {
-  border-bottom: 0;
-}*/
 
 .b6 {
   margin-top: 10px;
