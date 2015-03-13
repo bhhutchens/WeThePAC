@@ -209,7 +209,6 @@ function makeGraph() {
         var b = new Date(b.date);
         return a<b ? -1 : a>b ? 1 : 0;
       });
-
     }
 
     return dateArray
@@ -311,7 +310,10 @@ fireb = (function() {
       fireb.initialize = false
     } else {
       console.log("displaying a feed pledge");
-      displayFeedPledge(response.pledge)
+
+      if (parseInt(response.pledge.rep_id) == parseInt(<%=@rep.id%>)) {
+        displayFeedPledge(response.pledge)
+      }
     }
   });
 

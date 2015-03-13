@@ -304,19 +304,3 @@ function toggleFeedGraphSize() {
     }
   })
 }
-
-firebase = (function() {
-  fb = new Firebase('https://we-the-pac.firebaseio.com/pledge')
-
-  fb.on("value", function(data) {
-    var pledge = data.val();
-    console.log("pledge: " + pledge);
-  });
-
-  return{
-    DataRef: fb,
-  }
-
-})();
-
-
