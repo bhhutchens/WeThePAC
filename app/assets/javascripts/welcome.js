@@ -128,5 +128,9 @@ function changeToSingleColumn() {
     minWidth: "480px",
     display: "block"
   })
-}
+};
+
+function linkTwitterHandle() {
+  aoe
+};
 

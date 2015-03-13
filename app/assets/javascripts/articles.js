@@ -47,14 +47,23 @@ ListItem.prototype.createHtml = function(prepend, hide) {
   var list = $("#" + this.column);
   var templateName = "#" + this.column + "Template";
   var template = compileTemplate(templateName);
+  // replace rep's twitter handle, such as @nancypelosi with a hyperlinked twitter handle such as <a href="/reps/267">@nancypelosi</a>
+  var pledge = this.data
+  var splitOldTweetMessage = pledge.tweet_message.split(" ");
+  splitOldTweetMessage[0] = "";
+  // var regEx = /(\.\@\w*)?/;
+  // var linkedHandle = '<a href="/reps/' + pledge.rep_id + '">' + splitOldTweetMessage[0]+"</a>"
+  // splitOldTweetMessage[0] = linkedHandle
+  this.data.tweet_message = splitOldTweetMessage.join(" ");
+  // pledge.tweet_message = linktweet_message
 
   // create the html on the page and add the html
   // to the ListItem object for later access
   if (prepend) {
-    list.prepend(template({data: this.data}))
+    list.prepend(template({data: pledge}))
     this.html = list.children().first();
   } else {
-    list.append(template({data: this.data}))
+    list.append(template({data: pledge}))
     this.html = list.children().last();
   }
   // get the height property for later access
