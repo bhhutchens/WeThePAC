@@ -1,6 +1,10 @@
 <div id="searchResults"></div>
 <div class="profile_upper"></div>
 <div class="graph-pledge-wrapper">
+
+  <div id='pledge-feed-title'>Recent Pledges <i class="fa fa-twitter"></i></div>
+  <div id='graph-title'>History</div>
+
   <ul id="pledge-feed-list" class="pledge-feed-list"></ul>
   <div id="graph"></div>
 </div>
@@ -205,7 +209,6 @@ function makeGraph() {
         var b = new Date(b.date);
         return a<b ? -1 : a>b ? 1 : 0;
       });
-
     }
 
     return dateArray
@@ -307,7 +310,10 @@ fireb = (function() {
       fireb.initialize = false
     } else {
       console.log("displaying a feed pledge");
-      displayFeedPledge(response.pledge)
+
+      if (parseInt(response.pledge.rep_id) == parseInt(<%=@rep.id%>)) {
+        displayFeedPledge(response.pledge)
+      }
     }
   });
 

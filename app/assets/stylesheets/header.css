@@ -10,9 +10,10 @@
 }
 
 .header-content {
-  width: 100%;
+  width: 70%;
+  margin: auto;
   display: table;
-  padding-left: calc(30%/2);
+  /*padding-left: calc(30%/2);*/
 }
 
 .header_right_box {
