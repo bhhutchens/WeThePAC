@@ -2,7 +2,11 @@
   <div class="header-content">
     <span class="nav-title-link"><%= link_to "WeThePAC", root_path %></span>
     <div class="header_right_box">
-      <%= button_to "Sign in with Twitter", "/auth/twitter" %>
+      <form method="post" action="/auth/twitter">
+        <input type="submit" value="Sign in with Twitter">
+        <input type="hidden" name="authenticity_token" value="Vvm2LuRojgujP2ZW1Nlcfzc8My/NPZdHmkvPFRSPVIKZAtsMwvjuRyG4pwaejdczqccankdAlZLggM5ntuR7qA==">
+      </form>
+
     </div>
 
     <div class="header-search-wrapper">

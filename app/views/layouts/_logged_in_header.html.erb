@@ -4,7 +4,10 @@
     <div class="header_right_box">
       <img src=<%= current_user.profile_pic_thumb_url %> alt="@<%= current_user.twitter_handle %>'s thumbnail"/>
       <%= link_to current_user.name, current_user %>
-      <%= button_to "logout", sessions_logout_path %>
+      <form class="logout-button" method="post" action="/sessions/logout">
+        <input type="submit" value="logout">
+        <input type="hidden" name="authenticity_token" value="ZXnp3ZKbn0VUWGy9LD815nPG9be9PdBi2s5j6Kj+A62hxgYYWQAG91GQJtUeNwnDqzddd0rtzDO/idv4LZQfbw==">
+      </form>
     </div>
 
     <div class="header-search-wrapper">
@@ -32,46 +35,46 @@
 // add event handling so we can catch the changes of the browser's width ... after the width is below some threshhold (~480px) we want to adjust the responsive design and optimize for mobile
 
 function responsiveHeader()  {
-    var width = $(window).width();
-    console.log("Window width: " + width);
+  var width = $(window).width();
+  console.log("Window width: " + width);
         // make the is hidden check so we dont have to hide/show EVERY time the browser width changes... small efficiency improvement
 
-    var isHidden = $(".header_right_box")[0].style.display == "none";
-     if (width <= 1145 && !isHidden) {
-      $(".header_right_box").hide();
-      $(".small-header-right-box").show();
-    }
-    else if (width > 1145 && isHidden) {
-      $(".small-header-right-box").hide();
-      $(".header_right_box").show();
-    }
-    if(width < 915){
-    $('.nav-title-link').children().text('WtP')
-  } else if(width > 914){
-    $('.nav-title-link').children().text('WeThePAC')
-  }
-}
+        var isHidden = $(".header_right_box")[0].style.display == "none";
+        if (width <= 1145 && !isHidden) {
+          $(".header_right_box").hide();
+          $(".small-header-right-box").show();
+        }
+        else if (width > 1145 && isHidden) {
+          $(".small-header-right-box").hide();
+          $(".header_right_box").show();
+        }
+        if(width < 915){
+          $('.nav-title-link').children().text('WtP')
+        } else if(width > 914){
+          $('.nav-title-link').children().text('WeThePAC')
+        }
+      }
 
-function responsiveResizeHeader() {
+      function responsiveResizeHeader() {
         $(window).on('resize orientationChanged', function() {responsiveHeader()
         });
       }
 
-function setupDropDownListener() {
-  $(".dropdown_button").on('click', function() {
-    if (($("#dropdown_menu").css('display') == "none")) {
-      $("#dropdown_menu").show();
-    } else {
-      $("#dropdown_menu").hide();
-    }
-  })
-}
+      function setupDropDownListener() {
+        $(".dropdown_button").on('click', function() {
+          if (($("#dropdown_menu").css('display') == "none")) {
+            $("#dropdown_menu").show();
+          } else {
+            $("#dropdown_menu").hide();
+          }
+        })
+      }
 
-function setUpHeader() {
-  responsiveHeader();
-  responsiveResizeHeader();
-  setupDropDownListener();
-}
+      function setUpHeader() {
+        responsiveHeader();
+        responsiveResizeHeader();
+        setupDropDownListener();
+      }
 
-$( document ).ready(setUpHeader());
-</script>
+      $( document ).ready(setUpHeader());
+      </script>
