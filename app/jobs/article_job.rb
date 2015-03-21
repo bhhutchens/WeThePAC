@@ -3,45 +3,40 @@ class ArticleJob
 
   def perform(event)
     while true
-      puts "hi, from ArticleJob"
-      index = 0
-      Rep.order("id ASC").each do |rep|
-        if (index <= 0)
-          index += 1
-          next
-        end
+      puts "beginning ArticleJob.. shuffle below"
+      Rep.all.shuffle.each do |rep|
+        ActiveRecord::Base.connection_pool.with_connection do
 
-        puts "Fetching  articles for #{rep.name} .. #{rep.id}"
-        articles = googleNewsSearch(rep.name, 60 * 22 )
-        articles.each do |article|
-          puts article
+          puts "Fetching  articles for #{rep.name} .. #{rep.id}"
+          articles = googleNewsSearch(rep.name, 60 * 22 )
+          articles.each do |article|
+            puts article
 
-          artReturn = Article.create(article)
-          if artReturn.id == nil
-            # this means that the article url already exists in the database
-            dupId = Article.where(url: article.url)[0].id
-            ArticlesRep.create(article_id: dupId,
-            rep_id: rep.id)
-          else
-            #   the article does not already exist in the database and it is therefore created
-            ArticlesRep.create(article_id: artReturn.id,
-              rep_id: rep.id)
+            artReturn = Article.create(article)
+            if artReturn.id == nil
+              # this means that the article url already exists in the database
+              dupId = Article.where(url: article.url)[0].id
+              ArticlesRep.create(article_id: dupId,
+                rep_id: rep.id)
+            else
+              #   the article does not already exist in the database and it is therefore created
+              ArticlesRep.create(article_id: artReturn.id,
+                rep_id: rep.id)
+            end
           end
-
-          index += 1
+          puts "=" * 50
+          sleep (25..30).to_a.sample.to_i
         end
-        puts "=" * 50
-        sleep (25..30).to_a.sample.to_i
       end
     end
   end
 
-  def cleanDate(date)
-    puts "date: #{date}"
-    timeAgo = date.match(/\d+/).to_s.to_i
-    hours = (date.index("hours") != nil)
-    currentTime = Time.now
-    articleTime = ""
+def cleanDate(date)
+  puts "date: #{date}"
+  timeAgo = date.match(/\d+/).to_s.to_i
+  hours = (date.index("hours") != nil)
+  currentTime = Time.now
+  articleTime = ""
 
     # hours
     puts "cleaning the date"

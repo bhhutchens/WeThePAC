@@ -11,7 +11,8 @@ default: &default
 
 development:
   <<: *default
-  database: db/development
+  database: heroku_copy
+  # in order to download the heroku db, use this command: heroku pg:pull HEROKU_POSTGRESQL_ONYX_URL heroku_copy --app we-the-pac
 
 # Warning: The database defined as "test" will be erased and
 # re-generated from your development database when you run "rake".
