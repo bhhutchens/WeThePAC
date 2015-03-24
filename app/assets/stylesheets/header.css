@@ -26,18 +26,18 @@
   margin: auto;
 }
 
-.header_right_box, .header_right_box_logged_out a {
+.header_right_box a, .header_right_box_logged_out a {
   float: left;
   line-height: 50px;
   font-size: 150%;
 }
 
-.header_right_box, .header_right_box_logged_out form {
+.header_right_box form, .header_right_box_logged_out form {
   float: left;
   margin-top: 15px;
 }
 
-.header_right_box, .header_right_box_logged_out img {
+.header_right_box img, .header_right_box_logged_out img {
   float: left;
   /*margin-right: 5px;*/
 }
