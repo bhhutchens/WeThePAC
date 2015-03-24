@@ -73,7 +73,7 @@
 
 
   <!-- user's profile image '-->
-  <a class="pledge-user-name" href="/users/{{data.user_id}}">
+  <a href="/users/{{data.user_id}}">
     <img src="{{data.user_thumbnail_url}}" alt="@{{data.user_twitter_handle}}'s picture"  class="feed-thumbnail"/>
   </a>
   <i class="fa fa-exchange fa-lg feed-exchange-icon"></i>
@@ -85,7 +85,7 @@
 
   <!-- the twitter handle's next to their images + webpage link' -->
   <p>
-    <a href="/users/{{data.user_id}}">
+    <a class="pledge-user-name" href="/users/{{data.user_id}}">
       {{data.user_name}}
     </a>
     <a class="pledge-user-handle"  href="http://twitter.com/{{data.user_twitter_handle}}">@{{data.user_twitter_handle}}
