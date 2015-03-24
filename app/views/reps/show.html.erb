@@ -2,11 +2,20 @@
 <div class="profile_upper"></div>
 <div class="graph-pledge-wrapper">
 
-  <div id='pledge-feed-title'>Recent Pledges <i class="fa fa-twitter"></i></div>
-  <div id='graph-title'>History</div>
+  <div class="pledge-wrapper"><span id="pledge-feed-title">Recent Pledges <i class="fa fa-twitter"></span></i>
+    <br>
+    <ul id="pledge-feed-list" class="pledge-feed-list"></ul>
+  </div>
 
-  <ul id="pledge-feed-list" class="pledge-feed-list"></ul>
-  <div id="graph"></div>
+
+  <div class="graph-wrapper">
+    <span id='graph-title'>History</span>
+    <br>
+    <div id="graph"></div>
+  </div>
+
+
+
 </div>
 
 <script type="text/x-handlebars-template" id="pledge-feed-list-template">

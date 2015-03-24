@@ -126,14 +126,14 @@
   height: 250px;
 
   padding: 15px 0;
-  display: table;
+  /*display: table;*/
 }
+
 
 /* graphs! */
 #graph {
-  margin-left: 5%;
-  /*margin-right: 5%;*/
-  width: 40%;
+  width: 100%;
+  min-height:200px;
   height: 100%;
   display: inline-block;
   float: left;
@@ -147,14 +147,22 @@
 
 svg {
   height: 100%;
+  width: 100%;
+  padding-left:10px;
 }
 
 
 
 /* pledge feed */
+.pledge-wrapper {
+  width: 45%;
+  margin: 0 2.5%;
+  text-align: center;
+  float:left;
+}
 .pledge-feed-list {
-  margin: 0 5%;
-  width: 40%;
+  margin: 0;
+  width: 100%;
   height: 100%;
 
 
@@ -205,15 +213,20 @@ svg {
 
 #pledge-feed-title {
   font-size: 2em;
-  width: 50%;
   text-align: center;
   display: inline-block;
 }
 
 #graph-title {
   font-size: 2em;
-  width: 50%;
   text-align: center;
   display: inline-block;
 }
 
+.graph-wrapper {
+  margin: 0 2.5%;
+  min-height: 200px;
+  width: 45%;
+  text-align:center;
+  float: left;
+}

@@ -203,18 +203,6 @@ function pledgeFormSubmit() {
 };
 
 
-// remove the bottom pledge from the feed w/ animation
-// function removeFeedPledge() {
-//   var list = $("#pledge-feed-list")
-//   var len = list.children().length;
-//   while (len > 3) {
-//     list.children().last().slideUp(1000, function() {
-//       console.log("Removing last child from pledge feed list");
-//       $(this).remove();
-//     })
-//     len--;
-//   }
-// }
 
 // add the pledge to the top of the feed w/ animation
 function displayFeedPledge(pledge, animation) {
@@ -231,11 +219,7 @@ function displayFeedPledge(pledge, animation) {
 
   var lastChild = list.children().last();
   if (list.children().length > 3) {
-    // lastChild.slideUp({duration: 1000,
-    //   queue: true,
-    //   complete: function() {
-    //     $(this).remove();
-    //   }
+
       lastChild.animate({
         opacity: "0",
         height: "0"
@@ -285,35 +269,4 @@ $(document).ready(function() {
   getRepInfo();
   makeGraph();
   getFeedPledges();
-  toggleFeedGraphSize();
 });
-
-function toggleFeedGraphSize() {
-  $(window).resize(function() {
-    console.log("RESIZING!");
-    var item = $(".pledge-feed-list")
-    var width = item.css("width");
-    if (width <= 400) {
-      console.log("making it smaller");
-      item.css({
-        margin: "10px",
-        display: "block",
-        float: "none"
-      })
-    }
-  })
-
-  $(window).resize(function() {
-    console.log("RESIZING!");
-    var item = $("#graph")
-    var width = item.css("width");
-    if (width <= 400) {
-      console.log("making it smaller");
-      item.css({
-        margin: "10px",
-        display: "block",
-        float: "none"
-      })
-    }
-  })
-}
