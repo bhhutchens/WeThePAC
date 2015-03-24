@@ -72,13 +72,13 @@ body {
     font-size: 24px;
   }
   .header-search-wrapper-logged-out {
-    margin-right: 120px;
+    margin-right: 140px;
   }
 }
 
 @media screen and (max-width: 1199px) {
   .header-search-wrapper-logged-out {
-    margin-right: 120px;
+    margin-right: 140px;
   }
 }
 
@@ -90,7 +90,7 @@ body {
   }
 
   .header-search-wrapper-logged-out {
-    margin-right: 120px;
+    margin-right: 140px;
   }
 }
 
@@ -101,7 +101,7 @@ body {
 
   .header-search-wrapper, .header-search-wrapper-logged-out {
     margin-left: 220px;
-    margin-right: 120px;
+    margin-right: 140px;
   }
 }
 
@@ -131,7 +131,7 @@ body {
   }
 
   .header-search-wrapper, .header-search-wrapper-logged-out {
-    margin-left: 120px;
+    margin-left: 140px;
   }
 }
 
