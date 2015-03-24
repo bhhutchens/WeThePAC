@@ -1,6 +1,10 @@
 <div class="header">
   <div class="header-content">
-    <span class="nav-title-link"><%= link_to "WeThePAC", root_path %></span>
+    <span class="nav-title-link">
+      <%= link_to "WeThePAC", root_path %>
+      <%= link_to "WtPAC", root_path %>
+      <%= link_to "WtP", root_path %>
+    </span>
     <div class="header_right_box">
       <img src=<%= current_user.profile_pic_thumb_url %> alt="@<%= current_user.twitter_handle %>'s thumbnail"/>
       <%= link_to current_user.name, current_user %>
@@ -10,21 +14,21 @@
       </form>
     </div>
 
-    <div class="header-search-wrapper">
-      <form class="search-form">
-        <input id="searchBarInput" placeholder="eg. Pelosi or 94107"></input>
-      </form>
-    </div>
 
     <div class='small-header-right-box'>
       <div class='dropdown_button'><img id="hamburger" src="https://cdn4.iconfinder.com/data/icons/wirecons-free-vector-icons/32/menu-alt-512.png"></div>
-      <img src=<%= current_user.profile_pic_thumb_url %> alt="@<%= current_user.twitter_handle %>'s thumbnail"/>
 
       <div id='dropdown_menu'>
         <p></p>
         <p><span><%= link_to current_user.name, current_user %></span></p>
         <p><span><%= link_to "logout", sessions_logout_path, {method: :post} %></span></p>
       </div>
+    </div>
+    
+    <div class="header-search-wrapper">
+      <form class="search-form">
+        <input id="searchBarInput" placeholder="eg. Pelosi or 94107"></input>
+      </form>
     </div>
   </div>
 </div>

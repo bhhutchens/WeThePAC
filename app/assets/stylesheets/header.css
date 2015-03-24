@@ -10,44 +10,46 @@
 }
 
 .logout-button {
-
+  font-size: 16px;
 }
 
 .header-content {
-  width: 70%;
+  width: 90%;
   margin: auto;
   display: table;
   /*padding-left: calc(30%/2);*/
 }
 
-.header_right_box {
+.header_right_box, .header_right_box_logged_out {
   float: right;
-  display: none;
+  display: table;
   margin: auto;
 }
 
-.header_right_box a {
+.header_right_box, .header_right_box_logged_out a {
   float: left;
   line-height: 50px;
   font-size: 150%;
 }
 
-.header_right_box form {
+.header_right_box, .header_right_box_logged_out form {
   float: left;
   margin-top: 15px;
 }
 
-.header_right_box img {
+.header_right_box, .header_right_box_logged_out img {
   float: left;
   /*margin-right: 5px;*/
 }
 
 .nav-title-link {
+  float: left;
   line-height: 50px;
   font-size: 200%;
 }
 
 .header a {
+  font-size: 4vw;
   text-decoration: none;
   color: #EFFCFF;
 }
@@ -71,7 +73,7 @@
 }
 
 .small-header-right-box {
-  display: none;
+  display: table;
   float: right;
   width: 100px;
 }
@@ -117,10 +119,10 @@
   height: 100%;
 }
 
-.header-search-wrapper {
-  display: inline-block;
-  width: 30%;
-  margin-left: 20%;
+.header-search-wrapper, .header-search-wrapper-logged-out {
+  display: block;
+  margin-left: 100px;
+  margin-top: 6px;
 }
 
 .search-form {
@@ -142,7 +144,8 @@ input[type="submit"] {
   border-radius: 41px;
 }
 
-.header_right_box input[type="submit"] {
+.header_right_box input[type="submit"], .header_right_box_logged_out 
+  input[type="submit"] {
   font-size: 100%;
 }
 

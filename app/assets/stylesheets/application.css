@@ -40,13 +40,108 @@ body {
 
 
 
-@media screen and (min-width: 1000px) {
+/*@media screen and (min-width: 1000px) {
   .small-header-right-box {
     display: table;
   }
 
   .header_right_box {
     display: table;
+  }
+}*/
+
+
+@media  screen and (min-width: 1021px) {
+  .small-header-right-box {
+    display: none;
+  }
+
+   .header-search-wrapper, .header-search-wrapper-logged-out {
+    margin-left: 300px;
+    margin-right: 400px;
+    min-width: 100px;
+  }
+}
+
+@media screen and (min-width: 1200px) {
+  .header a {
+    font-size:46px;
+  }
+
+  .header-search-wrapper-logged-out {
+    margin-right: 120px;
+  }
+}
+
+@media screen and (max-width: 1199px) {
+  .header-search-wrapper-logged-out {
+    margin-right: 120px;
+  }
+}
+
+@media screen and (max-width: 1150px) {
+
+  .header-search-wrapper, .header-search-wrapper-logged-out {
+    margin-left: 230px;
+    margin-right: 340px;
+  }
+
+  .header-search-wrapper-logged-out {
+    margin-right: 120px;
+  }
+}
+
+@media screen and (max-width: 1020px) {
+  .header_right_box {
+    display: none;
+  }
+
+  .header-search-wrapper, .header-search-wrapper-logged-out {
+    margin-left: 220px;
+    margin-right: 120px;
+  }
+}
+
+@media screen and (max-width: 800px) {
+  .header a {
+    font-size: 32px;
+  }
+ 
+}
+
+
+
+/* Changes the 'WeThePAC' text and the hamburger image */
+@media screen and (min-width: 701px) {
+  .nav-title-link a:nth-child(2), .nav-title-link a:last-child {
+    display: none;
+  }
+
+} 
+
+@media screen and (max-width: 700px) {
+  .nav-title-link a:first-child{
+    display: none;
+  }
+  .nav-title-link a:last-child {
+    display: none;
+  }
+
+  .header-search-wrapper, .header-search-wrapper-logged-out {
+    margin-left: 120px;
+  }
+}
+
+@media screen and (max-width:500px) {
+  .nav-title-link a:nth-child(2) {
+    display: none;
+  }
+  .nav-title-link a:last-child {
+    display: initial;
+  }
+
+  .header-search-wrapper, .header-search-wrapper-logged-out { 
+    margin-left: 90px; 
   }
 }
 
