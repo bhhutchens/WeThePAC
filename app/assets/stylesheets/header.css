@@ -54,6 +54,9 @@
   color: #EFFCFF;
 }
 
+.small-header a {
+  font-size: 2vw;
+}
 .header a:hover {
   color: #CC564E;
 }

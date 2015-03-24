@@ -7,7 +7,9 @@
     </span>
     <div class="header_right_box">
       <img src=<%= current_user.profile_pic_thumb_url %> alt="@<%= current_user.twitter_handle %>'s thumbnail"/>
-      <%= link_to current_user.name, current_user %>
+      <span class="small-header">
+        <%= link_to current_user.name, current_user %>
+      </span>
       <form class="logout-button" method="post" action="/sessions/logout">
         <input type="submit" value="logout">
         <input type="hidden" name="authenticity_token" value="ZXnp3ZKbn0VUWGy9LD815nPG9be9PdBi2s5j6Kj+A62hxgYYWQAG91GQJtUeNwnDqzddd0rtzDO/idv4LZQfbw==">
