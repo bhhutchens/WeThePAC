@@ -286,7 +286,7 @@ def googleNewsSearch(name, mins = 720)
   return articles
 end
 
-def fetchArticles (start_id)
+def fetchArticles (start_id = -1)
   while true
     index = 0
     Rep.order("id ASC").each do |rep|
@@ -315,10 +315,10 @@ def fetchArticles (start_id)
         index += 1
       end
       puts "=" * 50
-      sleep (25..30).to_a.sample.to_i
+      sleep (35..45).to_a.sample.to_i
     end
   end
 end
 
-fetchArticles (38)
+fetchArticles (-1)
 # updateAllReps (378)
