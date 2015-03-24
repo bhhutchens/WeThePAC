@@ -22,7 +22,7 @@
 
 .header_right_box {
   float: right;
-  display: table;
+  display: none;
   margin: auto;
 }
 
@@ -71,7 +71,7 @@
 }
 
 .small-header-right-box {
-  display: table;
+  display: none;
   float: right;
   width: 100px;
 }

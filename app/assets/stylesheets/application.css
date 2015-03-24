@@ -32,27 +32,32 @@ html {
 
 body {
   background: url("/images/american_flag-300kb.jpg") no-repeat center center fixed;
-  background-size: auto 105%;
+  background-size: auto 100%;
   font-family: 'Slabo 27px', serif;
   height: 100%;
 }
 
-@media screen and (max-width: 1145px) {
+
+
+
+@media screen and (min-width: 1000px) {
   .small-header-right-box {
     display: table;
-  }
-
-  .header_right_box {
-    display: none;
-  }
-}
-
-@media screen and (min-width: 1146px) {
-  .small-header-right-box {
-    display: none;
   }
 
   .header_right_box {
     display: table;
   }
 }
+
+
+
+/*@media screen and (min-width: 1146px) {
+  .small-header-right-box {
+    display: none;
+  }
+
+  .header_right_box {
+    display: table;
+  }
+}*/
