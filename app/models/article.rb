@@ -1,7 +1,6 @@
 class Article < ActiveRecord::Base
-  validates :url, uniqueness: true
-  validates :title, uniqueness: true
-  validates :excerpt, uniqueness: true
+  validates :url, :title, :excerpt, uniqueness: true
+  
   has_many :pledges
 
   has_many :articles_reps
