@@ -1,5 +1,6 @@
 class Article < ActiveRecord::Base
-  validates :url, uniqueness: true
+  validates :url, :title, :excerpt, uniqueness: true
+  
   has_many :pledges
 
   has_many :articles_reps
@@ -10,7 +11,7 @@ class Article < ActiveRecord::Base
 
   def check_errors
     if self.errors.any?
-      puts "THERE WERE ERRORS w/ ARTICLE CREATION"
+      puts "THERE WERE ERRORS WITH ARTICLE CREATION OR POSSIBLY DUPLICATE ARTICLE"
       puts self.reps
     else
       puts "NO ERRORS w/ ARTICLE CREATION"
