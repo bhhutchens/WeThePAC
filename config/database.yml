@@ -9,6 +9,10 @@ default: &default
   pool: 5
   timeout: 5000
 
+# when running rails console locally, you can pull down heroku's db instead of having to recreate from scratch:
+# pull it using this command: heroku pg:pull HEROKU_POSTGRESQL_ONYX development --app we-the-pac
+# the below setting ('database: development') is already configured to use the pulled heroku database
+# if, instead, creating own db and not using pulled heroku db, change 'database: development' to 'database: db/development'
 development:
   <<: *default
   database: development
