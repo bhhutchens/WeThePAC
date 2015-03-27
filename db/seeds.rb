@@ -286,10 +286,25 @@ def googleNewsSearch(name, mins = 720)
   return articles
 end
 
+def delete_old_articles(rep, max_article_count = 8)
+  if rep.articles.count > max_article_count
+    puts 'DELETING OLD ARTICLES'
+    articles = rep.articles.order("created_at DESC")
+    count = rep.articles.count
+    i = max_article_count
+    while i < count
+      rep.articles.destroy(articles[i])
+      Article.destroy(articles[i].id)
+      i += 1
+    end
+  end
+end
+
 def fetchArticles (start_id = -1)
   while true
     index = 0
     Rep.order("id ASC").each do |rep|
+
       if (index <= start_id)
         index += 1
         next
@@ -302,10 +317,9 @@ def fetchArticles (start_id = -1)
 
         artReturn = Article.create(article)
         if artReturn.id == nil
-          # this means that the article url already exists in the database
-          dupId = Article.where(url: article.url)[0].id
-          ArticlesRep.create(article_id: dupId,
-          rep_id: rep.id)
+          # this means that the article already exists in the database
+          # dupId = Article.where(url: article.url)[0].id
+          # ArticlesRep.create(article_id: dupId, rep_id: rep.id)
         else
           #   the article does not already exist in the database and it is therefore created
           ArticlesRep.create(article_id: artReturn.id,
@@ -314,8 +328,13 @@ def fetchArticles (start_id = -1)
 
         index += 1
       end
+
+      # checks if total articles for rep over the limit and deletes oldest
+      delete_old_articles(rep)
+
       puts "=" * 50
       sleep (35..45).to_a.sample.to_i
+
     end
   end
 end
