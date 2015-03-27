@@ -1,12 +1,14 @@
 class Article < ActiveRecord::Base
   validates :url, :title, :excerpt, uniqueness: true
-  
+
   has_many :pledges
 
   has_many :articles_reps
   has_many :reps, :through => :articles_reps
 
   after_validation :check_errors
+
+  after_create :get_bitly
 
 
   def check_errors
@@ -16,5 +18,12 @@ class Article < ActiveRecord::Base
     else
       puts "NO ERRORS w/ ARTICLE CREATION"
     end
+  end
+
+  def get_bitly
+    response = HTTParty.get("https://api-ssl.bitly.com/v3/shorten?access_token=#{ENV['BITLY_TOKEN']}&longUrl=#{self.url}")
+
+    self.bitly = response['data']['url']
+    self.save
   end
 end
