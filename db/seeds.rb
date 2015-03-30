@@ -300,6 +300,18 @@ def delete_old_articles(rep, max_article_count = 8)
   end
 end
 
+def create_article_if_unique_to_rep(rep, article)
+  # look through the articles from the rep and check the title and excerpt for uniqueness
+  # if unique, enter article into db. if not, don't enter
+    if rep.articles.exists?(title: article['title']) || rep.articles.exists?(excerpt: article['excerpt'])
+      puts 'Duplicate Rep Article! Article not saved...'
+    else
+    puts 'CREATING NEW REP ARTICLE!'
+    artReturn = Article.create(article)
+    ArticlesRep.create(article_id: artReturn.id, rep_id: rep.id)
+  end
+end
+
 def fetchArticles (start_id = -1)
   while true
     index = 0
@@ -315,16 +327,18 @@ def fetchArticles (start_id = -1)
       articles.each do |article|
         puts article
 
-        artReturn = Article.create(article)
-        if artReturn.id == nil
-          # this means that the article already exists in the database
-          # dupId = Article.where(url: article.url)[0].id
-          # ArticlesRep.create(article_id: dupId, rep_id: rep.id)
-        else
-          #   the article does not already exist in the database and it is therefore created
-          ArticlesRep.create(article_id: artReturn.id,
-            rep_id: rep.id)
-        end
+        create_article_if_unique_to_rep(rep, article)
+
+        # don't need below anymore as the article's uniqueness is checked in above method.
+        # if artReturn.id == nil
+        #   # this means that the article already exists in the database
+        #   # dupId = Article.where(url: article.url)[0].id
+        #   # ArticlesRep.create(article_id: dupId, rep_id: rep.id)
+        # else
+        #   #   the article does not already exist in the database and it is therefore created
+        #   ArticlesRep.create(article_id: artReturn.id,
+        #     rep_id: rep.id)
+        # end
 
         index += 1
       end
