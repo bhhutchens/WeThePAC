@@ -236,7 +236,7 @@ function getRepsArticles(repId) {
     console.log("success gettingRepsArticles");
     $.each(data, function(index, article) {
       var li = new ListItem(data[index], "midFeedList", "article");
-      li.createHtml(true, false);
+      li.createHtml(false, false);
     })
   }) // why are there no fail conditions?
 }
