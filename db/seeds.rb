@@ -178,6 +178,7 @@ end
 # return the date
 def cleanDate(date)
   puts "date: #{date}"
+  date = cleanString(date)
   timeAgo = date.match(/\d+/).to_s.to_i
   hours = (date.index("hours") != nil)
   currentTime = Time.now
@@ -345,5 +346,5 @@ def fetchArticles (start_id = -1)
   end
 end
 
-fetchArticles (-1)
+fetchArticles (65)
 # updateAllReps (378)
