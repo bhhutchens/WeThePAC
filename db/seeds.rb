@@ -326,8 +326,19 @@ def fetchArticles (start_id = -1)
         artReturn = Article.create(article)
         if artReturn.id == nil
           # the article already exists in db under a diff rep, needs join table entry for existing article
-          dupId = Article.where(title: article['title'])[0].id
-          ArticlesRep.create(article_id: dupId, rep_id: rep.id)
+
+          # lookup existing article with title, if that fails, use the excerpt
+          if Article.where(title: article['title']).length > 0
+            dupId = Article.where(title: article['title'])[0].id
+            ArticlesRep.create(article_id: dupId, rep_id: rep.id)
+          elsif Article.where(excerpt: article['excerpt']).length > 0
+            dupId = Article.where(excerpt: article['excerpt'])[0].id
+            ArticlesRep.create(article_id: dupId, rep_id: rep.id)
+          else
+            # cannot find the Article using title or excerpt, so cannot link article and rep in join table
+            puts "ERROR CREATING LINK BETWEEN REP AND ARTICLE IN JOIN TABLE"
+          end
+
         else
           # the article does not already exist in the database, needs join table entry for new article
           ArticlesRep.create(article_id: artReturn.id, rep_id: rep.id)
