@@ -293,8 +293,15 @@ def delete_old_articles(rep, max_article_count = 8)
     count = rep.articles.count
     i = max_article_count
     while i < count
+      # delete ArticlesRep/join table entry
       rep.articles.destroy(articles[i])
-      Article.destroy(articles[i].id)
+
+      # delete Article, only if last Rep pointing to article
+      other_reps_with_articles = ArticlesRep.where(article_id: articles[i].id)
+      if other_reps_with_articles.length == 0
+        Article.destroy(articles[i].id)
+      end
+
       i += 1
     end
   end
