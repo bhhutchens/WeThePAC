@@ -346,5 +346,5 @@ def fetchArticles (start_id = -1)
   end
 end
 
-fetchArticles (65)
+fetchArticles (-1)
 # updateAllReps (378)
