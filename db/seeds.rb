@@ -178,6 +178,7 @@ end
 # return the date
 def cleanDate(date)
   puts "date: #{date}"
+  date = cleanString(date)
   timeAgo = date.match(/\d+/).to_s.to_i
   hours = (date.index("hours") != nil)
   currentTime = Time.now
@@ -293,8 +294,15 @@ def delete_old_articles(rep, max_article_count = 8)
     count = rep.articles.count
     i = max_article_count
     while i < count
+      # delete ArticlesRep/join table entry
       rep.articles.destroy(articles[i])
-      Article.destroy(articles[i].id)
+
+      # delete Article, only if last Rep pointing to article
+      other_reps_with_articles = ArticlesRep.where(article_id: articles[i].id)
+      if other_reps_with_articles.length == 0
+        Article.destroy(articles[i].id)
+      end
+
       i += 1
     end
   end
@@ -317,13 +325,12 @@ def fetchArticles (start_id = -1)
 
         artReturn = Article.create(article)
         if artReturn.id == nil
-          # this means that the article already exists in the database
-          # dupId = Article.where(url: article.url)[0].id
-          # ArticlesRep.create(article_id: dupId, rep_id: rep.id)
+          # the article already exists in db under a diff rep, needs join table entry for existing article
+          dupId = Article.where(title: article['title'])[0].id
+          ArticlesRep.create(article_id: dupId, rep_id: rep.id)
         else
-          #   the article does not already exist in the database and it is therefore created
-          ArticlesRep.create(article_id: artReturn.id,
-            rep_id: rep.id)
+          # the article does not already exist in the database, needs join table entry for new article
+          ArticlesRep.create(article_id: artReturn.id, rep_id: rep.id)
         end
 
         index += 1
