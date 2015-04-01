@@ -190,12 +190,39 @@ def cleanDate(date)
     puts "different in hours"
     deltaHours = currentTime.hour - timeAgo
     if deltaHours < 0
+      # if deltaHours < 0, the article was posted the previous day
       newHours = 24 + deltaHours
       newHours = 0 if newHours < 0
       newDay = currentTime.day - 1
       newDay = 0 if newDay <= 0
-      articleTime = Time.mktime(currentTime.year,
-        currentTime.month, newDay,
+
+      # if newDay == 0, then need to roll back to previous month and reset newDay to the last day of the month
+      newMonth = currentTime.month
+      newYear = currentTime.year
+      if newDay == 0
+        newMonth = currentTime.month - 1
+        # 30 days hath sept, april, june, and november...
+        if (newMonth == 9) || (newMonth == 4) || (newMonth == 6) || (newMonth == 11)
+          newDay = 30
+        elsif newMonth == 2
+          if (currentTime.year % 4 == 0) && (currentTime.year % 100 == 0) && (currentTime.year % 400 == 0)
+            # it's a leap year
+            newDay = 29
+          else
+            newDay = 28
+          end
+        elsif newMonth == 0
+          # this means the article was created the month before january (aka december, the previous year)
+          newYear = currentTime.year - 1
+          newMonth = 12
+          newDay = 31
+        else
+          newDay = 31
+        end
+      end
+
+      articleTime = Time.mktime(newYear,
+        newMonth, newDay,
         newHours, currentTime.min)
     else
       articleTime = Time.mktime(currentTime.year,
