@@ -1,56 +1,9 @@
-# WeThePAC
-We The PAC
+Following the Supreme Court's decision in Citizens United, Super PACs can spend unlimited amounts of money in US politics. Super PACs spent over $1 billion dollars in the 2012 election cycle alone. Clearly, for we the people, voting is no longer enough.
 
+We the people need a way to hold our Representatives accountable!
 
+We the PAC empowers citizens by allowing them to publicly declare their support for, or oppostion against, a Representative. When a user approves of a Representative's action, they can make a $1 pledge to their reelection. A tweet is sent to the Representative, including a user-submitted explanation for their pledge. Conversly, when a user disapproves of a Representative's action, they can subtract a $1 from their previous pledges. Another tweet is sent to the Representative, including another explanation. Periodically users make good on their word by fulfilling their pledges.
 
-# Planning
-##Stretch
-payment up front
-aggregate news articles and be able to like differenc articles
-^ maybe a landing page with which articles are getting a lot of activity for different people
-AGGREGATE D3JS DATA mapping pledges over time w/ events
-user page
-user history
-when a user pledges, they also automatically follow that representative
-a user has_many representatives
+The goal is to empower what you can give–to take your vote beyond the ballot box. When you make a pledge, you have a public reason behind it. If money is speech, then We the PAC lets you put your money where your mouth is.
 
-## MVP
-
-#### 1.
-* A user can search for a representative
-- OR -
-* A user can enter a zip to find pertinent representatives
-- OR -
-* A user who is already logged in or registered can see a list of their federal representatives.
-
-#### 2.
-* A user can go to a representative's profile page on WeThePac
-* each politician has a total from the cloud of pledge tags
-
-#### 3.
-* A user can register/login
-* A logged in user can add or subtract promised pledges of $1 each from a representative w/ a message
-* link to a politician's website
-* The user, once their twitter account is linked, can tweet w/ a message that they $liked a @representative
-
-#### 4.
-* A user can fulfill their promises
-* The app tweets that the user fulfilled their promises
-
-
-
-
-# responsibilities
-### decoupled
-* slice by front end, back end
-
-### coupled
-* slice by feature, each person implements a user story
-
-## working agreement
-check-in at 9am, 2pm, 6pm
-trello board
-gchat
-core hours + optional hours after 6
-
-weekend: meet at 10am-6pm
+Technologies include: Ruby on Rails, C3.js, Firebase
