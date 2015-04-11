@@ -178,6 +178,7 @@ end
 # return the date
 def cleanDate(date)
   puts "date: #{date}"
+  date = cleanString(date)
   timeAgo = date.match(/\d+/).to_s.to_i
   hours = (date.index("hours") != nil)
   currentTime = Time.now
@@ -189,12 +190,39 @@ def cleanDate(date)
     puts "different in hours"
     deltaHours = currentTime.hour - timeAgo
     if deltaHours < 0
+      # if deltaHours < 0, the article was posted the previous day
       newHours = 24 + deltaHours
       newHours = 0 if newHours < 0
       newDay = currentTime.day - 1
       newDay = 0 if newDay <= 0
-      articleTime = Time.mktime(currentTime.year,
-        currentTime.month, newDay,
+
+      # if newDay == 0, then need to roll back to previous month and reset newDay to the last day of the month
+      newMonth = currentTime.month
+      newYear = currentTime.year
+      if newDay == 0
+        newMonth = currentTime.month - 1
+        # 30 days hath sept, april, june, and november...
+        if (newMonth == 9) || (newMonth == 4) || (newMonth == 6) || (newMonth == 11)
+          newDay = 30
+        elsif newMonth == 2
+          if (currentTime.year % 4 == 0) && (currentTime.year % 100 == 0) && (currentTime.year % 400 == 0)
+            # it's a leap year
+            newDay = 29
+          else
+            newDay = 28
+          end
+        elsif newMonth == 0
+          # this means the article was created the month before january (aka december, the previous year)
+          newYear = currentTime.year - 1
+          newMonth = 12
+          newDay = 31
+        else
+          newDay = 31
+        end
+      end
+
+      articleTime = Time.mktime(newYear,
+        newMonth, newDay,
         newHours, currentTime.min)
     else
       articleTime = Time.mktime(currentTime.year,
@@ -293,8 +321,15 @@ def delete_old_articles(rep, max_article_count = 8)
     count = rep.articles.count
     i = max_article_count
     while i < count
+      # delete ArticlesRep/join table entry
       rep.articles.destroy(articles[i])
-      Article.destroy(articles[i].id)
+
+      # delete Article, only if last Rep pointing to article
+      other_reps_with_articles = ArticlesRep.where(article_id: articles[i].id)
+      if other_reps_with_articles.length == 0
+        Article.destroy(articles[i].id)
+      end
+
       i += 1
     end
   end
@@ -317,13 +352,23 @@ def fetchArticles (start_id = -1)
 
         artReturn = Article.create(article)
         if artReturn.id == nil
-          # this means that the article already exists in the database
-          # dupId = Article.where(url: article.url)[0].id
-          # ArticlesRep.create(article_id: dupId, rep_id: rep.id)
+          # the article already exists in db under a diff rep, needs join table entry for existing article
+
+          # lookup existing article with title, if that fails, use the excerpt
+          if Article.where(title: article['title']).length > 0
+            dupId = Article.where(title: article['title'])[0].id
+            ArticlesRep.create(article_id: dupId, rep_id: rep.id)
+          elsif Article.where(excerpt: article['excerpt']).length > 0
+            dupId = Article.where(excerpt: article['excerpt'])[0].id
+            ArticlesRep.create(article_id: dupId, rep_id: rep.id)
+          else
+            # cannot find the Article using title or excerpt, so cannot link article and rep in join table
+            puts "ERROR CREATING LINK BETWEEN REP AND ARTICLE IN JOIN TABLE"
+          end
+
         else
-          #   the article does not already exist in the database and it is therefore created
-          ArticlesRep.create(article_id: artReturn.id,
-            rep_id: rep.id)
+          # the article does not already exist in the database, needs join table entry for new article
+          ArticlesRep.create(article_id: artReturn.id, rep_id: rep.id)
         end
 
         index += 1
