@@ -1,52 +1,46 @@
 require 'nokogiri'
 require 'open-uri'
 
-# goal: obtain a string containing the link to a rep's personal website (MVP)
-# preferably get the doante or contribute link on their website
-# ________________________________
-# assumptions: a google search api allows us to see what results
-# pop up based on a custom query, and that we can access them
+# ###############################################################################
 
-# MAKE PERSONAL WEBSITE ATTRIBUTE FOR A REP MODEL
+# THE FOLLOWING METHODS ARE USED IN SEEDING REPS TO THE DATABASE
 
-# Steps
+# uses the sunlight foundation api to create the Reps in the database
+def seed_reps
+  # get Rep information using sunlight api. 11 times as returns 50 results per 'page'.
+  x = 1
+  response_array = []
+  11.times do
+    response_array << HTTParty.get("http://congress.api.sunlightfoundation.com/legislators?per_page=50&page=#{x}&apikey=db117ccbb61e4b82abc74d37a9b58ed2")
 
-# 1. For each rep in database .. do:
+    x +=1
+  end
 
-# input: name of the rep (string)
-# output: string of the url (of website or website/donate)
-# 2. Call fn
-#   a. formulate Google query
-#      - Exclude: .gov, facebook.com, twitter.com, linkedin.com, wikipedia.com,
-#         .govtrack, cspan, opensecrets.org
-#      - Search "{rep's name} website -.gov -facebook.com ..."
-#   b. Assume the first one is what we wanted (their personal website)
-#   c. "enter" the website -- GOAL MET
-#   d. find the word 'donate' or 'contribute' w/ an <a> tag
-#   e. if <a> tag exists...
-#     - "enter/click" the <a> tag
-#     - get the url
-#   f. return the url
+  # parse the returned Rep info and save to database
+  response_array.each do |page|
+    page['results'].each do |rep|
+      json = rep
+      name = rep["first_name"] + ' ' + rep["last_name"]
+      fec_id = rep["fec_ids"]
+      twitter_handle = rep['twitter_id']
+      twitter_handle = twitter_handle.downcase if twitter_handle
+      external_url = rep['website']
+      default_image = "/images/no-avatar.jpg"
 
-# input: (str) url, (str) name of rep
-# output: none... updates rep model.. specifically the "personal_website" field
-# 3. call updateRepPersonalWebsite fn
-#   a. finds the Rep by name
-#   b. updates the Rep's personal website attribute based on the url argument
+      # find the personal campaign website for the Rep
+      # need a time delay so google doesn't time it out
+      sleep (40..70).to_a.sample
+      link = doRepWebsiteSearch(name)
 
-# end
-
-def getDomain (url)
-  puts "getting domain for url: #{url}"
-  separatedUrl = url.scan(/([^.|\/\/]+[\/]?)/).flatten
-  domain = separatedUrl[separatedUrl.length-1]
-  if domain.index("/") == nil
-    return domain
-  else
-    return domain[0..domain.index("/")-1]
+      Rep.create(name: name, fec_id: fec_id, twitter_handle: twitter_handle, external_url: external_url, json: json,
+        thumbnail_url: default_image,
+        contribute_url: link)
+    end
   end
 end
 
+# looks for the campaign website belonging to a Rep and enters in database
+# if doesn't find, uses the government website (provided by sunlight api) as default
 def doRepWebsiteSearch (rep_name)
   originalRepName = rep_name
   blacklist = ["site:.gov", "site:www.facebook.com", "site:www.twitter.com", "site:www.linkedin.com", "site:www.wikipedia.org", "site:en.wikipedia.org", ".govtrack", "cspan", "opensecrets.org"]
@@ -73,7 +67,6 @@ def doRepWebsiteSearch (rep_name)
   end
   websiteContributeLink = ""
 
-  #donateContributeQuery = "site:#{websiteLink}
   donateContributeQuery = ""
 
   if websiteLink.index("/") == nil
@@ -96,45 +89,20 @@ def doRepWebsiteSearch (rep_name)
   end
 end
 
-
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the rake db:seed (or created alongside the db with db:setup).
-#
-# Examples:
-#
-#   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
-#   Mayor.create(name: 'Emanuel', city: cities.first)
-
-def seed_reps
-  x = 1
-  response_array = []
-  11.times do
-    response_array << HTTParty.get("http://congress.api.sunlightfoundation.com/legislators?per_page=50&page=#{x}&apikey=db117ccbb61e4b82abc74d37a9b58ed2")
-
-    x +=1
-  end
-
-  response_array.each do |page|
-    page['results'].each do |rep|
-      json = rep
-      name = rep["first_name"] + ' ' + rep["last_name"]
-      fec_id = rep["fec_ids"]
-      twitter_handle = rep['twitter_id']
-      twitter_handle = twitter_handle.downcase if twitter_handle
-      external_url = rep['website']
-      default_image = "/images/no-avatar.jpg"
-
-      # needs to have delay or else there will probably be a timeout
-      # you're welcome
-      link = doRepWebsiteSearch(name)
-
-      Rep.create(name: name, fec_id: fec_id, twitter_handle: twitter_handle, external_url: external_url, json: json,
-        thumbnail_url: default_image,
-        contribute_url: link)
-    end
+# finds the domain given a url
+def getDomain (url)
+  puts "getting domain for url: #{url}"
+  separatedUrl = url.scan(/([^.|\/\/]+[\/]?)/).flatten
+  domain = separatedUrl[separatedUrl.length-1]
+  if domain.index("/") == nil
+    return domain
+  else
+    return domain[0..domain.index("/")-1]
   end
 end
 
+# updates the personal campaign website of all Reps
+# (was needed when seed_reps did not include call to doRepWebsiteSearch)
 def updateAllReps (start)
   puts "updating all reps"
   Rep.all.order("id ASC").each do |rep|
@@ -145,37 +113,141 @@ def updateAllReps (start)
       puts "Website search resulted in: #{websiteSearchResult} FOR #{Rep.name}"
       sleep (40..70).to_a.sample
     end
-
   end
 end
 
-def create_jamal
-  User.create(twitter_handle:'jmoon018', name: "Jamal Moon", zipcode: nil, provider: nil, uid: nil, profile_pic_thumb_url: "https://abs.twimg.com/sticky/default_profile_images/default_profile_6_normal.png", profile_pic_big_url: "https://abs.twimg.com/sticky/default_profile_images/default_profile_6.png")
+
+
+
+
+
+
+
+# ###############################################################################
+
+# THE FOLLOWING METHODS ARE USED IN SEEDING ARTICLES TO THE DATABASE
+
+# creates articles for all Reps in the database
+# loops through all Reps forever, finds google news articles for each Rep, enters articles into database
+def fetchArticles (start_id = -1)
+  while true
+    index = 0
+    Rep.order("id ASC").each do |rep|
+
+      if (index <= start_id)
+        index += 1
+        next
+      end
+
+      puts "Fetching  articles for #{rep.name} .. #{rep.id}"
+      articles = googleNewsSearch(rep.name, 60 * 22 )
+      articles.each do |article|
+        puts article
+
+        artReturn = Article.create(article)
+        if artReturn.id == nil
+          # the article already exists in db under a diff rep, needs join table entry for existing article
+
+          # lookup existing article with title, if that fails, use the excerpt
+          if Article.where(title: article['title']).length > 0
+            dupId = Article.where(title: article['title'])[0].id
+            ArticlesRep.create(article_id: dupId, rep_id: rep.id)
+          elsif Article.where(excerpt: article['excerpt']).length > 0
+            dupId = Article.where(excerpt: article['excerpt'])[0].id
+            ArticlesRep.create(article_id: dupId, rep_id: rep.id)
+          else
+            # cannot find the Article using title or excerpt, so cannot link article and rep in join table
+            puts "ERROR CREATING LINK BETWEEN REP AND ARTICLE IN JOIN TABLE"
+          end
+
+        else
+          # the article does not already exist in the database, needs join table entry for new article
+          ArticlesRep.create(article_id: artReturn.id, rep_id: rep.id)
+        end
+
+        index += 1
+      end
+
+      # checks if total articles for rep over the limit and deletes oldest
+      delete_old_articles(rep)
+
+      puts "=" * 50
+      sleep (35..45).to_a.sample.to_i
+
+    end
+  end
 end
 
-# updateAllReps(0)
-#doRepWebsiteSearch("Barbara Lee")
-# called seeding methods
-# 10.times {create_jamal}
-# seed_reps if Rep.count < 20
-# create_pledges_with_messages({num_pledges: 20})
+# finds and returns the most recent articles (in the last 12 hours by default) for an individual Rep
+def googleNewsSearch(name, mins = 720)
+
+  type = ""
+  theRep = Rep.all
+  puts "THE REP! : #{theRep}"
+  if Rep.where(name: name)[0].json.index("senate") != nil
+    type = "Sen"
+  else
+    type = "Rep"
+  end
+
+  # fix the name -- so if there is 'ç' or some weird
+  # character like that, it turns into 'c'
+  name = ActiveSupport::Inflector.transliterate(name)
+  query = "%22#{type} #{name}%22"
+  query.gsub!(" ", "%20")
+
+  link = "https://www.google.com/search?q=#{query}&tbm=nws&tbs=qdr:n#{mins}"
+  file = open(link)
+  document = Nokogiri::HTML(file)
+  puts document.class
+  titles = document.css('h3 > a')
+  urls = document.css('h3 > a')
+  excerpts = document.css('.st')
+  dates = document.css('div.slp > span.f')
+
+  articles = []
+  for i in 0..(titles.length - 1)
+    article_info = {}
+    article_info["title"] = cleanString(titles[i].text)
+    article_info['url'] = cleanUrl(urls[i].attr('href'))
+    article_info['excerpt'] = cleanString(excerpts[i].text)
+    article_info['date'] = cleanDate(dates[i].text)
+    articles << article_info
+  end
+
+  return articles
+end
+
+# deletes articles more than 8 deep for an individual Rep
+# this method is used to limit the number of articles in the database
+def delete_old_articles(rep, max_article_count = 8)
+  if rep.articles.count > max_article_count
+    puts 'DELETING OLD ARTICLES'
+    articles = rep.articles.order("created_at DESC")
+    count = rep.articles.count
+    i = max_article_count
+    while i < count
+      # delete ArticlesRep/join table entry
+      rep.articles.destroy(articles[i])
+
+      # delete Article, only if last Rep pointing to article
+      other_reps_with_articles = ArticlesRep.where(article_id: articles[i].id)
+      if other_reps_with_articles.length == 0
+        Article.destroy(articles[i].id)
+      end
+
+      i += 1
+    end
+  end
+end
 
 
 
 
 
+# THE FOLLOWING METHODS ARE USED TO CLEAN THE DATA WHEN SEEDING ARTICLES
 
-
-
-
-
-
-
-
-# find the number
-# determine if it's minutes or hours
-# we'll use that againast the current time
-# return the date
+# given a date in the format: "Politico-17 hours ago", returns a date stamp
 def cleanDate(date)
   puts "date: #{date}"
   date = cleanString(date)
@@ -255,10 +327,13 @@ def cleanDate(date)
   return articleTime
 end
 
+# given a url that redirects from google, need to include the google prefix
 def cleanUrl (url)
   return "https://www.google.com#{url}"
 end
 
+# removes any non-latin characters from a string
+# used to prevent errors when entering data into database
 def cleanString (input)
   #return input.gsub("\\x96", "--")
   puts "calling clean string"
@@ -271,118 +346,12 @@ def cleanString (input)
   return input
 end
 
-# "mike kelly" AND ("Rep*" OR "Sen*") -"Targeted News Service"
-# final query: "TYPE FIRST_NAME LAST_NAME" where TYPE="Rep" or "Sen"
-def googleNewsSearch(name, mins = 720)
-
-  type = ""
-  theRep = Rep.all
-  puts "THE REP! : #{theRep}"
-  if Rep.where(name: name)[0].json.index("senate") != nil
-    type = "Sen"
-  else
-    type = "Rep"
-  end
-
-  # fix the name -- so if there is 'ç' or some weird
-  # character like that, it turns into 'c'
-  name = ActiveSupport::Inflector.transliterate(name)
-  query = "%22#{type} #{name}%22"
-  query.gsub!(" ", "%20")
-
-  link = "https://www.google.com/search?q=#{query}&tbm=nws&tbs=qdr:n#{mins}"
-  file = open(link)
-  document = Nokogiri::HTML(file)
-  puts document.class
-  titles = document.css('h3 > a')
-  urls = document.css('h3 > a')
-  excerpts = document.css('.st')
-  dates = document.css('div.slp > span.f')
 
 
 
-  articles = []
-  for i in 0..(titles.length - 1)
-    article_info = {}
-    article_info["title"] = cleanString(titles[i].text)
-    article_info['url'] = cleanUrl(urls[i].attr('href'))
-    article_info['excerpt'] = cleanString(excerpts[i].text)
-    article_info['date'] = cleanDate(dates[i].text)
-    articles << article_info
-  end
 
-  return articles
-end
+# ###############################################################################
 
-def delete_old_articles(rep, max_article_count = 8)
-  if rep.articles.count > max_article_count
-    puts 'DELETING OLD ARTICLES'
-    articles = rep.articles.order("created_at DESC")
-    count = rep.articles.count
-    i = max_article_count
-    while i < count
-      # delete ArticlesRep/join table entry
-      rep.articles.destroy(articles[i])
+# BELOW IS WHERE METHODS ARE CALLED
 
-      # delete Article, only if last Rep pointing to article
-      other_reps_with_articles = ArticlesRep.where(article_id: articles[i].id)
-      if other_reps_with_articles.length == 0
-        Article.destroy(articles[i].id)
-      end
-
-      i += 1
-    end
-  end
-end
-
-def fetchArticles (start_id = -1)
-  while true
-    index = 0
-    Rep.order("id ASC").each do |rep|
-
-      if (index <= start_id)
-        index += 1
-        next
-      end
-
-      puts "Fetching  articles for #{rep.name} .. #{rep.id}"
-      articles = googleNewsSearch(rep.name, 60 * 22 )
-      articles.each do |article|
-        puts article
-
-        artReturn = Article.create(article)
-        if artReturn.id == nil
-          # the article already exists in db under a diff rep, needs join table entry for existing article
-
-          # lookup existing article with title, if that fails, use the excerpt
-          if Article.where(title: article['title']).length > 0
-            dupId = Article.where(title: article['title'])[0].id
-            ArticlesRep.create(article_id: dupId, rep_id: rep.id)
-          elsif Article.where(excerpt: article['excerpt']).length > 0
-            dupId = Article.where(excerpt: article['excerpt'])[0].id
-            ArticlesRep.create(article_id: dupId, rep_id: rep.id)
-          else
-            # cannot find the Article using title or excerpt, so cannot link article and rep in join table
-            puts "ERROR CREATING LINK BETWEEN REP AND ARTICLE IN JOIN TABLE"
-          end
-
-        else
-          # the article does not already exist in the database, needs join table entry for new article
-          ArticlesRep.create(article_id: artReturn.id, rep_id: rep.id)
-        end
-
-        index += 1
-      end
-
-      # checks if total articles for rep over the limit and deletes oldest
-      delete_old_articles(rep)
-
-      puts "=" * 50
-      sleep (35..45).to_a.sample.to_i
-
-    end
-  end
-end
-
-fetchArticles (-1)
-# updateAllReps (378)
+fetchArticles(-1)
