@@ -101,7 +101,7 @@ def getDomain (url)
   end
 end
 
-# updates the personal campaign website of all Reps
+# updates the personal campaign website of all Reps in database
 # (was needed when seed_reps did not include call to doRepWebsiteSearch)
 def updateAllReps (start)
   puts "updating all reps"
@@ -131,22 +131,27 @@ end
 # loops through all Reps forever, finds google news articles for each Rep, enters articles into database
 def fetchArticles (start_id = -1)
   while true
-    index = 0
+    index = 1
     Rep.order("id ASC").each do |rep|
 
-      if (index <= start_id)
+      # this check is used to start the fetchArticles method at a RepId other than 1.
+      # but will not hit the skipped Reps when looping
+      if (index < start_id)
         index += 1
         next
       end
 
-      puts "Fetching  articles for #{rep.name} .. #{rep.id}"
+      # find articles for each Rep and save to database
+      puts "FETCHING ARTICLES FOR #{rep.name} .. #{rep.id}"
       articles = googleNewsSearch(rep.name, 60 * 22 )
       articles.each do |article|
-        puts article
+        puts "SAVING ARTICLE: #{article}"
 
+        # attempts to save article to database. will only save if article unique.
         artReturn = Article.create(article)
         if artReturn.id == nil
           # the article already exists in db under a diff rep, needs join table entry for existing article
+          puts "DUPLICATE ARTICLE: CREATING LINK BETWEEN REP AND ARTICLE IN JOIN TABLE"
 
           # lookup existing article with title, if that fails, use the excerpt
           if Article.where(title: article['title']).length > 0
@@ -162,16 +167,17 @@ def fetchArticles (start_id = -1)
 
         else
           # the article does not already exist in the database, needs join table entry for new article
+          puts "UNIQUE ARTICLE: CREATING LINK BETWEEN REP AND ARTICLE IN JOIN TABLE"
           ArticlesRep.create(article_id: artReturn.id, rep_id: rep.id)
         end
 
-        index += 1
       end
 
       # checks if total articles for rep over the limit and deletes oldest
       delete_old_articles(rep)
 
       puts "=" * 50
+      # time delay between each Rep so google doesn't time out
       sleep (35..45).to_a.sample.to_i
 
     end
@@ -181,9 +187,8 @@ end
 # finds and returns the most recent articles (in the last 12 hours by default) for an individual Rep
 def googleNewsSearch(name, mins = 720)
 
+  # finds whether the Rep is a Senator or Representative
   type = ""
-  theRep = Rep.all
-  puts "THE REP! : #{theRep}"
   if Rep.where(name: name)[0].json.index("senate") != nil
     type = "Sen"
   else
@@ -193,18 +198,22 @@ def googleNewsSearch(name, mins = 720)
   # fix the name -- so if there is 'ç' or some weird
   # character like that, it turns into 'c'
   name = ActiveSupport::Inflector.transliterate(name)
+
+  # create the google search term using Sen/Rep plus Rep's name
   query = "%22#{type} #{name}%22"
   query.gsub!(" ", "%20")
 
+  # perform google news search, use nokogiri to parse results
   link = "https://www.google.com/search?q=#{query}&tbm=nws&tbs=qdr:n#{mins}"
   file = open(link)
   document = Nokogiri::HTML(file)
-  puts document.class
   titles = document.css('h3 > a')
   urls = document.css('h3 > a')
   excerpts = document.css('.st')
   dates = document.css('div.slp > span.f')
 
+  # create article objects using information parsed from google search
+  # clean the data (get rid of weird characters, apply url format, apply date format)
   articles = []
   for i in 0..(titles.length - 1)
     article_info = {}
@@ -249,17 +258,17 @@ end
 
 # given a date in the format: "Politico-17 hours ago", returns a date stamp
 def cleanDate(date)
-  puts "date: #{date}"
+  # gets rid of weird characters that may appear in date
   date = cleanString(date)
+
+  # finds the time difference in hours. (if not differnt in hours, handle minutes in else statement)
   timeAgo = date.match(/\d+/).to_s.to_i
   hours = (date.index("hours") != nil)
   currentTime = Time.now
   articleTime = ""
 
-  # hours
-  puts "cleaning the date"
+  # given a time difference in hours, calculate the date stamp
   if hours
-    puts "different in hours"
     deltaHours = currentTime.hour - timeAgo
     if deltaHours < 0
       # if deltaHours < 0, the article was posted the previous day
@@ -293,17 +302,20 @@ def cleanDate(date)
         end
       end
 
+      # use the calculated times to create the date stamp
       articleTime = Time.mktime(newYear,
         newMonth, newDay,
         newHours, currentTime.min)
     else
+      # the article was posted today, use only the updated hours
       articleTime = Time.mktime(currentTime.year,
         currentTime.month, currentTime.day,
         deltaHours, currentTime.min)
     end
   else
-    puts "different in minutes"
+    # if not different in hours, then article was posted this hour. only differs in minutes.
     deltaMins = currentTime.min - timeAgo
+    # if deltaMins less than zero, posted last hour
     if deltaMins < 0
       # error (bounds) checking -- cannot be negative
       newMins = 60 + deltaMins
@@ -316,6 +328,7 @@ def cleanDate(date)
         currentTime.month, currentTime.day,
         newHour, newMins)
     else
+      # if deltaMins greater than zero, posted this hour
       deltaMins = 59 if deltaMins >= 60
       articleTime = Time.mktime(currentTime.year,
         currentTime.month, currentTime.day,
@@ -323,7 +336,6 @@ def cleanDate(date)
     end
   end
 
-  puts "ARTICLE TIME: #{articleTime}"
   return articleTime
 end
 
@@ -335,14 +347,11 @@ end
 # removes any non-latin characters from a string
 # used to prevent errors when entering data into database
 def cleanString (input)
-  #return input.gsub("\\x96", "--")
-  puts "calling clean string"
   input = input.encode(Encoding.find('ASCII'), {
     invalid: :replace,
     :undef => :replace,
     :replace   => '',
     :universal_newline => true})
-  puts input
   return input
 end
 
@@ -354,4 +363,4 @@ end
 
 # BELOW IS WHERE METHODS ARE CALLED
 
-fetchArticles(-1)
+fetchArticles()
